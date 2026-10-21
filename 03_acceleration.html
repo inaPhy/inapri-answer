@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>03 加速度 解答解説</title>
+<meta name="description" content="イナプリ 応用物理03「加速度」の例題・練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css?v=2a7e3f1b">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/main.js?v=a863d04a"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="dot"></span><span class="brand-sub">応用物理 </span>解答解説 <small>イナプリ 03</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="index.html">← 一覧に戻る</a>
+    <div class="toc-title">03 加速度</div>
+    <ol>
+      <li><a href="#point">ポイント</a></li>
+      <li><a href="#ex1">例題①</a></li>
+      <li><a href="#ex2">例題②</a></li>
+      <li><a href="#ex3">例題③</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+      <li><a href="#pr3">練習問題③</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 応用物理 03</div>
+    <h1>加速度</h1>
+  </section>
+
+  <!-- ================= ポイント ================= -->
+  <section class="card" id="point">
+    <h2 class="bullet-h" style="margin-top:0">加速度</h2>
+    <div class="fig-row">
+      <div class="figure" style="max-width:380px"><svg class="fig" viewBox="0 0 330 150" role="img" aria-label="時刻tの速度v(t)から時刻t+Δtの速度v(t+Δt)に変わる車"><rect class="smooth" x="5" y="128" width="320" height="8"/><line class="ink" x1="5" y1="128" x2="325" y2="128"/><rect class="ink nofill" x="8" y="9" width="32" height="17"/><text class="jp small" x="10" y="22" text-anchor="start">まえ</text><g><circle cx="62" cy="17" r="7" class="sw"/><circle cx="62" cy="17" r="4.2" class="sw-face"/><line x1="62" y1="17" x2="62" y2="13.1" class="sw-hand"/></g><text class="lbl m" x="74" y="22" text-anchor="start"><tspan>t</tspan></text><rect class="ink nofill" x="194" y="9" width="32" height="17"/><text class="jp small" x="196" y="22" text-anchor="start">あと</text><g><circle cx="248" cy="17" r="7" class="sw"/><circle cx="248" cy="17" r="4.2" class="sw-face"/><line x1="248" y1="17" x2="248" y2="13.1" class="sw-hand"/></g><text class="lbl m" x="260" y="22" text-anchor="start"><tspan>t</tspan><tspan font-style="normal"> + Δ</tspan><tspan>t</tspan></text><line class="vel" x1="55" y1="70" x2="98" y2="70" marker-end="url(#ah-vel)"/><text class="lbl m" x="60" y="58" text-anchor="start"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">(</tspan><tspan font-size="70%">t</tspan><tspan font-size="70%" font-style="normal">)</tspan></text><line class="vel" x1="240" y1="70" x2="290" y2="70" marker-end="url(#ah-vel)"/><text class="lbl m" x="240" y="58" text-anchor="start"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">(</tspan><tspan font-size="70%">t</tspan><tspan font-size="70%" font-style="normal">+Δ</tspan><tspan font-size="70%">t</tspan><tspan font-size="70%" font-style="normal">)</tspan></text><path class="car" d="M113.5,92.9 L118.1,90.7 C123.9,94.4 128.1,103.9 127.4,110.8 L122.3,113.2 Z"/><path class="car" d="M62.0,122.0 L62.0,110.2 L82.7,110.2 L82.7,82.9 Q82.9,81.8 84.5,81.8 C105.1,81.1 121.4,96.5 122.3,112.2 L122.8,122.0 Z"/><path class="ink nofill" d="M62.0,103.9 L82.7,103.9 M65.2,103.9 L65.2,110.2"/><circle class="wheel" cx="75.5" cy="120.8" r="6.7"/><circle class="wheel" cx="105.9" cy="120.8" r="6.7"/><path class="car" d="M296.5,92.9 L301.1,90.7 C306.9,94.4 311.1,103.9 310.4,110.8 L305.3,113.2 Z"/><path class="car" d="M245.0,122.0 L245.0,110.2 L265.7,110.2 L265.7,82.9 Q265.9,81.8 267.5,81.8 C288.1,81.1 304.4,96.5 305.3,112.2 L305.8,122.0 Z"/><path class="ink nofill" d="M245.0,103.9 L265.7,103.9 M248.2,103.9 L248.2,110.2"/><circle class="wheel" cx="258.5" cy="120.8" r="6.7"/><circle class="wheel" cx="288.9" cy="120.8" r="6.7"/><g class="acc pink" transform="translate(150,105) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="jp small m" x="172" y="82" text-anchor="middle"><tspan font-style="normal">加速度</tspan></text><text class="lbl m" x="172" y="97" text-anchor="middle"><tspan>a</tspan></text></svg></div>
+      <div class="figure small" style="max-width:230px" data-draw="補助線"><svg class="fig" viewBox="0 0 200 150" role="img" aria-label="v-tグラフ上の時刻tとt+Δtの点"><line class="ink" x1="40" y1="125" x2="190" y2="125" marker-end="url(#ah-ink)"/><line class="ink" x1="40" y1="125" x2="40" y2="8" marker-end="url(#ah-ink)"/><text class="lbl m" x="193" y="130" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="40" y="4" text-anchor="middle"><tspan>v</tspan></text><path class="vel-thin" d="M55,98 C100,90 130,80 160,40"/><line class="aux-ink" x1="110" y1="83" x2="110" y2="125"/><line class="aux-ink" x1="110" y1="83" x2="40" y2="83"/><circle class="dot-ink" cx="110" cy="83" r="2.4"/><line class="aux-ink" x1="147" y1="58" x2="147" y2="125"/><line class="aux-ink" x1="147" y1="58" x2="40" y2="58"/><circle class="dot-ink" cx="147" cy="58" r="2.4"/><text class="lbl small m" x="110" y="140" text-anchor="middle"><tspan>t</tspan></text><text class="lbl small m" x="150" y="140" text-anchor="middle"><tspan>t</tspan><tspan font-style="normal">+Δ</tspan><tspan>t</tspan></text><text class="lbl small m" x="36" y="87" text-anchor="end"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">(</tspan><tspan font-size="70%">t</tspan><tspan font-size="70%" font-style="normal">)</tspan></text><text class="lbl small m" x="36" y="62" text-anchor="end"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">(</tspan><tspan font-size="70%">t</tspan><tspan font-size="70%" font-style="normal">+Δ</tspan><tspan font-size="70%">t</tspan><tspan font-size="70%" font-style="normal">)</tspan></text><g class="ans-layer"><line class="aux" x1="110" y1="83" x2="147" y2="83"/><line class="aux" x1="147" y1="83" x2="147" y2="58"/><text class="lbl ans-t small m" x="128" y="96" text-anchor="middle"><tspan font-style="normal">Δ</tspan><tspan>t</tspan></text><text class="lbl ans-t small m" x="152" y="74" text-anchor="start"><tspan font-style="normal">Δ</tspan><tspan>v</tspan></text><line class="ans" x1="80" y1="103.3" x2="172" y2="41.1"/><text class="jp tiny ans-t m" x="196" y="22" text-anchor="end"><tspan font-style="normal">傾き ＝ 平均の加速度</tspan></text></g></svg></div>
+    </div>
+    <div class="fig-row">
+      <div class="yellow-box" style="flex:1 1 220px">平均の加速度　\(\overline{a} = \dfrac{\textcolor{#d6362b}{\Delta v}}{\textcolor{#d6362b}{\Delta t}}\)
+        <div style="font-size:.85rem;color:var(--muted)">\(\Delta v = v(t+\Delta t) - v(t)\)</div></div>
+      <div class="yellow-box" style="flex:1 1 260px">（瞬間の）加速度　\(a = \dfrac{\textcolor{#d6362b}{dv}}{\textcolor{#d6362b}{dt}} = \dfrac{\textcolor{#d6362b}{d^2 r}}{\textcolor{#d6362b}{dt^2}}\)
+        <div style="font-size:.85rem;color:var(--muted)">速度の微分 ＝ 位置の2回微分</div></div>
+    </div>
+    <p class="note"><b>ポイント</b>　加速度は「速度が 1 秒あたりどれだけ変化するか」。速度と同じく向きをもつので，右向きを正とすると，左向きの速度や減速は − で表す。\(v\)-\(t\) グラフでは，加速度はグラフの傾き（接線の傾き）になる。</p>
+
+    <h2 class="bullet-h">位置・速度・加速度の関係</h2>
+    <div class="yellow-box">
+      <div class="flow3">
+        <span class="term">位置 \(r\)</span>
+        <span class="links"><svg class="fig" viewBox="0 0 130 96" role="img" aria-label="右へはtで微分，左へはtで積分"><path class="ans nofill" d="M8,38 C35,8 95,8 122,38"/><line class="ans" x1="118" y1="33" x2="123" y2="39" marker-end="url(#ah-ans)"/><text class="jp ans-t m" x="65" y="13" text-anchor="middle" font-size="14"><tspan font-style="normal">tで微分</tspan></text><path class="ans nofill" d="M122,58 C95,88 35,88 8,58"/><line class="ans" x1="12" y1="63" x2="7" y2="57" marker-end="url(#ah-ans)"/><text class="jp ans-t m" x="65" y="95" text-anchor="middle" font-size="14"><tspan font-style="normal">tで積分</tspan></text></svg></span>
+        <span class="term">速度 \(v\)</span>
+        <span class="links"><svg class="fig" viewBox="0 0 130 96" role="img" aria-label="右へはtで微分，左へはtで積分"><path class="ans nofill" d="M8,38 C35,8 95,8 122,38"/><line class="ans" x1="118" y1="33" x2="123" y2="39" marker-end="url(#ah-ans)"/><text class="jp ans-t m" x="65" y="13" text-anchor="middle" font-size="14"><tspan font-style="normal">tで微分</tspan></text><path class="ans nofill" d="M122,58 C95,88 35,88 8,58"/><line class="ans" x1="12" y1="63" x2="7" y2="57" marker-end="url(#ah-ans)"/><text class="jp ans-t m" x="65" y="95" text-anchor="middle" font-size="14"><tspan font-style="normal">tで積分</tspan></text></svg></span>
+        <span class="term">加速度 \(a\)</span>
+      </div>
+    </div>
+    <p class="note"><b>ポイント</b>　右へは「\(t\) で微分」，左へは「\(t\) で積分」。積分したときに出てくる積分定数は，\(t = 0\) のときの値（初期条件）で決める。</p>
+  </section>
+
+  <!-- ================= 例題① ================= -->
+  <section class="card" id="ex1">
+    <h2><span class="tag">例題①</span></h2>
+    <p class="statement">直線上を物体が加速度で運動している。この物体の運動について，次の (1)・(2) の平均の加速度を求めよ。ただし，右向きを正とする。</p>
+    <ol class="qs">
+      <li>点Oを右向きに速さ 3.0 m/s で通過し，2.0 s 後に右向きに速さ 9.0 m/s になった。</li>
+      <li>点Oを右向きに速さ 24 m/s で通過し，4.0 s 後に左向きに速さ 8.0 m/s になった。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>平均の加速度は「速度の変化 ÷ かかった時間」\(\overline{a} = \dfrac{\Delta v}{\Delta t}\)。速度の変化は「あとの速度 − まえの速度」で，右向きを正，左向きを負として計算する。</p>
+      <h4><span class="n">(1)</span></h4>
+      <p>まえは右向きに 3.0 m/s（\(+3.0\)），あとは右向きに 9.0 m/s（\(+9.0\)），時間は 2.0 s。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{a} = \frac{9.0 - 3.0}{2.0} = 3.0 \ \text{m/s}^2 \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{a} &= \frac{9.0 - 3.0}{2.0} \\ &= 3.0 \ \text{m/s}^2 \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span></h4>
+      <p>まえは右向きに 24 m/s（\(+24\)），あとは<b>左向き</b>に 8.0 m/s なので \(-8.0\)。時間は 4.0 s。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{a} = \frac{-8.0 - 24}{4.0} = -8.0 \ \text{m/s}^2 \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{a} &= \frac{-8.0 - 24}{4.0} \\ &= -8.0 \ \text{m/s}^2 \end{aligned} \]</div></div>
+      <p>負の符号は，加速度が左向きであることを表す（「左向きに 8.0 m/s²」）。</p>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">3.0〔m/s²〕</span></div>
+      <div><span class="label">(2)</span><span class="val">−8.0〔m/s²〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 例題② ================= -->
+  <section class="card" id="ex2">
+    <h2><span class="tag">例題②</span></h2>
+    <p class="statement">直線上を運動する物体の時刻 \(t\)〔s〕における位置 \(r\)〔m〕，速度 \(v\)〔m/s〕とする。</p>
+    <ol class="qs">
+      <li>\(v = t^2 + 1\) で表されるとき，時刻 \(t = 3.0\)〔s〕のときの物体の加速度を求めよ。</li>
+      <li>\(r = 2t^3 - t^2 + 4\) で表されるとき，時刻 \(t = 3.0\)〔s〕のときの物体の加速度を求めよ。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span></h4>
+      <p>加速度は速度を時間で微分したもの（\(a = \dfrac{dv}{dt}\)）。\(t^2\) は \(2t\)，定数 1 は 0 になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ a = \frac{dv}{dt} = 2t \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{dv}{dt} \\ &= 2t \end{aligned} \]</div></div>
+      <p>\(t = 3.0\) を代入して　\(a(3.0) = 2\times 3.0 = 6.0\) m/s²</p>
+      <h4><span class="n">(2)</span></h4>
+      <p>位置の式が与えられているので，まず1回微分して速度を求め，もう1回微分して加速度を求める（\(a = \dfrac{d^2 r}{dt^2}\)）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \frac{dr}{dt} = 6t^2 - 2t, \qquad a = \frac{dv}{dt} = 12t - 2 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{dr}{dt} \\ &= 6t^2 - 2t \\ a &= \frac{dv}{dt} \\ &= 12t - 2 \end{aligned} \]</div></div>
+      <p>\(t = 3.0\) を代入して　\(a(3.0) = 12\times 3.0 - 2 = 34\) m/s²</p>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">6.0〔m/s²〕</span></div>
+      <div><span class="label">(2)</span><span class="val">34〔m/s²〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 例題③ ================= -->
+  <section class="card" id="ex3">
+    <h2><span class="tag">例題③</span></h2>
+    <div class="fig-row">
+      <div style="flex:1 1 320px">
+        <p class="statement">直線上を運動する物体の速度 \(v\)〔m/s〕と時刻 \(t\)〔s〕との関係は下図のようになる。</p>
+        <ol class="qs">
+          <li>速度 \(v\) を \(t\) を用いて表せ。</li>
+          <li>物体の加速度 \(a\)〔m/s²〕はいくらか。</li>
+          <li>物体の位置 \(r\)〔m〕を \(t\) を用いて表せ。ただし，時刻 \(t = 0\)〔s〕における位置を \(r(0) = -6.0\)〔m〕とする。</li>
+          <li>\(r\)-\(t\)，\(a\)-\(t\) グラフを示せ。</li>
+          <li>\(t = 1.0\)〜\(2.0\)〔s〕間の移動距離はいくらか。</li>
+          <li>\(t = 1.0\)〜\(2.0\)〔s〕間の変位はいくらか。</li>
+        </ol>
+      </div>
+      <div class="figure small" style="max-width:240px" data-draw="面積"><svg class="fig" viewBox="0 0 220 190" role="img" aria-label="v-tグラフ：t=0でv=2.0，傾き1の直線"><line class="grid-dot" x1="65" y1="160" x2="65" y2="22"/><line class="grid-dot" x1="96" y1="160" x2="96" y2="22"/><line class="grid-dot" x1="127" y1="160" x2="127" y2="22"/><line class="grid-dot" x1="158" y1="160" x2="158" y2="22"/><line class="grid-dot" x1="189" y1="160" x2="189" y2="22"/><line class="grid-dot" x1="34" y1="145" x2="195.2" y2="145"/><line class="grid-dot" x1="34" y1="130" x2="195.2" y2="130"/><line class="grid-dot" x1="34" y1="115" x2="195.2" y2="115"/><line class="grid-dot" x1="34" y1="100" x2="195.2" y2="100"/><line class="grid-dot" x1="34" y1="85" x2="195.2" y2="85"/><line class="grid-dot" x1="34" y1="70" x2="195.2" y2="70"/><line class="grid-dot" x1="34" y1="55" x2="195.2" y2="55"/><line class="grid-dot" x1="34" y1="40" x2="195.2" y2="40"/><line class="grid-dot" x1="34" y1="25" x2="195.2" y2="25"/><line class="ink" x1="30" y1="160" x2="211.2" y2="160" marker-end="url(#ah-ink)"/><line class="ink" x1="34" y1="164" x2="34" y2="8" marker-end="url(#ah-ink)"/><text class="lbl m" x="215.2" y="165" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="34" y="4" text-anchor="middle"><tspan>v</tspan></text><text class="lbl small m" x="96" y="175" text-anchor="middle"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="158" y="175" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="28" y="134" text-anchor="end"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="28" y="104" text-anchor="end"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="28" y="74" text-anchor="end"><tspan font-style="normal">3.0</tspan></text><text class="lbl small m" x="28" y="44" text-anchor="end"><tspan font-style="normal">4.0</tspan></text><text class="lbl small" x="28" y="175" text-anchor="end">O</text><g class="ans-layer"><polygon class="shade" points="96.0,160.0 96.0,70.0 158.0,40.0 158.0,160.0"/><text class="lbl ans-t small m" x="127" y="118" text-anchor="middle"><tspan font-style="normal">3.5</tspan></text></g><polyline class="curve" fill="none" points="34,100 36,99 38,98.1 40,97.1 42.1,96.1 44.1,95.1 46.1,94.2 48.1,93.2 50.1,92.2 52.1,91.2 54.2,90.2 56.2,89.3 58.2,88.3 60.2,87.3 62.2,86.3 64.2,85.4 66.2,84.4 68.3,83.4 70.3,82.5 72.3,81.5 74.3,80.5 76.3,79.5 78.3,78.6 80.3,77.6 82.4,76.6 84.4,75.6 86.4,74.6 88.4,73.7 90.4,72.7 92.4,71.7 94.4,70.8 96.5,69.8 98.5,68.8 100.5,67.8 102.5,66.8 104.5,65.9 106.5,64.9 108.6,63.9 110.6,63 112.6,62 114.6,61 116.6,60 118.6,59 120.6,58.1 122.7,57.1 124.7,56.1 126.7,55.1 128.7,54.2 130.7,53.2 132.7,52.2 134.8,51.2 136.8,50.3 138.8,49.3 140.8,48.3 142.8,47.4 144.8,46.4 146.8,45.4 148.9,44.4 150.9,43.4 152.9,42.5 154.9,41.5 156.9,40.5 158.9,39.5 160.9,38.6 163,37.6 165,36.6 167,35.7 169,34.7 171,33.7 173,32.7 175,31.8 177.1,30.8 179.1,29.8 181.1,28.8 183.1,27.8 185.1,26.9 187.1,25.9 189.2,24.9 191.2,23.9 193.2,23 195.2,22"/></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>速度の式</h4>
+      <p>グラフは直線なので \(v = (\text{傾き})\,t + (\text{切片})\) の形。\(t = 0\) で \(v = 2.0\)（切片），1 s で 1.0 m/s ずつ増える（傾き 1）。</p>
+      <div class="eqwrap">\[ v = t + 2.0 \]</div>
+      <h4><span class="n">(2)</span>加速度</h4>
+      <p>加速度は速度の微分（\(v\)-\(t\) グラフの傾き）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ a = \frac{dv}{dt} = 1.0 \ \text{m/s}^2 \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{dv}{dt} \\ &= 1.0 \ \text{m/s}^2 \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span>位置の式</h4>
+      <p>位置は速度を \(t\) で積分すると求まる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r = \int v\,dt = \int (t + 2)\,dt = \frac{1}{2}t^2 + 2t + C \]</div><div class="eq-narrow">\[ \begin{aligned} r &= \int v\,dt \\ &= \int (t + 2)\,dt \\ &= \frac{1}{2}t^2 + 2t + C \end{aligned} \]</div></div>
+      <p>積分定数 \(C\) は \(t = 0\) のときの位置から決める。\(r(0) = -6.0\) なので \(\dfrac{1}{2}\cdot 0^2 + 2\cdot 0 + C = -6.0\)，よって \(C = -6.0\)。</p>
+      <div class="eqwrap">\[ r = \frac{1}{2}t^2 + 2.0t - 6.0 \]</div>
+      <h4><span class="n">(4)</span>グラフ</h4>
+      <p>\(r\)-\(t\) グラフをかくために平方完成して頂点を求める。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r = \frac{1}{2}(t^2 + 4t) - 6 = \frac{1}{2}(t + 2)^2 - 8 \]</div><div class="eq-narrow">\[ \begin{aligned} r &= \frac{1}{2}(t^2 + 4t) - 6 \\ &= \frac{1}{2}(t + 2)^2 - 8 \end{aligned} \]</div></div>
+      <p>頂点 \((-2,\ -8)\) の下に凸の放物線。\(t = 0\) で \(r = -6\)，\(r = 0\) となるのは \(\frac{1}{2}t^2 + 2t - 6 = 0\)，つまり \((t+6)(t-2) = 0\) より \(t = 2\)。\(a\)-\(t\) グラフは \(a = 1.0\)（一定）の水平な直線。</p>
+      <div class="fig-row">
+        <div class="figure small" style="max-width:240px"><svg class="fig" viewBox="0 0 220 200" role="img" aria-label="r-tグラフ：r = ½t² + 2t − 6 の放物線。頂点(−2, −8)，t=0でr=−6，t=2でr=0"><line class="ink" x1="17" y1="130" x2="206.4" y2="130" marker-end="url(#ah-ink)"/><line class="ink" x1="120" y1="180.8" x2="120" y2="53.6" marker-end="url(#ah-ink)"/><text class="lbl m" x="210.4" y="135" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="120" y="49.6" text-anchor="middle"><tspan>r</tspan></text><text class="lbl small" x="114" y="145" text-anchor="end">O</text><polyline class="curve" fill="none" points="21,155.3 23.1,156.5 25.1,157.7 27.2,158.8 29.2,159.9 31.3,160.9 33.4,161.8 35.4,162.8 37.5,163.6 39.6,164.5 41.6,165.3 43.7,166 45.8,166.7 47.8,167.3 49.9,167.9 51.9,168.5 54,169 56.1,169.5 58.1,169.9 60.2,170.3 62.2,170.6 64.3,170.9 66.4,171.1 68.4,171.3 70.5,171.4 72.6,171.5 74.6,171.6 76.7,171.6 78.8,171.6 80.8,171.5 82.9,171.3 84.9,171.2 87,170.9 89.1,170.7 91.1,170.4 93.2,170 95.2,169.6 97.3,169.2 99.4,168.7 101.4,168.1 103.5,167.5 105.6,166.9 107.6,166.2 109.7,165.5 111.8,164.7 113.8,163.9 115.9,163.1 117.9,162.2 120,161.2 122.1,160.2 124.1,159.2 126.2,158.1 128.2,156.9 130.3,155.8 132.4,154.5 134.4,153.3 136.5,151.9 138.6,150.6 140.6,149.2 142.7,147.7 144.8,146.2 146.8,144.7 148.9,143.1 150.9,141.4 153,139.8 155.1,138 157.1,136.2 159.2,134.4 161.2,132.6 163.3,130.6 165.4,128.7 167.4,126.7 169.5,124.6 171.6,122.5 173.6,120.4 175.7,118.2 177.8,116 179.8,113.7 181.9,111.4 183.9,109 186,106.6"/><line class="aux-ink" x1="76" y1="171.6" x2="76" y2="130"/><line class="aux-ink" x1="76" y1="171.6" x2="120" y2="171.6"/><circle class="dot-ink" cx="76" cy="171.6" r="2.6"/><text class="lbl m" x="76" y="123" text-anchor="middle"><tspan font-style="normal">−2</tspan></text><text class="lbl small m" x="126" y="175.6" text-anchor="start"><tspan font-style="normal">−8</tspan></text><circle class="dot-ink" cx="120" cy="161.2" r="2.4"/><text class="lbl small m" x="126" y="165.2" text-anchor="start"><tspan font-style="normal">−6</tspan></text><circle class="dot-ink" cx="164" cy="130" r="2.4"/><text class="lbl small m" x="166" y="124" text-anchor="start"><tspan font-style="normal">2</tspan></text></svg></div>
+        <div class="figure small" style="max-width:220px"><svg class="fig" viewBox="0 0 200 120" role="img" aria-label="a-tグラフ：a = 1.0 の水平な直線"><line class="ink" x1="6" y1="85" x2="191" y2="85" marker-end="url(#ah-ink)"/><line class="ink" x1="70" y1="113" x2="70" y2="11" marker-end="url(#ah-ink)"/><text class="lbl m" x="195" y="90" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="70" y="7" text-anchor="middle"><tspan>a</tspan></text><text class="lbl small" x="64" y="100" text-anchor="end">O</text><line class="curve" x1="10" y1="45" x2="172" y2="45"/><text class="lbl small m" x="64" y="41" text-anchor="end"><tspan font-style="normal">1.0</tspan></text></svg></div>
+      </div>
+      <h4><span class="n">(5)(6)</span>移動距離と変位</h4>
+      <p>(3) の式に \(t = 1\)，\(t = 2\) を代入して，その間の位置を調べる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r(1) = \frac{1}{2} + 2 - 6 = -3.5 \ \text{m}, \qquad r(2) = 2 + 4 - 6 = 0 \ \text{m} \]</div><div class="eq-narrow">\[ \begin{aligned} r(1) &= \frac{1}{2} + 2 - 6 \\ &= -3.5 \ \text{m} \\ r(2) &= 2 + 4 - 6 \\ &= 0 \ \text{m} \end{aligned} \]</div></div>
+      <p>変位は \(r(2) - r(1) = 0 - (-3.5) = 3.5\) m。この間 \(v &gt; 0\) で折り返さないので，移動距離も 3.5 m。</p>
+      <p class="note"><b>グラフで見ると</b>　\(v\)-\(t\) グラフで \(t = 1.0\)〜\(2.0\) の部分の面積（図の赤い台形）が変位になる：\(\dfrac{(3.0 + 4.0)\times 1.0}{2} = 3.5\) m。</p>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(v = t + 2.0\)〔m/s〕</span></div>
+      <div><span class="label">(2)</span><span class="val">\(a = 1.0\)〔m/s²〕</span></div>
+      <div><span class="label">(3)</span><span class="val">\(r = 0.50t^2 + 2.0t - 6.0\)〔m〕</span></div>
+      <div><span class="label">(4)</span><span class="val">解説の \(r\)-\(t\)，\(a\)-\(t\) グラフ</span></div>
+      <div><span class="label">(5)</span><span class="val">3.5〔m〕</span></div>
+      <div><span class="label">(6)</span><span class="val">3.5〔m〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <div class="fig-row">
+      <div style="flex:1 1 320px">
+        <p class="statement">直線上を運動する物体の速度 \(v\)〔m/s〕と時刻 \(t\)〔s〕との関係は下図のようになる。</p>
+        <ol class="qs">
+          <li>物体の加速度 \(a\)〔m/s²〕はいくらか。</li>
+          <li>物体の位置 \(r\)〔m〕を \(t\) を用いて表せ。ただし，時刻 \(t = 0\)〔s〕における位置を \(r(0) = 3.0\)〔m〕とする。</li>
+          <li>\(r\)-\(t\) グラフを示せ。</li>
+          <li>\(t = 0\)〜\(4.0\)〔s〕間の移動距離はいくらか。</li>
+          <li>\(t = 0\)〜\(4.0\)〔s〕間の変位はいくらか。</li>
+        </ol>
+      </div>
+      <div class="figure small" style="max-width:240px" data-draw="面積"><svg class="fig" viewBox="0 0 220 200" role="img" aria-label="v-tグラフ：t=0でv=6.0，t=3でv=0の右下がりの直線"><line class="grid-dot" x1="64" y1="181.9" x2="64" y2="18.1"/><line class="grid-dot" x1="94" y1="181.9" x2="94" y2="18.1"/><line class="grid-dot" x1="124" y1="181.9" x2="124" y2="18.1"/><line class="grid-dot" x1="154" y1="181.9" x2="154" y2="18.1"/><line class="grid-dot" x1="184" y1="181.9" x2="184" y2="18.1"/><line class="grid-dot" x1="34" y1="178" x2="199" y2="178"/><line class="grid-dot" x1="34" y1="152" x2="199" y2="152"/><line class="grid-dot" x1="34" y1="126" x2="199" y2="126"/><line class="grid-dot" x1="34" y1="74" x2="199" y2="74"/><line class="grid-dot" x1="34" y1="48" x2="199" y2="48"/><line class="grid-dot" x1="34" y1="22" x2="199" y2="22"/><line class="ink" x1="30" y1="100" x2="215" y2="100" marker-end="url(#ah-ink)"/><line class="ink" x1="34" y1="185.9" x2="34" y2="4.1" marker-end="url(#ah-ink)"/><text class="lbl m" x="219" y="105" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="34" y="0.1" text-anchor="middle"><tspan>v</tspan></text><text class="lbl small m" x="28" y="26" text-anchor="end"><tspan font-style="normal">6.0</tspan></text><text class="lbl small m" x="28" y="182" text-anchor="end"><tspan font-style="normal">−6.0</tspan></text><text class="lbl small" x="28" y="115" text-anchor="end">O</text><text class="lbl small m" x="94" y="116.9" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="154" y="92.2" text-anchor="middle"><tspan font-style="normal">4.0</tspan></text><g class="ans-layer"><polygon class="shade" points="34.0,100.0 34.0,22.0 124.0,100.0"/><polygon class="shade neg" points="124.0,100.0 154.0,126.0 154.0,100.0"/><text class="jp small ans-t m" x="61" y="79.2" text-anchor="middle"><tspan font-style="normal">正</tspan></text><text class="jp small ans-t m" x="143.5" y="144.2" text-anchor="middle"><tspan font-style="normal">負</tspan></text></g><polyline class="curve" fill="none" points="34,22 36,23.8 38,25.5 40.1,27.3 42.1,29 44.1,30.8 46.2,32.5 48.2,34.3 50.2,36 52.2,37.8 54.2,39.5 56.3,41.3 58.3,43.1 60.3,44.8 62.4,46.6 64.4,48.3 66.4,50.1 68.4,51.8 70.5,53.6 72.5,55.3 74.5,57.1 76.5,58.9 78.6,60.6 80.6,62.4 82.6,64.1 84.6,65.9 86.7,67.6 88.7,69.4 90.7,71.1 92.7,72.9 94.8,74.7 96.8,76.4 98.8,78.2 100.8,79.9 102.9,81.7 104.9,83.4 106.9,85.2 108.9,86.9 111,88.7 113,90.4 115,92.2 117,94 119,95.7 121.1,97.5 123.1,99.2 125.1,101 127.2,102.7 129.2,104.5 131.2,106.2 133.2,108 135.2,109.8 137.3,111.5 139.3,113.3 141.3,115 143.4,116.8 145.4,118.5 147.4,120.3 149.4,122 151.5,123.8 153.5,125.5 155.5,127.3 157.5,129.1 159.6,130.8 161.6,132.6 163.6,134.3 165.6,136.1 167.7,137.8 169.7,139.6 171.7,141.3 173.7,143.1 175.8,144.8 177.8,146.6 179.8,148.4 181.8,150.1 183.8,151.9 185.9,153.6 187.9,155.4 189.9,157.1 192,158.9 194,160.6 196,162.4"/></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>加速度</h4>
+      <p>加速度は \(v\)-\(t\) グラフの傾き。\(t = 0\) で 6.0 m/s，\(t = 3.0\) で 0 なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ a = \frac{0 - 6.0}{3.0 - 0} = -2.0 \ \text{m/s}^2 \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{0 - 6.0}{3.0 - 0} \\ &= -2.0 \ \text{m/s}^2 \end{aligned} \]</div></div>
+      <p>速度の式は \(v = -2t + 6\)（傾き −2，切片 6）になる。</p>
+      <h4><span class="n">(2)</span>位置の式</h4>
+      <p>速度の式を \(t\) で積分すると位置になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r = \int v\,dt = \int (-2t + 6)\,dt = -t^2 + 6t + C \]</div><div class="eq-narrow">\[ \begin{aligned} r &= \int v\,dt \\ &= \int (-2t + 6)\,dt \\ &= -t^2 + 6t + C \end{aligned} \]</div></div>
+      <p>\(r(0) = 3.0\) なので \(C = 3.0\)。よって \(r = -t^2 + 6.0t + 3.0\)。</p>
+      <h4><span class="n">(3)</span>\(r\)-\(t\) グラフ</h4>
+      <p>平方完成すると \(r = -(t - 3)^2 + 12\)。頂点 \((3,\ 12)\) の上に凸の放物線で，\(t = 0\) で \(r = 3\)（例題③ (4) と同じ手順）。</p>
+      <div class="figure small" style="max-width:220px"><svg class="fig" viewBox="0 0 200 170" role="img" aria-label="r-tグラフ：r = −t² + 6t + 3。t=0でr=3，頂点(3, 12)"><line class="ink" x1="20" y1="140" x2="227.2" y2="140" marker-end="url(#ah-ink)"/><line class="ink" x1="50" y1="162" x2="50" y2="9" marker-end="url(#ah-ink)"/><text class="lbl m" x="231.2" y="145" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="50" y="5" text-anchor="middle"><tspan>r</tspan></text><text class="lbl small" x="44" y="155" text-anchor="end">O</text><polyline class="curve" fill="none" points="38.3,139.1 40.5,133.9 42.8,128.8 45,123.8 47.2,118.9 49.4,114.2 51.7,109.6 53.9,105.1 56.1,100.8 58.3,96.6 60.6,92.5 62.8,88.6 65,84.8 67.2,81.1 69.5,77.6 71.7,74.2 73.9,70.9 76.1,67.8 78.4,64.8 80.6,61.9 82.8,59.2 85.1,56.6 87.3,54.1 89.5,51.7 91.7,49.5 94,47.4 96.2,45.5 98.4,43.7 100.6,42 102.9,40.4 105.1,39 107.3,37.7 109.5,36.5 111.8,35.5 114,34.6 116.2,33.8 118.4,33.2 120.7,32.7 122.9,32.3 125.1,32.1 127.3,32 129.6,32 131.8,32.2 134,32.5 136.3,32.9 138.5,33.5 140.7,34.1 142.9,35 145.2,35.9 147.4,37 149.6,38.2 151.8,39.6 154.1,41 156.3,42.7 158.5,44.4 160.7,46.3 163,48.3 165.2,50.4 167.4,52.7 169.6,55.1 171.9,57.6 174.1,60.3 176.3,63.1 178.6,66 180.8,69.1 183,72.3 185.2,75.6 187.5,79.1 189.7,82.7 191.9,86.4 194.1,90.2 196.4,94.2 198.6,98.3 200.8,102.6 203,107 205.3,111.5 207.5,116.1 209.7,120.9 211.9,125.8 214.2,130.9 216.4,136"/><line class="aux-ink" x1="128" y1="32" x2="128" y2="140"/><line class="aux-ink" x1="128" y1="32" x2="50" y2="32"/><circle class="dot-ink" cx="128" cy="32" r="2.6"/><text class="lbl m" x="128" y="156" text-anchor="middle"><tspan font-style="normal">3</tspan></text><text class="lbl m" x="44" y="37" text-anchor="end"><tspan font-style="normal">12</tspan></text><circle class="dot-ink" cx="50" cy="113" r="2.4"/><text class="lbl small m" x="44" y="117" text-anchor="end"><tspan font-style="normal">3</tspan></text></svg></div>
+      <h4><span class="n">(4)</span>移動距離</h4>
+      <p>\(t = 3\) s で速度が 0 になり，そこで<b>折り返す</b>（3 s 以降は \(v &lt; 0\) で逆向きに進む）。そこで行きと帰りに分けて考える。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r(0) = 3, \qquad r(3) = -9 + 18 + 3 = 12, \qquad r(4) = -16 + 24 + 3 = 11 \]</div><div class="eq-narrow">\[ \begin{aligned} r(0) &= 3 \\ r(3) &= -9 + 18 + 3 \\ &= 12 \\ r(4) &= -16 + 24 + 3 \\ &= 11 \end{aligned} \]</div></div>
+      <p>0〜3 s で \(12 - 3 = 9\) m 進み，3〜4 s で \(12 - 11 = 1\) m もどる。移動距離は \(9 + 1 = 10\) m。</p>
+      <h4><span class="n">(5)</span>変位</h4>
+      <p>変位は最初と最後の位置の差だけで決まる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r(4) - r(0) = 11 - 3 = 8.0 \ \text{m} \]</div><div class="eq-narrow">\[ \begin{aligned} r(4) - r(0) &= 11 - 3 \\ &= 8.0 \ \text{m} \end{aligned} \]</div></div>
+      <p class="note"><b>グラフで見ると</b>　\(v\)-\(t\) グラフの面積で，\(t\) 軸より上（正）が 9 m，下（負）が 1 m。移動距離は面積をそのまま足して 10 m，変位は符号をつけて足して \(9 - 1 = 8\) m。</p>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(a = -2.0\)〔m/s²〕</span></div>
+      <div><span class="label">(2)</span><span class="val">\(r = -t^2 + 6.0t + 3.0\)〔m〕</span></div>
+      <div><span class="label">(3)</span><span class="val">解説の \(r\)-\(t\) グラフ</span></div>
+      <div><span class="label">(4)</span><span class="val">10〔m〕</span></div>
+      <div><span class="label">(5)</span><span class="val">8.0〔m〕</span></div>
+      <div class="blank" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <p class="statement">\(x\) 軸上を正の向きに 2.0 m/s² で等加速度直線運動する物体がある。物体の時刻 \(t = 0\)〔s〕での速度は \(v(0) = -6.0\)〔m/s〕であり，位置は \(x(0) = 5.0\)〔m〕である。</p>
+    <ol class="qs">
+      <li>物体の時刻 \(t\)〔s〕での速度 \(v\) を \(t\) を用いて表せ。</li>
+      <li>物体の時刻 \(t\)〔s〕での位置 \(x\) を \(t\) を用いて表せ。</li>
+      <li>位置 \(x = 0\)〔m〕となる時刻を求めよ。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>速度</h4>
+      <p>加速度 \(a = 2.0\)（一定）を \(t\) で積分すると速度になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int 2\,dt = 2t + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int 2\,dt \\ &= 2t + C_1 \end{aligned} \]</div></div>
+      <p>\(v(0) = -6.0\) より \(C_1 = -6.0\)。よって \(v = 2.0t - 6.0\)。</p>
+      <h4><span class="n">(2)</span>位置</h4>
+      <p>(1) の速度をさらに \(t\) で積分する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = \int v\,dt = \int (2t - 6)\,dt = t^2 - 6t + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v\,dt \\ &= \int (2t - 6)\,dt \\ &= t^2 - 6t + C_2 \end{aligned} \]</div></div>
+      <p>\(x(0) = 5.0\) より \(C_2 = 5.0\)。よって \(x = t^2 - 6.0t + 5.0\)。</p>
+      <h4><span class="n">(3)</span>\(x = 0\) となる時刻</h4>
+      <p>(2) の式で \(x = 0\) とおいて因数分解する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ t^2 - 6t + 5 = (t - 1)(t - 5) = 0 \qquad\Rightarrow\qquad t = 1.0,\ 5.0 \ \text{s} \]</div><div class="eq-narrow">\[ \begin{aligned} t^2 - 6t + 5 &= (t - 1)(t - 5) \\ &= 0 \\ \Rightarrow\ t &= 1.0,\ 5.0 \ \text{s} \end{aligned} \]</div></div>
+      <p>はじめは負の向きに動いて 1.0 s で原点を通り，3.0 s で折り返して，5.0 s に再び原点を通る。</p>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(v = 2.0t - 6.0\)〔m/s〕</span></div>
+      <div><span class="label">(2)</span><span class="val">\(x = t^2 - 6.0t + 5.0\)〔m〕</span></div>
+      <div><span class="label">(3)</span><span class="val">1.0〔s〕と 5.0〔s〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題③ ================= -->
+  <section class="card" id="pr3">
+    <h2><span class="tag practice">練習問題③</span></h2>
+    <div class="fig-row">
+      <div style="flex:1 1 320px">
+        <p class="statement">右図は，\(x\) 軸上を運動する物体の速度 \(v\)〔m/s〕と時刻 \(t\)〔s〕の関係を表している。物体は，時刻 \(t = 0\)〔s〕のとき，位置を \(x = 0\)〔m〕とする。</p>
+        <ol class="qs">
+          <li>\(0 \leqq t &lt; 1.0\)，\(1.0 \leqq t &lt; 3.0\)，\(3.0 \leqq t \leqq 5.0\)〔s〕のときの物体の速度 \(v\) を \(t\) を用いてそれぞれ表せ。</li>
+          <li>\(0 \leqq t &lt; 1.0\)，\(1.0 \leqq t &lt; 3.0\)，\(3.0 \leqq t \leqq 5.0\)〔s〕のときの物体の位置 \(x\) を \(t\) を用いてそれぞれ表せ。</li>
+          <li>物体の位置 \(x\)〔m〕と時刻 \(t\)〔s〕の関係を表すグラフを (2) を参考にして示せ。</li>
+          <li>物体の加速度 \(a\)〔m/s²〕と時刻 \(t\)〔s〕の関係を表すグラフを示せ。</li>
+        </ol>
+      </div>
+      <div class="figure small" style="max-width:280px" data-draw="区間"><svg class="fig" viewBox="0 0 260 190" role="img" aria-label="v-tグラフ：0〜1 sで0から1.0 m/sに増加，1〜3 sで一定，3〜5 sで0に減少"><line class="grid-dot" x1="74" y1="160" x2="74" y2="27.8"/><line class="grid-dot" x1="114" y1="160" x2="114" y2="27.8"/><line class="grid-dot" x1="154" y1="160" x2="154" y2="27.8"/><line class="grid-dot" x1="194" y1="160" x2="194" y2="27.8"/><line class="grid-dot" x1="234" y1="160" x2="234" y2="27.8"/><line class="grid-dot" x1="34" y1="131.2" x2="250" y2="131.2"/><line class="grid-dot" x1="34" y1="102.5" x2="250" y2="102.5"/><line class="grid-dot" x1="34" y1="73.8" x2="250" y2="73.8"/><line class="grid-dot" x1="34" y1="45" x2="250" y2="45"/><line class="ink" x1="30" y1="160" x2="266" y2="160" marker-end="url(#ah-ink)"/><line class="ink" x1="34" y1="164" x2="34" y2="13.8" marker-end="url(#ah-ink)"/><text class="lbl m" x="270" y="165" text-anchor="start"><tspan>t</tspan><tspan font-style="normal">〔s〕</tspan></text><text class="lbl m" x="34" y="9.8" text-anchor="middle"><tspan>v</tspan><tspan font-style="normal">〔m/s〕</tspan></text><text class="lbl small m" x="74" y="175" text-anchor="middle"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="114" y="175" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="154" y="175" text-anchor="middle"><tspan font-style="normal">3.0</tspan></text><text class="lbl small m" x="194" y="175" text-anchor="middle"><tspan font-style="normal">4.0</tspan></text><text class="lbl small m" x="234" y="175" text-anchor="middle"><tspan font-style="normal">5.0</tspan></text><text class="lbl small m" x="28" y="106.5" text-anchor="end"><tspan font-style="normal">0.50</tspan></text><text class="lbl small m" x="28" y="49" text-anchor="end"><tspan font-style="normal">1.0</tspan></text><text class="lbl small" x="28" y="175" text-anchor="end">O</text><path class="curve" d="M34.0,160.0 L74.0,45.0 L154.0,45.0 L234.0,160.0"/><g class="ans-layer"><line class="aux" x1="74" y1="45" x2="74" y2="160"/><line class="aux" x1="154" y1="45" x2="154" y2="160"/><text class="jp small ans-t" x="54" y="152" text-anchor="middle">①</text><text class="jp small ans-t" x="114" y="152" text-anchor="middle">②</text><text class="jp small ans-t" x="194" y="152" text-anchor="middle">③</text></g></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>グラフの形が変わるところで，①\(0 \leqq t &lt; 1\)，②\(1 \leqq t &lt; 3\)，③\(3 \leqq t \leqq 5\) の3つの区間に分けて考える。</p>
+      <h4><span class="n">(1)</span>速度</h4>
+      <p>各区間は直線なので，傾きと切片を読む（③は \(t\) 軸との交点 (5, 0) を通る）。</p>
+      <ul>
+        <li>① 傾き 1，切片 0　→　\(v = t\)</li>
+        <li>② 傾き 0（一定）　→　\(v = 1.0\)</li>
+        <li>③ 傾き \(-\dfrac{1}{2}\)，(5, 0) を通る　→　\(v = -\dfrac{1}{2}(t - 5) = -0.50t + 2.5\)</li>
+      </ul>
+      <h4><span class="n">(2)</span>位置</h4>
+      <p>各区間の速度を積分する。積分定数は<b>その区間のはじめの位置</b>（前の区間の終わりの位置）で決めるのがポイント。</p>
+      <p>① \(x = \displaystyle\int t\,dt = \frac{1}{2}t^2 + C_1\)。\(x(0) = 0\) より \(C_1 = 0\)。　\(x = \dfrac{1}{2}t^2\)</p>
+      <p>② \(x = \displaystyle\int 1\,dt = t + C_2\)。①の式から \(x(1) = \dfrac{1}{2}\) なので \(\dfrac{1}{2} = 1 + C_2\)，\(C_2 = -\dfrac{1}{2}\)。　\(x = t - 0.5\)</p>
+      <p>③ \(x = \displaystyle\int \left(-\frac{1}{2}t + \frac{5}{2}\right)dt = -\frac{1}{4}t^2 + \frac{5}{2}t + C_3\)。②の式から \(x(3) = \dfrac{5}{2}\) なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{5}{2} = -\frac{9}{4} + \frac{15}{2} + C_3 \qquad\Rightarrow\qquad C_3 = -\frac{11}{4} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{5}{2} &= -\frac{9}{4} + \frac{15}{2} + C_3 \\ \Rightarrow\ C_3 &= -\frac{11}{4} \end{aligned} \]</div></div>
+      <p>よって　\(x = -0.25t^2 + 2.5t - 2.75\)</p>
+      <h4><span class="n">(3)</span>\(x\)-\(t\) グラフ</h4>
+      <p>(2) の式から \(x(1) = 0.5\)，\(x(3) = 2.5\)，\(x(5) = -\dfrac{25}{4} + \dfrac{25}{2} - \dfrac{11}{4} = 3.5\) m。①は下に凸の放物線，②は直線，③は上に凸の放物線で，\(t = 5\) で止まる（その後は 3.5 m のまま）。</p>
+      <div class="figure" style="max-width:300px"><svg class="fig" viewBox="0 0 260 190" role="img" aria-label="x-tグラフ：0〜1 sは放物線，1〜3 sは直線，3〜5 sは上に凸の放物線で3.5 mで止まる"><line class="grid-dot" x1="74" y1="160" x2="74" y2="23.2"/><line class="grid-dot" x1="114" y1="160" x2="114" y2="23.2"/><line class="grid-dot" x1="154" y1="160" x2="154" y2="23.2"/><line class="grid-dot" x1="194" y1="160" x2="194" y2="23.2"/><line class="grid-dot" x1="234" y1="160" x2="234" y2="23.2"/><line class="grid-dot" x1="34" y1="141" x2="250" y2="141"/><line class="grid-dot" x1="34" y1="122" x2="250" y2="122"/><line class="grid-dot" x1="34" y1="103" x2="250" y2="103"/><line class="grid-dot" x1="34" y1="84" x2="250" y2="84"/><line class="grid-dot" x1="34" y1="65" x2="250" y2="65"/><line class="grid-dot" x1="34" y1="46" x2="250" y2="46"/><line class="grid-dot" x1="34" y1="27" x2="250" y2="27"/><line class="ink" x1="30" y1="160" x2="266" y2="160" marker-end="url(#ah-ink)"/><line class="ink" x1="34" y1="164" x2="34" y2="9.2" marker-end="url(#ah-ink)"/><text class="lbl m" x="270" y="165" text-anchor="start"><tspan>t</tspan><tspan font-style="normal">〔s〕</tspan></text><text class="lbl m" x="34" y="5.2" text-anchor="middle"><tspan>x</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small m" x="74" y="175" text-anchor="middle"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="114" y="175" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="154" y="175" text-anchor="middle"><tspan font-style="normal">3.0</tspan></text><text class="lbl small m" x="194" y="175" text-anchor="middle"><tspan font-style="normal">4.0</tspan></text><text class="lbl small m" x="234" y="175" text-anchor="middle"><tspan font-style="normal">5.0</tspan></text><text class="lbl small m" x="28" y="126" text-anchor="end"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="28" y="88" text-anchor="end"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="28" y="50" text-anchor="end"><tspan font-style="normal">3.0</tspan></text><text class="lbl small" x="28" y="175" text-anchor="end">O</text><polyline class="curve" fill="none" points="34,160 35.8,160 37.6,159.8 39.4,159.7 41.2,159.4 43,159 44.8,158.6 46.6,158.1 48.4,157.5 50.2,156.9 52,156.2 53.8,155.3 55.6,154.5 57.4,153.5 59.2,152.5 61,151.3 62.8,150.2 64.6,148.9 66.4,147.5 68.2,146.1 70,144.6 71.8,143 73.6,141.4 75.4,139.7 77.2,138 79,136.2 80.8,134.5 82.6,132.8 84.4,131.1 86.2,129.4 88,127.7 89.8,126 91.6,124.3 93.4,122.6 95.2,120.9 97,119.2 98.8,117.4 100.6,115.7 102.4,114 104.2,112.3 106,110.6 107.8,108.9 109.6,107.2 111.4,105.5 113.2,103.8 115,102 116.8,100.3 118.6,98.6 120.4,96.9 122.2,95.2 124,93.5 125.8,91.8 127.6,90.1 129.4,88.4 131.2,86.7 133,85 134.8,83.2 136.6,81.5 138.4,79.8 140.2,78.1 142,76.4 143.8,74.7 145.6,73 147.4,71.3 149.2,69.6 151,67.9 152.8,66.1 154.6,64.4 156.4,62.8 158.2,61.1 160,59.5 161.8,58 163.6,56.4 165.4,54.9 167.2,53.5 169,52.1 170.8,50.7 172.6,49.4 174.4,48.1 176.2,46.8 178,45.6 179.8,44.4 181.6,43.3 183.4,42.2 185.2,41.1 187,40.1 188.8,39.1 190.6,38.2 192.4,37.3 194.2,36.4 196,35.6 197.8,34.8 199.6,34 201.4,33.3 203.2,32.6 205,32 206.8,31.4 208.6,30.8 210.4,30.3 212.2,29.8 214,29.4 215.8,29 217.6,28.6 219.4,28.3 221.2,28 223,27.7 224.8,27.5 226.6,27.3 228.4,27.2 230.2,27.1 232,27 233.8,27 235.6,27 237.4,27 239.2,27 241,27 242.8,27 244.6,27 246.4,27 248.2,27 250,27"/><circle class="dot-ink" cx="74" cy="141" r="2.4"/><line class="aux-ink" x1="34" y1="141" x2="74" y2="141"/><text class="lbl small ans-t m" x="28" y="145" text-anchor="end"><tspan font-style="normal">0.5</tspan></text><circle class="dot-ink" cx="154" cy="65" r="2.4"/><line class="aux-ink" x1="34" y1="65" x2="154" y2="65"/><text class="lbl small ans-t m" x="28" y="69" text-anchor="end"><tspan font-style="normal">2.5</tspan></text><circle class="dot-ink" cx="234" cy="27" r="2.4"/><line class="aux-ink" x1="34" y1="27" x2="234" y2="27"/><text class="lbl small ans-t m" x="28" y="31" text-anchor="end"><tspan font-style="normal">3.5</tspan></text></svg></div>
+      <h4><span class="n">(4)</span>\(a\)-\(t\) グラフ</h4>
+      <p>各区間の速度を微分する（\(v\)-\(t\) グラフの傾き）。①\(a = 1.0\)，②\(a = 0\)，③\(a = -0.50\) m/s²。</p>
+      <div class="figure" style="max-width:300px"><svg class="fig" viewBox="0 0 260 190" role="img" aria-label="a-tグラフ：0〜1 sは1.0，1〜3 sは0，3〜5 sは−0.5 m/s²"><line class="grid-dot" x1="74" y1="182" x2="74" y2="38"/><line class="grid-dot" x1="114" y1="182" x2="114" y2="38"/><line class="grid-dot" x1="154" y1="182" x2="154" y2="38"/><line class="grid-dot" x1="194" y1="182" x2="194" y2="38"/><line class="grid-dot" x1="234" y1="182" x2="234" y2="38"/><line class="grid-dot" x1="34" y1="170" x2="250" y2="170"/><line class="grid-dot" x1="34" y1="140" x2="250" y2="140"/><line class="grid-dot" x1="34" y1="80" x2="250" y2="80"/><line class="grid-dot" x1="34" y1="50" x2="250" y2="50"/><line class="ink" x1="30" y1="110" x2="266" y2="110" marker-end="url(#ah-ink)"/><line class="ink" x1="34" y1="186" x2="34" y2="24" marker-end="url(#ah-ink)"/><text class="lbl m" x="270" y="115" text-anchor="start"><tspan>t</tspan><tspan font-style="normal">〔s〕</tspan></text><text class="lbl m" x="34" y="20" text-anchor="middle"><tspan>a</tspan><tspan font-style="normal">〔m/s²〕</tspan></text><text class="lbl small m" x="74" y="125" text-anchor="middle"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="114" y="125" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="154" y="125" text-anchor="middle"><tspan font-style="normal">3.0</tspan></text><text class="lbl small m" x="194" y="125" text-anchor="middle"><tspan font-style="normal">4.0</tspan></text><text class="lbl small m" x="234" y="125" text-anchor="middle"><tspan font-style="normal">5.0</tspan></text><text class="lbl small m" x="28" y="54" text-anchor="end"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="28" y="144" text-anchor="end"><tspan font-style="normal">−0.5</tspan></text><text class="lbl small m" x="28" y="174" text-anchor="end"><tspan font-style="normal">−1.0</tspan></text><text class="lbl small" x="28" y="125" text-anchor="end">O</text><text class="lbl small m" x="28" y="114" text-anchor="end"><tspan font-style="normal">0</tspan></text><line class="curve" x1="34" y1="50" x2="74" y2="50"/><line class="curve" x1="74" y1="110" x2="154" y2="110"/><line class="curve" x1="154" y1="140" x2="234" y2="140"/><line class="curve" x1="234" y1="110" x2="250" y2="110"/></svg></div>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1) \(0 \leqq t &lt; 1.0\)</span><span class="val">\(v = t\)</span></div>
+      <div><span class="label">(1) \(1.0 \leqq t &lt; 3.0\)</span><span class="val">\(v = 1.0\)</span></div>
+      <div><span class="label">(1) \(3.0 \leqq t \leqq 5.0\)</span><span class="val">\(v = -0.50t + 2.5\)</span></div>
+      <div><span class="label">(2) \(0 \leqq t &lt; 1.0\)</span><span class="val">\(x = \dfrac{1}{2}t^2\)</span></div>
+      <div><span class="label">(2) \(1.0 \leqq t &lt; 3.0\)</span><span class="val">\(x = t - 0.5\)</span></div>
+      <div><span class="label">(2) \(3.0 \leqq t \leqq 5.0\)</span><span class="val">\(x = -0.25t^2 + 2.5t - 2.75\)</span></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>イナプリ 応用物理 03 加速度 ― 解答解説</footer>
+</body>
+</html>

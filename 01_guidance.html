@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>01 ガイダンス 解答解説</title>
+<meta name="description" content="イナプリ 応用物理01「ガイダンス・数学の確認」の練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css?v=2a7e3f1b">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/main.js?v=a863d04a"></script>
+</head>
+<body style="--unit-dot:#f99">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="dot"></span><span class="brand-sub">応用物理 </span>解答解説 <small>イナプリ 01</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="index.html">← 一覧に戻る</a>
+    <div class="toc-title">01 ガイダンス</div>
+    <ol>
+      <li><a href="#point">ポイント</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+      <li><a href="#pr3">練習問題③</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 応用物理 01</div>
+    <h1>ガイダンス</h1>
+  </section>
+
+  <!-- ================= ポイント（穴埋め） ================= -->
+  <section class="card" id="point">
+    <h2 class="bullet-h" style="margin-top:0">「物理」という学問</h2>
+    <ol class="fill-list" style="list-style:none;padding-left:0">
+      <li>(1) 無限に広がる <span class="fill">宇宙</span>（<span class="fill">自然</span>）を理解しようとする学問。<br>
+        　→ <span class="fill">法則</span>（<span class="fill">規則性</span>）を見つけ出す。<br>
+        　→ <span class="fill">未来</span> を予測できる！</li>
+      <li>(2) 物理学（力学，電磁気学，熱力学，波動，量子力学 etc…）</li>
+      <li>(3) 究極の形：<span class="fill">すべての現象をひとつの式で記述する</span></li>
+    </ol>
+
+    <h2 class="bullet-h">物理を学ぶ上で</h2>
+    <ol class="fill-list" style="list-style:none;padding-left:0">
+      <li>(1) 脳を <span class="fill">開け</span>！　そして，四の五の言わず <span class="fill">手</span> を動かせ！</li>
+      <li>(2) 学んだことを使う！（Input-Output）
+        <ol class="fill-list" style="list-style:none">
+          <li>(ア) 人から <b>教わる</b> ということ。そして，人に <span class="fill">伝える</span> ということ</li>
+          <li>(イ) とにかく <span class="fill">復習</span>！　⇒ 問題を解く！</li>
+          <li>(ウ) 普段の生活に <span class="fill">活用</span> する！</li>
+        </ol></li>
+      <li>(3) ルール：(ア) あいさつをする　(イ) ×遅刻　×スマホ　(ウ) わからんかったら即対応！　(エ) 努力した人は報われる</li>
+    </ol>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <p class="statement noindent">次の (1)〜(4) の問いに答えよ。</p>
+
+    <div class="note"><b>はじめに：三角比で成分に分ける</b>
+      <div class="fig-row" style="align-items:center">
+        <div class="figure small" style="max-width:200px"><svg class="fig" viewBox="0 0 200 120" role="img" aria-label="直角三角形：斜辺a，θの向かいの辺b，θのとなりの辺c"><path class="ink nofill" d="M30,100 L150,100 L150,25 Z"/><path class="ink nofill" d="M140,100 L140,90 L150,90"/><path class="ink nofill" d="M52,100 A22,22 0 0 0 48.7,88.3"/><text class="lbl m" x="60" y="95" text-anchor="middle"><tspan>θ</tspan></text><text class="lbl ans-t m" x="84" y="52" text-anchor="middle"><tspan>a</tspan></text><text class="lbl ans-t m" x="160" y="66" text-anchor="start"><tspan>b</tspan></text><text class="lbl ans-t m" x="90" y="117" text-anchor="middle"><tspan>c</tspan></text></svg></div>
+        <div style="flex:1 1 240px">
+          <p>直角三角形で，斜辺を \(a\)，角 \(\theta\) の向かいの辺を \(b\)，となりの辺を \(c\) とすると</p>
+          <div class="eqwrap"><div class="eq-wide">\[ \sin\theta = \frac{b}{a}, \qquad \cos\theta = \frac{c}{a} \]</div><div class="eq-narrow">\[ \begin{aligned} \sin\theta &= \frac{b}{a} \\ \cos\theta &= \frac{c}{a} \end{aligned} \]</div></div>
+          <p>両辺に \(a\) をかけると \(b = a\sin\theta\)，\(c = a\cos\theta\)。つまり，<b>角 \(\theta\) のとなりの辺は「\(\times\cos\theta\)」，向かいの辺は「\(\times\sin\theta\)」</b>で求まる。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-q">
+      <h3>(1) 速度 \(v_0\) の \(x\) 軸，\(y\) 軸の成分を \(v_0\) を用いて表せ</h3>
+      <div class="fig-row">
+        <div class="figure" style="max-width:280px" data-draw="成分"><svg class="fig" viewBox="0 0 240 170" role="img" aria-label="速度v0がx軸から60°の向き"><line class="ink" x1="40" y1="140" x2="200" y2="140" marker-end="url(#ah-ink)"/><text class="lbl m" x="208" y="145" text-anchor="start"><tspan>x</tspan></text><line class="ink" x1="40" y1="140" x2="40" y2="12" marker-end="url(#ah-ink)"/><text class="lbl m" x="34" y="18" text-anchor="end"><tspan>y</tspan></text><line class="vel" x1="40" y1="140" x2="102.5" y2="31.7" marker-end="url(#ah-vel)"/><text class="lbl m" x="108.5" y="35.7" text-anchor="start"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><path class="ink nofill" d="M49,140 A9,9 0 0 0 44.5,132.2"/><path class="ink nofill" d="M52,140 A12,12 0 0 0 46,129.6"/><text class="lbl small" x="56" y="136" text-anchor="start">60°</text><g class="ans-layer"><line class="aux" x1="102.5" y1="31.7" x2="102.5" y2="140"/><line class="aux" x1="102.5" y1="31.7" x2="40" y2="31.7"/><line class="ans" x1="40" y1="140" x2="102.5" y2="140" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="77.2" y="158" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan><tspan dy="-4" font-style="normal"> cos60°</tspan></text><line class="ans" x1="40" y1="140" x2="40" y2="31.7" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="46" y="23.7" text-anchor="start"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan><tspan dy="-4" font-style="normal"> sin60°</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">\(x\) 軸</span><span class="val">\(\dfrac{1}{2}v_0\)</span></div><div><span class="label">\(y\) 軸</span><span class="val">\(\dfrac{\sqrt{3}}{2}v_0\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>\(v_0\) の矢印を斜辺とする直角三角形をつくる（図の破線）。\(x\) 軸の成分は 60° のとなりの辺なので \(\cos 60^\circ\)，\(y\) 軸の成分は向かいの辺なので \(\sin 60^\circ\) をかける。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = v_0\cos 60^\circ = \frac{1}{2}v_0, \qquad y\text{ 成分} = v_0\sin 60^\circ = \frac{\sqrt{3}}{2}v_0 \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= v_0\cos 60^\circ \\ &= \frac{1}{2}v_0 \\ y\text{ 成分} &= v_0\sin 60^\circ \\ &= \frac{\sqrt{3}}{2}v_0 \end{aligned} \]</div></div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(2) 速度 \(v_0\) の \(x\) 軸，\(y\) 軸の成分を \(v_0\)，\(\theta\) を用いて表せ</h3>
+      <div class="fig-row">
+        <div class="figure" style="max-width:280px" data-draw="成分"><svg class="fig" viewBox="0 0 240 170" role="img" aria-label="速度v0がx軸からθの向き"><line class="ink" x1="40" y1="140" x2="200" y2="140" marker-end="url(#ah-ink)"/><text class="lbl m" x="208" y="145" text-anchor="start"><tspan>x</tspan></text><line class="ink" x1="40" y1="140" x2="40" y2="12" marker-end="url(#ah-ink)"/><text class="lbl m" x="34" y="18" text-anchor="end"><tspan>y</tspan></text><line class="vel" x1="40" y1="140" x2="102.5" y2="31.7" marker-end="url(#ah-vel)"/><text class="lbl m" x="108.5" y="35.7" text-anchor="start"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><path class="ink nofill" d="M49,140 A9,9 0 0 0 44.5,132.2"/><text class="lbl small m" x="56" y="136" text-anchor="start"><tspan>θ</tspan></text><g class="ans-layer"><line class="aux" x1="102.5" y1="31.7" x2="102.5" y2="140"/><line class="aux" x1="102.5" y1="31.7" x2="40" y2="31.7"/><line class="ans" x1="40" y1="140" x2="102.5" y2="140" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="77.2" y="158" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan><tspan dy="-4" font-style="normal"> cos</tspan><tspan>θ</tspan></text><line class="ans" x1="40" y1="140" x2="40" y2="31.7" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="46" y="23.7" text-anchor="start"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan><tspan dy="-4" font-style="normal"> sin</tspan><tspan>θ</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">\(x\) 軸</span><span class="val">\(v_0\cos\theta\)</span></div><div><span class="label">\(y\) 軸</span><span class="val">\(v_0\sin\theta\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>(1) の 60° が \(\theta\) になっただけ。\(x\) 軸は角 \(\theta\) のとなりの辺，\(y\) 軸は向かいの辺。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = v_0\cos\theta, \qquad y\text{ 成分} = v_0\sin\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= v_0\cos\theta \\ y\text{ 成分} &= v_0\sin\theta \end{aligned} \]</div></div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(3) 張力 \(S\) の \(x\) 軸，\(y\) 軸の成分を \(S\)，\(\theta\) を用いて表せ</h3>
+      <div class="fig-row">
+        <div class="figure" style="max-width:280px" data-draw="成分"><svg class="fig" viewBox="0 0 240 170" role="img" aria-label="天井から2本の糸でつるした小球。右の糸の張力Sは天井と角θをなす"><rect class="smooth" x="20" y="22" width="200" height="6" style="fill:#e6e6e6"/><line class="ink" x1="20" y1="28" x2="220" y2="28"/><line class="ink" x1="20" y1="28" x2="85" y2="95"/><line class="ink" x1="90" y1="100" x2="200" y2="28"/><line class="ink" x1="45" y1="100" x2="190" y2="100" marker-end="url(#ah-ink)"/><text class="lbl m" x="197" y="105" text-anchor="start"><tspan>x</tspan></text><line class="ink" x1="90" y1="160" x2="90" y2="10" marker-end="url(#ah-ink)"/><text class="lbl m" x="96" y="16" text-anchor="start"><tspan>y</tspan></text><line class="force" x1="90" y1="100" x2="161.1" y2="53.4" marker-end="url(#ah-force)"/><circle class="dot-force" cx="90" cy="100" r="3"/><text class="lbl m" x="157.1" y="71.4" text-anchor="middle"><tspan>S</tspan></text><path class="ink nofill" d="M182,28 A18,18 0 0 0 184.9,37.9"/><text class="lbl small m" x="174" y="38" text-anchor="middle"><tspan>θ</tspan></text><circle class="ball white" cx="90" cy="100" r="6"/><g class="ans-layer"><line class="aux" x1="161.1" y1="53.4" x2="161.1" y2="100"/><line class="aux" x1="161.1" y1="53.4" x2="90" y2="53.4"/><line class="ans" x1="90" y1="100" x2="161.1" y2="100" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="165.1" y="118" text-anchor="middle"><tspan>S</tspan><tspan font-style="normal"> cos</tspan><tspan>θ</tspan></text><line class="ans" x1="90" y1="100" x2="90" y2="53.4" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="84" y="57.4" text-anchor="end"><tspan>S</tspan><tspan font-style="normal"> sin</tspan><tspan>θ</tspan></text><path class="ans nofill nofill" d="M106,100 A16,16 0 0 0 103.4,91.2"/><text class="lbl ans-t small m" x="114" y="96" text-anchor="middle"><tspan>θ</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">\(x\) 軸</span><span class="val">\(S\cos\theta\)</span></div><div><span class="label">\(y\) 軸</span><span class="val">\(S\sin\theta\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>天井と糸のなす角 \(\theta\) は，糸と \(x\) 軸（天井と平行）のなす角と等しい（平行線の錯角）。よって \(S\) と \(x\) 軸のなす角も \(\theta\) になり，(2) と同じ形で分けられる。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = S\cos\theta, \qquad y\text{ 成分} = S\sin\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= S\cos\theta \\ y\text{ 成分} &= S\sin\theta \end{aligned} \]</div></div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(4) 重力 \(mg\) の \(x\) 軸，\(y\) 軸の成分を \(m\)，\(g\)，\(\theta\) を用いて表せ</h3>
+      <div class="fig-row">
+        <div class="figure" style="max-width:280px" data-draw="成分"><svg class="fig" viewBox="0 0 240 190" role="img" aria-label="傾きθの斜面上の物体。斜面に沿ってx軸，垂直にy軸をとり，重力mgを分解する"><line class="ink" x1="30" y1="40" x2="184.5" y2="122.2"/><line class="aux-dot" x1="142.5" y1="122.2" x2="190.5" y2="122.2"/><path class="ink nofill" d="M158.5,122.2 A26,26 0 0 1 161.6,110"/><text class="lbl small m" x="150.5" y="119.2" text-anchor="middle"><tspan>θ</tspan></text><rect class="ink body" x="94.7" y="54.1" width="24" height="24" transform="rotate(28 106.7 66.1)"/><line class="ink" x1="44.9" y1="33.2" x2="190.6" y2="110.7" marker-end="url(#ah-ink)"/><text class="lbl m" x="196.6" y="116.7" text-anchor="start"><tspan>x</tspan></text><line class="ink" x1="71.5" y1="132.3" x2="139.6" y2="4.3" marker-end="url(#ah-ink)"/><text class="lbl m" x="145.6" y="6.3" text-anchor="start"><tspan>y</tspan></text><line class="force" x1="106.7" y1="66.1" x2="106.7" y2="151.1" marker-end="url(#ah-force)"/><circle class="dot-force" cx="106.7" cy="66.1" r="3"/><text class="lbl m" x="108.7" y="168.1" text-anchor="middle"><tspan>mg</tspan></text><g class="ans-layer"><line class="aux" x1="142" y1="84.8" x2="106.7" y2="151.1"/><line class="aux" x1="71.5" y1="132.3" x2="106.7" y2="151.1"/><line class="ans" x1="106.7" y1="66.1" x2="142" y2="84.8" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="148" y="82.8" text-anchor="start"><tspan>mg</tspan><tspan font-style="normal"> sin</tspan><tspan>θ</tspan></text><line class="ans" x1="106.7" y1="66.1" x2="71.5" y2="132.3" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="65.5" y="138.3" text-anchor="end"><tspan>mg</tspan><tspan font-style="normal"> cos</tspan><tspan>θ</tspan></text><path class="ans nofill nofill" d="M106.7,88.1 A22,22 0 0 1 96.4,85.5"/><text class="lbl ans-t small m" x="97.7" y="100.1" text-anchor="middle"><tspan>θ</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">\(x\) 軸</span><span class="val">\(mg\sin\theta\)</span></div><div><span class="label">\(y\) 軸</span><span class="val">\(-mg\cos\theta\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>斜面の傾き \(\theta\) は，重力 \(mg\)（鉛直下向き）と \(y\) 軸（斜面に垂直）のなす角に等しい。このため \(\theta\) のとなりの辺は \(y\) 軸の向き，向かいの辺は \(x\) 軸の向きになる。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = mg\sin\theta, \qquad y\text{ 成分} = -mg\cos\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= mg\sin\theta \\ y\text{ 成分} &= -mg\cos\theta \end{aligned} \]</div></div>
+        <p>\(y\) 軸の正の向き（斜面から離れる向き）と逆向きなので，\(y\) 成分には − がつく。</p>
+        <p class="note"><b>注意</b>　斜面では，となりの辺が \(y\) 軸側にくるので，\(x\) 成分が \(\sin\)，\(y\) 成分が \(\cos\) になる。(1)〜(3) と入れかわるので，必ず図で角 \(\theta\) の位置を確かめる。</p>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <p class="statement noindent">次の (1)〜(4) の \(x\)，\(y\) についての連立方程式を解き，下の解答欄に示せ。ただし，\(m &gt; 0\)，\(M &gt; 0\)，\(a &gt; 0\) とする。</p>
+    <div class="fig-row" style="gap:28px">
+      <div>(1) \(\begin{cases} 7x = -3y - 5 \\ 5x + 3y = 1 \end{cases}\)</div>
+      <div>(2) \(\begin{cases} x + ay = 3 \\ 2x - 3y = 2 \end{cases}\)</div>
+      <div>(3) \(\begin{cases} x = my \\ F - x = My \end{cases}\)</div>
+      <div>(4) \(\begin{cases} x - am = my \\ M - x = My \end{cases}\)</div>
+    </div>
+
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span></h4>
+      <p>\(y\) の係数をそろえるために，1つ目の式を \(7x + 3y = -5\) と書きかえる（①）。2つ目を②とする。</p>
+      <div class="eqwrap">\[ \begin{cases} 7x + 3y = -5 & \cdots ① \\ 5x + 3y = 1 & \cdots ② \end{cases} \]</div>
+      <p>①−② で \(y\) を消すと \(2x = -6\)，よって \(x = -3\)。これを②に代入すると \(-15 + 3y = 1\) より \(y = \dfrac{16}{3}\)。</p>
+      <h4><span class="n">(2)</span></h4>
+      <p>文字 \(a\) を含むが，\(a\) は定数として扱う。\(x\) の係数をそろえるため，1つ目の式を2倍する。</p>
+      <div class="eqwrap">\[ \begin{cases} 2x + 2ay = 6 & \cdots ③ \\ 2x - 3y = 2 & \cdots ④ \end{cases} \]</div>
+      <p>③−④ で \(x\) を消すと \((2a + 3)y = 4\)。問題文の条件 \(a &gt; 0\) より \(2a + 3 &gt; 0\)（0 にならない）なので，両辺を \(2a + 3\) で割って \(y = \dfrac{4}{2a+3}\)。これを④に代入して \(x\) を求める。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 2x = 2 + 3\cdot\frac{4}{2a+3} = \frac{2(2a+3) + 12}{2a+3} = \frac{4a+18}{2a+3} \qquad\Rightarrow\qquad x = \frac{2a+9}{2a+3} \]</div><div class="eq-narrow">\[ \begin{aligned} 2x &= 2 + 3\cdot\frac{4}{2a+3} \\ &= \frac{2(2a+3) + 12}{2a+3} \\ &= \frac{4a+18}{2a+3} \\ \Rightarrow\ x &= \frac{2a+9}{2a+3} \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span></h4>
+      <p>1つ目の式（⑤）がすでに「\(x = \)」の形なので，2つ目の式（⑥）に代入して \(x\) を消す。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ F - my = My \qquad\Rightarrow\qquad (M + m)y = F \]</div><div class="eq-narrow">\[ \begin{aligned} F - my &= My \\ \Rightarrow\ (M + m)y &= F \end{aligned} \]</div></div>
+      <p>\(m &gt; 0\)，\(M &gt; 0\) より \(M + m &gt; 0\) なので，両辺を \(M + m\) で割って \(y = \dfrac{F}{M+m}\)。</p>
+      <p>⑤に代入して　\(x = my = \dfrac{mF}{M+m}\)</p>
+      <h4><span class="n">(4)</span></h4>
+      <p>2つの式（⑦，⑧）をそのまま足すと，\(x\) が消える。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ (x - am) + (M - x) = my + My \qquad\Rightarrow\qquad M - am = (M + m)y \]</div><div class="eq-narrow">\[ \begin{aligned} (x - am) + (M - x) &= my + My \\ \Rightarrow\ M - am &= (M + m)y \end{aligned} \]</div></div>
+      <p>(3) と同じく \(M + m &gt; 0\) なので，両辺を \(M + m\) で割って \(y = \dfrac{M - am}{M + m}\)。</p>
+      <p>⑦より \(x = am + my\) なので，これに代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = am + \frac{m(M - am)}{M+m} = \frac{am(M+m) + mM - am^2}{M+m} = \frac{(1+a)mM}{M+m} \]</div><div class="eq-narrow">\[ \begin{aligned} x &= am + \frac{m(M - am)}{M+m} \\ &= \frac{am(M+m) + mM - am^2}{M+m} \\ &= \frac{(1+a)mM}{M+m} \end{aligned} \]</div></div>
+      <p class="note"><b>ポイント</b>　(3)(4) のような文字だけの連立方程式は，運動方程式（2つの物体の問題など）でよく出てくる。「どの文字を消すか」を決めて，足す・引く・代入するの3つで解く。</p>
+    </div></details>
+
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(x = -3\)，　\(y = \dfrac{16}{3}\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(x = \dfrac{2a+9}{2a+3}\)，　\(y = \dfrac{4}{2a+3}\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(x = \dfrac{mF}{M+m}\)，　\(y = \dfrac{F}{M+m}\)</span></div>
+      <div><span class="label">(4)</span><span class="val">\(x = \dfrac{(1+a)mM}{M+m}\)，　\(y = \dfrac{M-am}{M+m}\)</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題③ ================= -->
+  <section class="card" id="pr3">
+    <h2><span class="tag practice">練習問題③</span></h2>
+    <p class="statement">次の (1)〜(5) の関数を微分せよ。また，(6)〜(10) の不定積分を求めよ（ただし，積分定数を \(C\) とする）。</p>
+    <div class="fig-row" style="gap:10px 28px">
+      <div>(1) \(y = 3x^4 - 4x + 7\)</div>
+      <div>(2) \(y = \dfrac{5}{x}\)</div>
+      <div>(3) \(y = (x+1)(x^2+3)\)</div>
+      <div>(4) \(y = \dfrac{2x^2 - 7x + 3}{2x - 1}\)</div>
+      <div>(5) \(y = e^{-3x}\)</div>
+      <div>(6) \(\displaystyle\int (3x^2 + 3x)\,dx\)</div>
+      <div>(7) \(\displaystyle\int \frac{1}{x}\,dx\)</div>
+      <div>(8) \(\displaystyle\int \sin 2x\,dx\)</div>
+      <div>(9) \(\displaystyle\int (x-1)^3\,dx\)</div>
+      <div>(10) \(\displaystyle\int \sqrt{2x-1}\,dx\)</div>
+    </div>
+
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>\(x^n\) の微分</h4>
+      <p>\((x^n)' = nx^{n-1}\) を各項に使う。定数 7 は微分すると 0。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = 3\cdot 4x^3 - 4 = 12x^3 - 4 \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 3\cdot 4x^3 - 4 \\ &= 12x^3 - 4 \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span>分数は指数の形に</h4>
+      <p>\(\dfrac{5}{x} = 5x^{-1}\) と書きかえると，(1) と同じ公式が使える。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = 5\cdot(-1)x^{-2} = -\frac{5}{x^2} \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 5\cdot(-1)x^{-2} \\ &= -\frac{5}{x^2} \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span>積の微分</h4>
+      <p>\(\{f(x)g(x)\}' = f'(x)g(x) + f(x)g'(x)\) を使う（展開してから微分してもよい）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = 1\cdot(x^2+3) + (x+1)\cdot 2x = 3x^2 + 2x + 3 \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 1\cdot(x^2+3) + (x+1)\cdot 2x \\ &= 3x^2 + 2x + 3 \end{aligned} \]</div></div>
+      <h4><span class="n">(4)</span>商の微分</h4>
+      <p>\(\left\{\dfrac{f(x)}{g(x)}\right\}' = \dfrac{f'(x)g(x) - f(x)g'(x)}{\{g(x)\}^2}\) を使う。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = \frac{(4x-7)(2x-1) - (2x^2-7x+3)\cdot 2}{(2x-1)^2} = \frac{4x^2 - 4x + 1}{(2x-1)^2} = \frac{(2x-1)^2}{(2x-1)^2} = 1 \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= \frac{(4x-7)(2x-1) - (2x^2-7x+3)\cdot 2}{(2x-1)^2} \\ &= \frac{4x^2 - 4x + 1}{(2x-1)^2} \\ &= \frac{(2x-1)^2}{(2x-1)^2} \\ &= 1 \end{aligned} \]</div></div>
+      <p class="note"><b>別解</b>　分子は \(2x^2 - 7x + 3 = (2x-1)(x-3)\) と因数分解できるので，\(y = x - 3\)（\(x \neq \frac{1}{2}\)）。これを微分しても \(y' = 1\)。</p>
+      <h4><span class="n">(5)</span>指数関数</h4>
+      <p>\((e^{kx})' = ke^{kx}\) より（\(k = -3\)）</p>
+      <div class="eqwrap">\[ y' = -3e^{-3x} \]</div>
+      <h4><span class="n">(6)</span>\(x^n\) の積分</h4>
+      <p>\(\displaystyle\int x^n\,dx = \frac{1}{n+1}x^{n+1} + C\) を各項に使う。</p>
+      <div class="eqwrap">\[ \int (3x^2 + 3x)\,dx = x^3 + \frac{3}{2}x^2 + C \]</div>
+      <h4><span class="n">(7)</span>\(\dfrac{1}{x}\) の積分</h4>
+      <p>\(n = -1\) のときだけは (6) の公式が使えない（分母が 0 になる）。\((\log|x|)' = \dfrac{1}{x}\) なので</p>
+      <div class="eqwrap">\[ \int \frac{1}{x}\,dx = \log|x| + C \]</div>
+      <h4><span class="n">(8)</span>三角関数</h4>
+      <p>\((\cos 2x)' = -2\sin 2x\) なので，\(-\dfrac{1}{2}\cos 2x\) を微分すると \(\sin 2x\) になる。</p>
+      <div class="eqwrap">\[ \int \sin 2x\,dx = -\frac{1}{2}\cos 2x + C \]</div>
+      <h4><span class="n">(9)</span>置換積分</h4>
+      <p>\(x - 1 = u\) とおくと \(\dfrac{du}{dx} = 1\)，つまり \(dx = du\)。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \int (x-1)^3\,dx = \int u^3\,du = \frac{1}{4}u^4 + C = \frac{1}{4}(x-1)^4 + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int (x-1)^3\,dx &= \int u^3\,du \\ &= \frac{1}{4}u^4 + C \\ &= \frac{1}{4}(x-1)^4 + C \end{aligned} \]</div></div>
+      <h4><span class="n">(10)</span>置換積分</h4>
+      <p>\(\sqrt{2x-1} = (2x-1)^{\frac{1}{2}}\) と書きかえ，\(2x - 1 = u\) とおく。\(\dfrac{du}{dx} = 2\) より \(dx = \dfrac{1}{2}du\)。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \int (2x-1)^{\frac{1}{2}}\,dx = \int u^{\frac{1}{2}}\cdot\frac{1}{2}\,du = \frac{1}{2}\cdot\frac{2}{3}u^{\frac{3}{2}} + C = \frac{1}{3}(2x-1)^{\frac{3}{2}} + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int (2x-1)^{\frac{1}{2}}\,dx &= \int u^{\frac{1}{2}}\cdot\frac{1}{2}\,du \\ &= \frac{1}{2}\cdot\frac{2}{3}u^{\frac{3}{2}} + C \\ &= \frac{1}{3}(2x-1)^{\frac{3}{2}} + C \end{aligned} \]</div></div>
+    </div></details>
+
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(y' = 12x^3 - 4\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(y' = -\dfrac{5}{x^2}\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(y' = 3x^2 + 2x + 3\)</span></div>
+      <div><span class="label">(4)</span><span class="val">\(y' = 1\)</span></div>
+      <div><span class="label">(5)</span><span class="val">\(y' = -3e^{-3x}\)</span></div>
+      <div><span class="label">(6)</span><span class="val">\(x^3 + \dfrac{3}{2}x^2 + C\)</span></div>
+      <div><span class="label">(7)</span><span class="val">\(\log|x| + C\)</span></div>
+      <div><span class="label">(8)</span><span class="val">\(-\dfrac{1}{2}\cos 2x + C\)</span></div>
+      <div><span class="label">(9)</span><span class="val">\(\dfrac{1}{4}(x-1)^4 + C\)</span></div>
+      <div><span class="label">(10)</span><span class="val">\(\dfrac{1}{3}(2x-1)^{\frac{3}{2}} + C\)</span></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>イナプリ 応用物理 01 ガイダンス ― 解答解説</footer>
+</body>
+</html>

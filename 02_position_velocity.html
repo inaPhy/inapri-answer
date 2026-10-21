@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>02 位置・速度 解答解説</title>
+<meta name="description" content="イナプリ 応用物理02「位置・速度」の例題・練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css?v=2a7e3f1b">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/main.js?v=a863d04a"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="dot"></span><span class="brand-sub">応用物理 </span>解答解説 <small>イナプリ 02</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="index.html">← 一覧に戻る</a>
+    <div class="toc-title">02 位置・速度</div>
+    <ol>
+      <li><a href="#point">ポイント</a></li>
+      <li><a href="#ex1">例題①</a></li>
+      <li><a href="#ex2">例題②</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+      <li><a href="#pr3">練習問題③</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 応用物理 02</div>
+    <h1>位置・速度</h1>
+  </section>
+
+  <!-- ================= ポイント ================= -->
+  <section class="card" id="point">
+    <div class="fig-row">
+      <div style="flex:1 1 240px">
+        <h2 class="bullet-h" style="margin-top:0">位置</h2>
+        <div class="figure" style="max-width:280px" data-draw="ベクトル"><svg class="fig" viewBox="0 0 240 170" role="img" aria-label="xy平面上で，原点Oから見た人の位置"><line class="ink" x1="30" y1="150" x2="215" y2="150" marker-end="url(#ah-ink)"/><text class="lbl m" x="222" y="155" text-anchor="start"><tspan>x</tspan></text><line class="ink" x1="30" y1="150" x2="30" y2="15" marker-end="url(#ah-ink)"/><text class="lbl m" x="24" y="21" text-anchor="end"><tspan>y</tspan></text><text class="lbl small" x="24" y="154" text-anchor="end">O</text><circle class="spot" cx="150.0" cy="74.0" r="3.2"/><g class="person"><path class="limb" d="M147.9,67.3 L146,70"/><path class="limb" d="M148.9,70.2 L148.3,74"/><path class="limb" d="M151.1,70.2 L151.7,74"/><g transform="translate(150,66) rotate(0) scale(1,1)"><path class="skin" d="M-2.3,0 L-2.3,3.7 A2.3,0.9 0 0 0 2.3,3.7 L2.3,0 A2.3,0.9 0 0 0 -2.3,0 Z"/><ellipse class="skin" cx="0" cy="0" rx="2.3" ry="0.9"/></g><path class="limb" d="M152.1,67.3 L154,70"/><circle class="skin" cx="150.6" cy="62.2" r="4.2"/><path class="limb" d="M153.2,63.7 L155.8,64.7"/></g><g class="ans-layer"><line class="aux" x1="150" y1="74" x2="150" y2="150"/><line class="aux" x1="150" y1="74" x2="30" y2="74"/><line class="ans" x1="30" y1="150" x2="148" y2="75" marker-end="url(#ah-ans)"/><text class="lbl ans-t bold m" x="85" y="98" text-anchor="middle"><tspan>r</tspan></text><text class="lbl ans-t m" x="150" y="165" text-anchor="middle"><tspan>X</tspan></text><text class="lbl ans-t m" x="24" y="79" text-anchor="end"><tspan>Y</tspan></text></g></svg></div>
+        <p style="margin:4px 0">位置 \(\boldsymbol{r}\) ＝ <span class="fill">\((X,\ Y)\)</span></p>
+      </div>
+      <div style="flex:1 1 240px">
+        <h2 class="bullet-h" style="margin-top:0">変位</h2>
+        <div class="figure" style="max-width:280px" data-draw="ベクトル"><svg class="fig" viewBox="0 0 240 170" role="img" aria-label="時刻tと時刻t+Δtの人の位置。変位Δrは位置の変化"><line class="ink" x1="30" y1="150" x2="215" y2="150" marker-end="url(#ah-ink)"/><text class="lbl m" x="222" y="155" text-anchor="start"><tspan>x</tspan></text><line class="ink" x1="30" y1="150" x2="30" y2="15" marker-end="url(#ah-ink)"/><text class="lbl m" x="24" y="21" text-anchor="end"><tspan>y</tspan></text><text class="lbl small" x="24" y="154" text-anchor="end">O</text><circle class="spot" cx="95.0" cy="55.0" r="3.2"/><g class="person"><path class="limb" d="M96.4,50 L93.6,52.3 L90.7,51.8"/><path class="limb" d="M96.2,46.8 L93.6,48.1 L92.4,50"/><path class="limb" d="M97.6,50 L100.8,52.1 L99.5,55"/><g transform="translate(97,45.8) rotate(15) scale(1,1)"><path class="skin lpink" d="M-2.4,0 L-2.4,3.7 A2.4,1 0 0 0 2.4,3.7 L2.4,0 A2.4,1 0 0 0 -2.4,0 Z"/><ellipse class="skin lpink" cx="0" cy="0" rx="2.4" ry="1"/></g><path class="limb" d="M98.7,47 L101.6,48.9 L103.7,47.2"/><circle class="skin lpink" cx="98" cy="42" r="4.2"/><path class="limb" d="M100.7,43.5 L103.2,44.5"/></g><circle class="spot" cx="180.0" cy="95.0" r="3.2"/><g class="person"><path class="limb" d="M181.4,90 L178.6,92.3 L175.7,91.8"/><path class="limb" d="M181.2,86.8 L178.6,88.1 L177.4,90"/><path class="limb" d="M182.6,90 L185.8,92.1 L184.5,95"/><g transform="translate(182,85.8) rotate(15) scale(1,1)"><path class="skin lpink" d="M-2.4,0 L-2.4,3.7 A2.4,1 0 0 0 2.4,3.7 L2.4,0 A2.4,1 0 0 0 -2.4,0 Z"/><ellipse class="skin lpink" cx="0" cy="0" rx="2.4" ry="1"/></g><path class="limb" d="M183.7,87 L186.6,88.9 L188.7,87.2"/><circle class="skin lpink" cx="183.1" cy="82" r="4.2"/><path class="limb" d="M185.7,83.5 L188.2,84.5"/></g><text class="lbl small m" x="91" y="37" text-anchor="end"><tspan font-style="normal">時刻 </tspan><tspan>t</tspan></text><text class="lbl small m" x="190" y="83" text-anchor="start"><tspan font-style="normal">時刻 </tspan><tspan>t</tspan><tspan font-style="normal">+Δ</tspan><tspan>t</tspan></text><g class="ans-layer"><line class="aux" x1="95" y1="55" x2="95" y2="150"/><line class="aux" x1="95" y1="55" x2="30" y2="55"/><text class="lbl ans-t small m" x="95" y="165" text-anchor="middle"><tspan>X</tspan></text><text class="lbl ans-t small m" x="24" y="59" text-anchor="end"><tspan>Y</tspan></text><line class="aux" x1="180" y1="95" x2="180" y2="150"/><line class="aux" x1="180" y1="95" x2="30" y2="95"/><text class="lbl ans-t small m" x="180" y="165" text-anchor="middle"><tspan>X</tspan><tspan font-style="normal">′</tspan></text><text class="lbl ans-t small m" x="24" y="99" text-anchor="end"><tspan>Y</tspan><tspan font-style="normal">′</tspan></text><line class="ans" x1="30" y1="150" x2="94" y2="57" marker-end="url(#ah-ans)"/><line class="ans" x1="30" y1="150" x2="178" y2="96" marker-end="url(#ah-ans)"/><line class="ans" x1="97" y1="56" x2="177" y2="94" marker-end="url(#ah-ans)"/><text class="lbl ans-t small m" x="50" y="85" text-anchor="end"><tspan>r</tspan><tspan font-style="normal">(</tspan><tspan>t</tspan><tspan font-style="normal">)</tspan></text><text class="lbl ans-t small m" x="120" y="132" text-anchor="middle"><tspan>r</tspan><tspan font-style="normal">(</tspan><tspan>t</tspan><tspan font-style="normal">+Δ</tspan><tspan>t</tspan><tspan font-style="normal">)</tspan></text><text class="lbl ans-t small m" x="150" y="66" text-anchor="middle"><tspan font-style="normal">Δ</tspan><tspan>r</tspan></text></g></svg></div>
+        <p style="margin:4px 0">変位 \(\Delta\boldsymbol{r}\) ＝ <span class="fill">\((X' - X,\ Y' - Y)\)</span></p>
+        <p style="margin:0;font-size:.85rem;color:var(--muted)">時刻 \(t\) における位置 \(\boldsymbol{r}\) は \(\boldsymbol{r}(t)\) と表す</p>
+      </div>
+    </div>
+    <p class="note"><b>ポイント</b>　変位は「どこからどこへ動いたか」を表す矢印（ベクトル）。後の位置 \(\boldsymbol{r}(t+\Delta t)\) から前の位置 \(\boldsymbol{r}(t)\) を引いたもので，\(\Delta\boldsymbol{r} = \boldsymbol{r}(t+\Delta t) - \boldsymbol{r}(t)\)。途中の道のりには関係しない。</p>
+
+    <h2 class="bullet-h">速度</h2>
+    <div class="fig-row">
+      <div class="yellow-box" style="flex:1 1 260px">平均の速度　\(\overline{\boldsymbol{v}} = \dfrac{\textcolor{#d6362b}{\text{変位}}}{\textcolor{#d6362b}{\text{時間}}} = \dfrac{\Delta \boldsymbol{r}}{\Delta t}\)</div>
+      <div class="yellow-box" style="flex:1 1 200px">（瞬間の）速度　\(\boldsymbol{v} = \dfrac{d\boldsymbol{r}}{dt}\)</div>
+    </div>
+    <p class="note"><b>ポイント</b>　\(\Delta t\) をどんどん小さくしていくと，平均の速度は「その瞬間の速度」に近づく。これが微分 \(\dfrac{d\boldsymbol{r}}{dt}\)。グラフでは，平均の速度は2点を結ぶ直線の傾き，瞬間の速度は接線の傾きになる。</p>
+  </section>
+
+  <!-- ================= 例題① ================= -->
+  <section class="card" id="ex1">
+    <h2><span class="tag">例題①</span></h2>
+    <p class="statement">時刻 \(t = 0\)〔s〕のとき，人Pはスタート地点Aから走り出し，ゴール地点Bまで左向きに走った。この人はAB間（100 m）を進むのに（　．　）秒 かかった。</p>
+    <div class="measure" id="measure">
+      <label>計測1〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+      <label>計測2〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+      <label>計測3〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+      <label>計測4〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+    </div>
+
+    <div class="sub-q">
+      <h3>(1) 原点Oからの点A，点Bの位置ベクトル \(\boldsymbol{r}(t)\) および，変位ベクトル \(\Delta\boldsymbol{r}\) を作図せよ。</h3>
+      <div class="figure" style="max-width:320px" data-draw="ベクトル"><svg class="fig" viewBox="0 0 260 180" role="img" aria-label="スタート地点Aからゴール地点Bまで左向きに走る。原点OはABの下"><circle class="spot" cx="225.0" cy="45.0" r="3.2"/><circle class="spot" cx="40.0" cy="45.0" r="3.2"/><g class="person"><path class="limb" d="M231.2,36.9 L230.8,44"/><path class="limb" d="M235.4,37.6 L233.5,40.8 L235.4,44"/><path class="limb" d="M234.4,38 L231.5,40.8 L231,44"/><g transform="translate(231,35.3) rotate(-65) scale(-1,1)"><path class="skin pink" d="M-2.5,0 L-2.5,4 A2.5,1 0 0 0 2.5,4 L2.5,0 A2.5,1 0 0 0 -2.5,0 Z"/><ellipse class="skin pink" cx="0" cy="0" rx="2.5" ry="1"/></g><path class="limb" d="M230.3,36.9 L228.9,40.3 L229.4,44"/><circle class="skin pink" cx="227.3" cy="36.2" r="4.6"/><path class="limb" d="M224.5,37.8 L221.7,38.9"/></g><g class="person"><path class="limb" d="M42.7,38.5 L45.7,41 L48.9,40.6"/><path class="limb" d="M42.9,35 L45.7,36.4 L47.1,38.5"/><path class="limb" d="M41.3,38.5 L37.9,40.8 L39.2,44"/><g transform="translate(42,33.9) rotate(-15) scale(-1,1)"><path class="skin pink" d="M-2.6,0 L-2.6,4 A2.6,1.1 0 0 0 2.6,4 L2.6,0 A2.6,1.1 0 0 0 -2.6,0 Z"/><ellipse class="skin pink" cx="0" cy="0" rx="2.6" ry="1.1"/></g><path class="limb" d="M40.2,35.3 L36.9,37.3 L34.6,35.5"/><circle class="skin pink" cx="40.9" cy="29.7" r="4.6"/><path class="limb" d="M38,31.4 L35.2,32.5"/></g><text class="lbl" x="229" y="62" text-anchor="middle">A</text><text class="lbl" x="37" y="62" text-anchor="middle">B</text><circle class="dot-ink" cx="130" cy="160" r="3"/><text class="lbl" x="130" y="177" text-anchor="middle">O</text><g class="ans-layer"><line class="ans" x1="130" y1="160" x2="222" y2="49" marker-end="url(#ah-ans)"/><line class="ans" x1="130" y1="160" x2="43" y2="49" marker-end="url(#ah-ans)"/><line class="ans" x1="219" y1="45" x2="47" y2="45" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="195" y="110" text-anchor="start"><tspan>r</tspan><tspan font-style="normal">(0)</tspan></text><text class="lbl ans-t m" x="66" y="110" text-anchor="end"><tspan>r</tspan><tspan font-style="normal">(</tspan><tspan>t</tspan><tspan font-style="normal">)</tspan></text><text class="lbl ans-t m" x="132" y="36" text-anchor="middle"><tspan font-style="normal">Δ</tspan><tspan>r</tspan></text></g></svg></div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>位置ベクトルは<b>原点Oから</b>その点へ向かう矢印。スタートの \(t = 0\) ではAにいるので \(\boldsymbol{r}(0)\) は O→A，ゴールの時刻 \(t\)（計測した時刻）ではBにいるので \(\boldsymbol{r}(t)\) は O→B。</p>
+        <p>変位ベクトル \(\Delta\boldsymbol{r}\) は<b>前の位置から後の位置へ</b>向かう矢印なので，A→B（左向き，長さ 100 m）になる。</p>
+        <div class="eqwrap">\[ \Delta\boldsymbol{r} = \boldsymbol{r}(t) - \boldsymbol{r}(0) \]</div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(2) 点Aから点Bまでの人Pの平均の速度 \(\overline{\boldsymbol{v}}\) および平均の速さ \(\overline{v}\) はいくらか。</h3>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>平均の速度は「変位 ÷ 時間」。変位は A→B の向き（<b>左向き</b>）に 100 m，かかった時間は計測した時刻 \(t\)〔s〕なので</p>
+        <div class="eqwrap">\[ \overline{v} = \frac{100}{t} \ \text{〔m/s〕} \]</div>
+        <p>速度は向きをもつ量なので「左向きに \(\dfrac{100}{t}\) m/s」と向きもつけて答える。速さは向きを考えない大きさだけなので「\(\dfrac{100}{t}\) m/s」。</p>
+        <div class="calc-result" id="measure-out">上の計測欄に時刻を入れると計算できます。（例：平均 \(t = 15.00\) s なら，平均の速度は左向きに \(100 \div 15.00 \approx 6.7\) m/s）</div>
+      </div></details>
+      <div class="answer-grid hide-ans">
+        <div><span class="label">(2) 速度</span><span class="val">左向きに \(\dfrac{100}{t}\)〔m/s〕</span></div>
+        <div><span class="label">(2) 速さ</span><span class="val">\(\dfrac{100}{t}\)〔m/s〕</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 例題② ================= -->
+  <section class="card" id="ex2">
+    <h2><span class="tag">例題②</span></h2>
+    <p class="statement">例題①の人Pが 100 m を走ったとき，下表は，スタート地点Aを基準 0〔m〕にした位置 \(r\)〔m〕とその地点での通過時刻 \(t\)〔s〕を示したものである。また，下表をプロットし，グラフにした。</p>
+    <div style="overflow-x:auto"><table class="data-table">
+      <tr><th>位置 \(r\)〔m〕</th><td>0</td><td>10</td><td>20</td><td>30</td><td>40</td><td>50</td></tr>
+      <tr><th>時刻 \(t\)〔s〕</th><td>0.00</td><td>1.91</td><td>3.05</td><td>4.03</td><td>4.97</td><td>…</td></tr>
+    </table></div>
+    <div class="figure wide" style="max-width:480px" data-draw="補助線"><svg class="fig" viewBox="0 0 330 260" role="img" aria-label="位置r〔m〕と時刻t〔s〕のグラフ。r ≃ 0.848t² + 3.90t"><line class="grid-minor" x1="45.4" y1="230" x2="45.4" y2="9.5"/><line class="grid-minor" x1="50.8" y1="230" x2="50.8" y2="9.5"/><line class="grid-minor" x1="56.2" y1="230" x2="56.2" y2="9.5"/><line class="grid-minor" x1="61.6" y1="230" x2="61.6" y2="9.5"/><line class="grid-minor" x1="67" y1="230" x2="67" y2="9.5"/><line class="grid-minor" x1="72.4" y1="230" x2="72.4" y2="9.5"/><line class="grid-minor" x1="77.8" y1="230" x2="77.8" y2="9.5"/><line class="grid-minor" x1="83.2" y1="230" x2="83.2" y2="9.5"/><line class="grid-minor" x1="88.6" y1="230" x2="88.6" y2="9.5"/><line class="grid-major" x1="94" y1="230" x2="94" y2="9.5"/><line class="grid-minor" x1="99.4" y1="230" x2="99.4" y2="9.5"/><line class="grid-minor" x1="104.8" y1="230" x2="104.8" y2="9.5"/><line class="grid-minor" x1="110.2" y1="230" x2="110.2" y2="9.5"/><line class="grid-minor" x1="115.6" y1="230" x2="115.6" y2="9.5"/><line class="grid-minor" x1="121" y1="230" x2="121" y2="9.5"/><line class="grid-minor" x1="126.4" y1="230" x2="126.4" y2="9.5"/><line class="grid-minor" x1="131.8" y1="230" x2="131.8" y2="9.5"/><line class="grid-minor" x1="137.2" y1="230" x2="137.2" y2="9.5"/><line class="grid-minor" x1="142.6" y1="230" x2="142.6" y2="9.5"/><line class="grid-major" x1="148" y1="230" x2="148" y2="9.5"/><line class="grid-minor" x1="153.4" y1="230" x2="153.4" y2="9.5"/><line class="grid-minor" x1="158.8" y1="230" x2="158.8" y2="9.5"/><line class="grid-minor" x1="164.2" y1="230" x2="164.2" y2="9.5"/><line class="grid-minor" x1="169.6" y1="230" x2="169.6" y2="9.5"/><line class="grid-minor" x1="175" y1="230" x2="175" y2="9.5"/><line class="grid-minor" x1="180.4" y1="230" x2="180.4" y2="9.5"/><line class="grid-minor" x1="185.8" y1="230" x2="185.8" y2="9.5"/><line class="grid-minor" x1="191.2" y1="230" x2="191.2" y2="9.5"/><line class="grid-minor" x1="196.6" y1="230" x2="196.6" y2="9.5"/><line class="grid-major" x1="202" y1="230" x2="202" y2="9.5"/><line class="grid-minor" x1="207.4" y1="230" x2="207.4" y2="9.5"/><line class="grid-minor" x1="212.8" y1="230" x2="212.8" y2="9.5"/><line class="grid-minor" x1="218.2" y1="230" x2="218.2" y2="9.5"/><line class="grid-minor" x1="223.6" y1="230" x2="223.6" y2="9.5"/><line class="grid-minor" x1="229" y1="230" x2="229" y2="9.5"/><line class="grid-minor" x1="234.4" y1="230" x2="234.4" y2="9.5"/><line class="grid-minor" x1="239.8" y1="230" x2="239.8" y2="9.5"/><line class="grid-minor" x1="245.2" y1="230" x2="245.2" y2="9.5"/><line class="grid-minor" x1="250.6" y1="230" x2="250.6" y2="9.5"/><line class="grid-major" x1="256" y1="230" x2="256" y2="9.5"/><line class="grid-minor" x1="261.4" y1="230" x2="261.4" y2="9.5"/><line class="grid-minor" x1="266.8" y1="230" x2="266.8" y2="9.5"/><line class="grid-minor" x1="272.2" y1="230" x2="272.2" y2="9.5"/><line class="grid-minor" x1="277.6" y1="230" x2="277.6" y2="9.5"/><line class="grid-minor" x1="283" y1="230" x2="283" y2="9.5"/><line class="grid-minor" x1="288.4" y1="230" x2="288.4" y2="9.5"/><line class="grid-minor" x1="293.8" y1="230" x2="293.8" y2="9.5"/><line class="grid-minor" x1="299.2" y1="230" x2="299.2" y2="9.5"/><line class="grid-minor" x1="304.6" y1="230" x2="304.6" y2="9.5"/><line class="grid-major" x1="310" y1="230" x2="310" y2="9.5"/><line class="grid-minor" x1="315.4" y1="230" x2="315.4" y2="9.5"/><line class="grid-minor" x1="320.8" y1="230" x2="320.8" y2="9.5"/><line class="grid-minor" x1="326.2" y1="230" x2="326.2" y2="9.5"/><line class="grid-minor" x1="331.6" y1="230" x2="331.6" y2="9.5"/><line class="grid-minor" x1="337" y1="230" x2="337" y2="9.5"/><line class="grid-major" x1="40" y1="181" x2="337" y2="181"/><text class="lbl small m" x="34" y="186" text-anchor="end"><tspan font-style="normal">10</tspan></text><line class="grid-major" x1="40" y1="132" x2="337" y2="132"/><text class="lbl small m" x="34" y="137" text-anchor="end"><tspan font-style="normal">20</tspan></text><line class="grid-major" x1="40" y1="83" x2="337" y2="83"/><text class="lbl small m" x="34" y="88" text-anchor="end"><tspan font-style="normal">30</tspan></text><line class="grid-major" x1="40" y1="34" x2="337" y2="34"/><text class="lbl small m" x="34" y="39" text-anchor="end"><tspan font-style="normal">40</tspan></text><text class="lbl small m" x="94" y="245" text-anchor="middle"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="148" y="245" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="202" y="245" text-anchor="middle"><tspan font-style="normal">3.0</tspan></text><text class="lbl small m" x="256" y="245" text-anchor="middle"><tspan font-style="normal">4.0</tspan></text><text class="lbl small m" x="310" y="245" text-anchor="middle"><tspan font-style="normal">5.0</tspan></text><line class="ink" x1="40" y1="230" x2="350.5" y2="230" marker-end="url(#ah-ink)"/><line class="ink" x1="40" y1="230" x2="40" y2="-0.3" marker-end="url(#ah-ink)"/><text class="lbl m" x="354.5" y="235" text-anchor="start"></text><text class="lbl m" x="40" y="-8.3" text-anchor="middle"></text><text class="lbl m" x="35" y="245" text-anchor="end"><tspan>O</tspan></text><text class="lbl small m" x="354.5" y="235" text-anchor="start"><tspan font-style="normal">時刻 </tspan><tspan>t</tspan><tspan font-style="normal">〔s〕</tspan></text><text class="lbl small m" x="40" y="-8.3" text-anchor="middle"><tspan font-style="normal">位置 </tspan><tspan>r</tspan><tspan font-style="normal">〔m〕</tspan></text><polyline class="curve-gray" fill="none" points="40,230 43.6,228.7 47.3,227.3 50.9,226 54.6,224.5 58.2,223.1 61.9,221.6 65.5,220 69.2,218.5 72.8,216.9 76.5,215.2 80.1,213.5 83.7,211.8 87.4,210 91,208.2 94.7,206.4 98.3,204.5 102,202.6 105.6,200.6 109.3,198.7 112.9,196.6 116.5,194.6 120.2,192.5 123.8,190.3 127.5,188.1 131.1,185.9 134.8,183.7 138.4,181.4 142.1,179 145.7,176.7 149.3,174.3 153,171.8 156.6,169.3 160.3,166.8 163.9,164.3 167.6,161.7 171.2,159 174.9,156.4 178.5,153.6 182.2,150.9 185.8,148.1 189.4,145.3 193.1,142.4 196.7,139.5 200.4,136.6 204,133.6 207.7,130.6 211.3,127.6 215,124.5 218.6,121.3 222.2,118.2 225.9,115 229.5,111.7 233.2,108.5 236.8,105.1 240.5,101.8 244.1,98.4 247.8,95 251.4,91.5 255.1,88 258.7,84.4 262.3,80.9 266,77.2 269.6,73.6 273.3,69.9 276.9,66.2 280.6,62.4 284.2,58.6 287.9,54.7 291.5,50.9 295.1,46.9 298.8,43 302.4,39 306.1,34.9 309.7,30.9 313.4,26.8 317,22.6 320.7,18.4 324.3,14.2 328,9.9 331.6,5.6"/><circle class="dot-ink" cx="40" cy="230" r="2.4"/><circle class="dot-ink" cx="143.1" cy="181" r="2.4"/><circle class="dot-ink" cx="204.7" cy="132" r="2.4"/><circle class="dot-ink" cx="257.6" cy="83" r="2.4"/><circle class="dot-ink" cx="308.4" cy="34" r="2.4"/><rect class="label-bg" x="286.4" y="51.1" width="104" height="17"/><text class="lbl small m" x="288.4" y="63.4" text-anchor="start"><tspan>r</tspan><tspan font-style="normal"> ≃ 0.848</tspan><tspan>t</tspan><tspan dy="-6" font-size="70%" font-style="normal">2</tspan><tspan dy="6" font-style="normal">+3.90</tspan><tspan>t</tspan></text><g class="ans-layer"><line class="aux" x1="40" y1="230" x2="308.4" y2="34"/><line class="aux" x1="143.1" y1="181" x2="257.6" y2="83"/><line class="ans" x1="153.4" y1="174.2" x2="256" y2="89.8"/><text class="jp tiny ans-t m" x="56.2" y="68.3" text-anchor="start"><tspan font-style="normal">破線：平均の速さ（2点を結ぶ直線）</tspan></text><text class="jp tiny ans-t m" x="56.2" y="87.9" text-anchor="start"><tspan font-style="normal">実線：20 m 地点の接線</tspan></text></g></svg></div>
+    <ol class="qs">
+      <li>この人の 0〜40 m の間における平均の速さは何 m/s か。</li>
+      <li>この人の 10〜30 m の間における平均の速さは何 m/s か。</li>
+      <li>この人の 20 m 地点での瞬間の速さは何 m/s か。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>0〜40 m の平均の速さ</h4>
+      <p>平均の速さは「進んだ距離 ÷ かかった時間」。表から 0 m は 0.00 s，40 m は 4.97 s に通過したので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{40 - 0}{4.97 - 0} = 8.048\cdots \fallingdotseq 8.0 \ \text{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{40 - 0}{4.97 - 0} \\ &= 8.048\cdots \\ &\fallingdotseq 8.0 \ \text{m/s} \end{aligned} \]</div></div>
+      <p>グラフでは，原点と (4.97, 40) を結んだ直線（図の破線）の傾きにあたる。</p>
+      <h4><span class="n">(2)</span>10〜30 m の平均の速さ</h4>
+      <p>10 m は 1.91 s，30 m は 4.03 s に通過したので，その間の距離と時間で割る。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{30 - 10}{4.03 - 1.91} = \frac{20}{2.12} = 9.43\cdots \fallingdotseq 9.4 \ \text{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{30 - 10}{4.03 - 1.91} \\ &= \frac{20}{2.12} \\ &= 9.43\cdots \\ &\fallingdotseq 9.4 \ \text{m/s} \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span>20 m 地点での瞬間の速さ</h4>
+      <p>瞬間の速さは位置を時間で微分した \(v = \dfrac{dr}{dt}\)（グラフの接線の傾き）。グラフの式 \(r \simeq 0.848t^2 + 3.90t\) を \(t\) で微分すると</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \frac{dr}{dt} = 2\times 0.848\,t + 3.90 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{dr}{dt} \\ &= 2\times 0.848\,t + 3.90 \end{aligned} \]</div></div>
+      <p>表より 20 m 地点を通過したのは \(t = 3.05\) s なので，これを代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = 2\times 0.848\times 3.05 + 3.90 = 9.0728 \fallingdotseq 9.1 \ \text{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= 2\times 0.848\times 3.05 + 3.90 \\ &= 9.0728 \\ &\fallingdotseq 9.1 \ \text{m/s} \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">8.0〔m/s〕</span></div>
+      <div><span class="label">(2)</span><span class="val">9.4〔m/s〕</span></div>
+      <div><span class="label">(3)</span><span class="val">9.1〔m/s〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <p class="statement">(1)〜(3) の図のように，\(xy\) 平面または \(xyz\) 空間を始点 A→B→C→終点 D の順に物体を移動させたときの変位ベクトル \(\Delta\boldsymbol{r}\) を図中に描き加えよ。また，この経路での物体の移動距離および変位を答えよ。ただし，\(\sqrt{2} = 1.41\) とする。</p>
+    <div class="fig-row">
+      <div class="figure small" style="max-width:190px" data-draw="変位">(1)<svg class="fig" viewBox="0 0 150 165" role="img" aria-label="方眼上をA→B→C→Dと移動する経路(1)"><line class="grid-ink" x1="40" y1="140" x2="40" y2="32"/><line class="grid-ink" x1="22" y1="122" x2="130" y2="122"/><line class="grid-ink" x1="58" y1="140" x2="58" y2="32"/><line class="grid-ink" x1="22" y1="104" x2="130" y2="104"/><line class="grid-ink" x1="76" y1="140" x2="76" y2="32"/><line class="grid-ink" x1="22" y1="86" x2="130" y2="86"/><line class="grid-ink" x1="94" y1="140" x2="94" y2="32"/><line class="grid-ink" x1="22" y1="68" x2="130" y2="68"/><line class="grid-ink" x1="112" y1="140" x2="112" y2="32"/><line class="grid-ink" x1="22" y1="50" x2="130" y2="50"/><line class="grid-ink" x1="130" y1="140" x2="130" y2="32"/><line class="grid-ink" x1="22" y1="32" x2="130" y2="32"/><line class="ink" x1="22" y1="140" x2="146.2" y2="140" marker-end="url(#ah-ink)"/><line class="ink" x1="22" y1="140" x2="22" y2="17.6" marker-end="url(#ah-ink)"/><text class="lbl small m" x="148.2" y="154" text-anchor="middle"><tspan>x</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small m" x="24" y="13.6" text-anchor="start"><tspan>y</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small" x="18" y="154" text-anchor="middle">O</text><path class="vel-thin" d="M40.0,122.0 L112.0,122.0 L112.0,50.0 L94.0,50.0"/><circle class="dot-vel" cx="40.0" cy="122.0" r="3"/><text class="lbl small" x="32" y="127" text-anchor="middle">A</text><circle class="dot-vel" cx="112.0" cy="122.0" r="3"/><text class="lbl small" x="120" y="136" text-anchor="middle">B</text><circle class="dot-vel" cx="112.0" cy="50.0" r="3"/><text class="lbl small" x="120" y="45" text-anchor="middle">C</text><circle class="dot-vel" cx="94.0" cy="50.0" r="3"/><text class="lbl small" x="86" y="45" text-anchor="middle">D</text><g class="ans-layer"><line class="ans" x1="40" y1="122" x2="94" y2="50" marker-end="url(#ah-ans)"/></g><text class="jp tiny" x="76" y="168" text-anchor="middle">1マスは 1.0m</text></svg></div>
+      <div class="figure small" style="max-width:190px" data-draw="変位">(2)<svg class="fig" viewBox="0 0 150 165" role="img" aria-label="方眼上をA→B→C→Dと移動する経路(2)"><line class="grid-ink" x1="40" y1="140" x2="40" y2="32"/><line class="grid-ink" x1="22" y1="122" x2="130" y2="122"/><line class="grid-ink" x1="58" y1="140" x2="58" y2="32"/><line class="grid-ink" x1="22" y1="104" x2="130" y2="104"/><line class="grid-ink" x1="76" y1="140" x2="76" y2="32"/><line class="grid-ink" x1="22" y1="86" x2="130" y2="86"/><line class="grid-ink" x1="94" y1="140" x2="94" y2="32"/><line class="grid-ink" x1="22" y1="68" x2="130" y2="68"/><line class="grid-ink" x1="112" y1="140" x2="112" y2="32"/><line class="grid-ink" x1="22" y1="50" x2="130" y2="50"/><line class="grid-ink" x1="130" y1="140" x2="130" y2="32"/><line class="grid-ink" x1="22" y1="32" x2="130" y2="32"/><line class="ink" x1="22" y1="140" x2="146.2" y2="140" marker-end="url(#ah-ink)"/><line class="ink" x1="22" y1="140" x2="22" y2="17.6" marker-end="url(#ah-ink)"/><text class="lbl small m" x="148.2" y="154" text-anchor="middle"><tspan>x</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small m" x="24" y="13.6" text-anchor="start"><tspan>y</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small" x="18" y="154" text-anchor="middle">O</text><path class="vel-thin" d="M40.0,50.0 L76.0,50.0 L112.0,86.0 L112.0,122.0"/><circle class="dot-vel" cx="40.0" cy="50.0" r="3"/><text class="lbl small" x="38" y="43" text-anchor="middle">A</text><circle class="dot-vel" cx="76.0" cy="50.0" r="3"/><text class="lbl small" x="78" y="43" text-anchor="middle">B</text><circle class="dot-vel" cx="112.0" cy="86.0" r="3"/><text class="lbl small" x="122" y="86" text-anchor="middle">C</text><circle class="dot-vel" cx="112.0" cy="122.0" r="3"/><text class="lbl small" x="120" y="134" text-anchor="middle">D</text><g class="ans-layer"><line class="ans" x1="40" y1="50" x2="112" y2="122" marker-end="url(#ah-ans)"/></g><text class="jp tiny" x="76" y="168" text-anchor="middle">1マスは 1.0m</text></svg></div>
+      <div class="figure small" style="max-width:250px" data-draw="変位">(3)<svg class="fig" viewBox="0 0 210 170" role="img" aria-label="xyz空間をA→B→C→Dと移動する経路(3)"><line class="aux-dot" x1="46.6" y1="127.8" x2="46.6" y2="23.8"/><line class="aux-dot" x1="124.6" y1="127.8" x2="124.6" y2="23.8"/><line class="aux-dot" x1="173" y1="95" x2="173" y2="-9"/><line class="aux-dot" x1="46.6" y1="23.8" x2="124.6" y2="23.8"/><line class="aux-dot" x1="124.6" y1="23.8" x2="173" y2="-9"/><line class="aux-dot" x1="95" y1="-9" x2="46.6" y2="23.8"/><line class="aux-dot" x1="95" y1="-9" x2="173" y2="-9"/><line class="ink" x1="95" y1="95" x2="28.9" y2="139.8" marker-end="url(#ah-ink)"/><line class="ink" x1="95" y1="95" x2="204.2" y2="95" marker-end="url(#ah-ink)"/><line class="ink" x1="95" y1="95" x2="95" y2="-24.6" marker-end="url(#ah-ink)"/><text class="lbl small m" x="20.8" y="145.2" text-anchor="middle"><tspan>x</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small m" x="208.8" y="100" text-anchor="start"><tspan>y</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small m" x="91" y="-20.6" text-anchor="end"><tspan>z</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small" x="89" y="91" text-anchor="middle">O</text><text class="lbl small m" x="91" y="-5" text-anchor="end"><tspan font-style="normal">4</tspan></text><text class="lbl small m" x="38.6" y="127.8" text-anchor="end"><tspan font-style="normal">3</tspan></text><text class="lbl small m" x="173" y="87" text-anchor="middle"><tspan font-style="normal">3</tspan></text><path class="vel-thin" d="M46.6,127.8 L124.6,127.8 L173.0,95.0 L124.6,23.8"/><circle class="dot-vel" cx="46.6" cy="127.8" r="3"/><text class="lbl small" x="46.6" y="141.8" text-anchor="middle">A</text><circle class="dot-vel" cx="124.6" cy="127.8" r="3"/><text class="lbl small" x="124.6" y="141.8" text-anchor="middle">B</text><circle class="dot-vel" cx="173.0" cy="95.0" r="3"/><text class="lbl small" x="177" y="109" text-anchor="middle">C</text><circle class="dot-vel" cx="124.6" cy="23.8" r="3"/><text class="lbl small" x="114.6" y="27.8" text-anchor="middle">D</text><g class="ans-layer"><line class="ans" x1="46.6" y1="127.8" x2="124.6" y2="23.8" marker-end="url(#ah-ans)"/></g></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p><b>移動距離</b>は実際に通った道のりの長さの合計，<b>変位</b>は始点Aから終点Dへの矢印（図の赤い矢印）で，成分 \((x,\ y)\) や \((x,\ y,\ z)\) で答える。変位の成分は「終点の座標 − 始点の座標」。</p>
+      <h4><span class="n">(1)</span></h4>
+      <p>A(1, 1)→B(5, 1)→C(5, 5)→D(4, 5) なので，各区間の長さを足す。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 4 + 4 + 1 = 9.0 \ \text{m}, \qquad \Delta\boldsymbol{r} = (4 - 1,\ 5 - 1) = (3.0,\ 4.0) \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 4 + 4 + 1 \\ &= 9.0 \ \text{m} \\ \Delta\boldsymbol{r} &= (4 - 1,\ 5 - 1) \\ &= (3.0,\ 4.0) \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span></h4>
+      <p>A(1, 5)→B(3, 5)→C(5, 3)→D(5, 1)。B→C は斜めに 2 マス × 2 マス進むので，三平方の定理で \(\sqrt{2^2 + 2^2} = 2\sqrt{2}\)。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 2 + 2\sqrt{2} + 2 = 4 + 2\times 1.41 = 6.82 \fallingdotseq 6.8 \ \text{m}, \qquad \Delta\boldsymbol{r} = (5 - 1,\ 1 - 5) = (4.0,\ -4.0) \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 2 + 2\sqrt{2} + 2 \\ &= 4 + 2\times 1.41 \\ &= 6.82 \\ &\fallingdotseq 6.8 \ \text{m} \\ \Delta\boldsymbol{r} &= (5 - 1,\ 1 - 5) \\ &= (4.0,\ -4.0) \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span></h4>
+      <p>A(3, 0, 0)→B(3, 3, 0)→C(0, 3, 0)→D(3, 3, 4)。C→D は \(x\) に 3，\(z\) に 4 進む斜めの移動なので \(\sqrt{3^2 + 4^2} = 5\)。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 3 + 3 + 5 = 11 \ \text{m}, \qquad \Delta\boldsymbol{r} = (3 - 3,\ 3 - 0,\ 4 - 0) = (0,\ 3.0,\ 4.0) \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 3 + 3 + 5 \\ &= 11 \ \text{m} \\ \Delta\boldsymbol{r} &= (3 - 3,\ 3 - 0,\ 4 - 0) \\ &= (0,\ 3.0,\ 4.0) \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1) 移動距離</span><span class="val">9.0〔m〕</span></div>
+      <div><span class="label">(2) 移動距離</span><span class="val">6.8〔m〕</span></div>
+      <div><span class="label">(3) 移動距離</span><span class="val">11〔m〕</span></div>
+      <div><span class="label">(1) 変位</span><span class="val">(3.0〔m〕, 4.0〔m〕)</span></div>
+      <div><span class="label">(2) 変位</span><span class="val">(4.0〔m〕, −4.0〔m〕)</span></div>
+      <div><span class="label">(3) 変位</span><span class="val">(0〔m〕, 3.0〔m〕, 4.0〔m〕)</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <p class="statement">直線上を運動する物体の時刻 \(t\)〔s〕での位置 \(r\)〔m〕が \(r(t) = t^2 - 2t + 1\) で表されるとき，次の (1)〜(3) の問いに答えよ。</p>
+    <ol class="qs">
+      <li>\(t = 2.0\)〔s〕のときの，物体の位置を答えよ。</li>
+      <li>時刻 \(t\) のときの，物体の速度 \(v(t)\) を \(t\) を用いて表せ。</li>
+      <li>\(t = 3.5\)〔s〕のときの，物体の速度はいくらか。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>位置</h4>
+      <p>位置の式 \(r(t)\) に \(t = 2.0\) を代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r(2) = 2^2 - 2\times 2 + 1 = 1.0 \ \text{m} \]</div><div class="eq-narrow">\[ \begin{aligned} r(2) &= 2^2 - 2\times 2 + 1 \\ &= 1.0 \ \text{m} \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span>速度</h4>
+      <p>速度は位置を時間で微分したもの（\(v = \dfrac{dr}{dt}\)）。\(t^2\) は \(2t\)，\(-2t\) は \(-2\)，定数 1 は 0 になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v(t) = \frac{dr}{dt} = 2t - 2 \]</div><div class="eq-narrow">\[ \begin{aligned} v(t) &= \frac{dr}{dt} \\ &= 2t - 2 \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span>\(t = 3.5\) s の速度</h4>
+      <p>(2) で求めた速度の式に \(t = 3.5\) を代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v(3.5) = 2\times 3.5 - 2 = 5.0 \ \text{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v(3.5) &= 2\times 3.5 - 2 \\ &= 5.0 \ \text{m/s} \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">1.0〔m〕</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v(t) = 2t - 2\)〔m/s〕</span></div>
+      <div><span class="label">(3)</span><span class="val">5.0〔m/s〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題③ ================= -->
+  <section class="card" id="pr3">
+    <h2><span class="tag practice">練習問題③</span></h2>
+    <p class="statement">ある物体が直線上を時刻 0〔s〕のときに，原点 0〔m〕を出発した。図は，原点からの距離とその地点での通過時刻の関係を示したグラフである。</p>
+    <div class="figure wide" style="max-width:480px" data-draw="補助線"><svg class="fig" viewBox="0 0 330 260" role="img" aria-label="距離〔m〕と時刻〔s〕のグラフ。1.0 sごとに 2, 8, 18, 32, 50 m"><line class="grid-minor" x1="50.8" y1="230" x2="50.8" y2="11.6"/><line class="grid-minor" x1="61.6" y1="230" x2="61.6" y2="11.6"/><line class="grid-minor" x1="72.4" y1="230" x2="72.4" y2="11.6"/><line class="grid-minor" x1="83.2" y1="230" x2="83.2" y2="11.6"/><line class="grid-major" x1="94" y1="230" x2="94" y2="11.6"/><line class="grid-minor" x1="104.8" y1="230" x2="104.8" y2="11.6"/><line class="grid-minor" x1="115.6" y1="230" x2="115.6" y2="11.6"/><line class="grid-minor" x1="126.4" y1="230" x2="126.4" y2="11.6"/><line class="grid-minor" x1="137.2" y1="230" x2="137.2" y2="11.6"/><line class="grid-major" x1="148" y1="230" x2="148" y2="11.6"/><line class="grid-minor" x1="158.8" y1="230" x2="158.8" y2="11.6"/><line class="grid-minor" x1="169.6" y1="230" x2="169.6" y2="11.6"/><line class="grid-minor" x1="180.4" y1="230" x2="180.4" y2="11.6"/><line class="grid-minor" x1="191.2" y1="230" x2="191.2" y2="11.6"/><line class="grid-major" x1="202" y1="230" x2="202" y2="11.6"/><line class="grid-minor" x1="212.8" y1="230" x2="212.8" y2="11.6"/><line class="grid-minor" x1="223.6" y1="230" x2="223.6" y2="11.6"/><line class="grid-minor" x1="234.4" y1="230" x2="234.4" y2="11.6"/><line class="grid-minor" x1="245.2" y1="230" x2="245.2" y2="11.6"/><line class="grid-major" x1="256" y1="230" x2="256" y2="11.6"/><line class="grid-minor" x1="266.8" y1="230" x2="266.8" y2="11.6"/><line class="grid-minor" x1="277.6" y1="230" x2="277.6" y2="11.6"/><line class="grid-minor" x1="288.4" y1="230" x2="288.4" y2="11.6"/><line class="grid-minor" x1="299.2" y1="230" x2="299.2" y2="11.6"/><line class="grid-major" x1="310" y1="230" x2="310" y2="11.6"/><line class="grid-minor" x1="320.8" y1="230" x2="320.8" y2="11.6"/><line class="grid-minor" x1="331.6" y1="230" x2="331.6" y2="11.6"/><line class="grid-minor" x1="40" y1="221.6" x2="337" y2="221.6"/><line class="grid-minor" x1="40" y1="213.2" x2="337" y2="213.2"/><line class="grid-minor" x1="40" y1="204.8" x2="337" y2="204.8"/><line class="grid-minor" x1="40" y1="196.4" x2="337" y2="196.4"/><line class="grid-major" x1="40" y1="188" x2="337" y2="188"/><line class="grid-minor" x1="40" y1="179.6" x2="337" y2="179.6"/><line class="grid-minor" x1="40" y1="171.2" x2="337" y2="171.2"/><line class="grid-minor" x1="40" y1="162.8" x2="337" y2="162.8"/><line class="grid-minor" x1="40" y1="154.4" x2="337" y2="154.4"/><line class="grid-major" x1="40" y1="146" x2="337" y2="146"/><line class="grid-minor" x1="40" y1="137.6" x2="337" y2="137.6"/><line class="grid-minor" x1="40" y1="129.2" x2="337" y2="129.2"/><line class="grid-minor" x1="40" y1="120.8" x2="337" y2="120.8"/><line class="grid-minor" x1="40" y1="112.4" x2="337" y2="112.4"/><line class="grid-major" x1="40" y1="104" x2="337" y2="104"/><line class="grid-minor" x1="40" y1="95.6" x2="337" y2="95.6"/><line class="grid-minor" x1="40" y1="87.2" x2="337" y2="87.2"/><line class="grid-minor" x1="40" y1="78.8" x2="337" y2="78.8"/><line class="grid-minor" x1="40" y1="70.4" x2="337" y2="70.4"/><line class="grid-major" x1="40" y1="62" x2="337" y2="62"/><line class="grid-minor" x1="40" y1="53.6" x2="337" y2="53.6"/><line class="grid-minor" x1="40" y1="45.2" x2="337" y2="45.2"/><line class="grid-minor" x1="40" y1="36.8" x2="337" y2="36.8"/><line class="grid-minor" x1="40" y1="28.4" x2="337" y2="28.4"/><line class="grid-major" x1="40" y1="20" x2="337" y2="20"/><line class="grid-minor" x1="40" y1="11.6" x2="337" y2="11.6"/><text class="lbl small m" x="34" y="193" text-anchor="end"><tspan font-style="normal">10</tspan></text><text class="lbl small m" x="34" y="151" text-anchor="end"><tspan font-style="normal">20</tspan></text><text class="lbl small m" x="34" y="109" text-anchor="end"><tspan font-style="normal">30</tspan></text><text class="lbl small m" x="34" y="67" text-anchor="end"><tspan font-style="normal">40</tspan></text><text class="lbl small m" x="34" y="25" text-anchor="end"><tspan font-style="normal">50</tspan></text><text class="lbl small m" x="94" y="245" text-anchor="middle"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="148" y="245" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="202" y="245" text-anchor="middle"><tspan font-style="normal">3.0</tspan></text><text class="lbl small m" x="256" y="245" text-anchor="middle"><tspan font-style="normal">4.0</tspan></text><text class="lbl small m" x="310" y="245" text-anchor="middle"><tspan font-style="normal">5.0</tspan></text><line class="ink" x1="40" y1="230" x2="350.5" y2="230" marker-end="url(#ah-ink)"/><line class="ink" x1="40" y1="230" x2="40" y2="3.2" marker-end="url(#ah-ink)"/><text class="lbl m" x="354.5" y="235" text-anchor="start"></text><text class="lbl m" x="40" y="-4.8" text-anchor="middle"></text><text class="lbl m" x="35" y="245" text-anchor="end"><tspan>O</tspan></text><text class="lbl small m" x="354.5" y="235" text-anchor="start"><tspan font-style="normal">時刻〔s〕</tspan></text><text class="lbl small m" x="40" y="-4.8" text-anchor="middle"><tspan font-style="normal">距離〔m〕</tspan></text><polyline class="curve-gray" fill="none" points="40,230 43.5,230 47,229.9 50.4,229.7 53.9,229.4 57.4,229.1 60.9,228.7 64.3,228.3 67.8,227.8 71.3,227.2 74.8,226.5 78.2,225.8 81.7,225 85.2,224.1 88.7,223.2 92.1,222.2 95.6,221.1 99.1,219.9 102.6,218.7 106,217.4 109.5,216.1 113,214.6 116.5,213.2 120,211.6 123.4,209.9 126.9,208.2 130.4,206.5 133.9,204.6 137.3,202.7 140.8,200.7 144.3,198.7 147.8,196.5 151.2,194.4 154.7,192.1 158.2,189.8 161.7,187.4 165.1,184.9 168.6,182.3 172.1,179.7 175.6,177.1 179.1,174.3 182.5,171.5 186,168.6 189.5,165.6 193,162.6 196.4,159.5 199.9,156.3 203.4,153.1 206.9,149.8 210.3,146.4 213.8,143 217.3,139.5 220.8,135.9 224.2,132.2 227.7,128.5 231.2,124.7 234.7,120.8 238.1,116.9 241.6,112.9 245.1,108.8 248.6,104.7 252.1,100.5 255.5,96.2 259,91.8 262.5,87.4 266,82.9 269.4,78.4 272.9,73.7 276.4,69 279.9,64.3 283.3,59.4 286.8,54.5 290.3,49.5 293.8,44.5 297.2,39.4 300.7,34.2 304.2,28.9 307.7,23.6 311.1,18.2 314.6,12.7 318.1,7.2"/><circle class="dot-ink" cx="94" cy="221.6" r="2.4"/><circle class="dot-ink" cx="148" cy="196.4" r="2.4"/><circle class="dot-ink" cx="202" cy="154.4" r="2.4"/><circle class="dot-ink" cx="256" cy="95.6" r="2.4"/><circle class="dot-ink" cx="310" cy="20" r="2.4"/><g class="ans-layer"><line class="aux" x1="40" y1="230" x2="310" y2="20"/><line class="ans" x1="94" y1="230" x2="212.8" y2="156.1"/><text class="jp small ans-t m" x="218.2" y="146" text-anchor="start"><tspan font-style="normal">t = 2.0 の接線</tspan></text></g></svg></div>
+    <ol class="qs">
+      <li>時刻 0〜5.0 s のときの物体の平均の速さは何 m/s か。</li>
+      <li>時刻 2.0 s のときの物体の速さは何 m/s か。</li>
+      <li>物体が原点から 24.5 m 地点を通過するときの速さは何 m/s か。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>平均の速さ</h4>
+      <p>グラフから，5.0 s で 50 m の地点にいる。平均の速さは「距離 ÷ 時間」なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{50 - 0}{5.0 - 0} = 10 \ \text{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{50 - 0}{5.0 - 0} \\ &= 10 \ \text{m/s} \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span>2.0 s のときの速さ</h4>
+      <p>瞬間の速さを求めるには，位置を時間の式で表して微分する。グラフの点を読むと</p>
+      <div class="eqwrap">\[ \begin{aligned} (t,\ r) = {}&(1.0,\ 2),\ (2.0,\ 8),\ (3.0,\ 18), \\ &(4.0,\ 32),\ (5.0,\ 50) \end{aligned} \]</div>
+      <p>どの点も \(r = 2t^2\) を満たす（例：\(2\times 3.0^2 = 18\)）。よって \(r = 2t^2\)。これを \(t\) で微分すると速さになる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \frac{dr}{dt} = 4t \qquad\Rightarrow\qquad v(2.0) = 4\times 2.0 = 8.0 \ \text{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{dr}{dt} \\ &= 4t \\ \Rightarrow\ v(2.0) &= 4\times 2.0 \\ &= 8.0 \ \text{m/s} \end{aligned} \]</div></div>
+      <p>図の赤い線は \(t = 2.0\) s での接線で，その傾き（8.0 m/s）が瞬間の速さになる。</p>
+      <h4><span class="n">(3)</span>24.5 m 地点での速さ</h4>
+      <p>まず 24.5 m 地点を通過する時刻を求める。\(r = 2t^2\) に \(r = 24.5\) を代入して</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 2t^2 = 24.5 \qquad\Rightarrow\qquad t^2 = 12.25 \]</div><div class="eq-narrow">\[ \begin{aligned} 2t^2 &= 24.5 \\ \Rightarrow\ t^2 &= 12.25 \end{aligned} \]</div></div>
+      <p>\(t &gt; 0\) より \(t = 3.5\) s。この時刻を (2) の \(v = 4t\) に代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v(3.5) = 4\times 3.5 = 14 \ \text{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v(3.5) &= 4\times 3.5 \\ &= 14 \ \text{m/s} \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">10〔m/s〕</span></div>
+      <div><span class="label">(2)</span><span class="val">8.0〔m/s〕</span></div>
+      <div><span class="label">(3)</span><span class="val">14〔m/s〕</span></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>イナプリ 応用物理 02 位置・速度 ― 解答解説</footer>
+
+<script>
+// 例題①：測定値から平均の速度を計算
+(() => {
+  const box = document.getElementById("measure");
+  const out = document.getElementById("measure-out");
+  if (!box) return;
+  box.addEventListener("input", () => {
+    const ts = [...box.querySelectorAll("input")].map(i => parseFloat(i.value)).filter(v => v > 0);
+    if (!ts.length) return;
+    const t = ts.reduce((a, b) => a + b, 0) / ts.length;
+    out.innerHTML = `平均 <b>t = ${t.toFixed(2)} s</b>（${ts.length}回）　→　平均の速度は <b>左向きに ${(100 / t).toFixed(1)} m/s</b>，平均の速さは <b>${(100 / t).toFixed(1)} m/s</b>`;
+  });
+})();
+</script>
+</body>
+</html>

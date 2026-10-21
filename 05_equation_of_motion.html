@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>05 運動方程式 解答解説</title>
+<meta name="description" content="イナプリ 応用物理05「運動方程式」の例題・練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="assets/style.css?v=2a7e3f1b">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="assets/main.js?v=a863d04a"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="index.html"><span class="dot"></span><span class="brand-sub">応用物理 </span>解答解説 <small>イナプリ 05</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="index.html">← 一覧に戻る</a>
+    <div class="toc-title">05 運動方程式</div>
+    <ol>
+      <li><a href="#point">ポイント</a></li>
+      <li><a href="#ex1">例題①</a></li>
+      <li><a href="#ex2">例題②</a></li>
+      <li><a href="#ex3">例題③</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+      <li><a href="#pr3">練習問題③</a></li>
+      <li><a href="#pr4">練習問題④</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 応用物理 05</div>
+    <h1>運動方程式</h1>
+  </section>
+
+  <!-- ================= ポイント ================= -->
+  <section class="card" id="point">
+    <h2 class="bullet-h" style="margin-top:0">運動方程式</h2>
+    <div class="point-box">
+      <p class="lead"><b>力</b>が加わる方向に <b>加速</b> するという単純な方程式</p>
+      <div class="big-eq">
+        <div>
+          <div class="fma">F = ma</div>
+          <div class="units"><span>力<br>〔N〕</span><span>質量<br>〔kg〕</span><span>加速度<br>〔m/s²〕</span></div>
+        </div>
+        <div class="figure" style="max-width:300px"><svg class="fig" viewBox="0 0 300 130" role="img" aria-label="質量mの物体に力Fを加えると，力の向きに加速度aが生じる"><rect class="ink body cyan" x="22" y="67" width="66" height="50" transform="rotate(0 55 92)"/><text class="lbl bold m" x="55" y="101" text-anchor="middle" font-size="24"><tspan>m</tspan></text><line class="force" x1="88" y1="92" x2="168" y2="92" marker-end="url(#ah-force)"/><circle class="dot-force" cx="88" cy="92" r="5"/><text class="lbl bold m" x="186" y="101" text-anchor="middle" font-size="24"><tspan>F</tspan></text><g class="acc pink" transform="translate(30,48) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl bold m" x="56" y="36" text-anchor="middle" font-size="22"><tspan>a</tspan></text><text class="jp bold" x="208" y="20" text-anchor="start" font-size="13">加速</text><text class="jp" x="234" y="20" text-anchor="start" font-size="9">する方向と</text><text class="jp bold" x="208" y="48" text-anchor="start" font-size="13">力</text><text class="jp" x="222" y="48" text-anchor="start" font-size="9">の向きが一緒</text><path class="ink nofill" d="M206,16 C150,10 105,20 84,40"/><line class="ink" x1="88" y1="37" x2="80" y2="44" marker-end="url(#ah-ink)"/><path class="ink nofill" d="M214,54 C206,62 222,72 211,80"/><line class="ink" x1="213" y1="77" x2="208" y2="84" marker-end="url(#ah-ink)"/></svg></div>
+      </div>
+      <p class="senryu"><small>運動方程式を立てる川柳</small>物体に　<span class="k">力</span>を描いて　あとは<span class="k">軸</span>わけ</p>
+    </div>
+
+    <div class="note"><b>運動方程式の立て方（川柳の手順）</b>
+      <ol style="margin:4px 0 0; padding-left:1.4em">
+        <li><b>物体に力を描く</b>：重力 \(mg\)，垂直抗力 \(N\)，引く力・押す力，摩擦力 など。</li>
+        <li><b>軸を決める</b>：<b>加速度の向きを \(x\) 軸</b>，それに垂直な向きを \(y\) 軸にとる。斜めの力は2つの軸の向きに分解する。</li>
+        <li><b>軸わけ</b>：動かない向き（\(y\)）は「力のつりあい（\(=0\)）」，加速する向き（\(x\)）は「\(ma = \)（力の合計）」。</li>
+      </ol>
+    </div>
+
+    <div class="kinetic-box">
+    <p style="margin:0 0 6px"><b>動摩擦力</b>…摩擦がある面を物体がこすれて動いているときは「動摩擦力」がはたらく。向きは<b>動く向きと逆向き</b>。</p>
+    <div class="fig-row">
+      <div class="figure"><svg class="fig" viewBox="0 0 340 140" role="img" aria-label="あらい面の上で物体を引くと，動いている向きと逆向きに動摩擦力がはたらく"><rect class="hatch" x="20" y="108" width="315" height="9" fill="url(#hatch)"/><line class="ink" x1="20" y1="108" x2="335" y2="108"/><rect class="label-bg" x="282" y="118" width="50" height="15"/><text class="jp small" x="330" y="130" text-anchor="end">あらい面</text><rect class="ink body" x="79" y="48" width="78" height="60" transform="rotate(0 118 78)"/><line class="gray" x1="118" y1="106" x2="118" y2="22" marker-end="url(#ah-gray)"/><text class="lbl m" x="110" y="22" text-anchor="end"><tspan>N</tspan></text><line class="force" x1="118" y1="106" x2="56" y2="106" marker-end="url(#ah-force)"/><circle class="dot-force" cx="118" cy="106" r="3.2"/><text class="jp small bold" x="20" y="72" text-anchor="start">動摩擦力</text><text class="lbl m" x="26" y="92" text-anchor="start"><tspan>f</tspan><tspan dy="4" font-size="70%" font-style="normal">動</tspan></text><line class="force" x1="157" y1="72" x2="200" y2="72" marker-end="url(#ah-force)"/><circle class="dot-force" cx="157" cy="72" r="2.2"/><text class="lbl m" x="196" y="62" text-anchor="middle"><tspan>F</tspan></text><line class="ink" x1="200" y1="72" x2="222" y2="72"/><g class="person"><path class="bubble" d="M243.1,38.4 L248.1,44.7 L240.5,47.3 A13.5,13.5 0 1 1 243.1,38.4 Z"/><text class="note" x="229.6" y="46.2" text-anchor="middle" font-size="19.6">♪</text><path class="limb" d="M252,61 L222,71"/><path class="limb" d="M252,87.5 L242,98.4 L225.3,104.9 L228.3,108.4"/><path class="limb" d="M263.3,89.3 L279.6,96.7 L270.3,108.4 L275.3,109.3"/><g transform="translate(266.6,58) rotate(22) scale(1,1)"><path class="skin" d="M-13.7,0 L-13.7,25.6 A13.7,5.5 0 0 0 13.7,25.6 L13.7,0 A13.7,5.5 0 0 0 -13.7,0 Z"/><ellipse class="skin" cx="0" cy="0" rx="13.7" ry="5.5"/></g><path class="limb" d="M263.3,69.3 L260.3,80.4 L283.3,88"/><circle class="skin" cx="273.3" cy="38.4" r="21.8"/><path class="limb" d="M286.8,46.2 L299.9,51.4"/><circle class="hand" cx="222" cy="71" r="4.1"/><circle class="hand" cx="283.3" cy="88" r="4.1"/></g><text class="jp tiny" x="176" y="104" text-anchor="middle">ズルズルズルズル</text></svg></div>
+      <div style="flex:1 1 220px">
+        <div class="eqwrap">\[ f_{\text{動}} = \mu' N \]</div>
+        <p style="margin:0; font-size:.9rem">\(f_{\text{動}}\)：動摩擦力　\(\mu'\)：動摩擦係数　\(N\)：垂直抗力</p>
+        <ul style="margin:6px 0; font-size:.9rem; padding-left:1.2em">
+          <li><b>等速</b>で動いているとき　\(f_{\text{動}} = F\)</li>
+          <li><b>加速</b>しているとき　\(f_{\text{動}} &lt; F\)</li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+
+    <h3 class="bullet-h">運動方程式の利用</h3>
+    <div class="flow" role="img" aria-label="F=maで加速度を求め，tで積分すると速度v，さらにtで積分すると位置r">
+      <div class="term"><span class="cap spacer">　</span><span class="big lhs">F = m</span><span class="find spacer">↑<br>求める</span></div>
+      <div class="term"><span class="cap">加速度</span><span class="big"><span class="ring">a</span></span><span class="find">↑<br>求める</span></div>
+      <div class="arc"><svg viewBox="0 0 140 70" aria-hidden="true"><text x="70" y="14" text-anchor="middle">tで積分</text><path d="M4,66 C30,8 110,8 134,62"/><path d="M127,57 L134,64 L136,54"/></svg></div>
+      <div class="term"><span class="cap">速度</span><span class="big">v</span><span class="find spacer">↑<br>求める</span></div>
+      <div class="arc"><svg viewBox="0 0 140 70" aria-hidden="true"><text x="70" y="14" text-anchor="middle">tで積分</text><path d="M4,66 C30,8 110,8 134,62"/><path d="M127,57 L134,64 L136,54"/></svg></div>
+      <div class="term"><span class="cap">位置</span><span class="big">r</span><span class="find spacer">↑<br>求める</span></div>
+    </div>
+    <p style="margin:4px 0 0">運動方程式で<b>加速度</b>を求め，それを時間 \(t\) で積分すると速度，さらに積分すると位置がわかる。積分定数は \(t=0\) のときの値（初期条件）から決める。</p>
+    <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt, \qquad x = \int v\,dt \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ x &= \int v\,dt \end{aligned} \]</div></div>
+  </section>
+
+  <!-- ================= 例題① ================= -->
+  <section class="card" id="ex1">
+    <h2><span class="tag">例題①</span></h2>
+    <p class="statement">質量 \(m\) の物体Aが面から受ける垂直抗力と加速度の大きさを求めよ。ただし，重力加速度の大きさを \(g\) とし，あらい面と物体Aとの動摩擦係数を \(\mu'\) とする。また，物体Aが移動する向きは <span class="acc-icon"><svg class="fig" viewBox="0 0 46 20" role="img" aria-label="白抜きの矢印"><g class="acc" transform="translate(2,10) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g></svg></span> で示した。</p>
+
+    <div class="sub-q">
+      <h3>(1) なめらかな面の上を 力 \(F\) で水平に押す。</h3>
+      <div class="fig-row">
+        <div class="figure"><svg class="fig" viewBox="0 0 330 185" role="img" aria-label="なめらかな面の上で物体Aを力Fで水平に押す"><rect class="smooth" x="20" y="132" width="300" height="8"/><line class="ink" x1="20" y1="132" x2="320" y2="132"/><rect class="label-bg" x="245" y="141" width="72" height="15"/><text class="jp small" x="315" y="153" text-anchor="end">なめらかな面</text><rect class="ink body" x="149" y="68" width="92" height="64" transform="rotate(0 195 100)"/><text class="lbl" x="165.6" y="90.9" text-anchor="middle">A</text><g class="person"><path class="limb" d="M115.1,115 L127.5,124.6 L115.1,132.1 L127.5,132.6"/><path class="limb" d="M106.2,117.3 L91.5,130.7 L99,132.3"/><g transform="translate(114.9,95.4) rotate(15) scale(1,1)"><path class="skin" d="M-10.2,0 L-10.2,19.4 A10.2,4.1 0 0 0 10.2,19.4 L10.2,0 A10.2,4.1 0 0 0 -10.2,0 Z"/><ellipse class="skin" cx="0" cy="0" rx="10.2" ry="4.1"/></g><path class="limb" d="M123.1,101 L135.5,101.7 L148.6,96.1"/><path class="limb" d="M112.6,105 L135.5,107.8 L148.6,103.3"/><circle class="skin" cx="120.8" cy="83.6" r="14.4"/><path class="limb" d="M129.7,88.8 L138.3,92.2"/></g><line class="force" x1="149" y1="106" x2="185" y2="106" marker-end="url(#ah-force)"/><circle class="dot-force" cx="149" cy="106" r="2.2"/><text class="lbl force-t m" x="189" y="111" text-anchor="start"><tspan>F</tspan></text><g class="acc" transform="translate(152,50) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="30" y1="70" x2="70" y2="70" marker-end="url(#ah-axis)"/><line class="axis" x1="30" y1="70" x2="30" y2="30" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="79" y="75" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="30" y="26" text-anchor="middle"><tspan>y</tspan></text><line class="ans" x1="215" y1="132" x2="215" y2="46" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="225" y="52" text-anchor="start"><tspan>N</tspan></text><line class="ans" x1="202" y1="100" x2="202" y2="170" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="202" y="186" text-anchor="middle"><tspan>mg</tspan></text><circle class="dot-ans" cx="202" cy="100" r="2.2"/><text class="lbl ans-t m" x="173" y="38" text-anchor="middle"><tspan>a</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(mg\)</span></div><div><span class="label">加速度</span><span class="val">\(\dfrac{F}{m}\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>物体Aにはたらく力は，押す力 \(F\)（右向き），重力 \(mg\)（下向き），垂直抗力 \(N\)（上向き）の3つ。加速する向き（右）を \(x\) 軸，上向きを \(y\) 軸にとって軸わけする。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(N - mg = 0\)　（上下には動かない ＝ つりあい）</span>
+          <span class="ax">x</span><span class="eq">\(F = ma\)</span>
+        </div>
+        <div class="final">垂直抗力 \(N = \boldsymbol{mg}\)，　加速度 \(a = \boldsymbol{\dfrac{F}{m}}\)</div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(2) なめらかな面の上を 力 \(F_1\) と力 \(F_2\) で水平に引く。</h3>
+      <div class="fig-row">
+        <div class="figure"><svg class="fig" viewBox="0 0 330 185" role="img" aria-label="なめらかな面の上で物体Aを力F1と力F2で水平に引く"><rect class="smooth" x="20" y="132" width="300" height="8"/><line class="ink" x1="20" y1="132" x2="320" y2="132"/><rect class="label-bg" x="245" y="141" width="72" height="15"/><text class="jp small" x="315" y="153" text-anchor="end">なめらかな面</text><rect class="ink body" x="123" y="68" width="84" height="64" transform="rotate(0 165 100)"/><text class="lbl" x="138.1" y="90.9" text-anchor="middle">A</text><line class="force" x1="207" y1="112" x2="270" y2="112" marker-end="url(#ah-force)"/><circle class="dot-force" cx="207" cy="112" r="2.2"/><text class="lbl force-t m" x="276" y="117" text-anchor="start"><tspan>F</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><line class="force" x1="123" y1="112" x2="64" y2="112" marker-end="url(#ah-force)"/><circle class="dot-force" cx="123" cy="112" r="2.2"/><text class="lbl force-t m" x="58" y="117" text-anchor="end"><tspan>F</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><g class="acc" transform="translate(122,50) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="30" y1="70" x2="70" y2="70" marker-end="url(#ah-axis)"/><line class="axis" x1="30" y1="70" x2="30" y2="30" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="79" y="75" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="30" y="26" text-anchor="middle"><tspan>y</tspan></text><line class="ans" x1="178" y1="132" x2="178" y2="46" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="188" y="52" text-anchor="start"><tspan>N</tspan></text><line class="ans" x1="165" y1="100" x2="165" y2="170" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="165" y="186" text-anchor="middle"><tspan>mg</tspan></text><circle class="dot-ans" cx="165" cy="100" r="2.2"/><text class="lbl ans-t m" x="143" y="38" text-anchor="middle"><tspan>a</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(mg\)</span></div><div><span class="label">加速度</span><span class="val">\(\dfrac{F_1 - F_2}{m}\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>右向き（加速する向き）を正とするので，右向きの \(F_1\) は ＋，左向きの \(F_2\) は − で式に入れる。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(N - mg = 0\)</span>
+          <span class="ax">x</span><span class="eq">\(F_1 - F_2 = ma\)</span>
+        </div>
+        <div class="final">垂直抗力 \(N = \boldsymbol{mg}\)，　加速度 \(a = \boldsymbol{\dfrac{F_1 - F_2}{m}}\)</div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(3) なめらかな面の上を 力 \(F\) で \(\theta\) の角度に斜めに引く。</h3>
+      <div class="fig-row">
+        <div class="figure"><svg class="fig" viewBox="0 0 340 190" role="img" aria-label="なめらかな面の上で物体Aを力Fで角度θの斜め上に引く"><rect class="smooth" x="20" y="130" width="310" height="8"/><line class="ink" x1="20" y1="130" x2="330" y2="130"/><rect class="label-bg" x="255" y="139" width="72" height="15"/><text class="jp small" x="325" y="151" text-anchor="end">なめらかな面</text><rect class="ink body" x="83" y="74" width="84" height="56" transform="rotate(0 125 102)"/><text class="lbl" x="98.1" y="94.7" text-anchor="middle">A</text><line class="aux-ink" x1="167" y1="116" x2="232" y2="116"/><path class="ink nofill" d="M189,116 A22,22 0 0 0 186.1,105"/><text class="lbl m" x="199" y="112" text-anchor="middle"><tspan>θ</tspan></text><line class="force" x1="167" y1="116" x2="249.3" y2="68.5" marker-end="url(#ah-force)"/><circle class="dot-force" cx="167" cy="116" r="2.2"/><text class="lbl force-t m" x="257.3" y="60.5" text-anchor="start"><tspan>F</tspan></text><g class="acc" transform="translate(90,50) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="30" y1="70" x2="70" y2="70" marker-end="url(#ah-axis)"/><line class="axis" x1="30" y1="70" x2="30" y2="30" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="79" y="75" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="30" y="26" text-anchor="middle"><tspan>y</tspan></text><text class="lbl ans-t m" x="108" y="38" text-anchor="middle"><tspan>a</tspan></text><line class="aux" x1="167" y1="68.5" x2="249.3" y2="68.5"/><line class="aux" x1="249.3" y1="68.5" x2="249.3" y2="116"/><line class="ans" x1="167" y1="116" x2="249.3" y2="116" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="257.3" y="121" text-anchor="start"><tspan>F</tspan><tspan font-style="normal"> cos</tspan><tspan>θ</tspan></text><line class="ans" x1="167" y1="116" x2="167" y2="68.5" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="171" y="60.5" text-anchor="start"><tspan>F</tspan><tspan font-style="normal"> sin</tspan><tspan>θ</tspan></text><line class="ans" x1="140" y1="130" x2="140" y2="60" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="147" y="70" text-anchor="start"><tspan>N</tspan></text><line class="ans" x1="125" y1="102" x2="125" y2="172" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="125" y="188" text-anchor="middle"><tspan>mg</tspan></text><circle class="dot-ans" cx="125" cy="102" r="2.2"/></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(mg - F\sin\theta\)</span></div><div><span class="label">加速度</span><span class="val">\(\dfrac{F\cos\theta}{m}\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>斜めの力 \(F\) は，\(x\) 軸方向（水平）の \(F\cos\theta\) と \(y\) 軸方向（鉛直）の \(F\sin\theta\) に<b>分解</b>してから軸わけする。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(N + F\sin\theta - mg = 0\)</span>
+          <span class="ax">x</span><span class="eq">\(F\cos\theta = ma\)</span>
+        </div>
+        <div class="final">垂直抗力 \(N = \boldsymbol{mg - F\sin\theta}\)，　加速度 \(a = \boldsymbol{\dfrac{F\cos\theta}{m}}\)</div>
+        <p class="note"><b>ポイント</b>　\(F\) の上向きの成分 \(F\sin\theta\) が物体を持ち上げる分だけ，垂直抗力は \(mg\) より小さくなる。</p>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(4) あらい面の上を 力 \(F\) で水平に引く。</h3>
+      <div class="fig-row">
+        <div class="figure"><svg class="fig" viewBox="0 0 330 185" role="img" aria-label="あらい面の上で物体Aを力Fで水平に引く"><rect class="hatch" x="20" y="132" width="300" height="8" fill="url(#hatch)"/><line class="ink" x1="20" y1="132" x2="320" y2="132"/><rect class="label-bg" x="267" y="141" width="50" height="15"/><text class="jp small" x="315" y="153" text-anchor="end">あらい面</text><rect class="ink body" x="118" y="68" width="84" height="64" transform="rotate(0 160 100)"/><text class="lbl" x="133.1" y="90.9" text-anchor="middle">A</text><line class="force" x1="202" y1="112" x2="268" y2="112" marker-end="url(#ah-force)"/><circle class="dot-force" cx="202" cy="112" r="2.2"/><text class="lbl force-t m" x="274" y="117" text-anchor="start"><tspan>F</tspan></text><g class="acc" transform="translate(118,50) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="30" y1="70" x2="70" y2="70" marker-end="url(#ah-axis)"/><line class="axis" x1="30" y1="70" x2="30" y2="30" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="79" y="75" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="30" y="26" text-anchor="middle"><tspan>y</tspan></text><text class="lbl ans-t m" x="139" y="38" text-anchor="middle"><tspan>a</tspan></text><line class="ans" x1="172" y1="132" x2="172" y2="46" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="182" y="52" text-anchor="start"><tspan>N</tspan></text><line class="ans" x1="160" y1="100" x2="160" y2="170" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="160" y="186" text-anchor="middle"><tspan>mg</tspan></text><circle class="dot-ans" cx="160" cy="100" r="2.2"/><line class="ans" x1="158" y1="130" x2="92" y2="130" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="86" y="127" text-anchor="end"><tspan>μ</tspan><tspan font-style="normal">′</tspan><tspan>N</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(mg\)</span></div><div><span class="label">加速度</span><span class="val">\(\dfrac{F - \mu' mg}{m}\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>あらい面なので，動く向きと逆向き（左向き）に動摩擦力 \(\mu' N\) がはたらく。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(N - mg = 0 \quad\Rightarrow\quad N = mg\)</span>
+          <span class="ax">x</span><span class="eq">\(F - \mu' N = ma \quad\Rightarrow\quad F - \mu' mg = ma\)</span>
+        </div>
+        <div class="final">垂直抗力 \(N = \boldsymbol{mg}\)，　加速度 \(a = \boldsymbol{\dfrac{F - \mu' mg}{m}}\)</div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(5) あらい面の上を 力 \(F\) で \(\theta\) の角度に斜めに引く。</h3>
+      <div class="fig-row">
+        <div class="figure"><svg class="fig" viewBox="0 0 340 190" role="img" aria-label="あらい面の上で物体Aを力Fで角度θの斜め上に引く"><rect class="hatch" x="20" y="130" width="310" height="8" fill="url(#hatch)"/><line class="ink" x1="20" y1="130" x2="330" y2="130"/><rect class="label-bg" x="277" y="139" width="50" height="15"/><text class="jp small" x="325" y="151" text-anchor="end">あらい面</text><rect class="ink body" x="83" y="74" width="84" height="56" transform="rotate(0 125 102)"/><text class="lbl" x="98.1" y="94.7" text-anchor="middle">A</text><line class="aux-ink" x1="167" y1="116" x2="232" y2="116"/><path class="ink nofill" d="M189,116 A22,22 0 0 0 186.1,105"/><text class="lbl m" x="199" y="112" text-anchor="middle"><tspan>θ</tspan></text><line class="force" x1="167" y1="116" x2="249.3" y2="68.5" marker-end="url(#ah-force)"/><circle class="dot-force" cx="167" cy="116" r="2.2"/><text class="lbl force-t m" x="257.3" y="60.5" text-anchor="start"><tspan>F</tspan></text><g class="acc" transform="translate(90,50) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="30" y1="70" x2="70" y2="70" marker-end="url(#ah-axis)"/><line class="axis" x1="30" y1="70" x2="30" y2="30" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="79" y="75" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="30" y="26" text-anchor="middle"><tspan>y</tspan></text><text class="lbl ans-t m" x="108" y="38" text-anchor="middle"><tspan>a</tspan></text><line class="aux" x1="167" y1="68.5" x2="249.3" y2="68.5"/><line class="aux" x1="249.3" y1="68.5" x2="249.3" y2="116"/><line class="ans" x1="167" y1="116" x2="249.3" y2="116" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="257.3" y="121" text-anchor="start"><tspan>F</tspan><tspan font-style="normal"> cos</tspan><tspan>θ</tspan></text><line class="ans" x1="167" y1="116" x2="167" y2="68.5" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="171" y="60.5" text-anchor="start"><tspan>F</tspan><tspan font-style="normal"> sin</tspan><tspan>θ</tspan></text><line class="ans" x1="140" y1="130" x2="140" y2="60" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="147" y="70" text-anchor="start"><tspan>N</tspan></text><line class="ans" x1="125" y1="102" x2="125" y2="172" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="125" y="188" text-anchor="middle"><tspan>mg</tspan></text><circle class="dot-ans" cx="125" cy="102" r="2.2"/><line class="ans" x1="122" y1="128" x2="66" y2="128" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="60" y="125" text-anchor="end"><tspan>μ</tspan><tspan font-style="normal">′</tspan><tspan>N</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(mg - F\sin\theta\)</span></div><div><span class="label">加速度</span><span class="val">\(\dfrac{F\cos\theta - \mu'(mg - F\sin\theta)}{m}\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>(3) と (4) の組み合わせ。\(F\) を分解し，動摩擦力 \(\mu' N\) を左向きに描く。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(N + F\sin\theta - mg = 0 \quad\Rightarrow\quad N = mg - F\sin\theta\)</span>
+          <span class="ax">x</span><span class="eq">\(F\cos\theta - \mu' N = ma\)</span>
+        </div>
+        <p>\(x\) の式に \(N = mg - F\sin\theta\) を代入すると</p>
+        <div class="eqwrap">\[ ma = F\cos\theta - \mu'(mg - F\sin\theta) \]</div>
+        <div class="final">垂直抗力 \(N = \boldsymbol{mg - F\sin\theta}\)，　加速度 \(a = \boldsymbol{\dfrac{F\cos\theta - \mu'(mg - F\sin\theta)}{m}}\)</div>
+        <p class="note"><b>注意</b>　動摩擦力は \(\mu' mg\) ではなく \(\mu' N\)。斜めに引くと \(N\) が小さくなるので，摩擦力も小さくなる。</p>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- ================= 例題② ================= -->
+  <section class="card" id="ex2">
+    <h2><span class="tag">例題②</span></h2>
+    <div class="fig-row">
+      <div style="flex:1 1 320px">
+        <p class="statement">時刻 \(t = 0\)〔s〕のとき，教室の天井から質量 \(m\)〔kg〕の物体を初速度 0 で落下させた。ただし，鉛直下向きを正とし天井の位置を 0 m とする。また，重力加速度の大きさを \(g\)〔m/s²〕とする。</p>
+        <ol class="qs">
+          <li>物体の加速度を \(a\)〔m/s²〕とし，運動方程式を立てよ。</li>
+          <li>時刻 \(t\)〔s〕における物体の速度 \(v\)〔m/s〕を \(g\)，\(t\) を用いて表せ。</li>
+          <li>時刻 \(t\)〔s〕における物体の位置 \(y\)〔m〕を \(g\)，\(t\) を用いて表せ。</li>
+          <li>物体が床に達するまでの時刻は何 s か測れ。</li>
+        </ol>
+        <p class="statement noindent" style="margin-bottom:0">以下の問いは \(g = 9.8\)〔m/s²〕として答えよ。</p>
+        <ol class="qs" start="5" style="counter-reset: q 4">
+          <li>物体が床に達したときの速度は何 m/s か。</li>
+          <li>教室の天井から床までの距離は何 m か。</li>
+        </ol>
+      </div>
+      <div class="figure small"><svg class="fig" viewBox="0 0 210 260" role="img" aria-label="天井から物体を静かに落とし，床に達するまでの時間を計測する"><g><circle cx="18" cy="22" r="7" class="sw"/><circle cx="18" cy="22" r="4.2" class="sw-face"/><line x1="18" y1="22" x2="18" y2="18.1" class="sw-hand"/></g><text class="lbl m" x="32" y="27" text-anchor="start"><tspan font-style="normal">0</tspan></text><circle class="ball" cx="120" cy="42" r="7"/><text class="jp tiny m" x="108" y="46" text-anchor="end"><tspan font-style="normal">初速度 0</tspan></text><text class="jp m" x="102" y="32" text-anchor="end" font-size="5"><tspan font-style="normal">ゼロ</tspan></text><line class="aux-ink" x1="127" y1="42" x2="195" y2="42"/><rect class="label-bg" x="183" y="34" width="11" height="16"/><text class="lbl m" x="188.5" y="47" text-anchor="middle"><tspan font-style="normal">0</tspan></text><line class="aux-dot" x1="120" y1="49" x2="120" y2="224"/><line class="ink" x1="178" y1="12" x2="178" y2="252" marker-end="url(#ah-ink)"/><text class="lbl m" x="188" y="252" text-anchor="start"><tspan>y</tspan></text><g class="acc pink" transform="translate(100,108) rotate(90) scale(0.9)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl small m" x="90" y="135" text-anchor="end"><tspan font-style="normal">9.8 m/s</tspan><tspan dy="-6" font-size="70%" font-style="normal">2</tspan></text><rect class="smooth" x="20" y="238" width="185" height="6"/><line class="ink" x1="20" y1="238" x2="205" y2="238"/><circle class="ball" cx="120" cy="231" r="7"/><line class="ink" x1="104" y1="205" x2="104" y2="244" marker-end="url(#ah-ink)"/><text class="jp small bold m" x="14" y="184" text-anchor="start"><tspan font-style="normal">計測</tspan></text><g><circle cx="20" cy="202" r="7" class="sw"/><circle cx="20" cy="202" r="4.2" class="sw-face"/><line x1="20" y1="202" x2="20" y2="198.2" class="sw-hand"/></g><text class="lbl m" x="34" y="207" text-anchor="start"><tspan>t</tspan><tspan font-style="normal"> =</tspan></text></svg></div>
+    </div>
+
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>運動方程式</h4>
+      <div class="fig-row" style="align-items:center">
+        <div class="figure small" style="max-width:90px; flex-basis:80px"><svg class="fig" viewBox="0 0 110 110" role="img" aria-label="物体にはたらく力は重力mgのみ"><circle class="ball" cx="40" cy="30" r="16"/><circle class="dot-ans" cx="40" cy="30" r="2.2"/><line class="ans" x1="40" y1="30" x2="40" y2="92" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="40" y="108" text-anchor="middle"><tspan>mg</tspan></text></svg></div>
+        <div style="flex:1 1 240px">
+          <p>物体にはたらく力は<b>重力 \(mg\) だけ</b>（鉛直下向き＝正の向き）。よって運動方程式は</p>
+          <div class="eqwrap">\[ ma = mg \]</div>
+          <p>両辺を \(m\) で割ると \(a = g\)。質量に関係なく，落下の加速度は \(g\) になる。</p>
+        </div>
+      </div>
+      <h4><span class="n">(2)</span>速度 \(v\)</h4>
+      <p>速度 \(v\) は，加速度 \(a\) を時間 \(t\) で積分すると求まる（「運動方程式の利用」の流れ）。(1) より \(a = g\)（一定）なので，</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int g\,dt = gt + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int g\,dt \\ &= gt + C_1 \end{aligned} \]</div></div>
+      <p>積分定数 \(C_1\) は，<b>\(t = 0\) のときの速度（初速度）</b>から決める。静かに落としたので \(t = 0\) で \(v = 0\)。代入すると \(0 = g\times 0 + C_1\) より \(C_1 = 0\)。よって \(v = gt\)。</p>
+      <h4><span class="n">(3)</span>位置 \(y\)</h4>
+      <p>位置 \(y\) は，(2) で求めた速度 \(v = gt\) をさらに \(t\) で積分すると求まる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y = \int v\,dt = \int gt\,dt = \frac{1}{2}gt^2 + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} y &= \int v\,dt \\ &= \int gt\,dt \\ &= \frac{1}{2}gt^2 + C_2 \end{aligned} \]</div></div>
+      <p>積分定数 \(C_2\) は，<b>\(t = 0\) のときの位置</b>から決める。天井が 0 m なので \(t = 0\) で \(y = 0\)。よって \(C_2 = 0\)，\(y = \dfrac{1}{2}gt^2\)。</p>
+      <h4><span class="n">(4)〜(6)</span>測定値を使って計算</h4>
+      <p>(5) は (2) の式に，(6) は (3) の式に，(4) で測った時刻 \(t\) を代入する（\(g = 9.8\)）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = 9.8\,t, \qquad y = \frac{1}{2}\times 9.8 \times t^2 = 4.9\,t^2 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= 9.8\,t \\ y &= \frac{1}{2}\times 9.8 \times t^2 \\ &= 4.9\,t^2 \end{aligned} \]</div></div>
+      <p>下に測定値を入れると計算できます。</p>
+      <div class="measure" id="measure">
+        <label>計測1〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+        <label>計測2〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+        <label>計測3〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+        <label>計測4〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
+      </div>
+      <div class="calc-result" id="measure-out">測定値を入力してください。（例：平均 \(t = 0.80\) s なら \(v = 9.8 \times 0.80 \approx 7.8\) m/s，\(y = 4.9 \times 0.80^2 \approx 3.1\) m）</div>
+    </div></details>
+
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(ma = mg\)　（\(a = g\)）</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v = gt\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(y = \dfrac{1}{2}gt^2\)</span></div>
+      <div><span class="label">(4)</span><span class="val">測定値（4回の平均）</span></div>
+      <div><span class="label">(5)</span><span class="val">\(9.8\,t\)〔m/s〕</span></div>
+      <div><span class="label">(6)</span><span class="val">\(4.9\,t^2\)〔m〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 例題③ ================= -->
+  <section class="card" id="ex3">
+    <h2><span class="tag">例題③</span></h2>
+    <div class="fig-row">
+      <div style="flex:1 1 320px">
+        <p class="statement">角度 \(\theta\) のなめらかな斜面に沿って上向きを \(x\) 軸とする。図のように，時刻 \(t = 0\) のときに，原点Oから \(x\) 軸の正の向きに初速度 \(v_0\) で質量 \(m\) の物体を打ち出した。重力加速度の大きさを \(g\) とする。</p>
+      </div>
+      <div class="figure" data-draw="折り返し点"><svg class="fig" viewBox="0 0 300 175" role="img" aria-label="角度θのなめらかな斜面上で，原点Oからx軸正の向きに初速度v0で物体を打ち出す"><line class="ink" x1="30" y1="160" x2="30" y2="160"/><line class="aux-ink" x1="30" y1="160" x2="100" y2="160"/><path class="ink nofill" d="M56,160 A26,26 0 0 0 54.1,150.3"/><text class="lbl m" x="64.4" y="158.3" text-anchor="middle"><tspan>θ</tspan></text><line class="ink" x1="30" y1="160" x2="272.9" y2="61.9" marker-end="url(#ah-ink)"/><text class="lbl m" x="276.9" y="63.9" text-anchor="start"><tspan>x</tspan></text><circle class="ball white" cx="138.6" cy="108.6" r="7"/><text class="lbl" x="151.6" y="131.4" text-anchor="start">O</text><line class="ink" x1="105.6" y1="101.4" x2="133.4" y2="90.2" marker-end="url(#ah-ink)"/><text class="lbl m" x="103.6" y="93.4" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><g class="ans-layer"><circle class="ink nofill" cx="238.8" cy="68.1" r="7"/><text class="jp small ans-t m" x="232.8" y="38.1" text-anchor="middle"><tspan font-style="normal">速度 0 で折り返す</tspan></text><line class="ans" x1="236.8" y1="44.1" x2="237.8" y2="57.1" marker-end="url(#ah-ans)"/></g></svg></div>
+    </div>
+    <ol class="qs">
+      <li>物体の加速度 \(a\) を \(g\)，\(\theta\) を用いて表せ。</li>
+      <li>時刻 \(t\) における物体の速度 \(v\) を \(v_0\)，\(g\)，\(t\)，\(\theta\) を用いて表せ。</li>
+      <li>時刻 \(t\) における物体の \(x\) 座標を \(v_0\)，\(g\)，\(t\)，\(\theta\) を用いて表せ。</li>
+      <li>物体が斜面を上って，折り返すときの時刻 \(T\) を \(v_0\)，\(g\)，\(\theta\) を用いて表せ。</li>
+      <li>物体が斜面の折り返し点での \(x\) 座標を \(v_0\)，\(g\)，\(\theta\) を用いて表せ。</li>
+      <li>物体が再び原点に戻ってくるときの時刻 \(T'\) を \(v_0\)，\(g\)，\(\theta\) を用いて表せ。</li>
+    </ol>
+
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>加速度 \(a\)</h4>
+      <div class="fig-row" style="align-items:center">
+        <div class="figure" style="max-width:340px"><svg class="fig" viewBox="0 0 300 250" role="img" aria-label="斜面上の物体にはたらく力：垂直抗力Nと重力mg（mg sinθ と mg cosθ に分解）"><line class="ink" x1="20" y1="195" x2="262.7" y2="76.6"/><line class="aux-ink" x1="20" y1="195" x2="140" y2="195"/><path class="ink nofill" d="M44,195 A24,24 0 0 0 41.6,184.5"/><text class="lbl m" x="52.2" y="192.6" text-anchor="middle"><tspan>θ</tspan></text><circle class="ball white" cx="147.4" cy="114" r="17"/><g class="ans-layer"><line class="axis" x1="54.5" y1="94.7" x2="88.7" y2="78.1" marker-end="url(#ah-axis)"/><line class="axis" x1="54.5" y1="94.7" x2="39.6" y2="64.2" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="96.8" y="79.1" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="35.7" y="61.1" text-anchor="middle"><tspan>y</tspan></text><line class="ans" x1="147.4" y1="114" x2="120.2" y2="58.2" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="128.2" y="52.2" text-anchor="start"><tspan>N</tspan></text><line class="aux" x1="119" y1="127.8" x2="147.4" y2="186"/><line class="aux" x1="175.7" y1="172.1" x2="147.4" y2="186"/><line class="ans" x1="147.4" y1="114" x2="147.4" y2="186" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="147.4" y="203" text-anchor="middle"><tspan>mg</tspan></text><line class="ans" x1="147.4" y1="114" x2="119" y2="127.8" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="113" y="132.8" text-anchor="end"><tspan>mg</tspan><tspan font-style="normal"> sin</tspan><tspan>θ</tspan></text><line class="ans" x1="147.4" y1="114" x2="175.7" y2="172.1" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="181.7" y="182.1" text-anchor="start"><tspan>mg</tspan><tspan font-style="normal"> cos</tspan><tspan>θ</tspan></text><path class="ans nofill nofill" d="M147.4,130 A16,16 0 0 0 154.4,128.3"/><text class="lbl ans-t m" x="153.4" y="145.3" text-anchor="middle"><tspan>θ</tspan></text><circle class="dot-ans" cx="147.4" cy="114" r="2.2"/></g></svg></div>
+        <div style="flex:1 1 240px">
+          <p>物体にはたらく力は重力 \(mg\) と垂直抗力 \(N\)。重力を斜面に平行な成分 \(mg\sin\theta\)（斜面下向き）と垂直な成分 \(mg\cos\theta\) に分解する。</p>
+          <div class="axis-eq">
+            <span class="ax">y</span><span class="eq">\(N - mg\cos\theta = 0\)</span>
+            <span class="ax">x</span><span class="eq">\(-mg\sin\theta = ma\)</span>
+          </div>
+          <p>\(mg\sin\theta\) は \(x\) 軸の負の向きなので − をつける。</p>
+          <div class="final">\(a = \boldsymbol{-g\sin\theta}\)</div>
+        </div>
+      </div>
+      <h4><span class="n">(2)</span>速度 \(v\)</h4>
+      <p>(1) の加速度 \(a = -g\sin\theta\) は時間によらず一定。これを \(t\) で積分すると速度になる（\(g\)，\(\theta\) は定数なので，\(t\) だけを積分する）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int (-g\sin\theta)\,dt = -gt\sin\theta + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int (-g\sin\theta)\,dt \\ &= -gt\sin\theta + C_1 \end{aligned} \]</div></div>
+      <p>積分定数は初速度から決める。\(t = 0\) で \(v = v_0\)（\(v(0) = v_0\)）なので，代入して \(C_1 = v_0\)。　よって　\(v = v_0 - gt\sin\theta\)</p>
+      <h4><span class="n">(3)</span>\(x\) 座標</h4>
+      <p>(2) の速度をさらに \(t\) で積分すると位置（\(x\) 座標）になる。\(v_0\) の項は \(v_0t\)，\(t\) の項は \(\dfrac{1}{2}t^2\) になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = \int v\,dt = \int (v_0 - gt\sin\theta)\,dt = v_0 t - \frac{1}{2}gt^2\sin\theta + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v\,dt \\ &= \int (v_0 - gt\sin\theta)\,dt \\ &= v_0 t - \frac{1}{2}gt^2\sin\theta + C_2 \end{aligned} \]</div></div>
+      <p>原点Oから打ち出したので \(t = 0\) で \(x = 0\)（\(x(0) = 0\)）。よって \(C_2 = 0\)，\(x = v_0 t - \dfrac{1}{2}gt^2\sin\theta\)</p>
+      <h4><span class="n">(4)</span>折り返す時刻 \(T\)</h4>
+      <p>折り返し点では<b>速度が 0</b> になる。(2) の式で \(v = 0\) とおくと</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 0 = v_0 - gT\sin\theta \qquad\Rightarrow\qquad T = \frac{v_0}{g\sin\theta} \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= v_0 - gT\sin\theta \\ \Rightarrow\ T &= \frac{v_0}{g\sin\theta} \end{aligned} \]</div></div>
+      <h4><span class="n">(5)</span>折り返し点の \(x\) 座標</h4>
+      <p>(3) の式に (4) の \(T\) を代入する。</p>
+      <div class="eqwrap">\[ \begin{aligned} x &= v_0\cdot\frac{v_0}{g\sin\theta} \\ &\qquad - \frac{1}{2}g\left(\frac{v_0}{g\sin\theta}\right)^2\sin\theta \\ &= \frac{v_0^2}{g\sin\theta} - \frac{v_0^2}{2g\sin\theta} \\ &= \frac{v_0^2}{2g\sin\theta} \end{aligned} \]</div>
+      <h4><span class="n">(6)</span>原点に戻る時刻 \(T'\)</h4>
+      <p>原点に戻るのは，位置が再び \(x = 0\) になるとき。(3) の式に \(x = 0\)，\(t = T'\) を代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 0 = v_0T' - \frac{1}{2}gT'^2\sin\theta = T'\left(v_0 - \frac{1}{2}gT'\sin\theta\right) \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= v_0T' - \frac{1}{2}gT'^2\sin\theta \\ &= T'\left(v_0 - \frac{1}{2}gT'\sin\theta\right) \end{aligned} \]</div></div>
+      <p>\(T' \neq 0\) より　\(T' = \dfrac{2v_0}{g\sin\theta}\)</p>
+      <p class="note"><b>確かめ</b>　\(T' = 2T\)。上りにかかる時間と下りにかかる時間は等しい（なめらかな斜面では運動が対称になる）。</p>
+    </div></details>
+
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(a = -g\sin\theta\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v = v_0 - gt\sin\theta\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(x = v_0t - \dfrac{1}{2}gt^2\sin\theta\)</span></div>
+      <div><span class="label">(4)</span><span class="val">\(T = \dfrac{v_0}{g\sin\theta}\)</span></div>
+      <div><span class="label">(5)</span><span class="val">\(x = \dfrac{v_0^2}{2g\sin\theta}\)</span></div>
+      <div><span class="label">(6)</span><span class="val">\(T' = \dfrac{2v_0}{g\sin\theta}\)</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <p class="statement">質量 \(m\) の物体Aが面から受ける垂直抗力と加速度の大きさを求めよ。ただし，重力加速度の大きさを \(g\) とし，あらい面と物体Aとの動摩擦係数を \(\mu'\) とする。また，物体Aが移動する向きは <span class="acc-icon"><svg class="fig" viewBox="0 0 46 20" role="img" aria-label="白抜きの矢印"><g class="acc" transform="translate(2,10) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g></svg></span> で示した。</p>
+
+    <div class="sub-q">
+      <h3>(1) 力 \(F\) で鉛直に引き上げる。</h3>
+      <div class="fig-row">
+        <div class="figure" style="max-width:300px"><svg class="fig" viewBox="0 0 260 200" role="img" aria-label="物体Aを力Fで鉛直に引き上げる"><line class="ink" x1="130" y1="5" x2="130" y2="32"/><line class="force" x1="130" y1="76" x2="130" y2="30" marker-end="url(#ah-force)"/><circle class="dot-force" cx="130" cy="76" r="2.2"/><text class="lbl force-t m" x="146" y="36" text-anchor="start"><tspan>F</tspan></text><rect class="ink body" x="99" y="76" width="62" height="60" transform="rotate(0 130 106)"/><text class="lbl" x="110.2" y="97.8" text-anchor="middle">A</text><g class="acc" transform="translate(78,132) rotate(-90) scale(0.9)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="30" y1="125" x2="30" y2="65" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="30" y="55" text-anchor="middle"><tspan>y</tspan></text><text class="lbl ans-t m" x="62" y="115" text-anchor="end"><tspan>a</tspan></text><line class="ans" x1="132" y1="110" x2="132" y2="182" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="142" y="194" text-anchor="start"><tspan>mg</tspan></text><circle class="dot-ans" cx="132" cy="110" r="2.2"/></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(0\)</span></div><div><span class="label">加速度</span><span class="val">\(\dfrac{F - mg}{m}\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>物体は面から離れて持ち上がるので，面から受ける力はない（<b>垂直抗力は 0</b>）。はたらく力は \(F\)（上向き）と \(mg\)（下向き）だけ。加速する向き（上向き）を \(y\) 軸の正にとる。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(F - mg = ma\)</span>
+        </div>
+        <div class="final">垂直抗力 \(\boldsymbol{0}\)，　加速度 \(a = \boldsymbol{\dfrac{F - mg}{m}}\)</div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(2) 角度が \(\theta\) のあらい斜面上を滑り落ちる。</h3>
+      <div class="fig-row">
+        <div class="figure"><svg class="fig" viewBox="0 0 360 260" role="img" aria-label="角度θのあらい斜面上を物体Aが滑り落ちる"><polygon class="hatch" points="40,215 318.6,79.1 322.1,86.3 43.5,222.2" fill="url(#hatch)"/><line class="ink" x1="40" y1="215" x2="318.6" y2="79.1"/><line class="aux-ink" x1="40" y1="215" x2="115" y2="215"/><path class="ink nofill" d="M64,215 A24,24 0 0 0 61.6,204.5"/><text class="lbl m" x="72.2" y="212.6" text-anchor="middle"><tspan>θ</tspan></text><text class="jp small" x="318.6" y="71.1" text-anchor="end">あらい面</text><rect class="ink body" x="120.3" y="108.1" width="70" height="48" transform="rotate(-26 155.3 132.1)"/><text class="lbl" x="166.8" y="120.8" text-anchor="middle">A</text><g class="acc" transform="translate(144.1,90.8) rotate(-206) scale(0.85)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="41.7" y1="86.2" x2="-10.4" y2="111.6" marker-end="url(#ah-axis)"/><line class="axis" x1="32.6" y1="108.7" x2="9.8" y2="61.7" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="-18.5" y="120.6" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="5.8" y="58.7" text-anchor="middle"><tspan>y</tspan></text><text class="lbl ans-t m" x="104.1" y="92.8" text-anchor="middle"><tspan>a</tspan></text><line class="ans" x1="169.4" y1="151.9" x2="123.4" y2="57.5" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="115.4" y="51.5" text-anchor="end"><tspan>N</tspan></text><line class="aux" x1="116.7" y1="150.9" x2="155.3" y2="230.1"/><line class="aux" x1="193.9" y1="211.2" x2="155.3" y2="230.1"/><line class="ans" x1="155.3" y1="132.1" x2="155.3" y2="230.1" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="155.3" y="247.1" text-anchor="middle"><tspan>mg</tspan></text><line class="ans" x1="155.3" y1="132.1" x2="116.7" y2="150.9" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="110.7" y="155.9" text-anchor="end"><tspan>mg</tspan><tspan font-style="normal"> sin</tspan><tspan>θ</tspan></text><line class="ans" x1="155.3" y1="132.1" x2="193.9" y2="211.2" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="199.9" y="221.2" text-anchor="start"><tspan>mg</tspan><tspan font-style="normal"> cos</tspan><tspan>θ</tspan></text><path class="ans nofill nofill" d="M155.3,148.1 A16,16 0 0 0 162.3,146.4"/><text class="lbl ans-t m" x="161.4" y="163.4" text-anchor="middle"><tspan>θ</tspan></text><circle class="dot-ans" cx="155.3" cy="132.1" r="2.2"/><line class="ans" x1="182" y1="145.7" x2="235.9" y2="119.4" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="237.9" y="111.4" text-anchor="start"><tspan>μ</tspan><tspan font-style="normal">′</tspan><tspan>N</tspan></text></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(mg\cos\theta\)</span></div><div><span class="label">加速度</span><span class="val">\(g\sin\theta - \mu' g\cos\theta\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>加速する向き（<b>斜面下向き</b>）を \(x\) 軸，斜面に垂直な向きを \(y\) 軸にとる。重力を \(mg\sin\theta\)（斜面下向き）と \(mg\cos\theta\)（斜面に垂直）に分解する。動摩擦力 \(\mu' N\) は動く向きと逆の<b>斜面上向き</b>。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(N - mg\cos\theta = 0 \quad\Rightarrow\quad N = mg\cos\theta\)</span>
+          <span class="ax">x</span><span class="eq">\(mg\sin\theta - \mu' N = ma\)</span>
+        </div>
+        <p>\(N = mg\cos\theta\) を代入して両辺を \(m\) で割ると</p>
+        <div class="eqwrap"><div class="eq-wide">\[ a = g\sin\theta - \mu' g\cos\theta = g(\sin\theta - \mu'\cos\theta) \]</div><div class="eq-narrow">\[ \begin{aligned} a &= g\sin\theta - \mu' g\cos\theta \\ &= g(\sin\theta - \mu'\cos\theta) \end{aligned} \]</div></div>
+        <div class="final">垂直抗力 \(N = \boldsymbol{mg\cos\theta}\)，　加速度 \(a = \boldsymbol{g\sin\theta - \mu' g\cos\theta}\)</div>
+      </div></details>
+    </div>
+
+    <div class="sub-q">
+      <h3>(3) 角度が \(\theta\) のなめらかな斜面上を力 \(F\) で引き上げる。</h3>
+      <div class="fig-row">
+        <div class="figure"><svg class="fig" viewBox="0 0 360 260" role="img" aria-label="角度θのなめらかな斜面上で物体Aを力Fで引き上げる"><polygon class="smooth" points="40,215 318.6,79.1 322.1,86.3 43.5,222.2"/><line class="ink" x1="40" y1="215" x2="318.6" y2="79.1"/><line class="aux-ink" x1="40" y1="215" x2="115" y2="215"/><path class="ink nofill" d="M64,215 A24,24 0 0 0 61.6,204.5"/><text class="lbl m" x="72.2" y="212.6" text-anchor="middle"><tspan>θ</tspan></text><text class="jp small" x="318.6" y="71.1" text-anchor="end">なめらかな面</text><rect class="ink body" x="120.3" y="108.1" width="70" height="48" transform="rotate(-26 155.3 132.1)"/><text class="lbl" x="175.2" y="130" text-anchor="middle">A</text><line class="ink" x1="239.3" y1="83.1" x2="304.9" y2="51.1"/><line class="force" x1="183.6" y1="110.2" x2="239.3" y2="83.1" marker-end="url(#ah-force)"/><circle class="dot-force" cx="183.6" cy="110.2" r="2.2"/><text class="lbl m" x="235.3" y="71.1" text-anchor="middle"><tspan>F</tspan></text><g class="acc" transform="translate(109.9,107.5) rotate(-26) scale(0.85)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="axis" x1="123.5" y1="24" x2="170.5" y2="1.2" marker-end="url(#ah-axis)"/><line class="axis" x1="144.8" y1="30.7" x2="123.2" y2="-13.6" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="178.6" y="2.2" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="119.3" y="-16.7" text-anchor="middle"><tspan>y</tspan></text><text class="lbl ans-t m" x="103.9" y="93.5" text-anchor="middle"><tspan>a</tspan></text><line class="ans" x1="169.4" y1="151.9" x2="123.4" y2="57.5" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="115.4" y="51.5" text-anchor="end"><tspan>N</tspan></text><line class="aux" x1="116.7" y1="150.9" x2="155.3" y2="230.1"/><line class="aux" x1="193.9" y1="211.2" x2="155.3" y2="230.1"/><line class="ans" x1="155.3" y1="132.1" x2="155.3" y2="230.1" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="155.3" y="247.1" text-anchor="middle"><tspan>mg</tspan></text><line class="ans" x1="155.3" y1="132.1" x2="116.7" y2="150.9" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="110.7" y="155.9" text-anchor="end"><tspan>mg</tspan><tspan font-style="normal"> sin</tspan><tspan>θ</tspan></text><line class="ans" x1="155.3" y1="132.1" x2="193.9" y2="211.2" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="199.9" y="221.2" text-anchor="start"><tspan>mg</tspan><tspan font-style="normal"> cos</tspan><tspan>θ</tspan></text><path class="ans nofill nofill" d="M155.3,148.1 A16,16 0 0 0 162.3,146.4"/><text class="lbl ans-t m" x="161.4" y="163.4" text-anchor="middle"><tspan>θ</tspan></text><circle class="dot-ans" cx="155.3" cy="132.1" r="2.2"/></g></svg></div>
+        <div class="answer-box hide-ans"><div><span class="label">垂直抗力</span><span class="val">\(mg\cos\theta\)</span></div><div><span class="label">加速度</span><span class="val">\(\dfrac{F - mg\sin\theta}{m}\)</span></div></div>
+      </div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>加速する向き（<b>斜面上向き</b>）を \(x\) 軸にとる。重力の斜面方向の成分 \(mg\sin\theta\) は斜面下向き（\(x\) の負の向き）。</p>
+        <div class="axis-eq">
+          <span class="ax">y</span><span class="eq">\(N - mg\cos\theta = 0\)</span>
+          <span class="ax">x</span><span class="eq">\(F - mg\sin\theta = ma\)</span>
+        </div>
+        <div class="final">垂直抗力 \(N = \boldsymbol{mg\cos\theta}\)，　加速度 \(a = \boldsymbol{\dfrac{F - mg\sin\theta}{m}}\)</div>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <div class="fig-row">
+      <div style="flex:1 1 320px">
+        <p class="statement">時刻 \(t = 0\)〔s〕のときに，地面から小球を 19.6 m/s で鉛直上向きに投射した。鉛直上向きに \(y\) 軸をとり，地面の \(y\) 座標を 0 とし，重力加速度の大きさを 9.8 m/s² とする。</p>
+        <ol class="qs">
+          <li>時刻 \(t\)〔s〕における小球の速度 \(v\)〔m/s〕を \(t\) を用いて表せ。</li>
+          <li>時刻 \(t\)〔s〕における小球の \(y\) 座標〔m〕を \(t\) を用いて表せ。</li>
+          <li>時刻 \(t\)〔s〕と小球の速度 \(v\) の関係をグラフで示せ。</li>
+          <li>時刻 \(t\)〔s〕と小球の \(y\) 座標の関係をグラフで示せ。</li>
+          <li>投射してから 1.0 s 後の小球の速度はいくらか。</li>
+          <li>地面からの高さが 14.7 m の地点を小球が通過する時刻を答えよ。</li>
+        </ol>
+      </div>
+      <div class="figure small" style="max-width:190px"><svg class="fig" viewBox="0 0 170 240" role="img" aria-label="地面から小球を19.6 m/sで鉛直上向きに投げ上げる"><line class="ink" x1="135" y1="222" x2="135" y2="10" marker-end="url(#ah-ink)"/><text class="lbl m" x="141" y="16" text-anchor="start"><tspan>y</tspan></text><line class="aux-ink" x1="135" y1="222" x2="141" y2="222"/><text class="lbl" x="144" y="227" text-anchor="start">O</text><rect class="smooth" x="30" y="222" width="105" height="6"/><line class="ink" x1="30" y1="222" x2="135" y2="222"/><circle class="ball" cx="78" cy="215" r="7"/><line class="ink" x1="64" y1="232" x2="64" y2="192" marker-end="url(#ah-ink)"/><text class="lbl small m" x="60" y="205" text-anchor="end"><tspan font-style="normal">19.6 m/s</tspan></text><circle class="ball" cx="78" cy="42" r="7"/><line class="aux-dot" x1="73" y1="49" x2="73" y2="208"/><line class="aux-ink" x1="85" y1="47" x2="145" y2="47"/><line class="aux-dot" x1="92" y1="54" x2="92" y2="80" marker-end="url(#ah-ink)"/><g class="acc pink" transform="translate(64,108) rotate(90) scale(0.85)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl small m" x="54" y="130" text-anchor="end"><tspan font-style="normal">9.8 m/s</tspan><tspan dy="-6" font-size="70%" font-style="normal">2</tspan></text></svg></div>
+    </div>
+
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4>まず加速度を求める</h4>
+      <div class="fig-row" style="align-items:center">
+        <div class="figure small" style="max-width:90px; flex-basis:80px"><svg class="fig" viewBox="0 0 110 110" role="img" aria-label="小球にはたらく力は重力mgのみ（鉛直下向き）"><circle class="ball" cx="40" cy="30" r="16"/><circle class="dot-ans" cx="40" cy="30" r="2.2"/><line class="ans" x1="40" y1="30" x2="40" y2="92" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="40" y="108" text-anchor="middle"><tspan>mg</tspan></text></svg></div>
+        <div style="flex:1 1 240px">
+          <p>はたらく力は重力 \(mg\)（下向き）だけ。\(y\) 軸は上向きが正なので</p>
+          <div class="eqwrap"><div class="eq-wide">\[ -mg = ma \qquad\Rightarrow\qquad a = -g = -9.8 \]</div><div class="eq-narrow">\[ \begin{aligned} -mg &= ma \\ \Rightarrow\ a &= -g \\ &= -9.8 \end{aligned} \]</div></div>
+        </div>
+      </div>
+      <h4><span class="n">(1)</span>速度</h4>
+      <p>上で求めた加速度 \(a = -9.8\)（一定）を時間 \(t\) で積分すると，速度 \(v\) が求まる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int (-9.8)\,dt = -9.8t + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int (-9.8)\,dt \\ &= -9.8t + C_1 \end{aligned} \]</div></div>
+      <p>積分定数 \(C_1\) は初速度から決める。\(t = 0\) で上向きに 19.6 m/s で投げたので \(v(0) = 19.6\)。代入すると \(19.6 = -9.8\times 0 + C_1\) より \(C_1 = 19.6\)。　よって　\(v = -9.8t + 19.6\)</p>
+      <h4><span class="n">(2)</span>\(y\) 座標</h4>
+      <p>(1) の速度 \(v = -9.8t + 19.6\) をさらに \(t\) で積分すると，位置（\(y\) 座標）が求まる。\(-9.8t\) は \(-\dfrac{9.8}{2}t^2 = -4.9t^2\)，\(19.6\) は \(19.6t\) になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y = \int v\,dt = \int (-9.8t + 19.6)\,dt = -4.9t^2 + 19.6t + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} y &= \int v\,dt \\ &= \int (-9.8t + 19.6)\,dt \\ &= -4.9t^2 + 19.6t + C_2 \end{aligned} \]</div></div>
+      <p>積分定数 \(C_2\) は投げた位置から決める。地面（\(y = 0\)）から投げたので \(y(0) = 0\)。よって \(C_2 = 0\)，\(y = -4.9t^2 + 19.6t\)</p>
+      <p>(4) のグラフをかくために，平方完成して頂点を求めておく。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y = -4.9(t^2 - 4t) = -4.9\{(t-2)^2 - 4\} = -4.9(t - 2)^2 + 19.6 \]</div><div class="eq-narrow">\[ \begin{aligned} y &= -4.9(t^2 - 4t) \\ &= -4.9\{(t-2)^2 - 4\} \\ &= -4.9(t - 2)^2 + 19.6 \end{aligned} \]</div></div>
+      <p>→ \(t = 2\) s で最高点 19.6 m に達する。</p>
+      <h4><span class="n">(3)(4)</span>グラフ</h4>
+      <p>(1) の式（傾き −9.8 の直線）と (2) の式（上に凸の放物線）をグラフにする。\(t = 2\) s で \(v = 0\)（最高点），\(t = 4\) s で \(y = 0\)（地面に戻る）。</p>
+      <h4><span class="n">(5)</span>1.0 s 後の速度</h4>
+      <p>(1) の式に \(t = 1.0\) を代入：\(v = -9.8 \times 1.0 + 19.6 = 9.8\)　→ 正なので<b>鉛直上向きに 9.8 m/s</b>。</p>
+      <h4><span class="n">(6)</span>14.7 m を通過する時刻</h4>
+      <p>(2) の式で \(y = 14.7\) のとき：</p>
+      <div class="eqwrap">\[ 14.7 = -4.9t^2 + 19.6t \]</div>
+      <p>両辺を 4.9 で割ると \(3 = -t^2 + 4t\)，すなわち</p>
+      <div class="eqwrap"><div class="eq-wide">\[ t^2 - 4t + 3 = 0 \qquad\Rightarrow\qquad (t-1)(t-3) = 0 \]</div><div class="eq-narrow">\[ \begin{aligned} t^2 - 4t + 3 &= 0 \\ \Rightarrow\ (t-1)(t-3) &= 0 \end{aligned} \]</div></div>
+      <p>\(t = 1.0\) s（上がっていくとき）と \(t = 3.0\) s（落ちてくるとき）の2回通過する。</p>
+    </div></details>
+
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(v = -9.8t + 19.6\)〔m/s〕</span></div>
+      <div><span class="label">(2)</span><span class="val">\(y = -4.9t^2 + 19.6t\)〔m〕</span></div>
+      <div><span class="label">(3)</span><span class="val"><span class="figure" style="display:block;max-width:300px;margin:auto"><svg class="fig" viewBox="0 0 300 250" role="img" aria-label="v-tグラフ：v = −9.8t + 19.6 の直線。t=2でv=0，t=4でv=−19.6"><line class="ink" x1="34.4" y1="128" x2="304.8" y2="128" marker-end="url(#ah-ink)"/><line class="ink" x1="50" y1="229.2" x2="50" y2="26.8" marker-end="url(#ah-ink)"/><text class="lbl m" x="308.8" y="133" text-anchor="start"><tspan>t</tspan><tspan font-style="normal">〔s〕</tspan></text><text class="lbl m" x="50" y="18.8" text-anchor="middle"><tspan>v</tspan><tspan font-style="normal">〔m/s〕</tspan></text><text class="lbl m" x="45" y="143" text-anchor="end"><tspan>O</tspan></text><polyline class="curve" fill="none" points="50,41.8 52.6,43.9 55.2,46.1 57.8,48.2 60.4,50.4 63,52.5 65.6,54.7 68.2,56.9 70.8,59 73.4,61.2 76,63.3 78.6,65.5 81.2,67.6 83.8,69.8 86.4,71.9 89,74.1 91.6,76.3 94.2,78.4 96.8,80.6 99.4,82.7 102,84.9 104.6,87 107.2,89.2 109.8,91.3 112.4,93.5 115,95.7 117.6,97.8 120.2,100 122.8,102.1 125.4,104.3 128,106.4 130.6,108.6 133.2,110.8 135.8,112.9 138.4,115.1 141,117.2 143.6,119.4 146.2,121.5 148.8,123.7 151.4,125.8 154,128 156.6,130.2 159.2,132.3 161.8,134.5 164.4,136.6 167,138.8 169.6,140.9 172.2,143.1 174.8,145.2 177.4,147.4 180,149.6 182.6,151.7 185.2,153.9 187.8,156 190.4,158.2 193,160.3 195.6,162.5 198.2,164.7 200.8,166.8 203.4,169 206,171.1 208.6,173.3 211.2,175.4 213.8,177.6 216.4,179.7 219,181.9 221.6,184.1 224.2,186.2 226.8,188.4 229.4,190.5 232,192.7 234.6,194.8 237.2,197 239.8,199.1 242.4,201.3 245,203.5 247.6,205.6 250.2,207.8 252.8,209.9 255.4,212.1 258,214.2"/><line class="aux-ink" x1="50" y1="41.8" x2="50" y2="128"/><circle class="dot-ink" cx="50" cy="41.8" r="2.6"/><text class="lbl m" x="44" y="46.8" text-anchor="end"><tspan font-style="normal">19.6</tspan></text><line class="aux-ink" x1="258" y1="214.2" x2="258" y2="128"/><line class="aux-ink" x1="258" y1="214.2" x2="50" y2="214.2"/><circle class="dot-ink" cx="258" cy="214.2" r="2.6"/><text class="lbl m" x="258" y="121" text-anchor="middle"><tspan font-style="normal">4</tspan></text><text class="lbl m" x="44" y="219.2" text-anchor="end"><tspan font-style="normal">−19.6</tspan></text><line class="aux-ink" x1="154" y1="128" x2="50" y2="128"/><circle class="dot-ink" cx="154" cy="128" r="2.6"/><text class="lbl m" x="156" y="120" text-anchor="middle"><tspan font-style="normal">2</tspan></text></svg></span></span></div>
+      <div><span class="label">(4)</span><span class="val"><span class="figure" style="display:block;max-width:300px;margin:auto"><svg class="fig" viewBox="0 0 300 215" role="img" aria-label="y-tグラフ：y = −4.9t² + 19.6t の放物線。t=2で最高点19.6 m，t=4で地面に戻る"><line class="ink" x1="34.4" y1="186" x2="304.8" y2="186" marker-end="url(#ah-ink)"/><line class="ink" x1="50" y1="196.5" x2="50" y2="25" marker-end="url(#ah-ink)"/><text class="lbl m" x="308.8" y="191" text-anchor="start"><tspan>t</tspan><tspan font-style="normal">〔s〕</tspan></text><text class="lbl m" x="50" y="17" text-anchor="middle"><tspan>y</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl m" x="45" y="201" text-anchor="end"><tspan>O</tspan></text><polyline class="curve" fill="none" points="50,186 52.6,179.2 55.2,172.6 57.8,166.2 60.4,159.9 63,153.8 65.6,147.9 68.2,142.2 70.8,136.6 73.4,131.2 76,126 78.6,120.9 81.2,116 83.8,111.3 86.4,106.8 89,102.4 91.6,98.2 94.2,94.2 96.8,90.3 99.4,86.6 102,83.1 104.6,79.8 107.2,76.6 109.8,73.6 112.4,70.8 115,68.1 117.6,65.6 120.2,63.3 122.8,61.1 125.4,59.2 128,57.4 130.6,55.7 133.2,54.3 135.8,53 138.4,51.9 141,50.9 143.6,50.2 146.2,49.6 148.8,49.1 151.4,48.9 154,48.8 156.6,48.9 159.2,49.1 161.8,49.6 164.4,50.2 167,50.9 169.6,51.9 172.2,53 174.8,54.3 177.4,55.7 180,57.4 182.6,59.2 185.2,61.1 187.8,63.3 190.4,65.6 193,68.1 195.6,70.8 198.2,73.6 200.8,76.6 203.4,79.8 206,83.1 208.6,86.6 211.2,90.3 213.8,94.2 216.4,98.2 219,102.4 221.6,106.8 224.2,111.3 226.8,116 229.4,120.9 232,126 234.6,131.2 237.2,136.6 239.8,142.2 242.4,147.9 245,153.8 247.6,159.9 250.2,166.2 252.8,172.6 255.4,179.2 258,186"/><line class="aux-ink" x1="154" y1="48.8" x2="154" y2="186"/><line class="aux-ink" x1="154" y1="48.8" x2="50" y2="48.8"/><circle class="dot-ink" cx="154" cy="48.8" r="2.6"/><text class="lbl m" x="154" y="202" text-anchor="middle"><tspan font-style="normal">2</tspan></text><text class="lbl m" x="44" y="53.8" text-anchor="end"><tspan font-style="normal">19.6</tspan></text><line class="aux-ink" x1="258" y1="186" x2="50" y2="186"/><circle class="dot-ink" cx="258" cy="186" r="2.6"/><text class="lbl m" x="258" y="202" text-anchor="middle"><tspan font-style="normal">4</tspan></text></svg></span></span></div>
+      <div><span class="label">(5)</span><span class="val">鉛直上向きに 9.8〔m/s〕</span></div>
+      <div><span class="label">(6)</span><span class="val">1.0〔s〕と 3.0〔s〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題③ ================= -->
+  <section class="card" id="pr3">
+    <h2><span class="tag practice">練習問題③</span></h2>
+    <div class="fig-row">
+      <div style="flex:1 1 320px">
+        <p class="statement">角度 30° のあらい斜面上向きに \(x\) 軸とする。図のように，時刻 \(t = 0\) のときに，原点Oから \(x\) 軸の正の向きに初速度 \(v_0\) で質量 \(m\) の物体を打ち出したところ，斜面を上り，折り返した。重力加速度の大きさを \(g\) とし，物体と斜面との動摩擦係数を \(\mu'\) とする。</p>
+      </div>
+      <div class="figure"><svg class="fig" viewBox="0 0 300 150" role="img" aria-label="角度30°のあらい斜面上で，原点Oからx軸正の向きに初速度v0で物体を打ち出す"><line class="ink" x1="25" y1="135" x2="25" y2="135"/><line class="aux-ink" x1="25" y1="135" x2="100" y2="135"/><line class="ink" x1="25" y1="135" x2="254.5" y2="2.5" marker-end="url(#ah-ink)"/><path class="ink nofill" d="M51,135 A26,26 0 0 0 47.5,122"/><text class="lbl" x="57" y="132" text-anchor="start">30°</text><text class="lbl m" x="258.5" y="4.5" text-anchor="start"><tspan>x</tspan></text><circle class="ball white" cx="121.1" cy="71.4" r="7"/><text class="lbl" x="136.3" y="92.9" text-anchor="start">O</text><line class="ink" x1="85.6" y1="70" x2="111.6" y2="55" marker-end="url(#ah-ink)"/><text class="lbl m" x="81.6" y="62" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text></svg></div>
+    </div>
+    <ol class="qs">
+      <li>物体が斜面を上っている間の加速度 \(a\) を答えよ。</li>
+      <li>物体が斜面を上っている間の時刻 \(t\) における速度 \(v\) を \(v_0\)，\(g\)，\(t\)，\(\mu'\) を用いて表せ。</li>
+      <li>物体が斜面の折り返し点での \(x\) 座標を \(v_0\)，\(g\)，\(\mu'\) を用いて表せ。</li>
+      <li>物体が斜面を下っている間の加速度 \(a'\) を \(g\)，\(\mu'\) を用いて表せ。</li>
+    </ol>
+
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>\(\sin 30^\circ = \dfrac{1}{2}\)，\(\cos 30^\circ = \dfrac{\sqrt{3}}{2}\) なので，重力の斜面方向の成分は \(\dfrac{1}{2}mg\)，斜面に垂直な成分は \(\dfrac{\sqrt{3}}{2}mg\)。<b>動摩擦力の向きは「動く向きと逆」</b>なので，上りと下りで向きが変わることに注意。</p>
+      <div class="fig-row">
+        <div class="figure" style="max-width:320px"><svg class="fig" viewBox="0 0 300 250" role="img" aria-label="上っているとき：動摩擦力μ'Nは斜面下向き"><line class="ink" x1="20" y1="195" x2="253.8" y2="60"/><line class="aux-ink" x1="20" y1="195" x2="140" y2="195"/><path class="ink nofill" d="M44,195 A24,24 0 0 0 40.8,183"/><text class="lbl m" x="49" y="192.2" text-anchor="start"><tspan font-style="normal">30°</tspan></text><circle class="ball white" cx="141.4" cy="105.3" r="17"/><g class="ans-layer"><line class="axis" x1="47.5" y1="92.5" x2="80.4" y2="73.5" marker-end="url(#ah-axis)"/><line class="axis" x1="47.5" y1="92.5" x2="30.5" y2="63.1" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="88.2" y="74" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="26" y="60.3" text-anchor="middle"><tspan>y</tspan></text><line class="ans" x1="141.4" y1="105.3" x2="110.4" y2="51.6" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="118.4" y="45.6" text-anchor="start"><tspan>N</tspan></text><line class="aux" x1="110.2" y1="123.3" x2="141.4" y2="177.3"/><line class="aux" x1="172.6" y1="159.3" x2="141.4" y2="177.3"/><line class="ans" x1="141.4" y1="105.3" x2="141.4" y2="177.3" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="141.4" y="194.3" text-anchor="middle"><tspan>mg</tspan></text><line class="ans" x1="141.4" y1="105.3" x2="110.2" y2="123.3" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="104.2" y="128.3" text-anchor="end"><tspan font-style="normal">½ </tspan><tspan>mg</tspan></text><line class="ans" x1="141.4" y1="105.3" x2="172.6" y2="159.3" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="178.6" y="169.3" text-anchor="start"><tspan font-style="normal">(√3/2) </tspan><tspan>mg</tspan></text><circle class="dot-ans" cx="141.4" cy="105.3" r="2.2"/><line class="ans" x1="149.9" y1="120" x2="96.2" y2="151" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="96.3" y="172.1" text-anchor="middle"><tspan>μ</tspan><tspan font-style="normal">′</tspan><tspan>N</tspan></text></g><text class="jp bold m" x="12" y="22" text-anchor="start"><tspan font-style="normal">上り</tspan></text></svg></div>
+        <div class="figure" style="max-width:320px"><svg class="fig" viewBox="0 0 300 250" role="img" aria-label="下っているとき：動摩擦力μ'Nは斜面上向き"><line class="ink" x1="20" y1="195" x2="253.8" y2="60"/><line class="aux-ink" x1="20" y1="195" x2="140" y2="195"/><path class="ink nofill" d="M44,195 A24,24 0 0 0 40.8,183"/><text class="lbl m" x="49" y="192.2" text-anchor="start"><tspan font-style="normal">30°</tspan></text><circle class="ball white" cx="141.4" cy="105.3" r="17"/><g class="ans-layer"><line class="axis" x1="47.5" y1="92.5" x2="80.4" y2="73.5" marker-end="url(#ah-axis)"/><line class="axis" x1="47.5" y1="92.5" x2="30.5" y2="63.1" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="88.2" y="74" text-anchor="middle"><tspan>x</tspan></text><text class="lbl axis-t m" x="26" y="60.3" text-anchor="middle"><tspan>y</tspan></text><line class="ans" x1="141.4" y1="105.3" x2="110.4" y2="51.6" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="118.4" y="45.6" text-anchor="start"><tspan>N</tspan></text><line class="aux" x1="110.2" y1="123.3" x2="141.4" y2="177.3"/><line class="aux" x1="172.6" y1="159.3" x2="141.4" y2="177.3"/><line class="ans" x1="141.4" y1="105.3" x2="141.4" y2="177.3" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="141.4" y="194.3" text-anchor="middle"><tspan>mg</tspan></text><line class="ans" x1="141.4" y1="105.3" x2="110.2" y2="123.3" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="104.2" y="128.3" text-anchor="end"><tspan font-style="normal">½ </tspan><tspan>mg</tspan></text><line class="ans" x1="141.4" y1="105.3" x2="172.6" y2="159.3" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="178.6" y="169.3" text-anchor="start"><tspan font-style="normal">(√3/2) </tspan><tspan>mg</tspan></text><circle class="dot-ans" cx="141.4" cy="105.3" r="2.2"/><line class="ans" x1="149.9" y1="120" x2="203.6" y2="89" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="217.5" y="102.1" text-anchor="middle"><tspan>μ</tspan><tspan font-style="normal">′</tspan><tspan>N</tspan></text></g><text class="jp bold m" x="12" y="22" text-anchor="start"><tspan font-style="normal">下り</tspan></text></svg></div>
+      </div>
+      <h4><span class="n">(1)</span>上りの加速度 \(a\)</h4>
+      <p>上っているとき，動摩擦力 \(\mu' N\) は<b>斜面下向き</b>。</p>
+      <div class="axis-eq">
+        <span class="ax">y</span><span class="eq">\(N - \dfrac{\sqrt{3}}{2}mg = 0 \quad\Rightarrow\quad N = \dfrac{\sqrt{3}}{2}mg\)</span>
+        <span class="ax">x</span><span class="eq">\(-\dfrac{1}{2}mg - \mu' N = ma\)</span>
+      </div>
+      <p>\(x\) の式の \(N\) に，\(y\) の式から求めた \(N = \dfrac{\sqrt{3}}{2}mg\) を代入し，両辺を \(m\) で割る。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ ma = -\frac{1}{2}mg - \mu'\cdot\frac{\sqrt{3}}{2}mg \qquad\Rightarrow\qquad a = -\frac{1+\sqrt{3}\mu'}{2}\,g \]</div><div class="eq-narrow">\[ \begin{aligned} ma &= -\frac{1}{2}mg - \mu'\cdot\frac{\sqrt{3}}{2}mg \\ \Rightarrow\ a &= -\frac{1+\sqrt{3}\mu'}{2}\,g \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span>上りの速度 \(v\)</h4>
+      <p>(1) の加速度は時間によらず一定なので，そのまま \(t\) で積分すると速度になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = -\frac{1+\sqrt{3}\mu'}{2}\,gt + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= -\frac{1+\sqrt{3}\mu'}{2}\,gt + C_1 \end{aligned} \]</div></div>
+      <p>初速度は \(v_0\) なので \(v(0) = v_0\) より \(C_1 = v_0\)。　よって　\(v = v_0 - \dfrac{1+\sqrt{3}\mu'}{2}\,gt\)</p>
+      <h4><span class="n">(3)</span>折り返し点の \(x\) 座標</h4>
+      <p>まず折り返す時刻 \(T\) を求める。折り返し点では \(v = 0\) なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 0 = v_0 - \frac{1+\sqrt{3}\mu'}{2}\,gT \qquad\Rightarrow\qquad T = \frac{2v_0}{(1+\sqrt{3}\mu')g} \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= v_0 - \frac{1+\sqrt{3}\mu'}{2}\,gT \\ \Rightarrow\ T &= \frac{2v_0}{(1+\sqrt{3}\mu')g} \end{aligned} \]</div></div>
+      <p>次に，折り返し点の位置を求めるために位置の式をつくる。上っている間（\(0 \le t \le T\)）の速度 (2) を \(t\) で積分する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = \int v\,dt = v_0t - \frac{1+\sqrt{3}\mu'}{4}\,gt^2 + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v\,dt \\ &= v_0t - \frac{1+\sqrt{3}\mu'}{4}\,gt^2 + C_2 \end{aligned} \]</div></div>
+      <p>原点から打ち出したので \(x(0) = 0\)，よって \(C_2 = 0\)。</p>
+      <p>折り返すのは \(t = T\) のときなので，この式に \(t = T\) を代入する。</p>
+      <div class="eqwrap">\[ \begin{aligned} x &= v_0\cdot\frac{2v_0}{(1+\sqrt{3}\mu')g} \\ &\qquad - \frac{1+\sqrt{3}\mu'}{4}\,g\cdot\frac{4v_0^2}{(1+\sqrt{3}\mu')^2g^2} \\ &= \frac{2v_0^2}{(1+\sqrt{3}\mu')g} - \frac{v_0^2}{(1+\sqrt{3}\mu')g} \\ &= \frac{v_0^2}{(1+\sqrt{3}\mu')g} \end{aligned} \]</div>
+      <h4><span class="n">(4)</span>下りの加速度 \(a'\)</h4>
+      <p>下っているとき，動摩擦力 \(\mu' N\) は<b>斜面上向き</b>（\(x\) の正の向き）に変わる。\(N\) は上りと同じ。</p>
+      <div class="axis-eq">
+        <span class="ax">x</span><span class="eq">\(-\dfrac{1}{2}mg + \mu' N = ma'\)</span>
+      </div>
+      <p>\(y\) の式から求めた \(N = \dfrac{\sqrt{3}}{2}mg\)（上りと同じ）を代入し，両辺を \(m\) で割る。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ ma' = -\frac{1}{2}mg + \mu'\cdot\frac{\sqrt{3}}{2}mg \qquad\Rightarrow\qquad a' = -\frac{1-\sqrt{3}\mu'}{2}\,g \]</div><div class="eq-narrow">\[ \begin{aligned} ma' &= -\frac{1}{2}mg + \mu'\cdot\frac{\sqrt{3}}{2}mg \\ \Rightarrow\ a' &= -\frac{1-\sqrt{3}\mu'}{2}\,g \end{aligned} \]</div></div>
+      <p class="note"><b>ポイント</b>　\(a'\) が負 ＝ 斜面下向きに加速する。上りの加速度の大きさ \(\dfrac{1+\sqrt{3}\mu'}{2}g\) より，下りの加速度の大きさ \(\dfrac{1-\sqrt{3}\mu'}{2}g\) のほうが小さい（摩擦が運動を妨げる向きに変わるため）。</p>
+    </div></details>
+
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(a = -\dfrac{1+\sqrt{3}\mu'}{2}\,g\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v = v_0 - \dfrac{1+\sqrt{3}\mu'}{2}\,gt\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(x = \dfrac{v_0^2}{(1+\sqrt{3}\mu')g}\)</span></div>
+      <div><span class="label">(4)</span><span class="val">\(a' = -\dfrac{1-\sqrt{3}\mu'}{2}\,g\)</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題④ ================= -->
+  <section class="card" id="pr4">
+    <h2><span class="tag practice">練習問題④</span></h2>
+    <p class="statement">図のように，水平面に沿うように \(x\) 軸，鉛直方向に \(y\) 軸をとり，時刻 \(t = 0\) のときに原点Oから仰角 \(\theta\)，初速度 \(v_0\) で物体を投射した。重力加速度の大きさを \(g\) とする。</p>
+    <div class="figure"><svg class="fig" viewBox="0 0 340 190" role="img" aria-label="原点Oから仰角θ，初速度v0で物体を斜方投射する"><rect class="smooth" x="20" y="160" width="295" height="7"/><line class="ink" x1="20" y1="160" x2="330" y2="160" marker-end="url(#ah-ink)"/><text class="lbl m" x="330" y="150" text-anchor="middle"><tspan>x</tspan></text><line class="ink" x1="40" y1="182" x2="40" y2="15" marker-end="url(#ah-ink)"/><text class="lbl m" x="30" y="20" text-anchor="end"><tspan>y</tspan></text><text class="lbl" x="32" y="180" text-anchor="end">O</text><path class="aux-ink" d="M40,160 Q160,-30 280,160"/><line class="ink" x1="40" y1="160" x2="71.8" y2="109.1" style="stroke-width:2.4" marker-end="url(#ah-ink)"/><text class="lbl m" x="61.8" y="107.1" text-anchor="end"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><path class="ink nofill" d="M58,160 A18,18 0 0 0 49.5,144.7"/><path class="ink nofill" d="M61,160 A21,21 0 0 0 51.1,142.2"/><text class="lbl m" x="66" y="152" text-anchor="middle"><tspan>θ</tspan></text><circle class="ball gray" cx="40" cy="160" r="4.5"/><circle class="ball gray" cx="280" cy="160" r="4.5"/><g class="acc" transform="translate(165,72) rotate(90) scale(0.8)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl m" x="181" y="97" text-anchor="start"><tspan>g</tspan></text></svg></div>
+    <ol class="qs">
+      <li>時刻 \(t\) における物体の速度の水平成分を \(v_x(t)\)，鉛直成分を \(v_y(t)\) とすると，時刻 \(t = 0\) における \(v_x(0)\)，\(v_y(0)\) をそれぞれ答えよ。</li>
+      <li>\(v_x(t)\)，\(v_y(t)\) をそれぞれ答えよ。</li>
+      <li>時刻 \(t\) における物体の \(x\) 座標 \(x(t)\)，および \(y\) 座標 \(y(t)\) をそれぞれ答えよ。</li>
+      <li>物体を投射してから最高点の \(y\) 座標を答えよ。</li>
+      <li>物体を投射した位置から，水平面に達した位置までの水平距離を答えよ。</li>
+    </ol>
+
+    <details class="sol"><summary>解説</summary><div class="body">
+      <div class="fig-row" style="align-items:center">
+        <div class="figure small"><svg class="fig" viewBox="0 0 200 170" role="img" aria-label="初速度v0を水平成分v0cosθと鉛直成分v0sinθに分解"><line class="aux" x1="117.1" y1="48.1" x2="117.1" y2="140"/><line class="aux" x1="117.1" y1="48.1" x2="40" y2="48.1"/><line class="ink" x1="40" y1="140" x2="117.1" y2="48.1" style="stroke-width:2.2" marker-end="url(#ah-ink)"/><text class="lbl m" x="123.1" y="50.1" text-anchor="start"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><line class="ans" x1="40" y1="140" x2="117.1" y2="140" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="88.6" y="160" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan><tspan dy="-4" font-style="normal"> cos</tspan><tspan>θ</tspan></text><line class="ans" x1="40" y1="140" x2="40" y2="48.1" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="44" y="40.1" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan><tspan dy="-4" font-style="normal"> sin</tspan><tspan>θ</tspan></text><path class="ink nofill" d="M60,140 A20,20 0 0 0 52.9,124.7"/><text class="lbl m" x="70" y="130" text-anchor="middle"><tspan>θ</tspan></text><circle class="ball gray" cx="40" cy="140" r="4.5"/></svg></div>
+        <div class="figure small" style="max-width:180px"><svg class="fig" viewBox="0 0 170 120" role="img" aria-label="物体にはたらく力は重力mgのみ。ax=0，ay=−g"><circle class="ball gray" cx="40" cy="30" r="16"/><circle class="dot-ans" cx="40" cy="30" r="2.2"/><line class="ans" x1="40" y1="30" x2="40" y2="92" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="40" y="108" text-anchor="middle"><tspan>mg</tspan></text><text class="lbl ans-t m" x="78" y="45" text-anchor="start"><tspan>a</tspan><tspan dy="4" font-size="70%">x</tspan><tspan dy="-4" font-style="normal"> = 0</tspan></text><text class="lbl ans-t m" x="78" y="72" text-anchor="start"><tspan>a</tspan><tspan dy="4" font-size="70%">y</tspan><tspan dy="-4" font-style="normal"> = −</tspan><tspan>g</tspan></text></svg></div>
+      </div>
+      <p>はたらく力は重力 \(mg\)（鉛直下向き）だけ。水平方向には力がはたらかない。運動方程式を軸わけすると</p>
+      <div class="axis-eq">
+        <span class="ax">x</span><span class="eq">\(m a_x = 0 \quad\Rightarrow\quad a_x = 0\)</span>
+        <span class="ax">y</span><span class="eq">\(m a_y = -mg \quad\Rightarrow\quad a_y = -g\)</span>
+      </div>
+      <h4><span class="n">(1)</span>初速度の分解</h4>
+      <p>\(v_x(0) = v_0\cos\theta\)，　\(v_y(0) = v_0\sin\theta\)</p>
+      <h4><span class="n">(2)</span>速度</h4>
+      <p>\(x\) 方向，\(y\) 方向それぞれで，加速度を \(t\) で積分すると速度になる。\(a_x = 0\) を積分すると定数だけが残る。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v_x = \int a_x\,dt = \int 0\,dt = C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v_x &= \int a_x\,dt \\ &= \int 0\,dt \\ &= C_1 \end{aligned} \]</div></div>
+      <p>積分定数は (1) の初速度から決める。\(v_x(0) = v_0\cos\theta\) より　\(v_x(t) = v_0\cos\theta\)（水平方向は等速）</p>
+      <p>\(y\) 方向は \(a_y = -g\)（一定）を積分する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v_y = \int a_y\,dt = \int (-g)\,dt = -gt + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} v_y &= \int a_y\,dt \\ &= \int (-g)\,dt \\ &= -gt + C_2 \end{aligned} \]</div></div>
+      <p>\(v_y(0) = v_0\sin\theta\) より　\(v_y(t) = -gt + v_0\sin\theta\)</p>
+      <h4><span class="n">(3)</span>位置</h4>
+      <p>(2) の速度をそれぞれ \(t\) で積分すると位置になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = \int v_x\,dt = v_0t\cos\theta + C_3, \qquad y = \int v_y\,dt = -\frac{1}{2}gt^2 + v_0t\sin\theta + C_4 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v_x\,dt \\ &= v_0t\cos\theta + C_3 \\ y &= \int v_y\,dt \\ &= -\frac{1}{2}gt^2 + v_0t\sin\theta + C_4 \end{aligned} \]</div></div>
+      <p>原点Oから投げたので \(x(0) = 0\)，\(y(0) = 0\)。よって \(C_3 = C_4 = 0\) となり</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x(t) = v_0t\cos\theta, \qquad y(t) = -\frac{1}{2}gt^2 + v_0t\sin\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x(t) &= v_0t\cos\theta \\ y(t) &= -\frac{1}{2}gt^2 + v_0t\sin\theta \end{aligned} \]</div></div>
+      <h4><span class="n">(4)</span>最高点の \(y\) 座標</h4>
+      <p>最高点では，上向きの速度がちょうど 0 になって上昇から下降に変わる。つまり \(v_y(t) = 0\) なので　\(t_1 = \dfrac{v_0\sin\theta}{g}\)。これを \(y(t)\) に代入する。</p>
+      <div class="eqwrap">\[ \begin{aligned} y &= -\frac{1}{2}g\left(\frac{v_0\sin\theta}{g}\right)^2 \\ &\qquad + v_0\sin\theta\cdot\frac{v_0\sin\theta}{g} \\ &= \frac{v_0^2\sin^2\theta}{2g} \end{aligned} \]</div>
+      <h4><span class="n">(5)</span>水平到達距離</h4>
+      <p>水平面に達するのは，高さが再び 0 になるとき（\(y(t) = 0\)）。そのときの時刻を求めてから，\(x(t)\) に代入して水平距離を出す。</p>
+      <p>\(y(t) = 0\) のとき：\(t\left(v_0\sin\theta - \dfrac{1}{2}gt\right) = 0\)，\(t \neq 0\) より　\(t_2 = \dfrac{2v_0\sin\theta}{g}\)。これを \(x(t)\) に代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = v_0\cos\theta\cdot\frac{2v_0\sin\theta}{g} = \frac{2v_0^2\sin\theta\cos\theta}{g} = \frac{v_0^2\sin 2\theta}{g} \]</div><div class="eq-narrow">\[ \begin{aligned} x &= v_0\cos\theta\cdot\frac{2v_0\sin\theta}{g} \\ &= \frac{2v_0^2\sin\theta\cos\theta}{g} \\ &= \frac{v_0^2\sin 2\theta}{g} \end{aligned} \]</div></div>
+      <p class="note"><b>ポイント</b>　\(\sin 2\theta\) が最大（＝1）になる \(\theta = 45^\circ\) のとき，最も遠くまで届く。また \(t_2 = 2t_1\)（最高点までの時間の2倍で地面に戻る）。</p>
+    </div></details>
+
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(v_x(0) = v_0\cos\theta\)</span></div>
+      <div><span class="label">(1)</span><span class="val">\(v_y(0) = v_0\sin\theta\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v_x(t) = v_0\cos\theta\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v_y(t) = -gt + v_0\sin\theta\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(x(t) = v_0t\cos\theta\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(y(t) = -\dfrac{1}{2}gt^2 + v_0t\sin\theta\)</span></div>
+      <div><span class="label">(4)</span><span class="val">\(\dfrac{v_0^2\sin^2\theta}{2g}\)</span></div>
+      <div><span class="label">(5)</span><span class="val">\(\dfrac{2v_0^2\sin\theta\cos\theta}{g} = \dfrac{v_0^2\sin 2\theta}{g}\)</span></div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer>イナプリ 応用物理 05 運動方程式 ― 解答解説</footer>
+
+<script>
+// 例題②：測定値から速度・距離を計算
+(() => {
+  const box = document.getElementById("measure");
+  const out = document.getElementById("measure-out");
+  if (!box) return;
+  box.addEventListener("input", () => {
+    const ts = [...box.querySelectorAll("input")].map(i => parseFloat(i.value)).filter(v => v > 0);
+    if (!ts.length) return;
+    const t = ts.reduce((a, b) => a + b, 0) / ts.length;
+    out.innerHTML = `平均 <b>t = ${t.toFixed(2)} s</b>（${ts.length}回）　→　(5) v = 9.8 × ${t.toFixed(2)} ≈ <b>${(9.8 * t).toFixed(1)} m/s</b>　　(6) y = 4.9 × ${t.toFixed(2)}² ≈ <b>${(4.9 * t * t).toFixed(1)} m</b>`;
+  });
+})();
+</script>
+</body>
+</html>
