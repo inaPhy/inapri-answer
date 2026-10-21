@@ -280,18 +280,28 @@ details.sol > .body { padding: 2px 16px 14px; background: var(--paper); border-r
   padding: 4px 6px; border-radius: 2px; font-family: system-ui, sans-serif;
 }
 .menu-list { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--line); }
-.menu-list li { display: flex; align-items: center; gap: 14px; padding: 9px 4px; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+.menu-list li { position: relative; display: flex; align-items: center; gap: 14px; padding: 9px 4px; border-bottom: 1px solid var(--line); font-size: 1.05rem; transition: background-color .2s; }
+/* マウスを乗せた行：薄い緑の背景＋左に緑の帯が伸びる＋タイトルが少し右へ＋アイコンが緑に反転。行のどこを押しても開く */
+.menu-list li::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #109810; transform: scaleY(0); transition: transform .2s ease; }
+.menu-list li:not(.soon):hover, .menu-list li:not(.soon):focus-within { background: #eaf6e4; }
+.menu-list li:not(.soon):hover::before, .menu-list li:not(.soon):focus-within::before { transform: scaleY(1); }
+.menu-list li .menu-no { transition: color .2s; }
+.menu-list li:not(.soon):hover .menu-no { color: #109810; }
 .menu-no { width: 1.6em; font-weight: 700; flex: none; font-family: system-ui, sans-serif; }
-.menu-title { flex: 1; color: var(--ink); text-decoration: none; letter-spacing: .04em; }
-a.menu-title:hover { color: #2a64b8; text-decoration: underline; }
+.menu-title { flex: 1; color: var(--ink); text-decoration: none; letter-spacing: .04em; transition: transform .2s ease, color .2s; }
+a.menu-title::after { content: ""; position: absolute; inset: 0; }  /* 行全体をリンクにする */
+.menu-list li:not(.soon):hover a.menu-title, a.menu-title:focus-visible { color: #0b6e0b; transform: translateX(6px); font-weight: 700; }
+a.menu-title:focus-visible { outline: none; }
 .menu-icons { display: flex; gap: 6px; flex: none; }
-.menu-icons a { color: #2a64b8; display: grid; place-items: center; width: 24px; height: 26px; border-radius: 4px; }
-.menu-icons a:hover { background: var(--accent-soft); }
+.menu-icons a { position: relative; z-index: 1; color: #2a64b8; display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; transition: background-color .2s, color .2s, transform .2s; }
+.menu-list li:not(.soon):hover .menu-icons a { background: #109810; color: #fff; transform: scale(1.08); }
 .menu-icons svg { width: 18px; height: 20px; }
 .menu-list li.soon .menu-title { color: var(--muted); }
 .menu-list li.soon .menu-icons::after { content: "準備中"; font-size: .72rem; color: var(--muted); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .menu-icons a, :root:not([data-theme="light"]) .menu-icon-sample svg { color: #7fb0ec; }
+  :root:not([data-theme="light"]) .menu-list li:not(.soon):hover { background: #1f3a1f; }
+  :root:not([data-theme="light"]) .menu-list li:not(.soon):hover a.menu-title { color: #9fe39f; }
 }
 
 footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 20px; }
@@ -448,3 +458,7 @@ svg.fig .ans-layer { opacity: 0; transition: opacity .35s; }
 /* 解答欄の空きセル（問題のない欄）：外枠の線も消して空白にする */
 .answer-grid > .blank { border: 0 !important; background: var(--paper); margin: 0 -3px -3px 0; position: relative; }
 @media (max-width: 560px) { .answer-grid > .blank { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-list li, .menu-list li::before, .menu-title, .menu-icons a { transition: none; }
+}
