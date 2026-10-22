@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>イナプリ 解答解説</title>
 <meta name="description" content="授業プリント（イナプリ）の例題・練習問題の解答解説（応用物理・電気電子工学）">
-<link rel="stylesheet" href="assets/style.css?v=aee90d30">
+<link rel="stylesheet" href="assets/style.css?v=1f5afee6">
 </head>
-<body>
+<body class="portal">
 <header class="site-header">
   <div class="inner">
     <a class="brand" href="index.html"><span class="dot"></span>イナプリ 解答解説</a>
@@ -25,10 +25,17 @@
     <symbol id="ic-doc" viewBox="0 0 16 18"><path d="M2.5 1h7l4 4v11.5h-11z M9.5 1v4h4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M5 8.5h6M5 11h6M5 13.5h6" stroke="currentColor" stroke-width="1.2"/></symbol>
   </svg>
 
+  <!-- 科目へのページ内リンク（見出しの id へ移動） -->
+  <nav class="subject-jump" aria-label="科目">
+    <a class="jump-green" href="#applied-physics">応用物理</a>
+    <a class="jump-orange" href="#electrical-electronic">電気電子工学</a>
+  </nav>
+
+  <div class="menu-grid">
   <!-- 科目ごとのメニュー。解説を作ったら，その行の class="soon" を外し，<span class="menu-title"> を
        <a class="menu-title" href="科目フォルダ/ファイル名.html"> に変えてアイコンを追加する（応用物理の行と同じ形） -->
-  <section class="menu menu-green" id="applied-physics">
-    <h2 class="menu-head">応用物理</h2>
+  <section class="menu menu-green">
+    <h2 class="menu-head" id="applied-physics">応用物理</h2>
     <ol class="menu-list">
       <li><span class="menu-no">1</span><a class="menu-title" href="applied-physics/01_guidance.html">ガイダンス・数学の確認</a>
         <span class="menu-icons"><a href="applied-physics/01_guidance.html" title="解答解説" aria-label="ガイダンス・数学の確認の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
@@ -43,8 +50,8 @@
     </ol>
   </section>
 
-  <section class="menu menu-orange" id="electrical-electronic">
-    <h2 class="menu-head">電気電子工学</h2>
+  <section class="menu menu-orange">
+    <h2 class="menu-head" id="electrical-electronic">電気電子工学</h2>
     <ol class="menu-list">
       <li class="soon"><span class="menu-no">1</span><span class="menu-title">電気の基礎知識</span><span class="menu-icons"></span></li>
       <li class="soon"><span class="menu-no">2</span><span class="menu-title">抵抗の接続</span><span class="menu-icons"></span></li>
@@ -62,6 +69,7 @@
       <li class="soon"><span class="menu-no">14</span><span class="menu-title">コンデンサーを含む回路</span><span class="menu-icons"></span></li>
     </ol>
   </section>
+  </div>
 </main>
 <footer>イナプリ 解答解説</footer>
 </body>
