@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>応用物理 解答解説</title>
-<meta name="description" content="イナプリ 応用物理（力学）の例題・練習問題の解答解説">
-<link rel="stylesheet" href="assets/style.css?v=f7a0be2e">
+<title>イナプリ 解答解説</title>
+<meta name="description" content="授業プリント（イナプリ）の例題・練習問題の解答解説（応用物理・電気電子工学）">
+<link rel="stylesheet" href="assets/style.css?v=aee90d30">
 </head>
 <body>
 <header class="site-header">
   <div class="inner">
-    <a class="brand" href="index.html"><span class="dot"></span><span class="brand-sub">応用物理 </span>解答解説 <small>イナプリ</small></a>
+    <a class="brand" href="index.html"><span class="dot"></span>イナプリ 解答解説</a>
   </div>
 </header>
 
@@ -25,23 +25,44 @@
     <symbol id="ic-doc" viewBox="0 0 16 18"><path d="M2.5 1h7l4 4v11.5h-11z M9.5 1v4h4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M5 8.5h6M5 11h6M5 13.5h6" stroke="currentColor" stroke-width="1.2"/></symbol>
   </svg>
 
-  <!-- 新しいプリントの解説を作ったら，その行の <span class="menu-title"> を <a> に変え，アイコンを追加する -->
-  <section class="menu">
-    <h2 class="menu-head"><span class="menu-badge">M</span>力学</h2>
+  <!-- 科目ごとのメニュー。解説を作ったら，その行の class="soon" を外し，<span class="menu-title"> を
+       <a class="menu-title" href="科目フォルダ/ファイル名.html"> に変えてアイコンを追加する（応用物理の行と同じ形） -->
+  <section class="menu menu-green" id="applied-physics">
+    <h2 class="menu-head">応用物理</h2>
     <ol class="menu-list">
-      <li><span class="menu-no">1</span><a class="menu-title" href="01_guidance.html">ガイダンス・数学の確認</a>
-        <span class="menu-icons"><a href="01_guidance.html" title="解答解説" aria-label="ガイダンス・数学の確認の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
-      <li><span class="menu-no">2</span><a class="menu-title" href="02_position_velocity.html">位置・速度</a>
-        <span class="menu-icons"><a href="02_position_velocity.html" title="解答解説" aria-label="位置・速度の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
-      <li><span class="menu-no">3</span><a class="menu-title" href="03_acceleration.html">加速度</a>
-        <span class="menu-icons"><a href="03_acceleration.html" title="解答解説" aria-label="加速度の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
-      <li><span class="menu-no">4</span><a class="menu-title" href="04_forces.html">物体にはたらく力</a>
-        <span class="menu-icons"><a href="04_forces.html" title="解答解説" aria-label="物体にはたらく力の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
-      <li><span class="menu-no">5</span><a class="menu-title" href="05_equation_of_motion.html">運動方程式</a>
-        <span class="menu-icons"><a href="05_equation_of_motion.html" title="解答解説" aria-label="運動方程式の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
+      <li><span class="menu-no">1</span><a class="menu-title" href="applied-physics/01_guidance.html">ガイダンス・数学の確認</a>
+        <span class="menu-icons"><a href="applied-physics/01_guidance.html" title="解答解説" aria-label="ガイダンス・数学の確認の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
+      <li><span class="menu-no">2</span><a class="menu-title" href="applied-physics/02_position_velocity.html">位置・速度</a>
+        <span class="menu-icons"><a href="applied-physics/02_position_velocity.html" title="解答解説" aria-label="位置・速度の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
+      <li><span class="menu-no">3</span><a class="menu-title" href="applied-physics/03_acceleration.html">加速度</a>
+        <span class="menu-icons"><a href="applied-physics/03_acceleration.html" title="解答解説" aria-label="加速度の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
+      <li><span class="menu-no">4</span><a class="menu-title" href="applied-physics/04_forces.html">物体にはたらく力</a>
+        <span class="menu-icons"><a href="applied-physics/04_forces.html" title="解答解説" aria-label="物体にはたらく力の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
+      <li><span class="menu-no">5</span><a class="menu-title" href="applied-physics/05_equation_of_motion.html">運動方程式</a>
+        <span class="menu-icons"><a href="applied-physics/05_equation_of_motion.html" title="解答解説" aria-label="運動方程式の解答解説"><svg viewBox="0 0 16 18"><use href="#ic-doc"/></svg></a></span></li>
+    </ol>
+  </section>
+
+  <section class="menu menu-orange" id="electrical-electronic">
+    <h2 class="menu-head">電気電子工学</h2>
+    <ol class="menu-list">
+      <li class="soon"><span class="menu-no">1</span><span class="menu-title">電気の基礎知識</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">2</span><span class="menu-title">抵抗の接続</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">3</span><span class="menu-title">回路の電位モデル</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">4</span><span class="menu-title">キルヒホッフの法則</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">5</span><span class="menu-title">抵抗のΔY変換</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">6</span><span class="menu-title">抵抗器</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">7</span><span class="menu-title">磁気の基礎知識</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">8</span><span class="menu-title">電磁誘導</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">9</span><span class="menu-title">自己誘導</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">10</span><span class="menu-title">相互誘導</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">11</span><span class="menu-title">コンデンサ</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">12</span><span class="menu-title">コンデンサの静電容量</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">13</span><span class="menu-title">静電エネルギー</span><span class="menu-icons"></span></li>
+      <li class="soon"><span class="menu-no">14</span><span class="menu-title">コンデンサーを含む回路</span><span class="menu-icons"></span></li>
     </ol>
   </section>
 </main>
-<footer>イナプリ 応用物理</footer>
+<footer>イナプリ 解答解説</footer>
 </body>
 </html>
