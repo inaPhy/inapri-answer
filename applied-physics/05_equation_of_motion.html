@@ -6,10 +6,10 @@
 <title>05 運動方程式 解答解説</title>
 <meta name="description" content="イナプリ 応用物理05「運動方程式」の例題・練習問題の解答解説">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=1f5afee6">
+<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<script defer src="../assets/main.js?v=a863d04a"></script>
+<script defer src="../assets/main.js?v=71cb541e"></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -20,6 +20,11 @@
 <marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
 <marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
 <marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-volt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-volt" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-red" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse"><rect class="dots-bg" width="4" height="4"/><circle class="dots-st" cx="1" cy="1" r=".5"/><circle class="dots-st" cx="3" cy="3" r=".5"/></pattern>
+<pattern id="dots-g" width="3" height="3" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="3" height="3"/><circle class="dotsg-st" cx="1" cy="1" r=".45"/></pattern>
+<pattern id="dots-d" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="2" height="2"/><circle class="dotsd-st" cx="1" cy="1" r=".6"/></pattern>
 <pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
 </defs>
 </svg>
@@ -215,7 +220,7 @@
           <li>教室の天井から床までの距離は何 m か。</li>
         </ol>
       </div>
-      <div class="figure small"><svg class="fig" viewBox="0 0 210 260" role="img" aria-label="天井から物体を静かに落とし，床に達するまでの時間を計測する"><g><circle cx="18" cy="22" r="7" class="sw"/><circle cx="18" cy="22" r="4.2" class="sw-face"/><line x1="18" y1="22" x2="18" y2="18.1" class="sw-hand"/></g><text class="lbl m" x="32" y="27" text-anchor="start"><tspan font-style="normal">0</tspan></text><circle class="ball" cx="120" cy="42" r="7"/><text class="jp tiny m" x="108" y="46" text-anchor="end"><tspan font-style="normal">初速度 0</tspan></text><text class="jp m" x="102" y="32" text-anchor="end" font-size="5"><tspan font-style="normal">ゼロ</tspan></text><line class="aux-ink" x1="127" y1="42" x2="195" y2="42"/><rect class="label-bg" x="183" y="34" width="11" height="16"/><text class="lbl m" x="188.5" y="47" text-anchor="middle"><tspan font-style="normal">0</tspan></text><line class="aux-dot" x1="120" y1="49" x2="120" y2="224"/><line class="ink" x1="178" y1="12" x2="178" y2="252" marker-end="url(#ah-ink)"/><text class="lbl m" x="188" y="252" text-anchor="start"><tspan>y</tspan></text><g class="acc pink" transform="translate(100,108) rotate(90) scale(0.9)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl small m" x="90" y="135" text-anchor="end"><tspan font-style="normal">9.8 m/s</tspan><tspan dy="-6" font-size="70%" font-style="normal">2</tspan></text><rect class="smooth" x="20" y="238" width="185" height="6"/><line class="ink" x1="20" y1="238" x2="205" y2="238"/><circle class="ball" cx="120" cy="231" r="7"/><line class="ink" x1="104" y1="205" x2="104" y2="244" marker-end="url(#ah-ink)"/><text class="jp small bold m" x="14" y="184" text-anchor="start"><tspan font-style="normal">計測</tspan></text><g><circle cx="20" cy="202" r="7" class="sw"/><circle cx="20" cy="202" r="4.2" class="sw-face"/><line x1="20" y1="202" x2="20" y2="198.2" class="sw-hand"/></g><text class="lbl m" x="34" y="207" text-anchor="start"><tspan>t</tspan><tspan font-style="normal"> =</tspan></text></svg></div>
+      <div class="figure small"><svg class="fig" viewBox="0 0 210 260" role="img" aria-label="天井から物体を静かに落とし，床に達するまでの時間を計測する"><g><circle cx="18" cy="22" r="7" class="sw"/><circle cx="18" cy="22" r="4.2" class="sw-face"/><line x1="18" y1="22" x2="18" y2="18.1" class="sw-hand"/></g><text class="lbl m" x="32" y="27" text-anchor="start"><tspan font-style="normal">0</tspan></text><circle class="ball" cx="120" cy="42" r="7"/><text class="jp tiny m" x="108" y="46" text-anchor="end"><tspan font-style="normal">初速度 0</tspan></text><text class="jp m" x="102" y="32" text-anchor="end" font-size="5"><tspan font-style="normal">ゼロ</tspan></text><line class="aux-ink" x1="127" y1="42" x2="195" y2="42"/><rect class="label-bg" x="183" y="34" width="11" height="16"/><text class="lbl m" x="188.5" y="47" text-anchor="middle"><tspan font-style="normal">0</tspan></text><line class="aux-dot" x1="120" y1="49" x2="120" y2="224"/><line class="ink" x1="178" y1="12" x2="178" y2="252" marker-end="url(#ah-ink)"/><text class="lbl m" x="188" y="252" text-anchor="start"><tspan>y</tspan></text><g class="acc pink" transform="translate(100,108) rotate(90) scale(0.9)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl small m" x="90" y="135" text-anchor="end"><tspan font-style="normal">9.8 </tspan><tspan font-style="normal" class="g">m/s</tspan><tspan dy="-6" font-size="70%" font-style="normal" class="g">2</tspan></text><rect class="smooth" x="20" y="238" width="185" height="6"/><line class="ink" x1="20" y1="238" x2="205" y2="238"/><circle class="ball" cx="120" cy="231" r="7"/><line class="ink" x1="104" y1="205" x2="104" y2="244" marker-end="url(#ah-ink)"/><text class="jp small bold m" x="14" y="184" text-anchor="start"><tspan font-style="normal">計測</tspan></text><g><circle cx="20" cy="202" r="7" class="sw"/><circle cx="20" cy="202" r="4.2" class="sw-face"/><line x1="20" y1="202" x2="20" y2="198.2" class="sw-hand"/></g><text class="lbl m" x="34" y="207" text-anchor="start"><tspan>t</tspan><tspan font-style="normal"> =</tspan></text></svg></div>
     </div>
 
     <details class="sol"><summary>解説</summary><div class="body">
@@ -246,7 +251,7 @@
         <label>計測3〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
         <label>計測4〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
       </div>
-      <div class="calc-result" id="measure-out">測定値を入力してください。（例：平均 \(t = 0.80\) s なら \(v = 9.8 \times 0.80 \approx 7.8\) m/s，\(y = 4.9 \times 0.80^2 \approx 3.1\) m）</div>
+      <div class="calc-result" id="measure-out">測定値を入力してください。（例：平均 \(t = 0.80\,\unit{s}\) なら \(v = 9.8 \times 0.80 \approx 7.8\,\unit{m/s}\)，\(y = 4.9 \times 0.80^2 \approx 3.1\,\unit{m}\)）</div>
     </div></details>
 
     <div class="answer-grid hide-ans">
@@ -392,7 +397,7 @@
           <li>地面からの高さが 14.7 m の地点を小球が通過する時刻を答えよ。</li>
         </ol>
       </div>
-      <div class="figure small" style="max-width:190px"><svg class="fig" viewBox="0 0 170 240" role="img" aria-label="地面から小球を19.6 m/sで鉛直上向きに投げ上げる"><line class="ink" x1="135" y1="222" x2="135" y2="10" marker-end="url(#ah-ink)"/><text class="lbl m" x="141" y="16" text-anchor="start"><tspan>y</tspan></text><line class="aux-ink" x1="135" y1="222" x2="141" y2="222"/><text class="lbl" x="144" y="227" text-anchor="start">O</text><rect class="smooth" x="30" y="222" width="105" height="6"/><line class="ink" x1="30" y1="222" x2="135" y2="222"/><circle class="ball" cx="78" cy="215" r="7"/><line class="ink" x1="64" y1="232" x2="64" y2="192" marker-end="url(#ah-ink)"/><text class="lbl small m" x="60" y="205" text-anchor="end"><tspan font-style="normal">19.6 m/s</tspan></text><circle class="ball" cx="78" cy="42" r="7"/><line class="aux-dot" x1="73" y1="49" x2="73" y2="208"/><line class="aux-ink" x1="85" y1="47" x2="145" y2="47"/><line class="aux-dot" x1="92" y1="54" x2="92" y2="80" marker-end="url(#ah-ink)"/><g class="acc pink" transform="translate(64,108) rotate(90) scale(0.85)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl small m" x="54" y="130" text-anchor="end"><tspan font-style="normal">9.8 m/s</tspan><tspan dy="-6" font-size="70%" font-style="normal">2</tspan></text></svg></div>
+      <div class="figure small" style="max-width:190px"><svg class="fig" viewBox="0 0 170 240" role="img" aria-label="地面から小球を19.6 m/sで鉛直上向きに投げ上げる"><line class="ink" x1="135" y1="222" x2="135" y2="10" marker-end="url(#ah-ink)"/><text class="lbl m" x="141" y="16" text-anchor="start"><tspan>y</tspan></text><line class="aux-ink" x1="135" y1="222" x2="141" y2="222"/><text class="lbl" x="144" y="227" text-anchor="start">O</text><rect class="smooth" x="30" y="222" width="105" height="6"/><line class="ink" x1="30" y1="222" x2="135" y2="222"/><circle class="ball" cx="78" cy="215" r="7"/><line class="ink" x1="64" y1="232" x2="64" y2="192" marker-end="url(#ah-ink)"/><text class="lbl small m" x="60" y="205" text-anchor="end"><tspan font-style="normal">19.6 </tspan><tspan font-style="normal" class="g">m/s</tspan></text><circle class="ball" cx="78" cy="42" r="7"/><line class="aux-dot" x1="73" y1="49" x2="73" y2="208"/><line class="aux-ink" x1="85" y1="47" x2="145" y2="47"/><line class="aux-dot" x1="92" y1="54" x2="92" y2="80" marker-end="url(#ah-ink)"/><g class="acc pink" transform="translate(64,108) rotate(90) scale(0.85)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><text class="lbl small m" x="54" y="130" text-anchor="end"><tspan font-style="normal">9.8 </tspan><tspan font-style="normal" class="g">m/s</tspan><tspan dy="-6" font-size="70%" font-style="normal" class="g">2</tspan></text></svg></div>
     </div>
 
     <details class="sol"><summary>解説</summary><div class="body">
@@ -414,9 +419,9 @@
       <p>積分定数 \(C_2\) は投げた位置から決める。地面（\(y = 0\)）から投げたので \(y(0) = 0\)。よって \(C_2 = 0\)，\(y = -4.9t^2 + 19.6t\)</p>
       <p>(4) のグラフをかくために，平方完成して頂点を求めておく。</p>
       <div class="eqwrap"><div class="eq-wide">\[ y = -4.9(t^2 - 4t) = -4.9\{(t-2)^2 - 4\} = -4.9(t - 2)^2 + 19.6 \]</div><div class="eq-narrow">\[ \begin{aligned} y &= -4.9(t^2 - 4t) \\ &= -4.9\{(t-2)^2 - 4\} \\ &= -4.9(t - 2)^2 + 19.6 \end{aligned} \]</div></div>
-      <p>→ \(t = 2\) s で最高点 19.6 m に達する。</p>
+      <p>→ \(t = 2\,\unit{s}\) で最高点 19.6 m に達する。</p>
       <h4><span class="n">(3)(4)</span>グラフ</h4>
-      <p>(1) の式（傾き −9.8 の直線）と (2) の式（上に凸の放物線）をグラフにする。\(t = 2\) s で \(v = 0\)（最高点），\(t = 4\) s で \(y = 0\)（地面に戻る）。</p>
+      <p>(1) の式（傾き −9.8 の直線）と (2) の式（上に凸の放物線）をグラフにする。\(t = 2\,\unit{s}\) で \(v = 0\)（最高点），\(t = 4\,\unit{s}\) で \(y = 0\)（地面に戻る）。</p>
       <h4><span class="n">(5)</span>1.0 s 後の速度</h4>
       <p>(1) の式に \(t = 1.0\) を代入：\(v = -9.8 \times 1.0 + 19.6 = 9.8\)　→ 正なので<b>鉛直上向きに 9.8 m/s</b>。</p>
       <h4><span class="n">(6)</span>14.7 m を通過する時刻</h4>
@@ -424,7 +429,7 @@
       <div class="eqwrap">\[ 14.7 = -4.9t^2 + 19.6t \]</div>
       <p>両辺を 4.9 で割ると \(3 = -t^2 + 4t\)，すなわち</p>
       <div class="eqwrap"><div class="eq-wide">\[ t^2 - 4t + 3 = 0 \qquad\Rightarrow\qquad (t-1)(t-3) = 0 \]</div><div class="eq-narrow">\[ \begin{aligned} t^2 - 4t + 3 &= 0 \\ \Rightarrow\ (t-1)(t-3) &= 0 \end{aligned} \]</div></div>
-      <p>\(t = 1.0\) s（上がっていくとき）と \(t = 3.0\) s（落ちてくるとき）の2回通過する。</p>
+      <p>\(t = 1.0\,\unit{s}\)（上がっていくとき）と \(t = 3.0\,\unit{s}\)（落ちてくるとき）の2回通過する。</p>
     </div></details>
 
     <div class="answer-grid hide-ans">

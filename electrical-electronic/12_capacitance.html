@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>12 コンデンサの静電容量 解答解説</title>
+<meta name="description" content="イナプリ 電気電子工学12「コンデンサの静電容量」の練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/main.js?v=71cb541e"></script>
+</head>
+<body style="--unit-dot:#ffc000">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-volt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-volt" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-red" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse"><rect class="dots-bg" width="4" height="4"/><circle class="dots-st" cx="1" cy="1" r=".5"/><circle class="dots-st" cx="3" cy="3" r=".5"/></pattern>
+<pattern id="dots-g" width="3" height="3" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="3" height="3"/><circle class="dotsg-st" cx="1" cy="1" r=".45"/></pattern>
+<pattern id="dots-d" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="2" height="2"/><circle class="dotsd-st" cx="1" cy="1" r=".6"/></pattern>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-sub">電気電子工学 </span>解答解説 <small>イナプリ 12</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="../index.html">← 一覧に戻る</a>
+    <div class="toc-title">12 コンデンサの静電容量</div>
+    <ol>
+      <li><a href="#point">ポイント</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+      <li><a href="#pr3">練習問題③</a></li>
+      <li><a href="#pr4">練習問題④</a></li>
+      <li><a href="#pr5">練習問題⑤</a></li>
+      <li><a href="#pr6">練習問題⑥</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 電気電子工学 12</div>
+    <h1>コンデンサの静電容量</h1>
+  </section>
+
+  <!-- ================= ポイント ================= -->
+  <section class="card" id="point">
+    <h2 class="bullet-h" style="margin-top:0">コンデンサの静電容量</h2>
+    <div class="fig-row" style="align-items:center">
+      <div class="yellow-box" style="flex:1 1 200px;max-width:280px">
+        <div style="font-size:.8rem">コンデンサの３大重要公式 その２</div>
+        <div style="font-size:1.6rem;text-align:center">\(C = \) <span class="fill">\(\varepsilon\dfrac{S}{d}\)</span></div>
+        <div style="font-size:.8rem;text-align:center">\(C\)：静電容量〔F〕　\(\varepsilon\)：誘電率〔F/m〕<br>\(S\)：面積〔m<sup>2</sup>〕　\(d\)：極板間〔m〕</div>
+      </div>
+      <div class="figure" style="max-width:400px"><svg class="fig" viewBox="0 0 380 170" role="img" aria-label="平行板コンデンサ。面積Sは大きいほど，極板間dは狭いほど，誘電率εは絶縁体を挟むほどよくたまる"><line class="ink" x1="200" y1="10" x2="200" y2="78"/><line class="ink" x1="200" y1="104" x2="200" y2="178"/><polygon class="slab" fill="url(#dots)" points="110,86 214,112 214,138 110,112"/><polygon class="slab" fill="url(#dots)" points="214,112 290,70 290,96 214,138"/><polygon class="plate-face bold" points="110,86 186,44 290,70 214,112"/><line class="ink" x1="110" y1="112" x2="214" y2="138"/><line class="ink" x1="214" y1="138" x2="290" y2="96"/><line class="plate" x1="110" y1="112" x2="214" y2="138" style="stroke-width:2.2"/><line class="plate" x1="214" y1="138" x2="290" y2="96" style="stroke-width:2.2"/><line class="ink" x1="200" y1="10" x2="200" y2="78"/><circle class="dot-ink" cx="220" cy="78" r="2.6"/><path class="aux-thin" d="M220,78 q14,-14 8,-26 q-6,-12 12,-22"/><text class="jp tiny bold" x="244" y="22" text-anchor="start">面積</text><text class="lbl bold m" x="244" y="38" text-anchor="start"><tspan>S</tspan></text><text class="jp small" x="258" y="38" text-anchor="start">大きいほどたまる</text><line class="aux-ink" x1="86" y1="86" x2="110" y2="86"/><line class="aux-ink" x1="86" y1="112" x2="110" y2="112"/><line class="ink-thin" x1="96" y1="88" x2="96" y2="110" marker-end="url(#ah-ink)" marker-start="url(#ah-ink)"/><text class="jp tiny bold" x="90" y="82" text-anchor="end">極板間</text><text class="lbl bold m" x="91" y="105" text-anchor="end"><tspan>d</tspan></text><text class="jp small" x="78" y="105" text-anchor="end">狭いほどたまる</text><circle class="dot-ink" cx="240" cy="104" r="2.6"/><path class="aux-thin" d="M240,104 q10,14 -2,26 q-10,10 0,22"/><text class="jp tiny bold" x="210" y="148" text-anchor="start">誘電率</text><text class="lbl bold m" x="210" y="163" text-anchor="start"><tspan>ε</tspan></text><text class="jp small" x="222" y="163" text-anchor="start">絶縁体を挟めばよくたまる</text></svg></div>
+    </div>
+    <p>\(S\)〔m<sup>2</sup>〕は極板の面積，\(d\)〔m〕は極板間である。また，\(\varepsilon\) は <b>誘電率</b> といい，「極板間に何を挟むか」によって変わる値である。また，極板間が真空の場合の誘電率 \(\varepsilon_0\) は，\(\varepsilon_0 = 8.85\times 10^{-12}\)〔F/m〕（ファラド毎メートル）である。</p>
+
+    <h2 class="bullet-h">誘電率と比誘電率</h2>
+    <p>極板間に誘電体（絶縁体）を挿入すると，コンデンサの静電容量が増加する。極板間が真空で静電容量 \(C_0\) のコンデンサに誘電体を挿入したら，静電容量が \(C\) に増加したとすると，増加の割合を \(\varepsilon_r\) として <b>比誘電率</b> という。</p>
+    <div class="eqwrap"><div class="eq-wide">\[ C_0 = \varepsilon_0\frac{S}{d} \qquad\Rightarrow\qquad C = \varepsilon\frac{S}{d} = \varepsilon_r\varepsilon_0\frac{S}{d} = \varepsilon_r C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_0 &= \varepsilon_0\frac{S}{d} \\ \Rightarrow\ C &= \varepsilon\frac{S}{d} \\ &= \varepsilon_r\varepsilon_0\frac{S}{d} \\ &= \varepsilon_r C_0 \end{aligned} \]</div></div>
+    <div class="figure wide" style="max-width:520px"><svg class="fig" viewBox="0 0 470 130" role="img" aria-label="真空のコンデンサ（誘電率ε0）の極板間に誘電体（誘電率ε）を入れると，静電容量がεr倍になる"><line class="ink" x1="75" y1="70" x2="75" y2="125"/><polygon class="plate-face" points="23,87 67,62 127,77 83,102"/><polygon class="plate-face" points="23,69 67,44 127,59 83,84"/><line class="ink" x1="75" y1="9" x2="75" y2="64"/><circle class="dot-ink" cx="93" cy="86" r="2.2"/><path class="aux-thin" d="M93,86 q8,18 30,22"/><text class="lbl m" x="125" y="112" text-anchor="start"><tspan>ε</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><text class="jp small" x="139" y="112" text-anchor="start">（真空の誘電率）</text><path class="arrow-pink" d="M160,58 H262 V50 L300,64 L262,78 V70 H160 Z"/><text class="lbl m" x="230" y="40" text-anchor="middle"><tspan>ε</tspan><tspan dy="4" font-size="70%">r</tspan><tspan dy="-4" font-style="normal"> 倍</tspan></text><line class="ink" x1="375" y1="70" x2="375" y2="125"/><polygon class="slab" fill="url(#dots)" points="323,65 383,80 383,98 323,83"/><polygon class="slab" fill="url(#dots)" points="383,80 427,55 427,73 383,98"/><polygon class="plate-face bold" points="323,65 367,40 427,55 383,80"/><line class="ink" x1="375" y1="8" x2="375" y2="60"/><circle class="dot-ink" cx="395" cy="86" r="2.2"/><path class="aux-thin" d="M395,86 q-8,18 -50,24"/><text class="lbl m" x="343" y="124" text-anchor="start"><tspan>ε</tspan></text><text class="jp small" x="353" y="124" text-anchor="start">（誘電体の誘電率）</text></svg></div>
+
+    <h2 class="bullet-h">合成静電容量</h2>
+    <p><b>直列接続の合成</b>　直列につなぐと，どのコンデンサにも同じ電荷 \(Q\) がたまり，電圧は分かれる（\(V_1 + V_2 = V\)）。</p>
+    <div class="figure wide" style="max-width:520px"><svg class="fig" viewBox="0 0 420 120" role="img" aria-label="直列接続：C1とC2を直列につなぐと，どちらにも同じ電荷Qがたまり，電圧V1とV2の和がV。合成すると静電容量Cの1つのコンデンサ"><path class="ink nofill" d="M20,40 L160,40" stroke-linejoin="miter"/><path class="ink nofill" d="M230,40 L400,40" stroke-linejoin="miter"/><line class="cut" x1="62.5" y1="40" x2="67.5" y2="40"/><line class="plate " x1="61" y1="26" x2="61" y2="54"/><line class="plate " x1="69" y1="26" x2="69" y2="54"/><line class="cut" x1="117.5" y1="40" x2="122.5" y2="40"/><line class="plate " x1="116" y1="26" x2="116" y2="54"/><line class="plate " x1="124" y1="26" x2="124" y2="54"/><circle class="node " cx="20" cy="40" r="3"/><circle class="node " cx="160" cy="40" r="3"/><text class="lbl bold m" x="65" y="20" text-anchor="middle"><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><text class="lbl small m" x="55" y="62" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan></text><text class="lbl small m" x="71" y="62" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan></text><text class="lbl bold m" x="120" y="20" text-anchor="middle"><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><text class="lbl small m" x="110" y="62" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan></text><text class="lbl small m" x="126" y="62" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan></text><line class="aux-ink" x1="92" y1="40" x2="92" y2="90"/><line class="aux-ink" x1="20" y1="40" x2="20" y2="132"/><line class="aux-ink" x1="92" y1="40" x2="92" y2="132"/><line class="volt" x1="21" y1="80" x2="91" y2="80" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="56" y="75" text-anchor="middle"><tspan>V</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><line class="volt" x1="93" y1="80" x2="159" y2="80" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="126" y="75" text-anchor="middle"><tspan>V</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><line class="aux-ink" x1="20" y1="40" x2="20" y2="120"/><line class="aux-ink" x1="160" y1="40" x2="160" y2="120"/><line class="volt" x1="21" y1="112" x2="159" y2="112" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="90" y="126" text-anchor="middle"><tspan>V</tspan></text><text class="jp tiny" x="190" y="32" text-anchor="middle">合成</text><path class="next-tri" d="M182,38 l8,6 l-8,6 z M190,38 l8,6 l-8,6 z"/><line class="cut" x1="312.5" y1="40" x2="317.5" y2="40"/><line class="plate " x1="311" y1="26" x2="311" y2="54"/><line class="plate " x1="319" y1="26" x2="319" y2="54"/><circle class="node " cx="230" cy="40" r="3"/><circle class="node " cx="400" cy="40" r="3"/><text class="jp tiny" x="315" y="10" text-anchor="middle">合成静電容量</text><text class="lbl bold m" x="315" y="22" text-anchor="middle"><tspan>C</tspan></text><text class="lbl small m" x="305" y="62" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan></text><text class="lbl small m" x="321" y="62" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan></text><line class="aux-ink" x1="230" y1="40" x2="230" y2="120"/><line class="aux-ink" x1="400" y1="40" x2="400" y2="120"/><line class="volt" x1="231" y1="112" x2="399" y2="112" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="315" y="126" text-anchor="middle"><tspan>V</tspan></text></svg></div>
+    <p>\(V_1 + V_2 = V\) の各電圧を \(V = \dfrac{Q}{C}\) で書きかえ，両辺を \(Q\) で割る。</p>
+    <div class="eqwrap"><div class="eq-wide">\[ \frac{Q}{C_1} + \frac{Q}{C_2} = \frac{Q}{C} \qquad\Rightarrow\qquad \frac{1}{C} = \frac{1}{C_1} + \frac{1}{C_2} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{Q}{C_1} + \frac{Q}{C_2} &= \frac{Q}{C} \\ \Rightarrow\ \frac{1}{C} &= \frac{1}{C_1} + \frac{1}{C_2} \end{aligned} \]</div></div>
+    <p><b>並列接続の合成</b>　並列につなぐと，どのコンデンサにも同じ電圧 \(V\) がかかり，電荷は分かれる（\(Q_1 + Q_2 = Q\)）。</p>
+    <div class="figure wide" style="max-width:520px"><svg class="fig" viewBox="0 0 420 130" role="img" aria-label="並列接続：C1とC2を並列につなぐと，どちらにも同じ電圧Vがかかり，電荷Q1とQ2の和がQ。合成すると静電容量Cの1つのコンデンサ"><path class="ink nofill" d="M20,52 L160,52" stroke-linejoin="miter"/><path class="ink nofill" d="M45,52 L45,26 L135,26 L135,78 L45,78 L45,52" stroke-linejoin="miter"/><line class="cut" x1="49" y1="52" x2="131" y2="52"/><line class="cut" x1="88" y1="26" x2="92" y2="26"/><line class="plate " x1="86.5" y1="14" x2="86.5" y2="38"/><line class="plate " x1="93.5" y1="14" x2="93.5" y2="38"/><line class="cut" x1="88" y1="78" x2="92" y2="78"/><line class="plate " x1="86.5" y1="66" x2="86.5" y2="90"/><line class="plate " x1="93.5" y1="66" x2="93.5" y2="90"/><circle class="node " cx="20" cy="52" r="3"/><circle class="node " cx="160" cy="52" r="3"/><circle class="node " cx="45" cy="52" r="1.8"/><circle class="node " cx="135" cy="52" r="1.8"/><text class="lbl bold m" x="90" y="8" text-anchor="middle"><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><text class="lbl bold m" x="90" y="110" text-anchor="middle"><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><text class="lbl small m" x="84" y="43" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><text class="lbl small m" x="96" y="43" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><text class="lbl small m" x="84" y="95" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><text class="lbl small m" x="96" y="95" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><line class="aux-ink" x1="20" y1="52" x2="20" y2="124"/><line class="aux-ink" x1="160" y1="52" x2="160" y2="124"/><line class="volt" x1="21" y1="116" x2="159" y2="116" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="90" y="130" text-anchor="middle"><tspan>V</tspan></text><text class="jp tiny" x="190" y="44" text-anchor="middle">合成</text><path class="next-tri" d="M182,50 l8,6 l-8,6 z M190,50 l8,6 l-8,6 z"/><path class="ink nofill" d="M230,52 L400,52" stroke-linejoin="miter"/><line class="cut" x1="312.5" y1="52" x2="317.5" y2="52"/><line class="plate " x1="311" y1="38" x2="311" y2="66"/><line class="plate " x1="319" y1="38" x2="319" y2="66"/><circle class="node " cx="230" cy="52" r="3"/><circle class="node " cx="400" cy="52" r="3"/><text class="jp tiny" x="315" y="22" text-anchor="middle">合成静電容量</text><text class="lbl bold m" x="315" y="34" text-anchor="middle"><tspan>C</tspan></text><text class="lbl small m" x="305" y="74" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan></text><text class="lbl small m" x="321" y="74" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan></text><line class="aux-ink" x1="230" y1="52" x2="230" y2="124"/><line class="aux-ink" x1="400" y1="52" x2="400" y2="124"/><line class="volt" x1="231" y1="116" x2="399" y2="116" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="315" y="130" text-anchor="middle"><tspan>V</tspan></text></svg></div>
+    <p>\(Q_1 + Q_2 = Q\) の各電荷を \(Q = CV\) で書きかえ，両辺を \(V\) で割る。</p>
+    <div class="eqwrap"><div class="eq-wide">\[ C_1V + C_2V = CV \qquad\Rightarrow\qquad C = C_1 + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} C_1V + C_2V &= CV \\ \Rightarrow\ C &= C_1 + C_2 \end{aligned} \]</div></div>
+    <p class="note"><b>ポイント</b>　抵抗の合成と<b>逆</b>になる。コンデンサは並列なら足し算，直列なら「逆数の和の逆数」。</p>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <p class="statement">極板間が真空（誘電率は \(\varepsilon_0\)）で，極板間隔が \(d\)，極板の面積が \(S\) の平行板コンデンサの次の (1)〜(4) の操作を行ったときのコンデンサの静電容量は，もとの静電容量の何倍になるか。</p>
+    <div class="fig-row" style="align-items:center">
+      <ol class="qs" style="flex:1 1 260px">
+        <li>極板の面積を \(3S\) にする。</li>
+        <li>極板間を半分にする。</li>
+        <li>比誘電率が \(\varepsilon_r\) の誘電体で極板間を満たす。</li>
+        <li>誘電率が \(\varepsilon\) の誘電体で極板間を満たす。</li>
+      </ol>
+      <div class="figure small" style="max-width:200px"><svg class="fig" viewBox="0 0 170 110" role="img" aria-label="極板の面積S，極板間隔d，極板間が真空（誘電率ε0）の平行板コンデンサ"><line class="ink" x1="95" y1="60" x2="95" y2="106"/><polygon class="plate-face" points="35,73 86,48 155,63 104,88"/><polygon class="plate-face" points="35,55 86,30 155,45 104,70"/><line class="ink" x1="95" y1="4" x2="95" y2="50"/><text class="lbl m" x="117" y="52" text-anchor="start"><tspan>S</tspan></text><text class="lbl small m" x="89" y="79" text-anchor="start"><tspan>ε</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><line class="ink-thin dashed" x1="28" y1="56" x2="28" y2="72" marker-end="url(#ah-ink)" marker-start="url(#ah-ink)"/><text class="lbl m" x="22" y="69" text-anchor="end"><tspan>d</tspan></text></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>もとのコンデンサの静電容量を \(C_0\) とする。公式 \(C = \varepsilon\dfrac{S}{d}\) より</p>
+      <div class="eqwrap">\[ C_0 = \varepsilon_0\frac{S}{d} \]</div>
+      <p>(1)〜(4) では，変わった量だけを公式に入れ直し，\(C_0\) の何倍かを見る。</p>
+      <h4><span class="n">(1)</span></h4>
+      <p>面積が \(3S\) になるので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_1 = \varepsilon_0\frac{3S}{d} = 3\times\varepsilon_0\frac{S}{d} = 3C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= \varepsilon_0\frac{3S}{d} \\ &= 3\times\varepsilon_0\frac{S}{d} \\ &= 3C_0 \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span></h4>
+      <p>極板間が \(\dfrac{1}{2}d\) になるので，分母が半分になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_2 = \varepsilon_0\frac{S}{\frac{1}{2}d} = 2\times\varepsilon_0\frac{S}{d} = 2C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_2 &= \varepsilon_0\frac{S}{\frac{1}{2}d} \\ &= 2\times\varepsilon_0\frac{S}{d} \\ &= 2C_0 \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span></h4>
+      <p>比誘電率 \(\varepsilon_r\) の誘電体の誘電率は \(\varepsilon_r\varepsilon_0\)（真空の \(\varepsilon_r\) 倍）なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_3 = \varepsilon_r\varepsilon_0\frac{S}{d} = \varepsilon_r C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_3 &= \varepsilon_r\varepsilon_0\frac{S}{d} \\ &= \varepsilon_r C_0 \end{aligned} \]</div></div>
+      <h4><span class="n">(4)</span></h4>
+      <p>誘電率が \(\varepsilon_0\) から \(\varepsilon\) にかわるので，\(\varepsilon_0\) を \(\varepsilon\) に入れかえる。\(C_0\) の何倍かを見るため，\(\dfrac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\) と書きかえる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_4 = \varepsilon\frac{S}{d} = \frac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\frac{S}{d} = \frac{\varepsilon}{\varepsilon_0}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_4 &= \varepsilon\frac{S}{d} \\ &= \frac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\frac{S}{d} \\ &= \frac{\varepsilon}{\varepsilon_0}C_0 \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid cols4 hide-ans">
+      <div><span class="label">(1)</span><span class="val">3 倍</span></div>
+      <div><span class="label">(2)</span><span class="val">2 倍</span></div>
+      <div><span class="label">(3)</span><span class="val">\(\varepsilon_r\) 倍</span></div>
+      <div><span class="label">(4)</span><span class="val">\(\dfrac{\varepsilon}{\varepsilon_0}\) 倍</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <div class="fig-row" style="align-items:center">
+      <div style="flex:1 1 260px">
+        <p class="statement">電気容量が 1.8 μF，1.2 μF，2.0 μF のコンデンサX，Y，Zを図のようにつないだ。</p>
+        <ol class="qs">
+          <li>コンデンサXとYの合成静電容量は何 μF か。</li>
+          <li>コンデンサXとYとZの合成静電容量は何 μF か。</li>
+        </ol>
+      </div>
+      <div class="figure small" style="max-width:220px"><svg class="fig" viewBox="0 0 210 175" role="img" aria-label="コンデンサX（1.8μF）とY（1.2μF）を並列につなぎ，それにZ（2.0μF）を直列につないだ回路"><path class="ink nofill" d="M100,8 L100,30 L40,30 L40,112 L160,112 L160,30 L100,30" stroke-linejoin="miter"/><path class="ink nofill" d="M100,112 L100,170" stroke-linejoin="miter"/><line class="cut" x1="40" y1="69" x2="40" y2="75"/><line class="plate " x1="23" y1="67.5" x2="57" y2="67.5"/><line class="plate " x1="23" y1="76.5" x2="57" y2="76.5"/><line class="cut" x1="160" y1="69" x2="160" y2="75"/><line class="plate " x1="143" y1="67.5" x2="177" y2="67.5"/><line class="plate " x1="143" y1="76.5" x2="177" y2="76.5"/><line class="cut" x1="100" y1="139" x2="100" y2="145"/><line class="plate " x1="83" y1="137.5" x2="117" y2="137.5"/><line class="plate " x1="83" y1="146.5" x2="117" y2="146.5"/><circle class="node " cx="100" cy="30" r="2.4"/><circle class="node " cx="100" cy="112" r="2.4"/><text class="lbl small g" x="20" y="66" text-anchor="middle">X</text><text class="lbl small m" x="62" y="66" text-anchor="start"><tspan font-style="normal">1.8 </tspan><tspan font-style="normal" class="g">μF</tspan></text><text class="lbl small g" x="138" y="66" text-anchor="middle">Y</text><text class="lbl small m" x="182" y="66" text-anchor="start"><tspan font-style="normal">1.2 </tspan><tspan font-style="normal" class="g">μF</tspan></text><text class="lbl small g" x="80" y="136" text-anchor="middle">Z</text><text class="lbl small m" x="122" y="136" text-anchor="start"><tspan font-style="normal">2.0 </tspan><tspan font-style="normal" class="g">μF</tspan></text></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span></h4>
+      <p>XとYは両端がそれぞれ同じ点につながっているので<b>並列</b>。並列の合成静電容量は足し算。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XY} = C_\text{X} + C_\text{Y} = 1.8 + 1.2 = 3.0 \,\unit{μF} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XY} &= C_\text{X} + C_\text{Y} \\ &= 1.8 + 1.2 \\ &= 3.0 \,\unit{μF} \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span></h4>
+      <p>XとYをまとめた \(C_\text{XY} = 3.0\,\unit{μF}\) と Z が<b>直列</b>につながっている。直列は逆数の和で考える。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_\text{XYZ}} = \frac{1}{C_\text{XY}} + \frac{1}{C_\text{Z}} = \frac{1}{3.0} + \frac{1}{2.0} = \frac{2.0 + 3.0}{6.0} = \frac{5}{6.0} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_\text{XYZ}} &= \frac{1}{C_\text{XY}} + \frac{1}{C_\text{Z}} \\ &= \frac{1}{3.0} + \frac{1}{2.0} \\ &= \frac{2.0 + 3.0}{6.0} \\ &= \frac{5}{6.0} \end{aligned} \]</div></div>
+      <p>最後に逆数をとるのを忘れない。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XYZ} = \frac{6.0}{5} = 1.2 \,\unit{μF} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XYZ} &= \frac{6.0}{5} \\ &= 1.2 \,\unit{μF} \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">3.0〔μF〕</span></div>
+      <div><span class="label">(2)</span><span class="val">1.2〔μF〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題③ ================= -->
+  <section class="card" id="pr3">
+    <h2><span class="tag practice">練習問題③</span></h2>
+    <p class="statement">極板間隔が \(d\)，極板の面積が \(S\) の平行板コンデンサX，極板間隔が \(d\)，極板の面積が \(2S\) の平行板コンデンサY，極板間隔が \(3d\)，極板の面積が \(S\) の平行板コンデンサZがあり，いずれも極板間は真空（誘電率は \(\varepsilon_0\)）である。</p>
+    <ol class="qs">
+      <li>XとYを並列に接続したときの合成静電容量はいくらか。</li>
+      <li>YとZを直列に接続したときの合成静電容量はいくらか。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>まず，それぞれの静電容量を \(C = \varepsilon_0\dfrac{S}{d}\) の形で表しておく。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{X} = \varepsilon_0\frac{S}{d}, \qquad C_\text{Y} = \varepsilon_0\frac{2S}{d}, \qquad C_\text{Z} = \varepsilon_0\frac{S}{3d} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{X} &= \varepsilon_0\frac{S}{d} \\ C_\text{Y} &= \varepsilon_0\frac{2S}{d} \\ C_\text{Z} &= \varepsilon_0\frac{S}{3d} \end{aligned} \]</div></div>
+      <h4><span class="n">(1)</span></h4>
+      <p>並列なので足し算。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XY} = \varepsilon_0\frac{S}{d} + \varepsilon_0\frac{2S}{d} = 3\varepsilon_0\frac{S}{d} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XY} &= \varepsilon_0\frac{S}{d} + \varepsilon_0\frac{2S}{d} \\ &= 3\varepsilon_0\frac{S}{d} \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span></h4>
+      <p>直列なので逆数の和。\(\dfrac{1}{C_\text{Y}} = \dfrac{d}{2\varepsilon_0 S}\)，\(\dfrac{1}{C_\text{Z}} = \dfrac{3d}{\varepsilon_0 S}\) を通分して足す。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_\text{YZ}} = \frac{d}{2\varepsilon_0 S} + \frac{3d}{\varepsilon_0 S} = \frac{d}{2\varepsilon_0 S} + \frac{6d}{2\varepsilon_0 S} = \frac{7d}{2\varepsilon_0 S} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_\text{YZ}} &= \frac{d}{2\varepsilon_0 S} + \frac{3d}{\varepsilon_0 S} \\ &= \frac{d}{2\varepsilon_0 S} + \frac{6d}{2\varepsilon_0 S} \\ &= \frac{7d}{2\varepsilon_0 S} \end{aligned} \]</div></div>
+      <p>逆数をとる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{YZ} = \frac{2\varepsilon_0 S}{7d} = \frac{2}{7}\varepsilon_0\frac{S}{d} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{YZ} &= \frac{2\varepsilon_0 S}{7d} \\ &= \frac{2}{7}\varepsilon_0\frac{S}{d} \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(3\varepsilon_0\dfrac{S}{d}\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(\dfrac{2}{7}\varepsilon_0\dfrac{S}{d}\)</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題④ ================= -->
+  <section class="card" id="pr4">
+    <h2><span class="tag practice">練習問題④</span></h2>
+    <p class="statement">極板間が真空のとき，電気容量 \(C_0\) の平行板コンデンサがある。これに真空に対する比誘電率 \(\varepsilon_r\) の誘電体を次の (1)・(2) のように満たしたとき，コンデンサの電気容量はいくらになるか。</p>
+    <div class="fig-row">
+      <div class="figure small" style="max-width:240px"><b>(1) 極板間の左半分に満たす</b><svg class="fig" viewBox="0 0 220 120" role="img" aria-label="(1) 極板間の左半分に誘電体を満たしたコンデンサ"><line class="ink" x1="110" y1="72" x2="110" y2="116"/><polygon class="plate-face" points="28,79 98,46 192,65 122,98"/><polygon class="slab" fill="url(#dots-g)" points="75,62.5 145,29.5 145,55.5 75,88.5"/><polygon class="slab" fill="url(#dots-g)" points="28,53 75,62.5 75,88.5 28,79"/><polygon class="plate-face" points="28,53 98,20 192,39 122,72"/><line class="ink" x1="110" y1="4" x2="110" y2="46"/><line class="aux-dot" x1="75" y1="62.5" x2="145" y2="29.5"/></svg></div>
+      <div class="figure small" style="max-width:240px"><b>(2) 極板間の下半分に満たす</b><svg class="fig" viewBox="0 0 220 120" role="img" aria-label="(2) 極板間の下半分に誘電体を満たしたコンデンサ"><line class="ink" x1="110" y1="72" x2="110" y2="116"/><polygon class="plate-face" points="28,79 98,46 192,65 122,98"/><polygon class="slab" fill="url(#dots-g)" points="28,66 122,85 122,98 28,79"/><polygon class="slab" fill="url(#dots-g)" points="122,85 192,52 192,65 122,98"/><polygon class="slab" fill="url(#dots-d)" points="28,66 98,33 192,52 122,85"/><polygon class="plate-face" points="28,53 98,20 192,39 122,72"/><line class="ink" x1="110" y1="4" x2="110" y2="46"/></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p><b>考え方</b>　誘電体のある部分とない部分を，<b>別々のコンデンサ</b>と考えて合成する。もとのコンデンサは \(C_0 = \varepsilon_0\dfrac{S}{d}\)。</p>
+      <h4><span class="n">(1)</span>左半分に満たす → 並列</h4>
+      <div class="figure small" style="max-width:190px"><svg class="fig" viewBox="0 0 230 110" role="img" aria-label="誘電体のある左半分（静電容量 εr/2・C0）と真空の右半分（1/2・C0）の並列接続"><g class="" transform="translate(30,0)"><path class="ink nofill" d="M85,6 L85,22 L45,22 L45,88 L125,88 L125,22 L85,22" stroke-linejoin="miter"/><path class="ink nofill" d="M85,88 L85,104" stroke-linejoin="miter"/><line class="cut" x1="45" y1="49.5" x2="45" y2="60.5"/><rect class="diel gray" x="30" y="48" width="30" height="14"/><line class="plate " x1="30" y1="48" x2="60" y2="48"/><line class="plate " x1="30" y1="62" x2="60" y2="62"/><line class="cut" x1="125" y1="49.5" x2="125" y2="60.5"/><line class="plate " x1="110" y1="48" x2="140" y2="48"/><line class="plate " x1="110" y1="62" x2="140" y2="62"/><text class="lbl small m" x="26" y="60" text-anchor="end"><tspan>ε</tspan><tspan dy="4" font-size="70%">r</tspan><tspan dy="-4" font-style="normal">/2 </tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><text class="lbl small m" x="144" y="60" text-anchor="start"><tspan font-style="normal">1/2 </tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text></g></svg></div>
+      <p>左右に分けると，面積 \(\dfrac{S}{2}\)，間隔 \(d\) のコンデンサが2つ。どちらも上下の極板につながっているので<b>並列</b>。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{真空} = \varepsilon_0\frac{\frac{1}{2}S}{d} = \frac{1}{2}C_0, \qquad C_\text{誘電体} = \varepsilon_r\varepsilon_0\frac{\frac{1}{2}S}{d} = \frac{\varepsilon_r}{2}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{真空} &= \varepsilon_0\frac{\frac{1}{2}S}{d} \\ &= \frac{1}{2}C_0 \\ C_\text{誘電体} &= \varepsilon_r\varepsilon_0\frac{\frac{1}{2}S}{d} \\ &= \frac{\varepsilon_r}{2}C_0 \end{aligned} \]</div></div>
+      <p>並列なので足し算。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_1 = \frac{1}{2}C_0 + \frac{\varepsilon_r}{2}C_0 = \frac{1 + \varepsilon_r}{2}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= \frac{1}{2}C_0 + \frac{\varepsilon_r}{2}C_0 \\ &= \frac{1 + \varepsilon_r}{2}C_0 \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span>下半分に満たす → 直列</h4>
+      <div class="figure small" style="max-width:190px"><svg class="fig" viewBox="0 0 170 110" role="img" aria-label="真空の上半分（2C0）と誘電体のある下半分（2εrC0）の直列接続"><path class="ink nofill" d="M85,4 L85,106" stroke-linejoin="miter"/><line class="cut" x1="85" y1="28.5" x2="85" y2="39.5"/><line class="plate " x1="68" y1="27" x2="102" y2="27"/><line class="plate " x1="68" y1="41" x2="102" y2="41"/><line class="cut" x1="85" y1="70.5" x2="85" y2="81.5"/><rect class="diel gray" x="68" y="69" width="34" height="14"/><line class="plate " x1="68" y1="69" x2="102" y2="69"/><line class="plate " x1="68" y1="83" x2="102" y2="83"/><text class="lbl small m" x="108" y="38" text-anchor="start"><tspan font-style="normal">2</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><text class="lbl small m" x="108" y="80" text-anchor="start"><tspan font-style="normal">2</tspan><tspan>ε</tspan><tspan dy="4" font-size="70%">r</tspan><tspan dy="-4">C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text></svg></div>
+      <p>上下に分けると，面積 \(S\)，間隔 \(\dfrac{d}{2}\) のコンデンサが2つ<b>直列</b>につながったものと考えられる（境目に薄い金属板をはさんでも同じ）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{真空} = \varepsilon_0\frac{S}{\frac{1}{2}d} = 2C_0, \qquad C_\text{誘電体} = \varepsilon_r\varepsilon_0\frac{S}{\frac{1}{2}d} = 2\varepsilon_r C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{真空} &= \varepsilon_0\frac{S}{\frac{1}{2}d} \\ &= 2C_0 \\ C_\text{誘電体} &= \varepsilon_r\varepsilon_0\frac{S}{\frac{1}{2}d} \\ &= 2\varepsilon_r C_0 \end{aligned} \]</div></div>
+      <p>直列なので逆数の和をとり，通分する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_2} = \frac{1}{2C_0} + \frac{1}{2\varepsilon_r C_0} = \frac{\varepsilon_r + 1}{2\varepsilon_r C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_2} &= \frac{1}{2C_0} + \frac{1}{2\varepsilon_r C_0} \\ &= \frac{\varepsilon_r + 1}{2\varepsilon_r C_0} \end{aligned} \]</div></div>
+      <p>逆数をとる。</p>
+      <div class="eqwrap">\[ C_2 = \frac{2\varepsilon_r}{\varepsilon_r + 1}C_0 \]</div>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(\dfrac{1 + \varepsilon_r}{2}C_0\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(\dfrac{2\varepsilon_r}{\varepsilon_r + 1}C_0\)</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題⑤ ================= -->
+  <section class="card" id="pr5">
+    <h2><span class="tag practice">練習問題⑤</span></h2>
+    <div class="fig-row" style="align-items:center">
+      <div style="flex:1 1 280px">
+        <p class="statement">真空中において，面積 \(S\) の極板を間隔 \(4d\) で配置した平行版コンデンサがある。この極板と同じ形をした厚さ \(2d\) の次の (1)・(2) を図に示す間隔で平行に挿入した。このとき，誘電体を挿入する前と比較してコンデンサの静電容量は何倍になるか。</p>
+        <ol class="qs">
+          <li>比誘電率 2 の誘電体</li>
+          <li>極板と同じ素材の金属</li>
+        </ol>
+      </div>
+      <div class="figure small" style="max-width:220px"><svg class="fig" viewBox="0 0 220 120" role="img" aria-label="間隔4dの極板の間に，厚さ2dの板を，上下にdずつすき間をあけて平行に挿入する"><line class="ink" x1="80" y1="4" x2="80" y2="26"/><line class="ink" x1="80" y1="94" x2="80" y2="116"/><line class="plate" x1="10" y1="26" x2="150" y2="26"/><line class="plate" x1="10" y1="94" x2="150" y2="94"/><rect class="insert" x="10" y="43" width="140" height="34"/><text class="jp small" x="80" y="64" text-anchor="middle">挿入する部分</text><line class="aux-ink" x1="150" y1="26" x2="182" y2="26"/><line class="aux-ink" x1="150" y1="43" x2="182" y2="43"/><line class="aux-ink" x1="150" y1="77" x2="182" y2="77"/><line class="aux-ink" x1="150" y1="94" x2="182" y2="94"/><line class="ink-thin" x1="178" y1="8" x2="178" y2="25" marker-end="url(#ah-ink)"/><line class="ink-thin" x1="178" y1="112" x2="178" y2="95" marker-end="url(#ah-ink)"/><line class="ink-thin" x1="178" y1="45" x2="178" y2="75" marker-end="url(#ah-ink)" marker-start="url(#ah-ink)"/><text class="lbl m" x="186" y="39" text-anchor="start"><tspan>d</tspan></text><text class="lbl m" x="186" y="65" text-anchor="start"><tspan font-style="normal">2</tspan><tspan>d</tspan></text><text class="lbl m" x="186" y="91" text-anchor="start"><tspan>d</tspan></text></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>もとのコンデンサの静電容量を \(C_0\) とする。間隔が \(4d\) なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_0 = \varepsilon_0\frac{S}{4d} \qquad\Rightarrow\qquad \varepsilon_0\frac{S}{d} = 4C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_0 &= \varepsilon_0\frac{S}{4d} \\ \Rightarrow\ \varepsilon_0\frac{S}{d} &= 4C_0 \end{aligned} \]</div></div>
+      <p>挿入した板で，極板間を上のすき間 \(d\)・板 \(2d\)・下のすき間 \(d\) の3つに分けて考える。</p>
+      <h4><span class="n">(1)</span>比誘電率 2 の誘電体</h4>
+      <div class="figure small" style="max-width:170px"><svg class="fig" viewBox="0 0 170 140" role="img" aria-label="(1) 真空d・誘電体2d・真空dの3つのコンデンサ（どれも4C0）の直列接続"><path class="ink nofill" d="M60,4 L60,136" stroke-linejoin="miter"/><line class="cut" x1="60" y1="18.5" x2="60" y2="29.5"/><line class="plate " x1="40" y1="17" x2="80" y2="17"/><line class="plate " x1="40" y1="31" x2="80" y2="31"/><text class="lbl small m" x="88" y="28" text-anchor="start"><tspan font-style="normal">4</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><line class="cut" x1="60" y1="64.5" x2="60" y2="75.5"/><rect class="diel gray" x="40" y="63" width="40" height="14"/><line class="plate " x1="40" y1="63" x2="80" y2="63"/><line class="plate " x1="40" y1="77" x2="80" y2="77"/><text class="lbl small m" x="88" y="74" text-anchor="start"><tspan font-style="normal">4</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><line class="cut" x1="60" y1="110.5" x2="60" y2="121.5"/><line class="plate " x1="40" y1="109" x2="80" y2="109"/><line class="plate " x1="40" y1="123" x2="80" y2="123"/><text class="lbl small m" x="88" y="120" text-anchor="start"><tspan font-style="normal">4</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><text class="jp tiny" x="88" y="88" text-anchor="start">比誘電率 2</text></svg></div>
+      <p>3つのコンデンサの直列と考える。すき間（真空，間隔 \(d\)）と誘電体（比誘電率 2，間隔 \(2d\)）の静電容量は</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \varepsilon_0\frac{S}{d} = 4C_0, \qquad 2\varepsilon_0\frac{S}{2d} = \varepsilon_0\frac{S}{d} = 4C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} \varepsilon_0\frac{S}{d} &= 4C_0 \\ 2\varepsilon_0\frac{S}{2d} &= \varepsilon_0\frac{S}{d} \\ &= 4C_0 \end{aligned} \]</div></div>
+      <p>どれも \(4C_0\) になる。直列なので逆数の和をとる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_1} = \frac{1}{4C_0} + \frac{1}{4C_0} + \frac{1}{4C_0} = \frac{3}{4C_0} \qquad\Rightarrow\qquad C_1 = \frac{4}{3}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_1} &= \frac{1}{4C_0} + \frac{1}{4C_0} + \frac{1}{4C_0} \\ &= \frac{3}{4C_0} \\ \Rightarrow\ C_1 &= \frac{4}{3}C_0 \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span>金属</h4>
+      <div class="figure small" style="max-width:170px"><svg class="fig" viewBox="0 0 170 140" role="img" aria-label="(2) 金属の部分は導線と同じなので，真空dの2つのコンデンサ（どれも4C0）の直列接続"><path class="ink nofill" d="M60,4 L60,136" stroke-linejoin="miter"/><line class="cut" x1="60" y1="24.5" x2="60" y2="35.5"/><line class="plate " x1="40" y1="23" x2="80" y2="23"/><line class="plate " x1="40" y1="37" x2="80" y2="37"/><rect class="metal" x="40" y="56" width="40" height="18"/><line class="cut" x1="60" y1="38" x2="60" y2="55"/><line class="cut" x1="60" y1="75" x2="60" y2="92"/><line class="plate" x1="40" y1="37" x2="80" y2="37"/><line class="plate" x1="40" y1="93" x2="80" y2="93"/><line class="cut" x1="60" y1="94.5" x2="60" y2="105.5"/><line class="plate " x1="40" y1="93" x2="80" y2="93"/><line class="plate " x1="40" y1="107" x2="80" y2="107"/><text class="lbl small m" x="88" y="34" text-anchor="start"><tspan font-style="normal">4</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><text class="jp small" x="88" y="64" text-anchor="start">金属</text><text class="jp tiny" x="88" y="78" text-anchor="start">（導線と同じ）</text><text class="lbl small m" x="88" y="104" text-anchor="start"><tspan font-style="normal">4</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text></svg></div>
+      <p>金属の中は電気がすぐに移動できるので，導線と同じとみなせる。残るのは上下のすき間（真空，間隔 \(d\)，どちらも \(4C_0\)）の2つの直列。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_2} = \frac{1}{4C_0} + \frac{1}{4C_0} = \frac{2}{4C_0} \qquad\Rightarrow\qquad C_2 = 2C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_2} &= \frac{1}{4C_0} + \frac{1}{4C_0} \\ &= \frac{2}{4C_0} \\ \Rightarrow\ C_2 &= 2C_0 \end{aligned} \]</div></div>
+      <p class="note"><b>ポイント</b>　金属板を入れると，極板間が \(4d\) から \(d + d = 2d\) に狭くなったのと同じ。だから 2 倍。</p>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(\dfrac{4}{3}\) 倍</span></div>
+      <div><span class="label">(2)</span><span class="val">2 倍</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題⑥ ================= -->
+  <section class="card" id="pr6">
+    <h2><span class="tag practice">練習問題⑥</span></h2>
+    <div class="fig-row" style="align-items:center">
+      <div style="flex:1 1 300px">
+        <p class="statement">互いに \(5.00\times 10^{-3}\) m の間隔をあけて，平行平板状に並べられた同一形状の金属板がある。一枚の金属板の面積を 0.500 m<sup>2</sup> とする。いま，図１・２のようにこの金属板をそれぞれ１枚おきに接続してコンデンサをつくる。極板間は真空とし，真空の誘電率を \(8.85\times 10^{-12}\) F/m とする。</p>
+        <ol class="qs">
+          <li>図１のように，3枚の金属板の場合，静電容量は何 F か。</li>
+          <li>図２のように，11枚の金属板の場合，静電容量は何 F か。</li>
+        </ol>
+      </div>
+      <div class="figure small" style="max-width:70px"><b>図１</b><svg class="fig" viewBox="0 0 68 130" role="img" aria-label="図１：3枚の金属板。1枚目と3枚目を端子aに，2枚目を端子bにつなぐ"><path class="ink nofill" d="M25,22 L43,22" stroke-linejoin="miter"/><line class="ink" x1="25" y1="22" x2="25" y2="34"/><line class="ink" x1="43" y1="22" x2="43" y2="34"/><path class="ink nofill" d="M34,10 L34,22" stroke-linejoin="miter"/><line class="ink" x1="34" y1="96" x2="34" y2="108"/><path class="ink nofill" d="M34,108 L34,120" stroke-linejoin="miter"/><line class="plate" x1="25" y1="34" x2="25" y2="96"/><line class="plate" x1="34" y1="34" x2="34" y2="96"/><line class="plate" x1="43" y1="34" x2="43" y2="96"/><circle class="node " cx="25" cy="22" r="1.8"/><circle class="node " cx="43" cy="22" r="1.8"/><circle class="term " cx="34" cy="8" r="2.4"/><circle class="term " cx="34" cy="122" r="2.4"/><text class="lbl small g" x="29" y="10" text-anchor="end">a</text><text class="lbl small g" x="29" y="128" text-anchor="end">b</text></svg></div>
+      <div class="figure small" style="max-width:130px"><b>図２</b><svg class="fig" viewBox="0 0 140 130" role="img" aria-label="図２：11枚の金属板。奇数枚目を端子cに，偶数枚目を端子dにつなぐ"><path class="ink nofill" d="M25,22 L115,22" stroke-linejoin="miter"/><line class="ink" x1="25" y1="22" x2="25" y2="34"/><line class="ink" x1="43" y1="22" x2="43" y2="34"/><line class="ink" x1="61" y1="22" x2="61" y2="34"/><line class="ink" x1="79" y1="22" x2="79" y2="34"/><line class="ink" x1="97" y1="22" x2="97" y2="34"/><line class="ink" x1="115" y1="22" x2="115" y2="34"/><path class="ink nofill" d="M70,10 L70,22" stroke-linejoin="miter"/><path class="ink nofill" d="M34,108 L106,108" stroke-linejoin="miter"/><line class="ink" x1="34" y1="96" x2="34" y2="108"/><line class="ink" x1="52" y1="96" x2="52" y2="108"/><line class="ink" x1="70" y1="96" x2="70" y2="108"/><line class="ink" x1="88" y1="96" x2="88" y2="108"/><line class="ink" x1="106" y1="96" x2="106" y2="108"/><path class="ink nofill" d="M70,108 L70,120" stroke-linejoin="miter"/><line class="plate" x1="25" y1="34" x2="25" y2="96"/><line class="plate" x1="34" y1="34" x2="34" y2="96"/><line class="plate" x1="43" y1="34" x2="43" y2="96"/><line class="plate" x1="52" y1="34" x2="52" y2="96"/><line class="plate" x1="61" y1="34" x2="61" y2="96"/><line class="plate" x1="70" y1="34" x2="70" y2="96"/><line class="plate" x1="79" y1="34" x2="79" y2="96"/><line class="plate" x1="88" y1="34" x2="88" y2="96"/><line class="plate" x1="97" y1="34" x2="97" y2="96"/><line class="plate" x1="106" y1="34" x2="106" y2="96"/><line class="plate" x1="115" y1="34" x2="115" y2="96"/><circle class="node " cx="25" cy="22" r="1.8"/><circle class="node " cx="43" cy="22" r="1.8"/><circle class="node " cx="61" cy="22" r="1.8"/><circle class="node " cx="79" cy="22" r="1.8"/><circle class="node " cx="97" cy="22" r="1.8"/><circle class="node " cx="115" cy="22" r="1.8"/><circle class="node " cx="34" cy="108" r="1.8"/><circle class="node " cx="52" cy="108" r="1.8"/><circle class="node " cx="70" cy="108" r="1.8"/><circle class="node " cx="88" cy="108" r="1.8"/><circle class="node " cx="106" cy="108" r="1.8"/><circle class="term " cx="70" cy="8" r="2.4"/><circle class="term " cx="70" cy="122" r="2.4"/><text class="lbl small g" x="65" y="10" text-anchor="end">c</text><text class="lbl small g" x="65" y="128" text-anchor="end">d</text></svg></div>
+    </div>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>まず，となり合う2枚の金属板でできるコンデンサ1つ分の静電容量 \(C_0\) を求める。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_0 = \varepsilon_0\frac{S}{d} = 8.85\times 10^{-12}\times\frac{0.500}{5.00\times 10^{-3}} = 8.85\times 10^{-10} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} C_0 &= \varepsilon_0\frac{S}{d} \\ &= 8.85\times 10^{-12}\times\frac{0.500}{5.00\times 10^{-3}} \\ &= 8.85\times 10^{-10} \,\unit{F} \end{aligned} \]</div></div>
+      <h4><span class="n">(1)</span></h4>
+      <p>1枚目と3枚目がa，2枚目がbにつながっている。1–2枚目の間と2–3枚目の間に，それぞれ \(C_0\) のコンデンサができる。どちらも a と b の間にあるので<b>並列</b>。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_1 = 2C_0 = 2\times 8.85\times 10^{-10} = 1.77\times 10^{-9} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= 2C_0 \\ &= 2\times 8.85\times 10^{-10} \\ &= 1.77\times 10^{-9} \,\unit{F} \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span></h4>
+      <p>11枚の板の間にはすき間が 10 か所あり，\(C_0\) のコンデンサが 10 個できる。1枚おきに c と d につながっているので，10 個すべてが c と d の間の<b>並列</b>になる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ C_2 = 10C_0 = 10\times 8.85\times 10^{-10} = 8.85\times 10^{-9} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} C_2 &= 10C_0 \\ &= 10\times 8.85\times 10^{-10} \\ &= 8.85\times 10^{-9} \,\unit{F} \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(1.77\times 10^{-9}\)〔F〕</span></div>
+      <div><span class="label">(2)</span><span class="val">\(8.85\times 10^{-9}\)〔F〕</span></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>イナプリ 電気電子工学 12 コンデンサの静電容量 ― 解答解説</footer>
+</body>
+</html>

@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
         { left: "\\(", right: "\\)", display: false },
       ],
       throwOnError: false,
+      // 式の中の単位は \unit{C} → 〔C〕（ブロック体）。例：Q_1 = 6.0\,\unit{C}，\unit{m/s²}，\unit{μF}
+      macros: { "\\unit": "\\text{〔}\\textsf{#1}\\text{〕}" },
     });
   }
 

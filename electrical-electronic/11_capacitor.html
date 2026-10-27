@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11 コンデンサ 解答解説</title>
+<meta name="description" content="イナプリ 電気電子工学11「コンデンサ」の練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/main.js?v=71cb541e"></script>
+</head>
+<body style="--unit-dot:#ffc000">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-volt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-volt" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-red" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse"><rect class="dots-bg" width="4" height="4"/><circle class="dots-st" cx="1" cy="1" r=".5"/><circle class="dots-st" cx="3" cy="3" r=".5"/></pattern>
+<pattern id="dots-g" width="3" height="3" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="3" height="3"/><circle class="dotsg-st" cx="1" cy="1" r=".45"/></pattern>
+<pattern id="dots-d" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="2" height="2"/><circle class="dotsd-st" cx="1" cy="1" r=".6"/></pattern>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-sub">電気電子工学 </span>解答解説 <small>イナプリ 11</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="../index.html">← 一覧に戻る</a>
+    <div class="toc-title">11 コンデンサ</div>
+    <ol>
+      <li><a href="#point">ポイント</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+      <li><a href="#pr3">練習問題③</a></li>
+      <li><a href="#pr4">練習問題④</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 電気電子工学 11</div>
+    <h1>コンデンサ</h1>
+  </section>
+
+  <!-- ================= ポイント ================= -->
+  <section class="card" id="point">
+    <h2 class="bullet-h" style="margin-top:0">平行板コンデンサ</h2>
+    <div class="fig-row">
+      <p style="flex:1 1 300px;margin:0">コンデンサをひと言でいうと <b>電気をためるもの</b> です。呼び方は“コンデンサー”や“キャパシタ（キャパシター）”ともいう。まずは，簡単な構造の平行板コンデンサについて見てみましょう。作り方は超簡単。2枚のアルミ箔で下敷きを挟んだだけ。アルミ箔を<b>電極</b>や<b>極板</b>といい，中に挟むもの<b>誘電体</b>という。コンデンサの充電→放電を見てみましょう。</p>
+      <div class="figure" style="max-width:240px"><svg class="fig" viewBox="0 0 230 130" role="img" aria-label="2枚の極板（電極）の間に誘電体をはさんだ平行板コンデンサの見取り図"><polygon class="slab" fill="url(#dots-g)" points="40,88 122,104 122,107 40,91"/><polygon class="slab" fill="url(#dots-g)" points="122,104 184,76 184,79 122,107"/><polygon class="plate-face gray" points="40,88 102,60 184,76 122,104"/><polygon class="slab" fill="url(#dots-g)" points="34,79 128,98 128,102 34,83"/><polygon class="slab" fill="url(#dots-g)" points="128,98 198,65 198,69 128,102"/><polygon class="plate-face clear" points="34,79 104,46 198,65 128,98"/><polygon class="slab" fill="url(#dots-g)" points="40,68 122,84 122,87 40,71"/><polygon class="slab" fill="url(#dots-g)" points="122,84 184,56 184,59 122,87"/><polygon class="plate-face gray" points="40,68 102,40 184,56 122,84"/><text class="jp small" x="40" y="26" text-anchor="middle">誘電体</text><line class="aux-thin" x1="46" y1="31" x2="62" y2="64"/><text class="jp tiny" x="222" y="122" text-anchor="end">電極（極板）</text><line class="aux-thin" x1="185" y1="82" x2="200" y2="112"/><line class="aux-thin" x1="190" y1="66" x2="205" y2="112"/></svg><figcaption>平行板コンデンサ</figcaption></div>
+    </div>
+
+    <p><span class="chip dark">充電</span> ～ <span class="chip">放電</span> の過程で，電荷がどう動くか押さえておきましょう。</p>
+    <p style="margin:10px 0 0"><span class="chip dark">充電</span></p>
+    <div class="panel-row">
+      <div class="figure"><svg class="fig" viewBox="0 0 200 150" role="img" aria-label="充電前：スイッチが開いていて，どちらの極板も＋と−が同じ数（電荷0）"><path class="ink nofill" d="M125,66 L125,16 L86,16" stroke-linejoin="miter"/><line class="ink" x1="66" y1="16" x2="84" y2="6"/><path class="ink nofill" d="M66,16 L26,16 L26,138 L125,138 L125,82" stroke-linejoin="miter"/><line class="cut" x1="26" y1="73.5" x2="26" y2="78.5"/><line class="bat-p " x1="14" y1="72.5" x2="38" y2="72.5"/><line class="bat-n " x1="20" y1="79.5" x2="32" y2="79.5"/><line class="plate" x1="72" y1="66" x2="182" y2="66"/><line class="plate" x1="72" y1="82" x2="182" y2="82"/><g class="chg-p"><circle cx="81" cy="56.5" r="8"/><path d="M77,56.5 H85 M81,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="99.4" cy="56.5" r="8"/><path d="M95.4,56.5 H103.4"/></g><g class="chg-p"><circle cx="117.8" cy="56.5" r="8"/><path d="M113.8,56.5 H121.8 M117.8,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="136.2" cy="56.5" r="8"/><path d="M132.2,56.5 H140.2"/></g><g class="chg-p"><circle cx="154.6" cy="56.5" r="8"/><path d="M150.6,56.5 H158.6 M154.6,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="173" cy="56.5" r="8"/><path d="M169,56.5 H177"/></g><g class="chg-n navy"><circle cx="81" cy="91.5" r="8"/><path d="M77,91.5 H85"/></g><g class="chg-p"><circle cx="99.4" cy="91.5" r="8"/><path d="M95.4,91.5 H103.4 M99.4,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="117.8" cy="91.5" r="8"/><path d="M113.8,91.5 H121.8"/></g><g class="chg-p"><circle cx="136.2" cy="91.5" r="8"/><path d="M132.2,91.5 H140.2 M136.2,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="154.6" cy="91.5" r="8"/><path d="M150.6,91.5 H158.6"/></g><g class="chg-p"><circle cx="173" cy="91.5" r="8"/><path d="M169,91.5 H177 M173,87.5 V95.5"/></g><text class="lbl m" x="150" y="44" text-anchor="start"><tspan font-style="normal">0</tspan></text><text class="jp tiny" x="162" y="44" text-anchor="start">ゼロ!</text><text class="lbl m" x="150" y="132" text-anchor="start"><tspan font-style="normal">0</tspan></text><text class="jp tiny" x="162" y="132" text-anchor="start">ゼロ!</text></svg></div><span class="next" aria-hidden="true">▶▶</span>
+      <div class="figure"><svg class="fig" viewBox="0 0 200 150" role="img" aria-label="スイッチを閉じると，上の極板の電子（−）が導線を通って電池を回り，下の極板へ移る"><path class="ink nofill" d="M125,66 L125,16 L86,16" stroke-linejoin="miter"/><path class="ink nofill" d="M86,16 L26,16 L26,138 L125,138 L125,82" stroke-linejoin="miter"/><line class="cut" x1="26" y1="73.5" x2="26" y2="78.5"/><line class="bat-p " x1="14" y1="72.5" x2="38" y2="72.5"/><line class="bat-n " x1="20" y1="79.5" x2="32" y2="79.5"/><line class="plate" x1="72" y1="66" x2="182" y2="66"/><line class="plate" x1="72" y1="82" x2="182" y2="82"/><g class="chg-p"><circle cx="81" cy="56.5" r="8"/><path d="M77,56.5 H85 M81,52.5 V60.5"/></g><g class="chg-p"><circle cx="117.8" cy="56.5" r="8"/><path d="M113.8,56.5 H121.8 M117.8,52.5 V60.5"/></g><g class="chg-p"><circle cx="154.6" cy="56.5" r="8"/><path d="M150.6,56.5 H158.6 M154.6,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="81" cy="91.5" r="8"/><path d="M77,91.5 H85"/></g><g class="chg-p"><circle cx="99.4" cy="91.5" r="8"/><path d="M95.4,91.5 H103.4 M99.4,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="117.8" cy="91.5" r="8"/><path d="M113.8,91.5 H121.8"/></g><g class="chg-p"><circle cx="136.2" cy="91.5" r="8"/><path d="M132.2,91.5 H140.2 M136.2,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="154.6" cy="91.5" r="8"/><path d="M150.6,91.5 H158.6"/></g><g class="chg-p"><circle cx="173" cy="91.5" r="8"/><path d="M169,91.5 H177 M173,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="70" cy="16" r="8"/><path d="M66,16 H74"/></g><line class="ink" x1="80" y1="3" x2="54" y2="3" marker-end="url(#ah-ink)"/><g class="chg-n navy"><circle cx="26" cy="112" r="8"/><path d="M22,112 H30"/></g><line class="ink" x1="12" y1="100" x2="12" y2="124" marker-end="url(#ah-ink)"/></svg></div><span class="next" aria-hidden="true">▶▶</span>
+      <div class="figure"><svg class="fig" viewBox="0 0 200 150" role="img" aria-label="上の極板は＋3，下の極板は−3：電荷が3たまった状態"><path class="ink nofill" d="M125,66 L125,16 L86,16" stroke-linejoin="miter"/><path class="ink nofill" d="M86,16 L26,16 L26,138 L125,138 L125,82" stroke-linejoin="miter"/><line class="cut" x1="26" y1="73.5" x2="26" y2="78.5"/><line class="bat-p " x1="14" y1="72.5" x2="38" y2="72.5"/><line class="bat-n " x1="20" y1="79.5" x2="32" y2="79.5"/><line class="plate" x1="72" y1="66" x2="182" y2="66"/><line class="plate" x1="72" y1="82" x2="182" y2="82"/><g class="chg-p"><circle cx="81" cy="56.5" r="8"/><path d="M77,56.5 H85 M81,52.5 V60.5"/></g><g class="chg-p"><circle cx="117.8" cy="56.5" r="8"/><path d="M113.8,56.5 H121.8 M117.8,52.5 V60.5"/></g><g class="chg-p"><circle cx="154.6" cy="56.5" r="8"/><path d="M150.6,56.5 H158.6 M154.6,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="81" cy="91.5" r="8"/><path d="M77,91.5 H85"/></g><g class="chg-p"><circle cx="99.4" cy="91.5" r="8"/><path d="M95.4,91.5 H103.4 M99.4,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="117.8" cy="91.5" r="8"/><path d="M113.8,91.5 H121.8"/></g><g class="chg-p"><circle cx="136.2" cy="91.5" r="8"/><path d="M132.2,91.5 H140.2 M136.2,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="154.6" cy="91.5" r="8"/><path d="M150.6,91.5 H158.6"/></g><g class="chg-p"><circle cx="173" cy="91.5" r="8"/><path d="M169,91.5 H177 M173,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="81" cy="106" r="8"/><path d="M77,106 H85"/></g><g class="chg-n navy"><circle cx="117.8" cy="106" r="8"/><path d="M113.8,106 H121.8"/></g><g class="chg-n navy"><circle cx="154.6" cy="106" r="8"/><path d="M150.6,106 H158.6"/></g><text class="lbl m" x="150" y="44" text-anchor="start"><tspan font-style="normal">+3</tspan></text><text class="lbl m" x="150" y="132" text-anchor="start"><tspan font-style="normal">−3</tspan></text></svg><figcaption>この状態を「電荷が 3 たまった」という</figcaption></div>
+    </div>
+    <p style="margin:10px 0 0"><span class="chip">放電</span></p>
+    <div class="panel-row">
+      <div class="figure"><svg class="fig" viewBox="0 0 200 150" role="img" aria-label="電池をはずしても，電子は導線も極板の間も通れないので，電荷はたまったまま"><path class="ink nofill" d="M125,66 L125,16 L86,16" stroke-linejoin="miter"/><path class="ink nofill" d="M86,16 L26,16 L26,138 L125,138 L125,82" stroke-linejoin="miter"/><line class="cut" x1="26" y1="62" x2="26" y2="90"/><text class="jp small" x="30" y="112" text-anchor="start">通れない</text><line class="plate" x1="72" y1="66" x2="182" y2="66"/><line class="plate" x1="72" y1="82" x2="182" y2="82"/><g class="chg-p"><circle cx="81" cy="56.5" r="8"/><path d="M77,56.5 H85 M81,52.5 V60.5"/></g><g class="chg-p"><circle cx="117.8" cy="56.5" r="8"/><path d="M113.8,56.5 H121.8 M117.8,52.5 V60.5"/></g><g class="chg-p"><circle cx="154.6" cy="56.5" r="8"/><path d="M150.6,56.5 H158.6 M154.6,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="81" cy="91.5" r="8"/><path d="M77,91.5 H85"/></g><g class="chg-p"><circle cx="99.4" cy="91.5" r="8"/><path d="M95.4,91.5 H103.4 M99.4,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="117.8" cy="91.5" r="8"/><path d="M113.8,91.5 H121.8"/></g><g class="chg-p"><circle cx="136.2" cy="91.5" r="8"/><path d="M132.2,91.5 H140.2 M136.2,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="154.6" cy="91.5" r="8"/><path d="M150.6,91.5 H158.6"/></g><g class="chg-p"><circle cx="173" cy="91.5" r="8"/><path d="M169,91.5 H177 M173,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="81" cy="106" r="8"/><path d="M77,106 H85"/></g><g class="chg-n navy"><circle cx="117.8" cy="106" r="8"/><path d="M113.8,106 H121.8"/></g><g class="chg-n navy"><circle cx="154.6" cy="106" r="8"/><path d="M150.6,106 H158.6"/></g><text class="lbl m" x="150" y="44" text-anchor="start"><tspan font-style="normal">+3</tspan></text><text class="lbl m" x="150" y="132" text-anchor="start"><tspan font-style="normal">−3</tspan></text><text class="jp tiny" x="127" y="77.5" text-anchor="middle">ここも通れない</text></svg></div><span class="next" aria-hidden="true">▶▶</span>
+      <div class="figure"><svg class="fig" viewBox="0 0 200 150" role="img" aria-label="豆電球をつなぐと，下の極板の電子が豆電球を通って上の極板へ戻り，豆電球が光る"><path class="ink nofill" d="M125,66 L125,16 L86,16" stroke-linejoin="miter"/><path class="ink nofill" d="M86,16 L26,16 L26,138 L125,138 L125,82" stroke-linejoin="miter"/><line class="cut" x1="26" y1="66" x2="26" y2="86"/><path class="ink nofill" d="M26,64 Q14,64 14,76 Q14,88 26,88"/><circle class="node " cx="26" cy="64" r="2.4"/><circle class="node " cx="26" cy="88" r="2.4"/><circle class="bulb lit" cx="19" cy="76" r="8"/><path class="bolt" d="M8,44 l6,-8 l2,5 l5,-3 l-6,10 l-2,-5 z"/><text class="jp small" x="30" y="60" text-anchor="start">ビリ！</text><line class="plate" x1="72" y1="66" x2="182" y2="66"/><line class="plate" x1="72" y1="82" x2="182" y2="82"/><g class="chg-p"><circle cx="81" cy="56.5" r="8"/><path d="M77,56.5 H85 M81,52.5 V60.5"/></g><g class="chg-p"><circle cx="117.8" cy="56.5" r="8"/><path d="M113.8,56.5 H121.8 M117.8,52.5 V60.5"/></g><g class="chg-p"><circle cx="154.6" cy="56.5" r="8"/><path d="M150.6,56.5 H158.6 M154.6,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="81" cy="91.5" r="8"/><path d="M77,91.5 H85"/></g><g class="chg-p"><circle cx="99.4" cy="91.5" r="8"/><path d="M95.4,91.5 H103.4 M99.4,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="117.8" cy="91.5" r="8"/><path d="M113.8,91.5 H121.8"/></g><g class="chg-p"><circle cx="136.2" cy="91.5" r="8"/><path d="M132.2,91.5 H140.2 M136.2,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="154.6" cy="91.5" r="8"/><path d="M150.6,91.5 H158.6"/></g><g class="chg-p"><circle cx="173" cy="91.5" r="8"/><path d="M169,91.5 H177 M173,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="173" cy="106" r="8"/><path d="M169,106 H177"/></g><g class="chg-n navy"><circle cx="70" cy="16" r="8"/><path d="M66,16 H74"/></g><line class="ink" x1="60" y1="3" x2="86" y2="3" marker-end="url(#ah-ink)"/><g class="chg-n navy"><circle cx="26" cy="116" r="8"/><path d="M22,116 H30"/></g><line class="ink" x1="12" y1="128" x2="12" y2="104" marker-end="url(#ah-ink)"/></svg></div><span class="next" aria-hidden="true">▶▶</span>
+      <div class="figure"><svg class="fig" viewBox="0 0 200 150" role="img" aria-label="電子が戻りきると両方の極板の電荷は0になり，もう電流は流れない"><path class="ink nofill" d="M125,66 L125,16 L86,16" stroke-linejoin="miter"/><path class="ink nofill" d="M86,16 L26,16 L26,138 L125,138 L125,82" stroke-linejoin="miter"/><line class="cut" x1="26" y1="66" x2="26" y2="86"/><path class="ink nofill" d="M26,64 Q14,64 14,76 Q14,88 26,88"/><circle class="node " cx="26" cy="64" r="2.4"/><circle class="node " cx="26" cy="88" r="2.4"/><circle class="bulb" cx="19" cy="76" r="8"/><text class="jp small" x="4" y="48" text-anchor="start">もう流れない</text><line class="plate" x1="72" y1="66" x2="182" y2="66"/><line class="plate" x1="72" y1="82" x2="182" y2="82"/><g class="chg-p"><circle cx="81" cy="56.5" r="8"/><path d="M77,56.5 H85 M81,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="99.4" cy="56.5" r="8"/><path d="M95.4,56.5 H103.4"/></g><g class="chg-p"><circle cx="117.8" cy="56.5" r="8"/><path d="M113.8,56.5 H121.8 M117.8,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="136.2" cy="56.5" r="8"/><path d="M132.2,56.5 H140.2"/></g><g class="chg-p"><circle cx="154.6" cy="56.5" r="8"/><path d="M150.6,56.5 H158.6 M154.6,52.5 V60.5"/></g><g class="chg-n navy"><circle cx="173" cy="56.5" r="8"/><path d="M169,56.5 H177"/></g><g class="chg-n navy"><circle cx="81" cy="91.5" r="8"/><path d="M77,91.5 H85"/></g><g class="chg-p"><circle cx="99.4" cy="91.5" r="8"/><path d="M95.4,91.5 H103.4 M99.4,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="117.8" cy="91.5" r="8"/><path d="M113.8,91.5 H121.8"/></g><g class="chg-p"><circle cx="136.2" cy="91.5" r="8"/><path d="M132.2,91.5 H140.2 M136.2,87.5 V95.5"/></g><g class="chg-n navy"><circle cx="154.6" cy="91.5" r="8"/><path d="M150.6,91.5 H158.6"/></g><g class="chg-p"><circle cx="173" cy="91.5" r="8"/><path d="M169,91.5 H177 M173,87.5 V95.5"/></g><text class="lbl m" x="150" y="44" text-anchor="start"><tspan font-style="normal">0</tspan></text><text class="jp tiny" x="162" y="44" text-anchor="start">ゼロ!</text><text class="lbl m" x="150" y="132" text-anchor="start"><tspan font-style="normal">0</tspan></text><text class="jp tiny" x="162" y="132" text-anchor="start">ゼロ!</text></svg></div>
+    </div>
+    <p class="note"><b>ポイント</b>　動くのは電子（－）だけ。充電では，電池が上の極板の電子を下の極板へ運ぶので，上の極板は＋，下の極板は−になる。極板の間は誘電体（絶縁体）なので電子は通れず，電池をはずしても電荷はたまったまま。豆電球などをつなぐと電子が戻り（放電），両方の極板の電荷が 0 になったところで電流は止まる。</p>
+
+    <div class="fig-row" style="align-items:center;margin-top:18px">
+      <div class="yellow-box" style="flex:1 1 220px">
+        <div style="font-size:.8rem">コンデンサの３大重要公式 その１</div>
+        <div style="font-size:1.6rem;text-align:center">\(Q = \) <span class="fill">\(CV\)</span></div>
+        <div style="font-size:.8rem;text-align:center">\(Q\)：たまった電荷〔C〕　\(C\)：静電容量〔F〕　\(V\)：電圧〔V〕</div>
+      </div>
+      <div class="figure" style="max-width:300px"><svg class="fig" viewBox="0 0 300 130" role="img" aria-label="電圧Vの電池につないだコンデンサ（静電容量C）の極板に，+Qと−Qの電荷がたまる"><g class="" transform="translate(38,0)"><path class="ink nofill" d="M160,56 L160,10 L70,10 L70,122 L160,122 L160,76" stroke-linejoin="miter"/><line class="cut" x1="70" y1="63.5" x2="70" y2="68.5"/><line class="bat-p " x1="58" y1="62.5" x2="82" y2="62.5"/><line class="bat-n " x1="64" y1="69.5" x2="76" y2="69.5"/><line class="plate" x1="115" y1="56" x2="205" y2="56"/><line class="plate" x1="115" y1="76" x2="205" y2="76"/><text class="lbl small" x="160" y="50" text-anchor="middle">+ + + + + + +</text><text class="lbl small" x="160" y="90" text-anchor="middle">− − − − − − −</text><text class="lbl bold m" x="165" y="36" text-anchor="start"><tspan font-style="normal">+</tspan><tspan>Q</tspan></text><text class="jp tiny" x="196" y="36" text-anchor="start">たまった電荷</text><text class="lbl bold m" x="210" y="71" text-anchor="start"><tspan>C</tspan></text><text class="jp tiny" x="222" y="71" text-anchor="start">静電容量</text><text class="lbl bold m" x="165" y="106" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan></text><text class="lbl bold m" x="62" y="60" text-anchor="end"><tspan>V</tspan></text><text class="jp tiny" x="48" y="60" text-anchor="end">極板間の電圧</text></g></svg></div>
+    </div>
+    <p>コンデンサにたまった電気量 \(Q\) は極板間の電圧 \(V\) に比例する。また，コンデンサの形状を示した値 \(C\) のことを <b>静電容量（電気容量）</b> という。単位は F（ファラド）。\(C\) も \(V\) も大きいほどよくたまる。</p>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <div class="fig-row">
+      <div class="figure small"><b>図１</b><svg class="fig" viewBox="0 0 200 112" role="img" aria-label="図１：スイッチSをa側にして，電池とコンデンサAをつないだ回路（コンデンサB側は灰色）"><path class="ink  nofill" d="M88,24 L20,24 L20,100 L100,100" stroke-linejoin="miter"/><line class="cut" x1="20" y1="59.5" x2="20" y2="64.5"/><line class="bat-p " x1="8" y1="58.5" x2="32" y2="58.5"/><line class="bat-n " x1="14" y1="65.5" x2="26" y2="65.5"/><path class="ink gray-c nofill" d="M113,24 L178,24 L178,100 L100,100" stroke-linejoin="miter"/><line class="cut" x1="178" y1="63.5" x2="178" y2="68.5"/><line class="plate gray-c" x1="165" y1="62" x2="191" y2="62"/><line class="plate gray-c" x1="165" y1="70" x2="191" y2="70"/><path class="ink nofill" d="M100,38 L100,100" stroke-linejoin="miter"/><line class="cut" x1="100" y1="63.5" x2="100" y2="68.5"/><line class="plate " x1="87" y1="62" x2="113" y2="62"/><line class="plate " x1="87" y1="70" x2="113" y2="70"/><circle class="node " cx="88" cy="24" r="2.4"/><circle class="node gray-c" cx="113" cy="24" r="2.4"/><line class="ink " x1="100" y1="38" x2="85.4" y2="21"/><circle class="term " cx="100" cy="38" r="2.6"/><text class="lbl small g" x="88" y="15" text-anchor="middle">a</text><text class="lbl small g" x="113" y="15" text-anchor="middle">b</text><text class="lbl small g" x="91" y="60" text-anchor="end">A</text><text class="lbl small g" x="169" y="60" text-anchor="end">B</text></svg></div>
+      <div class="figure small"><b>図２</b><svg class="fig" viewBox="0 0 200 112" role="img" aria-label="図２：スイッチSをb側にして，コンデンサAとコンデンサBをつないだ回路（電池側は灰色）"><path class="ink gray-c nofill" d="M88,24 L20,24 L20,100 L100,100" stroke-linejoin="miter"/><line class="cut" x1="20" y1="59.5" x2="20" y2="64.5"/><line class="bat-p gray-c" x1="8" y1="58.5" x2="32" y2="58.5"/><line class="bat-n gray-c" x1="14" y1="65.5" x2="26" y2="65.5"/><path class="ink  nofill" d="M113,24 L178,24 L178,100 L100,100" stroke-linejoin="miter"/><line class="cut" x1="178" y1="63.5" x2="178" y2="68.5"/><line class="plate " x1="165" y1="62" x2="191" y2="62"/><line class="plate " x1="165" y1="70" x2="191" y2="70"/><path class="ink nofill" d="M100,38 L100,100" stroke-linejoin="miter"/><line class="cut" x1="100" y1="63.5" x2="100" y2="68.5"/><line class="plate " x1="87" y1="62" x2="113" y2="62"/><line class="plate " x1="87" y1="70" x2="113" y2="70"/><circle class="node gray-c" cx="88" cy="24" r="2.4"/><circle class="node " cx="113" cy="24" r="2.4"/><line class="ink " x1="100" y1="38" x2="115.7" y2="21.1"/><circle class="term " cx="100" cy="38" r="2.6"/><text class="lbl small g" x="88" y="15" text-anchor="middle">a</text><text class="lbl small g" x="113" y="15" text-anchor="middle">b</text><text class="lbl small g" x="91" y="60" text-anchor="end">A</text><text class="lbl small g" x="169" y="60" text-anchor="end">B</text></svg></div>
+      <div class="figure small" style="max-width:190px" data-draw="電荷"><b>図３</b><svg class="fig" viewBox="0 0 170 150" role="img" aria-label="図３：コンデンサAとBを直列につないで電池につないだ回路。極板aに+6Cの電荷"><path class="ink nofill" d="M100,40 L100,12 L24,12 L24,140 L100,140 L100,112" stroke-linejoin="miter"/><line class="cut" x1="24" y1="93.5" x2="24" y2="98.5"/><line class="bat-p " x1="12" y1="92.5" x2="36" y2="92.5"/><line class="bat-n " x1="18" y1="99.5" x2="30" y2="99.5"/><path class="ink nofill" d="M100,60 L100,92" stroke-linejoin="miter"/><line class="plate" x1="74" y1="40" x2="126" y2="40"/><text class="lbl small g" x="68" y="44" text-anchor="end">a</text><line class="plate" x1="74" y1="60" x2="126" y2="60"/><text class="lbl small g" x="68" y="64" text-anchor="end">b</text><line class="plate" x1="74" y1="92" x2="126" y2="92"/><text class="lbl small g" x="68" y="96" text-anchor="end">c</text><line class="plate" x1="74" y1="112" x2="126" y2="112"/><text class="lbl small g" x="68" y="116" text-anchor="end">d</text><line class="cut" x1="100" y1="41.5" x2="100" y2="58.5"/><line class="cut" x1="100" y1="93.5" x2="100" y2="110.5"/><text class="lbl small" x="100" y="34" text-anchor="middle">+ + + + + +</text><text class="lbl small m" x="104" y="24" text-anchor="start"><tspan font-style="normal">+6 </tspan><tspan font-style="normal" class="g">〔C〕</tspan></text><text class="lbl small g" x="100" y="55" text-anchor="middle">A</text><text class="lbl small g" x="100" y="107" text-anchor="middle">B</text><g class="ans-layer"><text class="lbl ans-t bold m" x="132" y="64" text-anchor="start"><tspan font-style="normal">−6</tspan></text><text class="lbl ans-t bold m" x="132" y="96" text-anchor="start"><tspan font-style="normal">+6</tspan></text><text class="lbl ans-t bold m" x="132" y="116" text-anchor="start"><tspan font-style="normal">−6</tspan></text></g></svg></div>
+    </div>
+    <ol class="qs">
+      <li>図１の回路において，スイッチSをa端子につなぎ，コンデンサAを充電したところ，電荷が 4〔C〕だけ移動した。このときにコンデンサAにたまった電荷は何 C か。</li>
+      <li>続いて，スイッチSをb端子に切り替え，Aと同じ形状のコンデンサBと図２のように接続した。コンデンサBにたまった電荷は何 C か。</li>
+      <li>図３のように，形状の異なるコンデンサA，Bを直列につなぎ，その両端に電池をつないだところ，極板aに +6〔C〕の電荷がたまった。極板b，c，dにはそれぞれいくらの電荷がたまっているか。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span></h4>
+      <p>充電では，電池が一方の極板から他方の極板へ電子を運ぶ。4 C 分の電荷が移動すると，片方の極板は +4 C，もう片方は −4 C になる。このときを「電荷が 4 C たまった」という（ポイントの「電荷が 3 たまった」と同じ）。</p>
+      <h4><span class="n">(2)</span></h4>
+      <p>スイッチを b に切り替えると，電池は切りはなされ，A と B がつながる。A にたまっていた 4 C が B へも流れ，A と B の電圧が等しくなったところで止まる。A と B は同じ形状（同じ静電容量 \(C\)）なので，電圧が等しければ \(Q = CV\) より電荷も等しい。電荷の合計 4 C は変わらないので，半分ずつに分け合う。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ Q_\text{B} = \frac{4}{2} = 2 \,\unit{C} \]</div><div class="eq-narrow">\[ \begin{aligned} Q_\text{B} &= \frac{4}{2} \\ &= 2 \,\unit{C} \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span></h4>
+      <p>コンデンサの2枚の極板には，必ず同じ大きさで逆符号の電荷がたまる。a が +6 C なので，同じコンデンサAの b は −6 C。</p>
+      <p>b と c は導線でつながっていて，電池ともつながっていない「島」になっている。はじめこの島の電荷は 0 なので，b が −6 C なら c は +6 C（合計 0 のまま）。c と d は同じコンデンサBの極板なので，d は −6 C。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ b:\ -6 \,\unit{C}, \qquad c:\ +6 \,\unit{C}, \qquad d:\ -6 \,\unit{C} \]</div><div class="eq-narrow">\[ \begin{aligned} &b:\ -6 \,\unit{C} \\ &c:\ +6 \,\unit{C} \\ &d:\ -6 \,\unit{C} \end{aligned} \]</div></div>
+      <p class="note"><b>ポイント</b>　直列につないだコンデンサには，<b>どれも同じ大きさの電荷</b>がたまる（形状が違っても）。</p>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">4〔C〕</span></div>
+      <div><span class="label">(2)</span><span class="val">2〔C〕</span></div>
+      <div><span class="label">(3) b</span><span class="val">−6〔C〕</span></div>
+      <div><span class="label">(3) c</span><span class="val">+6〔C〕</span></div>
+      <div><span class="label">(3) d</span><span class="val">−6〔C〕</span></div>
+      <div class="blank" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <ol class="qs">
+      <li>静電容量が 3.0 μF のコンデンサに 1.5 V の電圧を加えると，何 C の電荷が蓄えられるか。（\(\mu\)（マイクロ）：\(\times 10^{-6}\)）</li>
+      <li>あるコンデンサに 12 V の電圧を加え十分に時間が経過したところ，\(6.0\times 10^{-5}\) C の電荷がたまった。このコンデンサの静電容量は何 F か。</li>
+      <li>静電容量が 1.5 pF のコンデンサに \(3.0\times 10^{-10}\) C の電荷がたまっている。このコンデンサの両端に加えた電圧は何 V か。（p（ピコ）：\(\times 10^{-12}\)）</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p>どれも \(Q = CV\) に，わかっている2つの量を代入して残りの1つを求める。μ や p は 10 の累乗に直してから代入する。</p>
+      <h4><span class="n">(1)</span></h4>
+      <p>\(C = 3.0\,\unit{μF} = 3.0\times 10^{-6}\,\unit{F}\)，\(V = 1.5\,\unit{V}\) を \(Q = CV\) に代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ Q = 3.0\times 10^{-6}\times 1.5 = 4.5\times 10^{-6} \,\unit{C} \]</div><div class="eq-narrow">\[ \begin{aligned} Q &= 3.0\times 10^{-6}\times 1.5 \\ &= 4.5\times 10^{-6} \,\unit{C} \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span></h4>
+      <p>\(Q = CV\) に \(Q = 6.0\times 10^{-5}\)，\(V = 12\) を代入し，\(C\) について解く。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 6.0\times 10^{-5} = C\times 12 \qquad\Rightarrow\qquad C = \frac{6.0\times 10^{-5}}{12} = 5.0\times 10^{-6} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} 6.0\times 10^{-5} &= C\times 12 \\ \Rightarrow\ C &= \frac{6.0\times 10^{-5}}{12} \\ &= 5.0\times 10^{-6} \,\unit{F} \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span></h4>
+      <p>\(C = 1.5\,\unit{pF} = 1.5\times 10^{-12}\,\unit{F}\) と \(Q = 3.0\times 10^{-10}\) を \(Q = CV\) に代入し，\(V\) について解く。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 3.0\times 10^{-10} = 1.5\times 10^{-12}\times V \qquad\Rightarrow\qquad V = \frac{3.0\times 10^{-10}}{1.5\times 10^{-12}} = 2.0\times 10^{2} \,\unit{V} \]</div><div class="eq-narrow">\[ \begin{aligned} 3.0\times 10^{-10} &= 1.5\times 10^{-12}\times V \\ \Rightarrow\ V &= \frac{3.0\times 10^{-10}}{1.5\times 10^{-12}} \\ &= 2.0\times 10^{2} \,\unit{V} \end{aligned} \]</div></div>
+      <p>指数の割り算は \(10^{-10}\div 10^{-12} = 10^{-10-(-12)} = 10^{2}\)。</p>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(4.5\times 10^{-6}\)〔C〕</span></div>
+      <div><span class="label">(2)</span><span class="val">\(5.0\times 10^{-6}\)〔F〕</span></div>
+      <div><span class="label">(3)</span><span class="val">\(2.0\times 10^{2}\)〔V〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題③ ================= -->
+  <section class="card" id="pr3">
+    <h2><span class="tag practice">練習問題③</span></h2>
+    <p class="statement">はじめ，コンデンサには電荷はたまっていない。図１の回路において，スイッチSをaにつなぎ，静電容量 \(C\) のコンデンサAの両端を電圧 \(V\) で充電した。次に，図２のように，スイッチSをbにつなぎ，静電容量 \(C'\) のコンデンサBとコンデンサAを接続した。</p>
+    <div class="fig-row">
+      <div class="figure"><svg class="fig" viewBox="0 0 248 140" role="img" aria-label="図１：スイッチSをaにつなぎ，電圧Vの電池で静電容量CのコンデンサAを充電する回路"><path class="ink nofill" d="M98,18 L20,18 L20,128 L210,128 L210,18 L124,18" stroke-linejoin="miter"/><line class="cut" x1="20" y1="73.5" x2="20" y2="78.5"/><line class="bat-p " x1="8" y1="72.5" x2="32" y2="72.5"/><line class="bat-n " x1="14" y1="79.5" x2="26" y2="79.5"/><line class="cut" x1="210" y1="73.5" x2="210" y2="78.5"/><line class="plate " x1="197" y1="72" x2="223" y2="72"/><line class="plate " x1="197" y1="80" x2="223" y2="80"/><path class="ink nofill" d="M110,32 L110,128" stroke-linejoin="miter"/><line class="cut" x1="110" y1="73.5" x2="110" y2="78.5"/><line class="plate " x1="97" y1="72" x2="123" y2="72"/><line class="plate " x1="97" y1="80" x2="123" y2="80"/><circle class="node " cx="98" cy="18" r="2.4"/><circle class="node " cx="124" cy="18" r="2.4"/><line class="ink " x1="110" y1="32" x2="95.4" y2="15"/><circle class="term " cx="110" cy="32" r="2.6"/><text class="lbl small g" x="98" y="10" text-anchor="middle">a</text><text class="lbl small g" x="124" y="10" text-anchor="middle">b</text><text class="lbl small g" x="104" y="36" text-anchor="end">S</text><text class="lbl small g" x="101" y="66" text-anchor="end">A</text><text class="lbl small g" x="201" y="66" text-anchor="end">B</text><text class="lbl m" x="28" y="81" text-anchor="start"><tspan>V</tspan></text><text class="lbl m" x="126" y="81" text-anchor="start"><tspan>C</tspan></text><text class="lbl m" x="226" y="81" text-anchor="start"><tspan>C</tspan><tspan font-style="normal">′</tspan></text></svg><figcaption>図１</figcaption></div>
+      <div class="figure"><svg class="fig" viewBox="0 0 248 140" role="img" aria-label="図２：スイッチSをbにつなぎ，コンデンサAと静電容量C′のコンデンサBをつないだ回路。Bの両端の電圧V′"><path class="ink nofill" d="M98,18 L20,18 L20,128 L210,128 L210,18 L124,18" stroke-linejoin="miter"/><line class="cut" x1="20" y1="73.5" x2="20" y2="78.5"/><line class="bat-p " x1="8" y1="72.5" x2="32" y2="72.5"/><line class="bat-n " x1="14" y1="79.5" x2="26" y2="79.5"/><line class="cut" x1="210" y1="73.5" x2="210" y2="78.5"/><line class="plate " x1="197" y1="72" x2="223" y2="72"/><line class="plate " x1="197" y1="80" x2="223" y2="80"/><path class="ink nofill" d="M110,32 L110,128" stroke-linejoin="miter"/><line class="cut" x1="110" y1="73.5" x2="110" y2="78.5"/><line class="plate " x1="97" y1="72" x2="123" y2="72"/><line class="plate " x1="97" y1="80" x2="123" y2="80"/><circle class="node " cx="98" cy="18" r="2.4"/><circle class="node " cx="124" cy="18" r="2.4"/><line class="ink " x1="110" y1="32" x2="126.8" y2="15.2"/><circle class="term " cx="110" cy="32" r="2.6"/><text class="lbl small g" x="98" y="10" text-anchor="middle">a</text><text class="lbl small g" x="124" y="10" text-anchor="middle">b</text><text class="lbl small g" x="104" y="36" text-anchor="end">S</text><text class="lbl small g" x="101" y="66" text-anchor="end">A</text><text class="lbl small g" x="201" y="66" text-anchor="end">B</text><text class="lbl m" x="28" y="81" text-anchor="start"><tspan>V</tspan></text><text class="lbl m" x="126" y="81" text-anchor="start"><tspan>C</tspan></text><text class="lbl m" x="226" y="81" text-anchor="start"><tspan>C</tspan><tspan font-style="normal">′</tspan></text><line class="ink-thin dashed" x1="160" y1="20" x2="160" y2="126" marker-end="url(#ah-ink)" marker-start="url(#ah-ink)"/><text class="lbl m" x="166" y="81" text-anchor="start"><tspan>V</tspan><tspan font-style="normal">′</tspan></text></svg><figcaption>図２</figcaption></div>
+    </div>
+    <p style="margin:6px 0 2px">(1) \(V = 3.0\) V，\(C = C' = 1.6\) F とし，次の (ア)〜(ウ) の問いに答えよ。</p>
+    <ul class="fill-list" style="list-style:none">
+      <li>(ア) 図１のとき，コンデンサAにたまった電気量 \(Q_\text{A}\) は何 C か。</li>
+      <li>(イ) 図２のとき，コンデンサBにたまった電気量 \(Q_\text{B}'\) は何 C か。</li>
+      <li>(ウ) 図２のとき，コンデンサBの両端の電圧 \(V'\) は何 V か。</li>
+    </ul>
+    <p style="margin:6px 0 2px">(2) \(V = 4.0\) V，\(C = 3.0\) F，\(C' = 1.0\) F とし，次の (エ)〜(カ) の問いに答えよ。</p>
+    <ul class="fill-list" style="list-style:none">
+      <li>(エ) 図１のとき，コンデンサAにたまった電気量 \(Q_\text{A}\) は何 C か。</li>
+      <li>(オ) 図２のとき，コンデンサBにたまった電気量 \(Q_\text{B}'\) は何 C か。</li>
+      <li>(カ) 図２のとき，コンデンサBの両端の電圧 \(V'\) は何 V か。</li>
+    </ul>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <p><b>考え方</b>　図２では電池が切りはなされるので，A にたまっていた電荷 \(Q_\text{A}\) の合計は変わらない（逃げ場がない）。その電荷を A と B で分け合い，A と B の電圧が等しく（\(V'\)）なったところで落ち着く。\(Q = CV\) より，電圧が等しければ電荷は静電容量に比例して分かれる。</p>
+      <h4><span class="n">(ア)</span></h4>
+      <p>図１では A に電池の電圧 \(V\) がかかるので，\(Q = CV\) に \(C = 1.6\)，\(V = 3.0\) を代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ Q_\text{A} = 1.6\times 3.0 = 4.8 \,\unit{C} \]</div><div class="eq-narrow">\[ \begin{aligned} Q_\text{A} &= 1.6\times 3.0 \\ &= 4.8 \,\unit{C} \end{aligned} \]</div></div>
+      <h4><span class="n">(イ)</span></h4>
+      <p>\(C = C'\) なので，4.8 C を A と B で同じだけ分け合う。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ Q_\text{B}' = \frac{4.8}{2} = 2.4 \,\unit{C} \]</div><div class="eq-narrow">\[ \begin{aligned} Q_\text{B}' &= \frac{4.8}{2} \\ &= 2.4 \,\unit{C} \end{aligned} \]</div></div>
+      <h4><span class="n">(ウ)</span></h4>
+      <p>B について \(Q = CV\) を使う。\(Q_\text{B}' = 2.4\)，\(C' = 1.6\) を代入して \(V'\) について解く。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 2.4 = 1.6\times V' \qquad\Rightarrow\qquad V' = \frac{2.4}{1.6} = 1.5 \,\unit{V} \]</div><div class="eq-narrow">\[ \begin{aligned} 2.4 &= 1.6\times V' \\ \Rightarrow\ V' &= \frac{2.4}{1.6} \\ &= 1.5 \,\unit{V} \end{aligned} \]</div></div>
+      <h4><span class="n">(エ)</span></h4>
+      <p>(ア) と同じく \(Q = CV\) に \(C = 3.0\)，\(V = 4.0\) を代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ Q_\text{A} = 3.0\times 4.0 = 12 \,\unit{C} \]</div><div class="eq-narrow">\[ \begin{aligned} Q_\text{A} &= 3.0\times 4.0 \\ &= 12 \,\unit{C} \end{aligned} \]</div></div>
+      <h4><span class="n">(オ)</span></h4>
+      <p>A と B の電圧は等しいので，電荷は静電容量の比 \(C : C' = 3.0 : 1.0 = 3 : 1\) に分かれる。12 C を 3 : 1 に分けると，B の分は全体の \(\dfrac{1}{4}\)。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ Q_\text{B}' = 12\times \frac{1}{3 + 1} = 3.0 \,\unit{C} \]</div><div class="eq-narrow">\[ \begin{aligned} Q_\text{B}' &= 12\times \frac{1}{3 + 1} \\ &= 3.0 \,\unit{C} \end{aligned} \]</div></div>
+      <p>（A には残りの 9.0 C が残る。A の電圧も \(9.0 \div 3.0 = 3.0\,\unit{V}\) で，B と等しくなっている。）</p>
+      <h4><span class="n">(カ)</span></h4>
+      <p>B について \(Q = CV\) に \(Q_\text{B}' = 3.0\)，\(C' = 1.0\) を代入する。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 3.0 = 1.0\times V' \qquad\Rightarrow\qquad V' = 3.0 \,\unit{V} \]</div><div class="eq-narrow">\[ \begin{aligned} 3.0 &= 1.0\times V' \\ \Rightarrow\ V' &= 3.0 \,\unit{V} \end{aligned} \]</div></div>
+      <p class="note"><b>別の解き方</b>　電荷の合計が変わらないことを式にすると \(CV' + C'V' = Q_\text{A}\)。よって \(V' = \dfrac{Q_\text{A}}{C + C'}\)。(2) なら \(V' = \dfrac{12}{3.0 + 1.0} = 3.0\,\unit{V}\)，(1) なら \(V' = \dfrac{4.8}{1.6 + 1.6} = 1.5\,\unit{V}\)。</p>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)(ア)</span><span class="val">\(Q_\text{A} = 4.8\)〔C〕</span></div>
+      <div><span class="label">(1)(イ)</span><span class="val">\(Q_\text{B}' = 2.4\)〔C〕</span></div>
+      <div><span class="label">(1)(ウ)</span><span class="val">\(V' = 1.5\)〔V〕</span></div>
+      <div><span class="label">(2)(エ)</span><span class="val">\(Q_\text{A} = 12\)〔C〕</span></div>
+      <div><span class="label">(2)(オ)</span><span class="val">\(Q_\text{B}' = 3.0\)〔C〕</span></div>
+      <div><span class="label">(2)(カ)</span><span class="val">\(V' = 3.0\)〔V〕</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題④ ================= -->
+  <section class="card" id="pr4">
+    <h2><span class="tag practice">練習問題④</span><span class="sub">（教 p.186-188 参照）</span></h2>
+    <p class="statement noindent">下の (1)〜(6) の各問いに答えよ。</p>
+    <figure class="photo" style="max-width:640px"><img src="img/11_pr4_fig1.jpg" width="1120" height="416" alt="図１：いろいろなコンデンサの写真。アはチップ形，イは小さな丸い3個，ウは銀色の四角いもの，エはしずく形，オは緑色の円筒，カは黒や青の大きな円筒" loading="lazy"></figure>
+    <div class="fig-row" style="align-items:flex-end">
+      <figure class="photo" style="flex:1 1 200px;max-width:240px"><img src="img/11_pr4_fig2.jpg" width="468" height="289" alt="図２：リード線ア・イをもつ円筒形のコンデンサ。アのリード線のほうが長い" loading="lazy"></figure>
+      <figure class="photo" style="flex:1 1 110px;max-width:140px"><img src="img/11_pr4_fig3.jpg" width="277" height="295" alt="図３：220μF 35V の電解コンデンサ。リード線ア・イ" loading="lazy"></figure>
+      <figure class="photo" style="flex:1 1 140px;max-width:180px"><img src="img/11_pr4_fig4.jpg" width="351" height="295" alt="図４：「104」と書かれた青いセラミックコンデンサ" loading="lazy"></figure>
+    </div>
+    <ol class="qs">
+      <li>図１（教 p.186 の写真 04-01）のア〜カのコンデンサの名称を答えよ。</li>
+      <li>図１のウとカのコンデンサの誘電体をそれぞれ答えよ。</li>
+      <li>図２のコンデンサは極性をもつ。ア・イのどちらのリード線がプラス（正極）か。</li>
+      <li>図３のコンデンサは極性をもつ。ア・イのどちらのリード線がプラス（正極）か。</li>
+      <li>コンデンサの「定格電圧」とは何か。簡潔に説明せよ。</li>
+      <li>図４のコンデンサの静電容量は何 F か。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span></h4>
+      <p>ア：チップ電解コンデンサ（基板の表面に直接はんだ付けする小形の電解コンデンサ），イ：セラミックコンデンサ，ウ：フィルムコンデンサ，エ：タンタルコンデンサ，オ：無極性電解コンデンサ，カ：電解コンデンサ。</p>
+      <h4><span class="n">(2)</span></h4>
+      <p>フィルムコンデンサ（ウ）は，ポリエステルなどの<b>合成樹脂（プラスチック）のフィルム</b>を誘電体にしている。</p>
+      <p>電解コンデンサ（カ）は，アルミニウム箔の表面に電気分解で作った<b>酸化皮膜</b>（酸化アルミニウム）を誘電体にしている。中には<b>電解液</b>が入っていて，皮膜の反対側の電極（陰極）のはたらきをしている。電解液を使うので「電解」コンデンサという。</p>
+      <h4><span class="n">(3)</span></h4>
+      <p>極性のある電解コンデンサは，<b>リード線の長いほうがプラス（正極）</b>。図２ではアのほうが長いので，アがプラス。</p>
+      <h4><span class="n">(4)</span></h4>
+      <p>電解コンデンサの側面には，マイナス（負極）側に帯状の印（－の記号が並んだ線）がついている。図３では帯の印がア側にあるので，ア がマイナス，イ がプラス。</p>
+      <h4><span class="n">(5)</span></h4>
+      <p>コンデンサの両端に加えてよい電圧の上限。これを超える電圧を加えると，誘電体が壊れて（絶縁破壊）コンデンサが壊れたり，電解コンデンサでは破裂したりすることがある。図３の「35V」が定格電圧。</p>
+      <h4><span class="n">(6)</span></h4>
+      <p>小さなコンデンサの「104」のような3けたの数字は，pF 単位で「はじめの2けた × 10 の（3けた目）乗」を表す。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 104 \ \to\ 10\times 10^{4} \,\unit{pF} = 1.0\times 10^{5}\times 10^{-12} \,\unit{F} = 1.0\times 10^{-7} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} 104 \ \to\ 10\times 10^{4} \,\unit{pF} &= 1.0\times 10^{5}\times 10^{-12} \,\unit{F} \\ &= 1.0\times 10^{-7} \,\unit{F} \end{aligned} \]</div></div>
+      <p>（\(0.1\,\unit{μF}\) のこと。）</p>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1) ア</span><span class="val">チップ電解コンデンサ</span></div>
+      <div><span class="label">(1) イ</span><span class="val">セラミックコンデンサ</span></div>
+      <div><span class="label">(1) ウ</span><span class="val">フィルムコンデンサ</span></div>
+      <div><span class="label">(1) エ</span><span class="val">タンタルコンデンサ</span></div>
+      <div><span class="label">(1) オ</span><span class="val">無極性電解コンデンサ</span></div>
+      <div><span class="label">(1) カ</span><span class="val">電解コンデンサ</span></div>
+      <div><span class="label">(2) ウ</span><span class="val">合成樹脂（フィルム）</span></div>
+      <div><span class="label">(2) カ</span><span class="val">電解液，酸化皮膜</span></div>
+      <div><span class="label">(3)・(4)</span><span class="val">(3) ア　(4) イ</span></div>
+      <div><span class="label">(5)</span><span class="val" style="font-size:.95rem">コンデンサが耐えられる（加えてよい）電圧の上限</span></div>
+      <div><span class="label">(6)</span><span class="val">\(1.0\times 10^{-7}\)〔F〕</span></div>
+      <div class="blank" aria-hidden="true"></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>イナプリ 電気電子工学 11 コンデンサ ― 解答解説</footer>
+</body>
+</html>
