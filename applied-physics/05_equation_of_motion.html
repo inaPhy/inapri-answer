@@ -6,12 +6,12 @@
 <title>05 運動方程式 解答解説</title>
 <meta name="description" content="イナプリ 応用物理05「運動方程式」の例題・練習問題の解答解説">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<link rel="stylesheet" href="../assets/style.css?v=3ea01739">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<script defer src="../assets/main.js?v=71cb541e"></script>
+<script defer src="../assets/main.js?v=298e4938"></script>
 </head>
-<body>
+<body class="guide">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
@@ -75,7 +75,7 @@
       <p class="senryu"><small>運動方程式を立てる川柳</small>物体に　<span class="k">力</span>を描いて　あとは<span class="k">軸</span>わけ</p>
     </div>
 
-    <div class="note"><b>運動方程式の立て方（川柳の手順）</b>
+    <div class="note" data-pose="b"><b>運動方程式の立て方（川柳の手順）</b>
       <ol style="margin:4px 0 0; padding-left:1.4em">
         <li><b>物体に力を描く</b>：重力 \(mg\)，垂直抗力 \(N\)，引く力・押す力，摩擦力 など。</li>
         <li><b>軸を決める</b>：<b>加速度の向きを \(x\) 軸</b>，それに垂直な向きを \(y\) 軸にとる。斜めの力は2つの軸の向きに分解する。</li>
@@ -129,7 +129,7 @@
           <span class="ax">y</span><span class="eq">\(N - mg = 0\)　（上下には動かない ＝ つりあい）</span>
           <span class="ax">x</span><span class="eq">\(F = ma\)</span>
         </div>
-        <div class="final">垂直抗力 \(N = \boldsymbol{mg}\)，　加速度 \(a = \boldsymbol{\dfrac{F}{m}}\)</div>
+        <div class="final">垂直抗力 \(N = \ans{mg}\)，　加速度 \(a = \ans{\dfrac{F}{m}}\)</div>
       </div></details>
     </div>
 
@@ -145,7 +145,7 @@
           <span class="ax">y</span><span class="eq">\(N - mg = 0\)</span>
           <span class="ax">x</span><span class="eq">\(F_1 - F_2 = ma\)</span>
         </div>
-        <div class="final">垂直抗力 \(N = \boldsymbol{mg}\)，　加速度 \(a = \boldsymbol{\dfrac{F_1 - F_2}{m}}\)</div>
+        <div class="final">垂直抗力 \(N = \ans{mg}\)，　加速度 \(a = \ans{\dfrac{F_1 - F_2}{m}}\)</div>
       </div></details>
     </div>
 
@@ -161,8 +161,8 @@
           <span class="ax">y</span><span class="eq">\(N + F\sin\theta - mg = 0\)</span>
           <span class="ax">x</span><span class="eq">\(F\cos\theta = ma\)</span>
         </div>
-        <div class="final">垂直抗力 \(N = \boldsymbol{mg - F\sin\theta}\)，　加速度 \(a = \boldsymbol{\dfrac{F\cos\theta}{m}}\)</div>
-        <p class="note"><b>ポイント</b>　\(F\) の上向きの成分 \(F\sin\theta\) が物体を持ち上げる分だけ，垂直抗力は \(mg\) より小さくなる。</p>
+        <div class="final">垂直抗力 \(N = \ans{mg - F\sin\theta}\)，　加速度 \(a = \ans{\dfrac{F\cos\theta}{m}}\)</div>
+        <p class="note" data-pose="b"><b>ポイント</b>　\(F\) の上向きの成分 \(F\sin\theta\) が物体を持ち上げる分だけ，垂直抗力は \(mg\) より小さくなる。</p>
       </div></details>
     </div>
 
@@ -178,7 +178,7 @@
           <span class="ax">y</span><span class="eq">\(N - mg = 0 \quad\Rightarrow\quad N = mg\)</span>
           <span class="ax">x</span><span class="eq">\(F - \mu' N = ma \quad\Rightarrow\quad F - \mu' mg = ma\)</span>
         </div>
-        <div class="final">垂直抗力 \(N = \boldsymbol{mg}\)，　加速度 \(a = \boldsymbol{\dfrac{F - \mu' mg}{m}}\)</div>
+        <div class="final">垂直抗力 \(N = \ans{mg}\)，　加速度 \(a = \ans{\dfrac{F - \mu' mg}{m}}\)</div>
       </div></details>
     </div>
 
@@ -196,8 +196,8 @@
         </div>
         <p>\(x\) の式に \(N = mg - F\sin\theta\) を代入すると</p>
         <div class="eqwrap">\[ ma = F\cos\theta - \mu'(mg - F\sin\theta) \]</div>
-        <div class="final">垂直抗力 \(N = \boldsymbol{mg - F\sin\theta}\)，　加速度 \(a = \boldsymbol{\dfrac{F\cos\theta - \mu'(mg - F\sin\theta)}{m}}\)</div>
-        <p class="note"><b>注意</b>　動摩擦力は \(\mu' mg\) ではなく \(\mu' N\)。斜めに引くと \(N\) が小さくなるので，摩擦力も小さくなる。</p>
+        <div class="final">垂直抗力 \(N = \ans{mg - F\sin\theta}\)，　加速度 \(a = \ans{\dfrac{F\cos\theta - \mu'(mg - F\sin\theta)}{m}}\)</div>
+        <p class="note" data-pose="b"><b>注意</b>　動摩擦力は \(\mu' mg\) ではなく \(\mu' N\)。斜めに引くと \(N\) が小さくなるので，摩擦力も小さくなる。</p>
       </div></details>
     </div>
   </section>
@@ -229,21 +229,21 @@
         <div class="figure small" style="max-width:90px; flex-basis:80px"><svg class="fig" viewBox="0 0 110 110" role="img" aria-label="物体にはたらく力は重力mgのみ"><circle class="ball" cx="40" cy="30" r="16"/><circle class="dot-ans" cx="40" cy="30" r="2.2"/><line class="ans" x1="40" y1="30" x2="40" y2="92" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="40" y="108" text-anchor="middle"><tspan>mg</tspan></text></svg></div>
         <div style="flex:1 1 240px">
           <p>物体にはたらく力は<b>重力 \(mg\) だけ</b>（鉛直下向き＝正の向き）。よって運動方程式は</p>
-          <div class="eqwrap">\[ ma = mg \]</div>
+          <div class="eqwrap">\[ \ans{ma = mg} \]</div>
           <p>両辺を \(m\) で割ると \(a = g\)。質量に関係なく，落下の加速度は \(g\) になる。</p>
         </div>
       </div>
       <h4><span class="n">(2)</span>速度 \(v\)</h4>
       <p>速度 \(v\) は，加速度 \(a\) を時間 \(t\) で積分すると求まる（「運動方程式の利用」の流れ）。(1) より \(a = g\)（一定）なので，</p>
       <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int g\,dt = gt + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int g\,dt \\ &= gt + C_1 \end{aligned} \]</div></div>
-      <p>積分定数 \(C_1\) は，<b>\(t = 0\) のときの速度（初速度）</b>から決める。静かに落としたので \(t = 0\) で \(v = 0\)。代入すると \(0 = g\times 0 + C_1\) より \(C_1 = 0\)。よって \(v = gt\)。</p>
+      <p>積分定数 \(C_1\) は，<b>\(t = 0\) のときの速度（初速度）</b>から決める。静かに落としたので \(t = 0\) で \(v = 0\)。代入すると \(0 = g\times 0 + C_1\) より \(C_1 = 0\)。よって \(v = \ans{gt}\)。</p>
       <h4><span class="n">(3)</span>位置 \(y\)</h4>
       <p>位置 \(y\) は，(2) で求めた速度 \(v = gt\) をさらに \(t\) で積分すると求まる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ y = \int v\,dt = \int gt\,dt = \frac{1}{2}gt^2 + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} y &= \int v\,dt \\ &= \int gt\,dt \\ &= \frac{1}{2}gt^2 + C_2 \end{aligned} \]</div></div>
-      <p>積分定数 \(C_2\) は，<b>\(t = 0\) のときの位置</b>から決める。天井が 0 m なので \(t = 0\) で \(y = 0\)。よって \(C_2 = 0\)，\(y = \dfrac{1}{2}gt^2\)。</p>
+      <p>積分定数 \(C_2\) は，<b>\(t = 0\) のときの位置</b>から決める。天井が 0 m なので \(t = 0\) で \(y = 0\)。よって \(C_2 = 0\)，\(y = \ans{\dfrac{1}{2}gt^2}\)。</p>
       <h4><span class="n">(4)〜(6)</span>測定値を使って計算</h4>
       <p>(5) は (2) の式に，(6) は (3) の式に，(4) で測った時刻 \(t\) を代入する（\(g = 9.8\)）。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ v = 9.8\,t, \qquad y = \frac{1}{2}\times 9.8 \times t^2 = 4.9\,t^2 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= 9.8\,t \\ y &= \frac{1}{2}\times 9.8 \times t^2 \\ &= 4.9\,t^2 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \ans{9.8\,t}, \qquad y = \frac{1}{2}\times 9.8 \times t^2 = \ans{4.9\,t^2} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \ans{9.8\,t} \\ y &= \frac{1}{2}\times 9.8 \times t^2 \\ &= \ans{4.9\,t^2} \end{aligned} \]</div></div>
       <p>下に測定値を入れると計算できます。</p>
       <div class="measure" id="measure">
         <label>計測1〔s〕<input type="number" step="0.01" min="0" inputmode="decimal"></label>
@@ -293,28 +293,28 @@
             <span class="ax">x</span><span class="eq">\(-mg\sin\theta = ma\)</span>
           </div>
           <p>\(mg\sin\theta\) は \(x\) 軸の負の向きなので − をつける。</p>
-          <div class="final">\(a = \boldsymbol{-g\sin\theta}\)</div>
+          <div class="final">\(a = \ans{-g\sin\theta}\)</div>
         </div>
       </div>
       <h4><span class="n">(2)</span>速度 \(v\)</h4>
       <p>(1) の加速度 \(a = -g\sin\theta\) は時間によらず一定。これを \(t\) で積分すると速度になる（\(g\)，\(\theta\) は定数なので，\(t\) だけを積分する）。</p>
       <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int (-g\sin\theta)\,dt = -gt\sin\theta + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int (-g\sin\theta)\,dt \\ &= -gt\sin\theta + C_1 \end{aligned} \]</div></div>
-      <p>積分定数は初速度から決める。\(t = 0\) で \(v = v_0\)（\(v(0) = v_0\)）なので，代入して \(C_1 = v_0\)。　よって　\(v = v_0 - gt\sin\theta\)</p>
+      <p>積分定数は初速度から決める。\(t = 0\) で \(v = v_0\)（\(v(0) = v_0\)）なので，代入して \(C_1 = v_0\)。　よって　\(v = \ans{v_0 - gt\sin\theta}\)</p>
       <h4><span class="n">(3)</span>\(x\) 座標</h4>
       <p>(2) の速度をさらに \(t\) で積分すると位置（\(x\) 座標）になる。\(v_0\) の項は \(v_0t\)，\(t\) の項は \(\dfrac{1}{2}t^2\) になる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ x = \int v\,dt = \int (v_0 - gt\sin\theta)\,dt = v_0 t - \frac{1}{2}gt^2\sin\theta + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v\,dt \\ &= \int (v_0 - gt\sin\theta)\,dt \\ &= v_0 t - \frac{1}{2}gt^2\sin\theta + C_2 \end{aligned} \]</div></div>
-      <p>原点Oから打ち出したので \(t = 0\) で \(x = 0\)（\(x(0) = 0\)）。よって \(C_2 = 0\)，\(x = v_0 t - \dfrac{1}{2}gt^2\sin\theta\)</p>
+      <p>原点Oから打ち出したので \(t = 0\) で \(x = 0\)（\(x(0) = 0\)）。よって \(C_2 = 0\)，\(x = \ans{v_0 t - \dfrac{1}{2}gt^2\sin\theta}\)</p>
       <h4><span class="n">(4)</span>折り返す時刻 \(T\)</h4>
       <p>折り返し点では<b>速度が 0</b> になる。(2) の式で \(v = 0\) とおくと</p>
-      <div class="eqwrap"><div class="eq-wide">\[ 0 = v_0 - gT\sin\theta \qquad\Rightarrow\qquad T = \frac{v_0}{g\sin\theta} \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= v_0 - gT\sin\theta \\ \Rightarrow\ T &= \frac{v_0}{g\sin\theta} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ 0 = v_0 - gT\sin\theta \qquad\Rightarrow\qquad T = \ans{\frac{v_0}{g\sin\theta}} \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= v_0 - gT\sin\theta \\ \Rightarrow\ T &= \ans{\frac{v_0}{g\sin\theta}} \end{aligned} \]</div></div>
       <h4><span class="n">(5)</span>折り返し点の \(x\) 座標</h4>
       <p>(3) の式に (4) の \(T\) を代入する。</p>
-      <div class="eqwrap">\[ \begin{aligned} x &= v_0\cdot\frac{v_0}{g\sin\theta} \\ &\qquad - \frac{1}{2}g\left(\frac{v_0}{g\sin\theta}\right)^2\sin\theta \\ &= \frac{v_0^2}{g\sin\theta} - \frac{v_0^2}{2g\sin\theta} \\ &= \frac{v_0^2}{2g\sin\theta} \end{aligned} \]</div>
+      <div class="eqwrap">\[ \begin{aligned} x &= v_0\cdot\frac{v_0}{g\sin\theta} \\ &\qquad - \frac{1}{2}g\left(\frac{v_0}{g\sin\theta}\right)^2\sin\theta \\ &= \frac{v_0^2}{g\sin\theta} - \frac{v_0^2}{2g\sin\theta} \\ &= \ans{\frac{v_0^2}{2g\sin\theta}} \end{aligned} \]</div>
       <h4><span class="n">(6)</span>原点に戻る時刻 \(T'\)</h4>
       <p>原点に戻るのは，位置が再び \(x = 0\) になるとき。(3) の式に \(x = 0\)，\(t = T'\) を代入する。</p>
       <div class="eqwrap"><div class="eq-wide">\[ 0 = v_0T' - \frac{1}{2}gT'^2\sin\theta = T'\left(v_0 - \frac{1}{2}gT'\sin\theta\right) \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= v_0T' - \frac{1}{2}gT'^2\sin\theta \\ &= T'\left(v_0 - \frac{1}{2}gT'\sin\theta\right) \end{aligned} \]</div></div>
-      <p>\(T' \neq 0\) より　\(T' = \dfrac{2v_0}{g\sin\theta}\)</p>
-      <p class="note"><b>確かめ</b>　\(T' = 2T\)。上りにかかる時間と下りにかかる時間は等しい（なめらかな斜面では運動が対称になる）。</p>
+      <p>\(T' \neq 0\) より　\(T' = \ans{\dfrac{2v_0}{g\sin\theta}}\)</p>
+      <p class="note" data-pose="b"><b>確かめ</b>　\(T' = 2T\)。上りにかかる時間と下りにかかる時間は等しい（なめらかな斜面では運動が対称になる）。</p>
     </div></details>
 
     <div class="answer-grid hide-ans">
@@ -343,7 +343,7 @@
         <div class="axis-eq">
           <span class="ax">y</span><span class="eq">\(F - mg = ma\)</span>
         </div>
-        <div class="final">垂直抗力 \(\boldsymbol{0}\)，　加速度 \(a = \boldsymbol{\dfrac{F - mg}{m}}\)</div>
+        <div class="final">垂直抗力 \(\ans{0}\)，　加速度 \(a = \ans{\dfrac{F - mg}{m}}\)</div>
       </div></details>
     </div>
 
@@ -361,7 +361,7 @@
         </div>
         <p>\(N = mg\cos\theta\) を代入して両辺を \(m\) で割ると</p>
         <div class="eqwrap"><div class="eq-wide">\[ a = g\sin\theta - \mu' g\cos\theta = g(\sin\theta - \mu'\cos\theta) \]</div><div class="eq-narrow">\[ \begin{aligned} a &= g\sin\theta - \mu' g\cos\theta \\ &= g(\sin\theta - \mu'\cos\theta) \end{aligned} \]</div></div>
-        <div class="final">垂直抗力 \(N = \boldsymbol{mg\cos\theta}\)，　加速度 \(a = \boldsymbol{g\sin\theta - \mu' g\cos\theta}\)</div>
+        <div class="final">垂直抗力 \(N = \ans{mg\cos\theta}\)，　加速度 \(a = \ans{g\sin\theta - \mu' g\cos\theta}\)</div>
       </div></details>
     </div>
 
@@ -377,7 +377,7 @@
           <span class="ax">y</span><span class="eq">\(N - mg\cos\theta = 0\)</span>
           <span class="ax">x</span><span class="eq">\(F - mg\sin\theta = ma\)</span>
         </div>
-        <div class="final">垂直抗力 \(N = \boldsymbol{mg\cos\theta}\)，　加速度 \(a = \boldsymbol{\dfrac{F - mg\sin\theta}{m}}\)</div>
+        <div class="final">垂直抗力 \(N = \ans{mg\cos\theta}\)，　加速度 \(a = \ans{\dfrac{F - mg\sin\theta}{m}}\)</div>
       </div></details>
     </div>
   </section>
@@ -412,24 +412,24 @@
       <h4><span class="n">(1)</span>速度</h4>
       <p>上で求めた加速度 \(a = -9.8\)（一定）を時間 \(t\) で積分すると，速度 \(v\) が求まる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int (-9.8)\,dt = -9.8t + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int (-9.8)\,dt \\ &= -9.8t + C_1 \end{aligned} \]</div></div>
-      <p>積分定数 \(C_1\) は初速度から決める。\(t = 0\) で上向きに 19.6 m/s で投げたので \(v(0) = 19.6\)。代入すると \(19.6 = -9.8\times 0 + C_1\) より \(C_1 = 19.6\)。　よって　\(v = -9.8t + 19.6\)</p>
+      <p>積分定数 \(C_1\) は初速度から決める。\(t = 0\) で上向きに 19.6 m/s で投げたので \(v(0) = 19.6\)。代入すると \(19.6 = -9.8\times 0 + C_1\) より \(C_1 = 19.6\)。　よって　\(v = \ans{-9.8t + 19.6}\)</p>
       <h4><span class="n">(2)</span>\(y\) 座標</h4>
       <p>(1) の速度 \(v = -9.8t + 19.6\) をさらに \(t\) で積分すると，位置（\(y\) 座標）が求まる。\(-9.8t\) は \(-\dfrac{9.8}{2}t^2 = -4.9t^2\)，\(19.6\) は \(19.6t\) になる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ y = \int v\,dt = \int (-9.8t + 19.6)\,dt = -4.9t^2 + 19.6t + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} y &= \int v\,dt \\ &= \int (-9.8t + 19.6)\,dt \\ &= -4.9t^2 + 19.6t + C_2 \end{aligned} \]</div></div>
-      <p>積分定数 \(C_2\) は投げた位置から決める。地面（\(y = 0\)）から投げたので \(y(0) = 0\)。よって \(C_2 = 0\)，\(y = -4.9t^2 + 19.6t\)</p>
+      <p>積分定数 \(C_2\) は投げた位置から決める。地面（\(y = 0\)）から投げたので \(y(0) = 0\)。よって \(C_2 = 0\)，\(y = \ans{-4.9t^2 + 19.6t}\)</p>
       <p>(4) のグラフをかくために，平方完成して頂点を求めておく。</p>
       <div class="eqwrap"><div class="eq-wide">\[ y = -4.9(t^2 - 4t) = -4.9\{(t-2)^2 - 4\} = -4.9(t - 2)^2 + 19.6 \]</div><div class="eq-narrow">\[ \begin{aligned} y &= -4.9(t^2 - 4t) \\ &= -4.9\{(t-2)^2 - 4\} \\ &= -4.9(t - 2)^2 + 19.6 \end{aligned} \]</div></div>
       <p>→ \(t = 2\,\unit{s}\) で最高点 19.6 m に達する。</p>
       <h4><span class="n">(3)(4)</span>グラフ</h4>
       <p>(1) の式（傾き −9.8 の直線）と (2) の式（上に凸の放物線）をグラフにする。\(t = 2\,\unit{s}\) で \(v = 0\)（最高点），\(t = 4\,\unit{s}\) で \(y = 0\)（地面に戻る）。</p>
       <h4><span class="n">(5)</span>1.0 s 後の速度</h4>
-      <p>(1) の式に \(t = 1.0\) を代入：\(v = -9.8 \times 1.0 + 19.6 = 9.8\)　→ 正なので<b>鉛直上向きに 9.8 m/s</b>。</p>
+      <p>(1) の式に \(t = 1.0\) を代入：\(v = -9.8 \times 1.0 + 19.6 = 9.8\)　→ 正なので<b><span class="ans-mark">鉛直上向きに 9.8 m/s</span></b>。</p>
       <h4><span class="n">(6)</span>14.7 m を通過する時刻</h4>
       <p>(2) の式で \(y = 14.7\) のとき：</p>
       <div class="eqwrap">\[ 14.7 = -4.9t^2 + 19.6t \]</div>
       <p>両辺を 4.9 で割ると \(3 = -t^2 + 4t\)，すなわち</p>
       <div class="eqwrap"><div class="eq-wide">\[ t^2 - 4t + 3 = 0 \qquad\Rightarrow\qquad (t-1)(t-3) = 0 \]</div><div class="eq-narrow">\[ \begin{aligned} t^2 - 4t + 3 &= 0 \\ \Rightarrow\ (t-1)(t-3) &= 0 \end{aligned} \]</div></div>
-      <p>\(t = 1.0\,\unit{s}\)（上がっていくとき）と \(t = 3.0\,\unit{s}\)（落ちてくるとき）の2回通過する。</p>
+      <p>\(t = \ans{1.0\,\unit{s}}\)（上がっていくとき）と \(t = \ans{3.0\,\unit{s}}\)（落ちてくるとき）の2回通過する。</p>
     </div></details>
 
     <div class="answer-grid hide-ans">
@@ -471,11 +471,11 @@
         <span class="ax">x</span><span class="eq">\(-\dfrac{1}{2}mg - \mu' N = ma\)</span>
       </div>
       <p>\(x\) の式の \(N\) に，\(y\) の式から求めた \(N = \dfrac{\sqrt{3}}{2}mg\) を代入し，両辺を \(m\) で割る。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ ma = -\frac{1}{2}mg - \mu'\cdot\frac{\sqrt{3}}{2}mg \qquad\Rightarrow\qquad a = -\frac{1+\sqrt{3}\mu'}{2}\,g \]</div><div class="eq-narrow">\[ \begin{aligned} ma &= -\frac{1}{2}mg - \mu'\cdot\frac{\sqrt{3}}{2}mg \\ \Rightarrow\ a &= -\frac{1+\sqrt{3}\mu'}{2}\,g \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ ma = -\frac{1}{2}mg - \mu'\cdot\frac{\sqrt{3}}{2}mg \qquad\Rightarrow\qquad a = \ans{-\frac{1+\sqrt{3}\mu'}{2}\,g} \]</div><div class="eq-narrow">\[ \begin{aligned} ma &= -\frac{1}{2}mg - \mu'\cdot\frac{\sqrt{3}}{2}mg \\ \Rightarrow\ a &= \ans{-\frac{1+\sqrt{3}\mu'}{2}\,g} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span>上りの速度 \(v\)</h4>
       <p>(1) の加速度は時間によらず一定なので，そのまま \(t\) で積分すると速度になる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = -\frac{1+\sqrt{3}\mu'}{2}\,gt + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= -\frac{1+\sqrt{3}\mu'}{2}\,gt + C_1 \end{aligned} \]</div></div>
-      <p>初速度は \(v_0\) なので \(v(0) = v_0\) より \(C_1 = v_0\)。　よって　\(v = v_0 - \dfrac{1+\sqrt{3}\mu'}{2}\,gt\)</p>
+      <p>初速度は \(v_0\) なので \(v(0) = v_0\) より \(C_1 = v_0\)。　よって　\(v = \ans{v_0 - \dfrac{1+\sqrt{3}\mu'}{2}\,gt}\)</p>
       <h4><span class="n">(3)</span>折り返し点の \(x\) 座標</h4>
       <p>まず折り返す時刻 \(T\) を求める。折り返し点では \(v = 0\) なので</p>
       <div class="eqwrap"><div class="eq-wide">\[ 0 = v_0 - \frac{1+\sqrt{3}\mu'}{2}\,gT \qquad\Rightarrow\qquad T = \frac{2v_0}{(1+\sqrt{3}\mu')g} \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= v_0 - \frac{1+\sqrt{3}\mu'}{2}\,gT \\ \Rightarrow\ T &= \frac{2v_0}{(1+\sqrt{3}\mu')g} \end{aligned} \]</div></div>
@@ -483,15 +483,15 @@
       <div class="eqwrap"><div class="eq-wide">\[ x = \int v\,dt = v_0t - \frac{1+\sqrt{3}\mu'}{4}\,gt^2 + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v\,dt \\ &= v_0t - \frac{1+\sqrt{3}\mu'}{4}\,gt^2 + C_2 \end{aligned} \]</div></div>
       <p>原点から打ち出したので \(x(0) = 0\)，よって \(C_2 = 0\)。</p>
       <p>折り返すのは \(t = T\) のときなので，この式に \(t = T\) を代入する。</p>
-      <div class="eqwrap">\[ \begin{aligned} x &= v_0\cdot\frac{2v_0}{(1+\sqrt{3}\mu')g} \\ &\qquad - \frac{1+\sqrt{3}\mu'}{4}\,g\cdot\frac{4v_0^2}{(1+\sqrt{3}\mu')^2g^2} \\ &= \frac{2v_0^2}{(1+\sqrt{3}\mu')g} - \frac{v_0^2}{(1+\sqrt{3}\mu')g} \\ &= \frac{v_0^2}{(1+\sqrt{3}\mu')g} \end{aligned} \]</div>
+      <div class="eqwrap">\[ \begin{aligned} x &= v_0\cdot\frac{2v_0}{(1+\sqrt{3}\mu')g} \\ &\qquad - \frac{1+\sqrt{3}\mu'}{4}\,g\cdot\frac{4v_0^2}{(1+\sqrt{3}\mu')^2g^2} \\ &= \frac{2v_0^2}{(1+\sqrt{3}\mu')g} - \frac{v_0^2}{(1+\sqrt{3}\mu')g} \\ &= \ans{\frac{v_0^2}{(1+\sqrt{3}\mu')g}} \end{aligned} \]</div>
       <h4><span class="n">(4)</span>下りの加速度 \(a'\)</h4>
       <p>下っているとき，動摩擦力 \(\mu' N\) は<b>斜面上向き</b>（\(x\) の正の向き）に変わる。\(N\) は上りと同じ。</p>
       <div class="axis-eq">
         <span class="ax">x</span><span class="eq">\(-\dfrac{1}{2}mg + \mu' N = ma'\)</span>
       </div>
       <p>\(y\) の式から求めた \(N = \dfrac{\sqrt{3}}{2}mg\)（上りと同じ）を代入し，両辺を \(m\) で割る。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ ma' = -\frac{1}{2}mg + \mu'\cdot\frac{\sqrt{3}}{2}mg \qquad\Rightarrow\qquad a' = -\frac{1-\sqrt{3}\mu'}{2}\,g \]</div><div class="eq-narrow">\[ \begin{aligned} ma' &= -\frac{1}{2}mg + \mu'\cdot\frac{\sqrt{3}}{2}mg \\ \Rightarrow\ a' &= -\frac{1-\sqrt{3}\mu'}{2}\,g \end{aligned} \]</div></div>
-      <p class="note"><b>ポイント</b>　\(a'\) が負 ＝ 斜面下向きに加速する。上りの加速度の大きさ \(\dfrac{1+\sqrt{3}\mu'}{2}g\) より，下りの加速度の大きさ \(\dfrac{1-\sqrt{3}\mu'}{2}g\) のほうが小さい（摩擦が運動を妨げる向きに変わるため）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ ma' = -\frac{1}{2}mg + \mu'\cdot\frac{\sqrt{3}}{2}mg \qquad\Rightarrow\qquad a' = \ans{-\frac{1-\sqrt{3}\mu'}{2}\,g} \]</div><div class="eq-narrow">\[ \begin{aligned} ma' &= -\frac{1}{2}mg + \mu'\cdot\frac{\sqrt{3}}{2}mg \\ \Rightarrow\ a' &= \ans{-\frac{1-\sqrt{3}\mu'}{2}\,g} \end{aligned} \]</div></div>
+      <p class="note" data-pose="b"><b>ポイント</b>　\(a'\) が負 ＝ 斜面下向きに加速する。上りの加速度の大きさ \(\dfrac{1+\sqrt{3}\mu'}{2}g\) より，下りの加速度の大きさ \(\dfrac{1-\sqrt{3}\mu'}{2}g\) のほうが小さい（摩擦が運動を妨げる向きに変わるため）。</p>
     </div></details>
 
     <div class="answer-grid hide-ans">
@@ -526,27 +526,27 @@
         <span class="ax">y</span><span class="eq">\(m a_y = -mg \quad\Rightarrow\quad a_y = -g\)</span>
       </div>
       <h4><span class="n">(1)</span>初速度の分解</h4>
-      <p>\(v_x(0) = v_0\cos\theta\)，　\(v_y(0) = v_0\sin\theta\)</p>
+      <p>\(v_x(0) = \ans{v_0\cos\theta}\)，　\(v_y(0) = \ans{v_0\sin\theta}\)</p>
       <h4><span class="n">(2)</span>速度</h4>
       <p>\(x\) 方向，\(y\) 方向それぞれで，加速度を \(t\) で積分すると速度になる。\(a_x = 0\) を積分すると定数だけが残る。</p>
       <div class="eqwrap"><div class="eq-wide">\[ v_x = \int a_x\,dt = \int 0\,dt = C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v_x &= \int a_x\,dt \\ &= \int 0\,dt \\ &= C_1 \end{aligned} \]</div></div>
-      <p>積分定数は (1) の初速度から決める。\(v_x(0) = v_0\cos\theta\) より　\(v_x(t) = v_0\cos\theta\)（水平方向は等速）</p>
+      <p>積分定数は (1) の初速度から決める。\(v_x(0) = v_0\cos\theta\) より　\(v_x(t) = \ans{v_0\cos\theta}\)（水平方向は等速）</p>
       <p>\(y\) 方向は \(a_y = -g\)（一定）を積分する。</p>
       <div class="eqwrap"><div class="eq-wide">\[ v_y = \int a_y\,dt = \int (-g)\,dt = -gt + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} v_y &= \int a_y\,dt \\ &= \int (-g)\,dt \\ &= -gt + C_2 \end{aligned} \]</div></div>
-      <p>\(v_y(0) = v_0\sin\theta\) より　\(v_y(t) = -gt + v_0\sin\theta\)</p>
+      <p>\(v_y(0) = v_0\sin\theta\) より　\(v_y(t) = \ans{-gt + v_0\sin\theta}\)</p>
       <h4><span class="n">(3)</span>位置</h4>
       <p>(2) の速度をそれぞれ \(t\) で積分すると位置になる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ x = \int v_x\,dt = v_0t\cos\theta + C_3, \qquad y = \int v_y\,dt = -\frac{1}{2}gt^2 + v_0t\sin\theta + C_4 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v_x\,dt \\ &= v_0t\cos\theta + C_3 \\ y &= \int v_y\,dt \\ &= -\frac{1}{2}gt^2 + v_0t\sin\theta + C_4 \end{aligned} \]</div></div>
       <p>原点Oから投げたので \(x(0) = 0\)，\(y(0) = 0\)。よって \(C_3 = C_4 = 0\) となり</p>
-      <div class="eqwrap"><div class="eq-wide">\[ x(t) = v_0t\cos\theta, \qquad y(t) = -\frac{1}{2}gt^2 + v_0t\sin\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x(t) &= v_0t\cos\theta \\ y(t) &= -\frac{1}{2}gt^2 + v_0t\sin\theta \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ x(t) = \ans{v_0t\cos\theta}, \qquad y(t) = \ans{-\frac{1}{2}gt^2 + v_0t\sin\theta} \]</div><div class="eq-narrow">\[ \begin{aligned} x(t) &= \ans{v_0t\cos\theta} \\ y(t) &= \ans{-\frac{1}{2}gt^2 + v_0t\sin\theta} \end{aligned} \]</div></div>
       <h4><span class="n">(4)</span>最高点の \(y\) 座標</h4>
       <p>最高点では，上向きの速度がちょうど 0 になって上昇から下降に変わる。つまり \(v_y(t) = 0\) なので　\(t_1 = \dfrac{v_0\sin\theta}{g}\)。これを \(y(t)\) に代入する。</p>
-      <div class="eqwrap">\[ \begin{aligned} y &= -\frac{1}{2}g\left(\frac{v_0\sin\theta}{g}\right)^2 \\ &\qquad + v_0\sin\theta\cdot\frac{v_0\sin\theta}{g} \\ &= \frac{v_0^2\sin^2\theta}{2g} \end{aligned} \]</div>
+      <div class="eqwrap">\[ \begin{aligned} y &= -\frac{1}{2}g\left(\frac{v_0\sin\theta}{g}\right)^2 \\ &\qquad + v_0\sin\theta\cdot\frac{v_0\sin\theta}{g} \\ &= \ans{\frac{v_0^2\sin^2\theta}{2g}} \end{aligned} \]</div>
       <h4><span class="n">(5)</span>水平到達距離</h4>
       <p>水平面に達するのは，高さが再び 0 になるとき（\(y(t) = 0\)）。そのときの時刻を求めてから，\(x(t)\) に代入して水平距離を出す。</p>
       <p>\(y(t) = 0\) のとき：\(t\left(v_0\sin\theta - \dfrac{1}{2}gt\right) = 0\)，\(t \neq 0\) より　\(t_2 = \dfrac{2v_0\sin\theta}{g}\)。これを \(x(t)\) に代入する。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ x = v_0\cos\theta\cdot\frac{2v_0\sin\theta}{g} = \frac{2v_0^2\sin\theta\cos\theta}{g} = \frac{v_0^2\sin 2\theta}{g} \]</div><div class="eq-narrow">\[ \begin{aligned} x &= v_0\cos\theta\cdot\frac{2v_0\sin\theta}{g} \\ &= \frac{2v_0^2\sin\theta\cos\theta}{g} \\ &= \frac{v_0^2\sin 2\theta}{g} \end{aligned} \]</div></div>
-      <p class="note"><b>ポイント</b>　\(\sin 2\theta\) が最大（＝1）になる \(\theta = 45^\circ\) のとき，最も遠くまで届く。また \(t_2 = 2t_1\)（最高点までの時間の2倍で地面に戻る）。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = v_0\cos\theta\cdot\frac{2v_0\sin\theta}{g} = \frac{2v_0^2\sin\theta\cos\theta}{g} = \ans{\frac{v_0^2\sin 2\theta}{g}} \]</div><div class="eq-narrow">\[ \begin{aligned} x &= v_0\cos\theta\cdot\frac{2v_0\sin\theta}{g} \\ &= \frac{2v_0^2\sin\theta\cos\theta}{g} \\ &= \ans{\frac{v_0^2\sin 2\theta}{g}} \end{aligned} \]</div></div>
+      <p class="note" data-pose="b"><b>ポイント</b>　\(\sin 2\theta\) が最大（＝1）になる \(\theta = 45^\circ\) のとき，最も遠くまで届く。また \(t_2 = 2t_1\)（最高点までの時間の2倍で地面に戻る）。</p>
     </div></details>
 
     <div class="answer-grid hide-ans">

@@ -572,3 +572,53 @@ svg.fig text.g, svg.fig text.m tspan.g { font-family: var(--font); font-style: n
 .fig-note { font-size: .82rem; color: var(--muted); margin: -4px 0 8px; }
 /* 数式中の \textsf（単位・状態名「はじめ」「Ⅰ」など）は日本語もゴシック */
 .katex .textsf { font-family: KaTeX_SansSerif, var(--font); }
+/* 06 運動方程式（多物体）：○で囲んだ未知数・滑車 */
+svg.fig .clabel { fill: none; stroke: #00b0f0; stroke-width: 1.2; }
+svg.fig .pulley { fill: #c6efce; stroke: var(--ink); stroke-width: 1.2; }
+svg.fig .pulley-axis { fill: #333; }
+svg.fig .pulley-arm { stroke: #444; stroke-width: 3; stroke-linecap: round; }
+svg.fig .ghost { fill: none; stroke: #999; stroke-width: .8; stroke-dasharray: 2 2; }
+/* イチ・ニッ・サン の手順の札 */
+.steps { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; margin: 10px 0; }
+.steps > .step { min-width: 0; }
+.step { position: relative; border: 1.5px solid #548235; background: #fefed9; color: #111; border-radius: 8px; padding: 8px 12px 8px 14px; }
+.step .no { position: absolute; top: -10px; left: 6px; font-size: .7rem; background: var(--paper); color: var(--ink); padding: 0 4px; }
+.axis-eq .ax.obj { font-family: var(--font); font-style: normal; border-radius: 50%; width: 1.6em; }
+/* 手順の札（イチ・ニッ・サン）の中の「表示」ボタン */
+details.sol.step-sol { border: 0; background: none; margin: 6px 0 0; }
+details.sol.step-sol > summary { display: inline-flex; padding: 3px 14px; border-radius: 999px; background: #548235; color: #fff; font-size: .82rem; font-weight: 700; }
+details.sol.step-sol > summary::before { content: none; }
+details.sol.step-sol > summary .hide, details.sol.step-sol[open] > summary .show { display: none; }
+details.sol.step-sol[open] > summary .hide { display: inline; }
+details.sol.step-sol > .body { margin-top: 6px; border: 1px dashed #999; border-radius: 8px; color: var(--ink); }
+/* 解説の中で導いた答え：太字＋黄色のマーカー（数式は \ans{…}，文章は <span class="ans-mark">…</span>） */
+.ans-mark { font-weight: 700; background: linear-gradient(var(--ans-mk), var(--ans-mk)) no-repeat left bottom / 100% .38em; padding: 0 .15em .02em; color: inherit; --ans-mk: #fff27a; }  /* 下線のように下の方に引く */
+.katex .ans-mark { display: inline-block; padding: 0 .15em .04em; }  /* 分数でも分母の下に線が来るように，式全体を1つの箱にする */
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .ans-mark { --ans-mk: #8a7600; } }
+:root[data-theme="dark"] .ans-mark { --ans-mk: #8a7600; }
+/* 05 などの「最後の答え」の囲み：答えは \ans のマーカーで示すので囲みは控えめに */
+.final { background: none; border-left: 0; padding: 4px 0; }
+.final b { color: inherit; }
+/* 解説者のキャラクター（<body class="guide">。main.js が差し込む） */
+body.guide details.sol:not(.step-sol) { margin-top: 34px; }
+body.guide details.sol:not(.step-sol) > summary { position: relative; }
+.guide-sum { position: absolute; right: 14px; bottom: -1px; height: 72px; display: flex; align-items: center; gap: 8px; pointer-events: none; }  /* 解説の見出しの線の上に立つ */
+.guide-sum img { height: 100%; width: auto; transform: scaleX(-1); }  /* 解説は左下にあるので左を向かせる（鏡像） */
+.guide-sum .g-say { position: relative; margin-bottom: 26px; padding: 2px 10px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink); font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.guide-sum .g-say::after { content: ""; position: absolute; right: -7px; top: 50%; margin-top: -4px; border: 4px solid transparent; border-right: 0; border-left: 7px solid var(--line); }  /* 吹き出しのしっぽ */
+details.sol:not([open]) > summary .g-open, details.sol[open] > summary .g-closed { display: none; }
+.guide-row { display: flex; align-items: flex-start; margin: 12px 0; }
+.guide-row > .g-chara { height: 76px; width: auto; flex: none; margin-right: 12px; }
+.guide-row > .note { position: relative; flex: 1; min-width: 0; margin: 0; border-radius: 12px; }
+.guide-row > .note::before { content: ""; position: absolute; left: -11px; top: var(--tail, 22px); border: 7px solid transparent; border-left: 0; border-right: 11px solid var(--accent-soft); }  /* 吹き出しのしっぽ（指の先に向ける） */
+.guide-row.pose-a > .note { --tail: 30px; }  .guide-row.pose-b > .note { --tail: 8px; }  /* しっぽを指先の高さに */
+@media (max-width: 560px) { .guide-row > .g-chara { height: 60px; margin-right: 10px; } .guide-sum { height: 60px; right: 8px; } .guide-sum .g-say { margin-bottom: 20px; } body.guide details.sol:not(.step-sol) { margin-top: 26px; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .guide-sum img, :root:not([data-theme="light"]) .g-chara { filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff); } }
+:root[data-theme="dark"] .guide-sum img, :root[data-theme="dark"] .g-chara { filter: drop-shadow(0 0 1px #fff) drop-shadow(0 0 1px #fff); }
+@media (max-width: 360px) {  /* とても狭い画面では吹き出しの幅を確保するため，キャラクターを吹き出しの上に置く */
+  .guide-row { flex-direction: column; }
+  .guide-row > .g-chara { height: 50px; margin: 0 0 6px 8px; }
+  .guide-row > .note::before { left: 22px; top: -11px; border: 7px solid transparent; border-top: 0; border-bottom: 11px solid var(--accent-soft); }
+}
+@media (max-width: 360px) { .guide-row > .note { padding: 8px 8px; } }
+@media (max-width: 300px) { .guide-row > .note { padding: 8px 4px; } }

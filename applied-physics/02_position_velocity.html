@@ -6,12 +6,12 @@
 <title>02 位置・速度 解答解説</title>
 <meta name="description" content="イナプリ 応用物理02「位置・速度」の例題・練習問題の解答解説">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<link rel="stylesheet" href="../assets/style.css?v=3ea01739">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<script defer src="../assets/main.js?v=71cb541e"></script>
+<script defer src="../assets/main.js?v=298e4938"></script>
 </head>
-<body>
+<body class="guide">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
@@ -73,14 +73,14 @@
         <p style="margin:0;font-size:.85rem;color:var(--muted)">時刻 \(t\) における位置 \(\boldsymbol{r}\) は \(\boldsymbol{r}(t)\) と表す</p>
       </div>
     </div>
-    <p class="note"><b>ポイント</b>　変位は「どこからどこへ動いたか」を表す矢印（ベクトル）。後の位置 \(\boldsymbol{r}(t+\Delta t)\) から前の位置 \(\boldsymbol{r}(t)\) を引いたもので，\(\Delta\boldsymbol{r} = \boldsymbol{r}(t+\Delta t) - \boldsymbol{r}(t)\)。途中の道のりには関係しない。</p>
+    <p class="note" data-pose="b"><b>ポイント</b>　変位は「どこからどこへ動いたか」を表す矢印（ベクトル）。後の位置 \(\boldsymbol{r}(t+\Delta t)\) から前の位置 \(\boldsymbol{r}(t)\) を引いたもので，\(\Delta\boldsymbol{r} = \boldsymbol{r}(t+\Delta t) - \boldsymbol{r}(t)\)。途中の道のりには関係しない。</p>
 
     <h2 class="bullet-h">速度</h2>
     <div class="fig-row">
       <div class="yellow-box" style="flex:1 1 260px">平均の速度　\(\overline{\boldsymbol{v}} = \dfrac{\textcolor{#d6362b}{\text{変位}}}{\textcolor{#d6362b}{\text{時間}}} = \dfrac{\Delta \boldsymbol{r}}{\Delta t}\)</div>
       <div class="yellow-box" style="flex:1 1 200px">（瞬間の）速度　\(\boldsymbol{v} = \dfrac{d\boldsymbol{r}}{dt}\)</div>
     </div>
-    <p class="note"><b>ポイント</b>　\(\Delta t\) をどんどん小さくしていくと，平均の速度は「その瞬間の速度」に近づく。これが微分 \(\dfrac{d\boldsymbol{r}}{dt}\)。グラフでは，平均の速度は2点を結ぶ直線の傾き，瞬間の速度は接線の傾きになる。</p>
+    <p class="note" data-pose="b"><b>ポイント</b>　\(\Delta t\) をどんどん小さくしていくと，平均の速度は「その瞬間の速度」に近づく。これが微分 \(\dfrac{d\boldsymbol{r}}{dt}\)。グラフでは，平均の速度は2点を結ぶ直線の傾き，瞬間の速度は接線の傾きになる。</p>
   </section>
 
   <!-- ================= 例題① ================= -->
@@ -109,7 +109,7 @@
       <details class="sol"><summary>解説</summary><div class="body">
         <p>平均の速度は「変位 ÷ 時間」。変位は A→B の向き（<b>左向き</b>）に 100 m，かかった時間は計測した時刻 \(t\)〔s〕なので</p>
         <div class="eqwrap">\[ \overline{v} = \frac{100}{t} \,\unit{m/s} \]</div>
-        <p>速度は向きをもつ量なので「左向きに \(\dfrac{100}{t}\) m/s」と向きもつけて答える。速さは向きを考えない大きさだけなので「\(\dfrac{100}{t}\) m/s」。</p>
+        <p>速度は向きをもつ量なので「<span class=\"ans-mark\">左向きに \(\dfrac{100}{t}\) m/s</span>」と向きもつけて答える。速さは向きを考えない大きさだけなので「<span class=\"ans-mark\">\(\dfrac{100}{t}\) m/s</span>」。</p>
         <div class="calc-result" id="measure-out">上の計測欄に時刻を入れると計算できます。（例：平均 \(t = 15.00\,\unit{s}\) なら，平均の速度は左向きに \(100 \div 15.00 \approx 6.7\) m/s）</div>
       </div></details>
       <div class="answer-grid hide-ans">
@@ -136,16 +136,16 @@
     <details class="sol"><summary>解説</summary><div class="body">
       <h4><span class="n">(1)</span>0〜40 m の平均の速さ</h4>
       <p>平均の速さは「進んだ距離 ÷ かかった時間」。表から 0 m は 0.00 s，40 m は 4.97 s に通過したので</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{40 - 0}{4.97 - 0} = 8.048\cdots \fallingdotseq 8.0 \,\unit{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{40 - 0}{4.97 - 0} \\ &= 8.048\cdots \\ &\fallingdotseq 8.0 \,\unit{m/s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{40 - 0}{4.97 - 0} = 8.048\cdots \fallingdotseq \ans{8.0 \,\unit{m/s}} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{40 - 0}{4.97 - 0} \\ &= 8.048\cdots \\ &\fallingdotseq \ans{8.0 \,\unit{m/s}} \end{aligned} \]</div></div>
       <p>グラフでは，原点と (4.97, 40) を結んだ直線（図の破線）の傾きにあたる。</p>
       <h4><span class="n">(2)</span>10〜30 m の平均の速さ</h4>
       <p>10 m は 1.91 s，30 m は 4.03 s に通過したので，その間の距離と時間で割る。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{30 - 10}{4.03 - 1.91} = \frac{20}{2.12} = 9.43\cdots \fallingdotseq 9.4 \,\unit{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{30 - 10}{4.03 - 1.91} \\ &= \frac{20}{2.12} \\ &= 9.43\cdots \\ &\fallingdotseq 9.4 \,\unit{m/s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{30 - 10}{4.03 - 1.91} = \frac{20}{2.12} = 9.43\cdots \fallingdotseq \ans{9.4 \,\unit{m/s}} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{30 - 10}{4.03 - 1.91} \\ &= \frac{20}{2.12} \\ &= 9.43\cdots \\ &\fallingdotseq \ans{9.4 \,\unit{m/s}} \end{aligned} \]</div></div>
       <h4><span class="n">(3)</span>20 m 地点での瞬間の速さ</h4>
       <p>瞬間の速さは位置を時間で微分した \(v = \dfrac{dr}{dt}\)（グラフの接線の傾き）。グラフの式 \(r \simeq 0.848t^2 + 3.90t\) を \(t\) で微分すると</p>
       <div class="eqwrap"><div class="eq-wide">\[ v = \frac{dr}{dt} = 2\times 0.848\,t + 3.90 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{dr}{dt} \\ &= 2\times 0.848\,t + 3.90 \end{aligned} \]</div></div>
       <p>表より 20 m 地点を通過したのは \(t = 3.05\,\unit{s}\) なので，これを代入する。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ v = 2\times 0.848\times 3.05 + 3.90 = 9.0728 \fallingdotseq 9.1 \,\unit{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= 2\times 0.848\times 3.05 + 3.90 \\ &= 9.0728 \\ &\fallingdotseq 9.1 \,\unit{m/s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ v = 2\times 0.848\times 3.05 + 3.90 = 9.0728 \fallingdotseq \ans{9.1 \,\unit{m/s}} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= 2\times 0.848\times 3.05 + 3.90 \\ &= 9.0728 \\ &\fallingdotseq \ans{9.1 \,\unit{m/s}} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid cols3 hide-ans">
       <div><span class="label">(1)</span><span class="val">8.0〔m/s〕</span></div>
@@ -167,13 +167,13 @@
       <p><b>移動距離</b>は実際に通った道のりの長さの合計，<b>変位</b>は始点Aから終点Dへの矢印（図の赤い矢印）で，成分 \((x,\ y)\) や \((x,\ y,\ z)\) で答える。変位の成分は「終点の座標 − 始点の座標」。</p>
       <h4><span class="n">(1)</span></h4>
       <p>A(1, 1)→B(5, 1)→C(5, 5)→D(4, 5) なので，各区間の長さを足す。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 4 + 4 + 1 = 9.0 \,\unit{m}, \qquad \Delta\boldsymbol{r} = (4 - 1,\ 5 - 1) = (3.0,\ 4.0) \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 4 + 4 + 1 \\ &= 9.0 \,\unit{m} \\ \Delta\boldsymbol{r} &= (4 - 1,\ 5 - 1) \\ &= (3.0,\ 4.0) \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 4 + 4 + 1 = \ans{9.0 \,\unit{m}}, \qquad \Delta\boldsymbol{r} = (4 - 1,\ 5 - 1) = \ans{(3.0,\ 4.0)} \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 4 + 4 + 1 \\ &= \ans{9.0 \,\unit{m}} \\ \Delta\boldsymbol{r} &= (4 - 1,\ 5 - 1) \\ &= \ans{(3.0,\ 4.0)} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span></h4>
       <p>A(1, 5)→B(3, 5)→C(5, 3)→D(5, 1)。B→C は斜めに 2 マス × 2 マス進むので，三平方の定理で \(\sqrt{2^2 + 2^2} = 2\sqrt{2}\)。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 2 + 2\sqrt{2} + 2 = 4 + 2\times 1.41 = 6.82 \fallingdotseq 6.8 \,\unit{m}, \qquad \Delta\boldsymbol{r} = (5 - 1,\ 1 - 5) = (4.0,\ -4.0) \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 2 + 2\sqrt{2} + 2 \\ &= 4 + 2\times 1.41 \\ &= 6.82 \\ &\fallingdotseq 6.8 \,\unit{m} \\ \Delta\boldsymbol{r} &= (5 - 1,\ 1 - 5) \\ &= (4.0,\ -4.0) \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 2 + 2\sqrt{2} + 2 = 4 + 2\times 1.41 = 6.82 \fallingdotseq \ans{6.8 \,\unit{m}}, \qquad \Delta\boldsymbol{r} = (5 - 1,\ 1 - 5) = \ans{(4.0,\ -4.0)} \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 2 + 2\sqrt{2} + 2 \\ &= 4 + 2\times 1.41 \\ &= 6.82 \\ &\fallingdotseq \ans{6.8 \,\unit{m}} \\ \Delta\boldsymbol{r} &= (5 - 1,\ 1 - 5) \\ &= \ans{(4.0,\ -4.0)} \end{aligned} \]</div></div>
       <h4><span class="n">(3)</span></h4>
       <p>A(3, 0, 0)→B(3, 3, 0)→C(0, 3, 0)→D(3, 3, 4)。C→D は \(x\) に 3，\(z\) に 4 進む斜めの移動なので \(\sqrt{3^2 + 4^2} = 5\)。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 3 + 3 + 5 = 11 \,\unit{m}, \qquad \Delta\boldsymbol{r} = (3 - 3,\ 3 - 0,\ 4 - 0) = (0,\ 3.0,\ 4.0) \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 3 + 3 + 5 \\ &= 11 \,\unit{m} \\ \Delta\boldsymbol{r} &= (3 - 3,\ 3 - 0,\ 4 - 0) \\ &= (0,\ 3.0,\ 4.0) \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \text{移動距離} = 3 + 3 + 5 = \ans{11 \,\unit{m}}, \qquad \Delta\boldsymbol{r} = (3 - 3,\ 3 - 0,\ 4 - 0) = \ans{(0,\ 3.0,\ 4.0)} \]</div><div class="eq-narrow">\[ \begin{aligned} \text{移動距離} &= 3 + 3 + 5 \\ &= \ans{11 \,\unit{m}} \\ \Delta\boldsymbol{r} &= (3 - 3,\ 3 - 0,\ 4 - 0) \\ &= \ans{(0,\ 3.0,\ 4.0)} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid cols3 hide-ans">
       <div><span class="label">(1) 移動距離</span><span class="val">9.0〔m〕</span></div>
@@ -197,13 +197,13 @@
     <details class="sol"><summary>解説</summary><div class="body">
       <h4><span class="n">(1)</span>位置</h4>
       <p>位置の式 \(r(t)\) に \(t = 2.0\) を代入する。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ r(2) = 2^2 - 2\times 2 + 1 = 1.0 \,\unit{m} \]</div><div class="eq-narrow">\[ \begin{aligned} r(2) &= 2^2 - 2\times 2 + 1 \\ &= 1.0 \,\unit{m} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ r(2) = 2^2 - 2\times 2 + 1 = \ans{1.0 \,\unit{m}} \]</div><div class="eq-narrow">\[ \begin{aligned} r(2) &= 2^2 - 2\times 2 + 1 \\ &= \ans{1.0 \,\unit{m}} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span>速度</h4>
       <p>速度は位置を時間で微分したもの（\(v = \dfrac{dr}{dt}\)）。\(t^2\) は \(2t\)，\(-2t\) は \(-2\)，定数 1 は 0 になる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ v(t) = \frac{dr}{dt} = 2t - 2 \]</div><div class="eq-narrow">\[ \begin{aligned} v(t) &= \frac{dr}{dt} \\ &= 2t - 2 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ v(t) = \frac{dr}{dt} = \ans{2t - 2} \]</div><div class="eq-narrow">\[ \begin{aligned} v(t) &= \frac{dr}{dt} \\ &= \ans{2t - 2} \end{aligned} \]</div></div>
       <h4><span class="n">(3)</span>\(t = 3.5\,\unit{s}\) の速度</h4>
       <p>(2) で求めた速度の式に \(t = 3.5\) を代入する。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ v(3.5) = 2\times 3.5 - 2 = 5.0 \,\unit{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v(3.5) &= 2\times 3.5 - 2 \\ &= 5.0 \,\unit{m/s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ v(3.5) = 2\times 3.5 - 2 = \ans{5.0 \,\unit{m/s}} \]</div><div class="eq-narrow">\[ \begin{aligned} v(3.5) &= 2\times 3.5 - 2 \\ &= \ans{5.0 \,\unit{m/s}} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid cols3 hide-ans">
       <div><span class="label">(1)</span><span class="val">1.0〔m〕</span></div>
@@ -225,18 +225,18 @@
     <details class="sol"><summary>解説</summary><div class="body">
       <h4><span class="n">(1)</span>平均の速さ</h4>
       <p>グラフから，5.0 s で 50 m の地点にいる。平均の速さは「距離 ÷ 時間」なので</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{50 - 0}{5.0 - 0} = 10 \,\unit{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{50 - 0}{5.0 - 0} \\ &= 10 \,\unit{m/s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{v} = \frac{50 - 0}{5.0 - 0} = \ans{10 \,\unit{m/s}} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{v} &= \frac{50 - 0}{5.0 - 0} \\ &= \ans{10 \,\unit{m/s}} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span>2.0 s のときの速さ</h4>
       <p>瞬間の速さを求めるには，位置を時間の式で表して微分する。グラフの点を読むと</p>
       <div class="eqwrap">\[ \begin{aligned} (t,\ r) = {}&(1.0,\ 2),\ (2.0,\ 8),\ (3.0,\ 18), \\ &(4.0,\ 32),\ (5.0,\ 50) \end{aligned} \]</div>
       <p>どの点も \(r = 2t^2\) を満たす（例：\(2\times 3.0^2 = 18\)）。よって \(r = 2t^2\)。これを \(t\) で微分すると速さになる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ v = \frac{dr}{dt} = 4t \qquad\Rightarrow\qquad v(2.0) = 4\times 2.0 = 8.0 \,\unit{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{dr}{dt} \\ &= 4t \\ \Rightarrow\ v(2.0) &= 4\times 2.0 \\ &= 8.0 \,\unit{m/s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \frac{dr}{dt} = 4t \qquad\Rightarrow\qquad v(2.0) = 4\times 2.0 = \ans{8.0 \,\unit{m/s}} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{dr}{dt} \\ &= 4t \\ \Rightarrow\ v(2.0) &= 4\times 2.0 \\ &= \ans{8.0 \,\unit{m/s}} \end{aligned} \]</div></div>
       <p>図の赤い線は \(t = 2.0\,\unit{s}\) での接線で，その傾き（8.0 m/s）が瞬間の速さになる。</p>
       <h4><span class="n">(3)</span>24.5 m 地点での速さ</h4>
       <p>まず 24.5 m 地点を通過する時刻を求める。\(r = 2t^2\) に \(r = 24.5\) を代入して</p>
       <div class="eqwrap"><div class="eq-wide">\[ 2t^2 = 24.5 \qquad\Rightarrow\qquad t^2 = 12.25 \]</div><div class="eq-narrow">\[ \begin{aligned} 2t^2 &= 24.5 \\ \Rightarrow\ t^2 &= 12.25 \end{aligned} \]</div></div>
       <p>\(t &gt; 0\) より \(t = 3.5\,\unit{s}\)。この時刻を (2) の \(v = 4t\) に代入する。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ v(3.5) = 4\times 3.5 = 14 \,\unit{m/s} \]</div><div class="eq-narrow">\[ \begin{aligned} v(3.5) &= 4\times 3.5 \\ &= 14 \,\unit{m/s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ v(3.5) = 4\times 3.5 = \ans{14 \,\unit{m/s}} \]</div><div class="eq-narrow">\[ \begin{aligned} v(3.5) &= 4\times 3.5 \\ &= \ans{14 \,\unit{m/s}} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid cols3 hide-ans">
       <div><span class="label">(1)</span><span class="val">10〔m/s〕</span></div>

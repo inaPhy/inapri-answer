@@ -6,12 +6,12 @@
 <title>12 コンデンサの静電容量 解答解説</title>
 <meta name="description" content="イナプリ 電気電子工学12「コンデンサの静電容量」の練習問題の解答解説">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<link rel="stylesheet" href="../assets/style.css?v=3ea01739">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<script defer src="../assets/main.js?v=71cb541e"></script>
+<script defer src="../assets/main.js?v=298e4938"></script>
 </head>
-<body style="--unit-dot:#ffc000">
+<body class="guide" style="--unit-dot:#ffc000">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
@@ -86,7 +86,7 @@
     <div class="figure wide" style="max-width:520px"><svg class="fig" viewBox="0 0 420 130" role="img" aria-label="並列接続：C1とC2を並列につなぐと，どちらにも同じ電圧Vがかかり，電荷Q1とQ2の和がQ。合成すると静電容量Cの1つのコンデンサ"><path class="ink nofill" d="M20,52 L160,52" stroke-linejoin="miter"/><path class="ink nofill" d="M45,52 L45,26 L135,26 L135,78 L45,78 L45,52" stroke-linejoin="miter"/><line class="cut" x1="49" y1="52" x2="131" y2="52"/><line class="cut" x1="88" y1="26" x2="92" y2="26"/><line class="plate " x1="86.5" y1="14" x2="86.5" y2="38"/><line class="plate " x1="93.5" y1="14" x2="93.5" y2="38"/><line class="cut" x1="88" y1="78" x2="92" y2="78"/><line class="plate " x1="86.5" y1="66" x2="86.5" y2="90"/><line class="plate " x1="93.5" y1="66" x2="93.5" y2="90"/><circle class="node " cx="20" cy="52" r="3"/><circle class="node " cx="160" cy="52" r="3"/><circle class="node " cx="45" cy="52" r="1.8"/><circle class="node " cx="135" cy="52" r="1.8"/><text class="lbl bold m" x="90" y="8" text-anchor="middle"><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><text class="lbl bold m" x="90" y="110" text-anchor="middle"><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><text class="lbl small m" x="84" y="43" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><text class="lbl small m" x="96" y="43" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">1</tspan></text><text class="lbl small m" x="84" y="95" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><text class="lbl small m" x="96" y="95" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan><tspan dy="4" font-size="70%" font-style="normal">2</tspan></text><line class="aux-ink" x1="20" y1="52" x2="20" y2="124"/><line class="aux-ink" x1="160" y1="52" x2="160" y2="124"/><line class="volt" x1="21" y1="116" x2="159" y2="116" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="90" y="130" text-anchor="middle"><tspan>V</tspan></text><text class="jp tiny" x="190" y="44" text-anchor="middle">合成</text><path class="next-tri" d="M182,50 l8,6 l-8,6 z M190,50 l8,6 l-8,6 z"/><path class="ink nofill" d="M230,52 L400,52" stroke-linejoin="miter"/><line class="cut" x1="312.5" y1="52" x2="317.5" y2="52"/><line class="plate " x1="311" y1="38" x2="311" y2="66"/><line class="plate " x1="319" y1="38" x2="319" y2="66"/><circle class="node " cx="230" cy="52" r="3"/><circle class="node " cx="400" cy="52" r="3"/><text class="jp tiny" x="315" y="22" text-anchor="middle">合成静電容量</text><text class="lbl bold m" x="315" y="34" text-anchor="middle"><tspan>C</tspan></text><text class="lbl small m" x="305" y="74" text-anchor="end"><tspan font-style="normal">+</tspan><tspan>Q</tspan></text><text class="lbl small m" x="321" y="74" text-anchor="start"><tspan font-style="normal">−</tspan><tspan>Q</tspan></text><line class="aux-ink" x1="230" y1="52" x2="230" y2="124"/><line class="aux-ink" x1="400" y1="52" x2="400" y2="124"/><line class="volt" x1="231" y1="116" x2="399" y2="116" marker-end="url(#ah-volt)" marker-start="url(#ah-volt)"/><text class="lbl small m" x="315" y="130" text-anchor="middle"><tspan>V</tspan></text></svg></div>
     <p>\(Q_1 + Q_2 = Q\) の各電荷を \(Q = CV\) で書きかえ，両辺を \(V\) で割る。</p>
     <div class="eqwrap"><div class="eq-wide">\[ C_1V + C_2V = CV \qquad\Rightarrow\qquad C = C_1 + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} C_1V + C_2V &= CV \\ \Rightarrow\ C &= C_1 + C_2 \end{aligned} \]</div></div>
-    <p class="note"><b>ポイント</b>　抵抗の合成と<b>逆</b>になる。コンデンサは並列なら足し算，直列なら「逆数の和の逆数」。</p>
+    <p class="note" data-pose="b"><b>ポイント</b>　抵抗の合成と<b>逆</b>になる。コンデンサは並列なら足し算，直列なら「逆数の和の逆数」。</p>
   </section>
 
   <!-- ================= 練習問題① ================= -->
@@ -108,16 +108,16 @@
       <p>(1)〜(4) では，変わった量だけを公式に入れ直し，\(C_0\) の何倍かを見る。</p>
       <h4><span class="n">(1)</span></h4>
       <p>面積が \(3S\) になるので</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_1 = \varepsilon_0\frac{3S}{d} = 3\times\varepsilon_0\frac{S}{d} = 3C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= \varepsilon_0\frac{3S}{d} \\ &= 3\times\varepsilon_0\frac{S}{d} \\ &= 3C_0 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_1 = \varepsilon_0\frac{3S}{d} = 3\times\varepsilon_0\frac{S}{d} = \ans{3C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= \varepsilon_0\frac{3S}{d} \\ &= 3\times\varepsilon_0\frac{S}{d} \\ &= \ans{3C_0} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span></h4>
       <p>極板間が \(\dfrac{1}{2}d\) になるので，分母が半分になる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_2 = \varepsilon_0\frac{S}{\frac{1}{2}d} = 2\times\varepsilon_0\frac{S}{d} = 2C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_2 &= \varepsilon_0\frac{S}{\frac{1}{2}d} \\ &= 2\times\varepsilon_0\frac{S}{d} \\ &= 2C_0 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_2 = \varepsilon_0\frac{S}{\frac{1}{2}d} = 2\times\varepsilon_0\frac{S}{d} = \ans{2C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} C_2 &= \varepsilon_0\frac{S}{\frac{1}{2}d} \\ &= 2\times\varepsilon_0\frac{S}{d} \\ &= \ans{2C_0} \end{aligned} \]</div></div>
       <h4><span class="n">(3)</span></h4>
       <p>比誘電率 \(\varepsilon_r\) の誘電体の誘電率は \(\varepsilon_r\varepsilon_0\)（真空の \(\varepsilon_r\) 倍）なので</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_3 = \varepsilon_r\varepsilon_0\frac{S}{d} = \varepsilon_r C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_3 &= \varepsilon_r\varepsilon_0\frac{S}{d} \\ &= \varepsilon_r C_0 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_3 = \varepsilon_r\varepsilon_0\frac{S}{d} = \ans{\varepsilon_r C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} C_3 &= \varepsilon_r\varepsilon_0\frac{S}{d} \\ &= \ans{\varepsilon_r C_0} \end{aligned} \]</div></div>
       <h4><span class="n">(4)</span></h4>
       <p>誘電率が \(\varepsilon_0\) から \(\varepsilon\) にかわるので，\(\varepsilon_0\) を \(\varepsilon\) に入れかえる。\(C_0\) の何倍かを見るため，\(\dfrac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\) と書きかえる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_4 = \varepsilon\frac{S}{d} = \frac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\frac{S}{d} = \frac{\varepsilon}{\varepsilon_0}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_4 &= \varepsilon\frac{S}{d} \\ &= \frac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\frac{S}{d} \\ &= \frac{\varepsilon}{\varepsilon_0}C_0 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_4 = \varepsilon\frac{S}{d} = \frac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\frac{S}{d} = \ans{\frac{\varepsilon}{\varepsilon_0}C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} C_4 &= \varepsilon\frac{S}{d} \\ &= \frac{\varepsilon}{\varepsilon_0}\times\varepsilon_0\frac{S}{d} \\ &= \ans{\frac{\varepsilon}{\varepsilon_0}C_0} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid cols4 hide-ans">
       <div><span class="label">(1)</span><span class="val">3 倍</span></div>
@@ -143,12 +143,12 @@
     <details class="sol"><summary>解説</summary><div class="body">
       <h4><span class="n">(1)</span></h4>
       <p>XとYは両端がそれぞれ同じ点につながっているので<b>並列</b>。並列の合成静電容量は足し算。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XY} = C_\text{X} + C_\text{Y} = 1.8 + 1.2 = 3.0 \,\unit{μF} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XY} &= C_\text{X} + C_\text{Y} \\ &= 1.8 + 1.2 \\ &= 3.0 \,\unit{μF} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XY} = C_\text{X} + C_\text{Y} = 1.8 + 1.2 = \ans{3.0 \,\unit{μF}} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XY} &= C_\text{X} + C_\text{Y} \\ &= 1.8 + 1.2 \\ &= \ans{3.0 \,\unit{μF}} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span></h4>
       <p>XとYをまとめた \(C_\text{XY} = 3.0\,\unit{μF}\) と Z が<b>直列</b>につながっている。直列は逆数の和で考える。</p>
       <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_\text{XYZ}} = \frac{1}{C_\text{XY}} + \frac{1}{C_\text{Z}} = \frac{1}{3.0} + \frac{1}{2.0} = \frac{2.0 + 3.0}{6.0} = \frac{5}{6.0} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_\text{XYZ}} &= \frac{1}{C_\text{XY}} + \frac{1}{C_\text{Z}} \\ &= \frac{1}{3.0} + \frac{1}{2.0} \\ &= \frac{2.0 + 3.0}{6.0} \\ &= \frac{5}{6.0} \end{aligned} \]</div></div>
       <p>最後に逆数をとるのを忘れない。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XYZ} = \frac{6.0}{5} = 1.2 \,\unit{μF} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XYZ} &= \frac{6.0}{5} \\ &= 1.2 \,\unit{μF} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XYZ} = \frac{6.0}{5} = \ans{1.2 \,\unit{μF}} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XYZ} &= \frac{6.0}{5} \\ &= \ans{1.2 \,\unit{μF}} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid hide-ans">
       <div><span class="label">(1)</span><span class="val">3.0〔μF〕</span></div>
@@ -169,12 +169,12 @@
       <div class="eqwrap"><div class="eq-wide">\[ C_\text{X} = \varepsilon_0\frac{S}{d}, \qquad C_\text{Y} = \varepsilon_0\frac{2S}{d}, \qquad C_\text{Z} = \varepsilon_0\frac{S}{3d} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{X} &= \varepsilon_0\frac{S}{d} \\ C_\text{Y} &= \varepsilon_0\frac{2S}{d} \\ C_\text{Z} &= \varepsilon_0\frac{S}{3d} \end{aligned} \]</div></div>
       <h4><span class="n">(1)</span></h4>
       <p>並列なので足し算。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XY} = \varepsilon_0\frac{S}{d} + \varepsilon_0\frac{2S}{d} = 3\varepsilon_0\frac{S}{d} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XY} &= \varepsilon_0\frac{S}{d} + \varepsilon_0\frac{2S}{d} \\ &= 3\varepsilon_0\frac{S}{d} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{XY} = \varepsilon_0\frac{S}{d} + \varepsilon_0\frac{2S}{d} = \ans{3\varepsilon_0\frac{S}{d}} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{XY} &= \varepsilon_0\frac{S}{d} + \varepsilon_0\frac{2S}{d} \\ &= \ans{3\varepsilon_0\frac{S}{d}} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span></h4>
       <p>直列なので逆数の和。\(\dfrac{1}{C_\text{Y}} = \dfrac{d}{2\varepsilon_0 S}\)，\(\dfrac{1}{C_\text{Z}} = \dfrac{3d}{\varepsilon_0 S}\) を通分して足す。</p>
       <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_\text{YZ}} = \frac{d}{2\varepsilon_0 S} + \frac{3d}{\varepsilon_0 S} = \frac{d}{2\varepsilon_0 S} + \frac{6d}{2\varepsilon_0 S} = \frac{7d}{2\varepsilon_0 S} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_\text{YZ}} &= \frac{d}{2\varepsilon_0 S} + \frac{3d}{\varepsilon_0 S} \\ &= \frac{d}{2\varepsilon_0 S} + \frac{6d}{2\varepsilon_0 S} \\ &= \frac{7d}{2\varepsilon_0 S} \end{aligned} \]</div></div>
       <p>逆数をとる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_\text{YZ} = \frac{2\varepsilon_0 S}{7d} = \frac{2}{7}\varepsilon_0\frac{S}{d} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{YZ} &= \frac{2\varepsilon_0 S}{7d} \\ &= \frac{2}{7}\varepsilon_0\frac{S}{d} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_\text{YZ} = \frac{2\varepsilon_0 S}{7d} = \ans{\frac{2}{7}\varepsilon_0\frac{S}{d}} \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{YZ} &= \frac{2\varepsilon_0 S}{7d} \\ &= \ans{\frac{2}{7}\varepsilon_0\frac{S}{d}} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid hide-ans">
       <div><span class="label">(1)</span><span class="val">\(3\varepsilon_0\dfrac{S}{d}\)</span></div>
@@ -197,7 +197,7 @@
       <p>左右に分けると，面積 \(\dfrac{S}{2}\)，間隔 \(d\) のコンデンサが2つ。どちらも上下の極板につながっているので<b>並列</b>。</p>
       <div class="eqwrap"><div class="eq-wide">\[ C_\text{真空} = \varepsilon_0\frac{\frac{1}{2}S}{d} = \frac{1}{2}C_0, \qquad C_\text{誘電体} = \varepsilon_r\varepsilon_0\frac{\frac{1}{2}S}{d} = \frac{\varepsilon_r}{2}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_\text{真空} &= \varepsilon_0\frac{\frac{1}{2}S}{d} \\ &= \frac{1}{2}C_0 \\ C_\text{誘電体} &= \varepsilon_r\varepsilon_0\frac{\frac{1}{2}S}{d} \\ &= \frac{\varepsilon_r}{2}C_0 \end{aligned} \]</div></div>
       <p>並列なので足し算。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_1 = \frac{1}{2}C_0 + \frac{\varepsilon_r}{2}C_0 = \frac{1 + \varepsilon_r}{2}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= \frac{1}{2}C_0 + \frac{\varepsilon_r}{2}C_0 \\ &= \frac{1 + \varepsilon_r}{2}C_0 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_1 = \frac{1}{2}C_0 + \frac{\varepsilon_r}{2}C_0 = \ans{\frac{1 + \varepsilon_r}{2}C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= \frac{1}{2}C_0 + \frac{\varepsilon_r}{2}C_0 \\ &= \ans{\frac{1 + \varepsilon_r}{2}C_0} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span>下半分に満たす → 直列</h4>
       <div class="figure small" style="max-width:190px"><svg class="fig" viewBox="0 0 170 110" role="img" aria-label="真空の上半分（2C0）と誘電体のある下半分（2εrC0）の直列接続"><path class="ink nofill" d="M85,4 L85,106" stroke-linejoin="miter"/><line class="cut" x1="85" y1="28.5" x2="85" y2="39.5"/><line class="plate " x1="68" y1="27" x2="102" y2="27"/><line class="plate " x1="68" y1="41" x2="102" y2="41"/><line class="cut" x1="85" y1="70.5" x2="85" y2="81.5"/><rect class="diel gray" x="68" y="69" width="34" height="14"/><line class="plate " x1="68" y1="69" x2="102" y2="69"/><line class="plate " x1="68" y1="83" x2="102" y2="83"/><text class="lbl small m" x="108" y="38" text-anchor="start"><tspan font-style="normal">2</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><text class="lbl small m" x="108" y="80" text-anchor="start"><tspan font-style="normal">2</tspan><tspan>ε</tspan><tspan dy="4" font-size="70%">r</tspan><tspan dy="-4">C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text></svg></div>
       <p>上下に分けると，面積 \(S\)，間隔 \(\dfrac{d}{2}\) のコンデンサが2つ<b>直列</b>につながったものと考えられる（境目に薄い金属板をはさんでも同じ）。</p>
@@ -205,7 +205,7 @@
       <p>直列なので逆数の和をとり，通分する。</p>
       <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_2} = \frac{1}{2C_0} + \frac{1}{2\varepsilon_r C_0} = \frac{\varepsilon_r + 1}{2\varepsilon_r C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_2} &= \frac{1}{2C_0} + \frac{1}{2\varepsilon_r C_0} \\ &= \frac{\varepsilon_r + 1}{2\varepsilon_r C_0} \end{aligned} \]</div></div>
       <p>逆数をとる。</p>
-      <div class="eqwrap">\[ C_2 = \frac{2\varepsilon_r}{\varepsilon_r + 1}C_0 \]</div>
+      <div class="eqwrap">\[ C_2 = \ans{\frac{2\varepsilon_r}{\varepsilon_r + 1}C_0} \]</div>
     </div></details>
     <div class="answer-grid hide-ans">
       <div><span class="label">(1)</span><span class="val">\(\dfrac{1 + \varepsilon_r}{2}C_0\)</span></div>
@@ -235,12 +235,12 @@
       <p>3つのコンデンサの直列と考える。すき間（真空，間隔 \(d\)）と誘電体（比誘電率 2，間隔 \(2d\)）の静電容量は</p>
       <div class="eqwrap"><div class="eq-wide">\[ \varepsilon_0\frac{S}{d} = 4C_0, \qquad 2\varepsilon_0\frac{S}{2d} = \varepsilon_0\frac{S}{d} = 4C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} \varepsilon_0\frac{S}{d} &= 4C_0 \\ 2\varepsilon_0\frac{S}{2d} &= \varepsilon_0\frac{S}{d} \\ &= 4C_0 \end{aligned} \]</div></div>
       <p>どれも \(4C_0\) になる。直列なので逆数の和をとる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_1} = \frac{1}{4C_0} + \frac{1}{4C_0} + \frac{1}{4C_0} = \frac{3}{4C_0} \qquad\Rightarrow\qquad C_1 = \frac{4}{3}C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_1} &= \frac{1}{4C_0} + \frac{1}{4C_0} + \frac{1}{4C_0} \\ &= \frac{3}{4C_0} \\ \Rightarrow\ C_1 &= \frac{4}{3}C_0 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_1} = \frac{1}{4C_0} + \frac{1}{4C_0} + \frac{1}{4C_0} = \frac{3}{4C_0} \qquad\Rightarrow\qquad C_1 = \ans{\frac{4}{3}C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_1} &= \frac{1}{4C_0} + \frac{1}{4C_0} + \frac{1}{4C_0} \\ &= \frac{3}{4C_0} \\ \Rightarrow\ C_1 &= \ans{\frac{4}{3}C_0} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span>金属</h4>
       <div class="figure small" style="max-width:170px"><svg class="fig" viewBox="0 0 170 140" role="img" aria-label="(2) 金属の部分は導線と同じなので，真空dの2つのコンデンサ（どれも4C0）の直列接続"><path class="ink nofill" d="M60,4 L60,136" stroke-linejoin="miter"/><line class="cut" x1="60" y1="24.5" x2="60" y2="35.5"/><line class="plate " x1="40" y1="23" x2="80" y2="23"/><line class="plate " x1="40" y1="37" x2="80" y2="37"/><rect class="metal" x="40" y="56" width="40" height="18"/><line class="cut" x1="60" y1="38" x2="60" y2="55"/><line class="cut" x1="60" y1="75" x2="60" y2="92"/><line class="plate" x1="40" y1="37" x2="80" y2="37"/><line class="plate" x1="40" y1="93" x2="80" y2="93"/><line class="cut" x1="60" y1="94.5" x2="60" y2="105.5"/><line class="plate " x1="40" y1="93" x2="80" y2="93"/><line class="plate " x1="40" y1="107" x2="80" y2="107"/><text class="lbl small m" x="88" y="34" text-anchor="start"><tspan font-style="normal">4</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><text class="jp small" x="88" y="64" text-anchor="start">金属</text><text class="jp tiny" x="88" y="78" text-anchor="start">（導線と同じ）</text><text class="lbl small m" x="88" y="104" text-anchor="start"><tspan font-style="normal">4</tspan><tspan>C</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text></svg></div>
       <p>金属の中は電気がすぐに移動できるので，導線と同じとみなせる。残るのは上下のすき間（真空，間隔 \(d\)，どちらも \(4C_0\)）の2つの直列。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_2} = \frac{1}{4C_0} + \frac{1}{4C_0} = \frac{2}{4C_0} \qquad\Rightarrow\qquad C_2 = 2C_0 \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_2} &= \frac{1}{4C_0} + \frac{1}{4C_0} \\ &= \frac{2}{4C_0} \\ \Rightarrow\ C_2 &= 2C_0 \end{aligned} \]</div></div>
-      <p class="note"><b>ポイント</b>　金属板を入れると，極板間が \(4d\) から \(d + d = 2d\) に狭くなったのと同じ。だから 2 倍。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{1}{C_2} = \frac{1}{4C_0} + \frac{1}{4C_0} = \frac{2}{4C_0} \qquad\Rightarrow\qquad C_2 = \ans{2C_0} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{1}{C_2} &= \frac{1}{4C_0} + \frac{1}{4C_0} \\ &= \frac{2}{4C_0} \\ \Rightarrow\ C_2 &= \ans{2C_0} \end{aligned} \]</div></div>
+      <p class="note" data-pose="b"><b>ポイント</b>　金属板を入れると，極板間が \(4d\) から \(d + d = 2d\) に狭くなったのと同じ。だから 2 倍。</p>
     </div></details>
     <div class="answer-grid hide-ans">
       <div><span class="label">(1)</span><span class="val">\(\dfrac{4}{3}\) 倍</span></div>
@@ -267,10 +267,10 @@
       <div class="eqwrap"><div class="eq-wide">\[ C_0 = \varepsilon_0\frac{S}{d} = 8.85\times 10^{-12}\times\frac{0.500}{5.00\times 10^{-3}} = 8.85\times 10^{-10} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} C_0 &= \varepsilon_0\frac{S}{d} \\ &= 8.85\times 10^{-12}\times\frac{0.500}{5.00\times 10^{-3}} \\ &= 8.85\times 10^{-10} \,\unit{F} \end{aligned} \]</div></div>
       <h4><span class="n">(1)</span></h4>
       <p>1枚目と3枚目がa，2枚目がbにつながっている。1–2枚目の間と2–3枚目の間に，それぞれ \(C_0\) のコンデンサができる。どちらも a と b の間にあるので<b>並列</b>。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_1 = 2C_0 = 2\times 8.85\times 10^{-10} = 1.77\times 10^{-9} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= 2C_0 \\ &= 2\times 8.85\times 10^{-10} \\ &= 1.77\times 10^{-9} \,\unit{F} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_1 = 2C_0 = 2\times 8.85\times 10^{-10} = \ans{1.77\times 10^{-9} \,\unit{F}} \]</div><div class="eq-narrow">\[ \begin{aligned} C_1 &= 2C_0 \\ &= 2\times 8.85\times 10^{-10} \\ &= \ans{1.77\times 10^{-9} \,\unit{F}} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span></h4>
       <p>11枚の板の間にはすき間が 10 か所あり，\(C_0\) のコンデンサが 10 個できる。1枚おきに c と d につながっているので，10 個すべてが c と d の間の<b>並列</b>になる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ C_2 = 10C_0 = 10\times 8.85\times 10^{-10} = 8.85\times 10^{-9} \,\unit{F} \]</div><div class="eq-narrow">\[ \begin{aligned} C_2 &= 10C_0 \\ &= 10\times 8.85\times 10^{-10} \\ &= 8.85\times 10^{-9} \,\unit{F} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ C_2 = 10C_0 = 10\times 8.85\times 10^{-10} = \ans{8.85\times 10^{-9} \,\unit{F}} \]</div><div class="eq-narrow">\[ \begin{aligned} C_2 &= 10C_0 \\ &= 10\times 8.85\times 10^{-10} \\ &= \ans{8.85\times 10^{-9} \,\unit{F}} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid hide-ans">
       <div><span class="label">(1)</span><span class="val">\(1.77\times 10^{-9}\)〔F〕</span></div>

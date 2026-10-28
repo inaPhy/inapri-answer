@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>06 運動方程式（多物体） 解答解説</title>
+<meta name="description" content="イナプリ 応用物理06「運動方程式（多物体）」の例題・練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css?v=3ea01739">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/main.js?v=298e4938"></script>
+</head>
+<body class="guide">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-volt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-volt" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-red" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse"><rect class="dots-bg" width="4" height="4"/><circle class="dots-st" cx="1" cy="1" r=".5"/><circle class="dots-st" cx="3" cy="3" r=".5"/></pattern>
+<pattern id="dots-g" width="3" height="3" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="3" height="3"/><circle class="dotsg-st" cx="1" cy="1" r=".45"/></pattern>
+<pattern id="dots-d" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="2" height="2"/><circle class="dotsd-st" cx="1" cy="1" r=".6"/></pattern>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-sub">応用物理 </span>解答解説 <small>イナプリ 06</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="../index.html">← 一覧に戻る</a>
+    <div class="toc-title">06 運動方程式（多物体）</div>
+    <ol>
+      <li><a href="#point">ポイント</a></li>
+      <li><a href="#ex">例題</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 応用物理 06</div>
+    <h1>運動方程式（多物体）</h1>
+  </section>
+
+  <!-- ================= ポイント ================= -->
+  <section class="card" id="point">
+    <div class="point-box">
+      <p class="lead"><span style="background:#ffff99;color:#111;padding:0 4px">物体が増えても一緒。 <b style="font-size:1.15em;text-decoration:underline wavy">物体ごとに</b> 運動方程式を立て，<b style="font-size:1.15em">連立して解く</b> だけ！</span></p>
+      <p class="senryu"><small>運動方程式を立てる川柳</small>物体<ruby>に<rt>ごとに</rt></ruby>　<span class="k">力</span>を描いて　あとは<span class="k">軸</span>わけ</p>
+    </div>
+    <p class="note" data-pose="b"><b>ポイント</b>　物体が2つ以上あっても，やることは 05 と同じ。<b>1つの物体ずつ</b>力を描いて運動方程式を立てる。糸でつながった物体どうしは，同じ大きさの加速度で動き，糸の張力は糸の両端で同じ大きさ（向きは逆）になる。未知数（加速度・張力など）が2つなら式も2つ。あとは連立方程式を解くだけ。</p>
+  </section>
+
+  <!-- ================= 例題 ================= -->
+  <section class="card" id="ex">
+    <h2><span class="tag">例題</span></h2>
+    <p class="statement">質量 \(m\) の物体\(\text{A}\)と質量 \(M\) の物体\(\text{B}\)を糸でつなぎ，物体\(\text{B}\)を力 \(F\) で引いた。物体\(\text{A}\)の加速度の大きさと糸の張力の大きさを求めよ。ただし，重力加速度の大きさを \(g\) とし，物体\(\text{A}\)が移動する向きは <span class="acc-icon"><svg class="fig" viewBox="0 0 46 20" role="img" aria-label="白抜きの矢印"><g class="acc" transform="translate(2,10) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g></svg></span> で示した。</p>
+    <div class="figure wide" style="max-width:520px"><svg class="fig" viewBox="0 0 420 185" role="img" aria-label="なめらかな面の上で，物体Aと物体Bを糸でつなぎ，Bを力Fで引く。Aには重力mg・垂直抗力NA・張力T，Bには重力Mg・垂直抗力NB・張力T・引く力Fがはたらく"><rect class="smooth" x="15" y="140" width="390" height="8"/><line class="ink" x1="15" y1="140" x2="405" y2="140"/><rect class="label-bg" x="330" y="149" width="72" height="15"/><text class="jp small" x="400" y="161" text-anchor="end">なめらかな面</text><rect class="ink body" x="60" y="84" width="70" height="56" transform="rotate(0 95 112)"/><text class="lbl" x="74" y="114.2" text-anchor="middle">A</text><rect class="ink body" x="230" y="84" width="90" height="56" transform="rotate(0 275 112)"/><text class="lbl" x="246.2" y="114.2" text-anchor="middle">B</text><line class="ink" x1="130" y1="118" x2="230" y2="118"/><text class="jp tiny" x="180" y="130" text-anchor="middle">糸</text><g class="acc" transform="translate(72,30) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="acc" transform="translate(252,30) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><line class="force" x1="320" y1="118" x2="382" y2="118" marker-end="url(#ah-force)"/><circle class="dot-force" cx="320" cy="118" r="3"/><text class="lbl m" x="392" y="108" text-anchor="start"><tspan>F</tspan></text><g class="ans-layer"><line class="force" x1="130" y1="118" x2="172" y2="118" marker-end="url(#ah-force)"/><circle class="dot-force" cx="130" cy="118" r="3"/><circle class="clabel" cx="158.0" cy="94.0" r="9.5"/><text class="lbl m" x="158" y="99" text-anchor="middle"><tspan>T</tspan></text><line class="force" x1="230" y1="118" x2="188" y2="118" marker-end="url(#ah-force)"/><circle class="dot-force" cx="230" cy="118" r="3"/><circle class="clabel" cx="202.0" cy="94.0" r="9.5"/><text class="lbl m" x="202" y="99" text-anchor="middle"><tspan>T</tspan></text><line class="force" x1="86" y1="137" x2="86" y2="66" marker-end="url(#ah-force)"/><circle class="dot-force" cx="86" cy="137" r="3"/><circle class="clabel" cx="86.0" cy="54.0" r="11"/><text class="lbl m" x="86" y="59" text-anchor="middle"><tspan>N</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">A</tspan></text><line class="force" x1="103" y1="112" x2="103" y2="174" marker-end="url(#ah-force)"/><circle class="dot-force" cx="103" cy="112" r="3"/><text class="lbl m" x="103" y="188" text-anchor="middle"><tspan>mg</tspan></text><line class="force" x1="262" y1="137" x2="262" y2="66" marker-end="url(#ah-force)"/><circle class="dot-force" cx="262" cy="137" r="3"/><circle class="clabel" cx="262.0" cy="54.0" r="11"/><text class="lbl m" x="262" y="59" text-anchor="middle"><tspan>N</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">B</tspan></text><line class="force" x1="281" y1="112" x2="281" y2="174" marker-end="url(#ah-force)"/><circle class="dot-force" cx="281" cy="112" r="3"/><text class="lbl m" x="281" y="188" text-anchor="middle"><tspan>Mg</tspan></text><circle class="clabel" cx="92.0" cy="14.0" r="9.5"/><text class="lbl m" x="92" y="19" text-anchor="middle"><tspan>a</tspan></text><circle class="clabel" cx="272.0" cy="14.0" r="9.5"/><text class="lbl m" x="272" y="19" text-anchor="middle"><tspan>a</tspan></text></g></svg></div>
+    <div class="steps">
+      <div class="step"><span class="no">イチ</span>物体ごとに力を描いて，未知数は適当に定義して，念のため <span style="display:inline-block;width:1em;height:1em;border:1.5px solid #00b0f0;border-radius:50%;vertical-align:-.15em"></span> で囲っておこう！
+        <details class="sol step-sol"><summary><span class="show">イチを表示</span><span class="hide">イチを隠す</span></summary><div class="body">
+          <p>物体\(\text{A}\)の加速度の大きさを \(a\)，糸の張力の大きさを \(T\) とする（図の○）。\(\text{A}\)と\(\text{B}\)は糸でつながっているので，\(\text{B}\)も同じ大きさ \(a\) で右向きに加速する。糸の張力は，\(\text{A}\)を右向きに，\(\text{B}\)を左向きに，同じ大きさ \(T\) で引く。</p>
+          <p>\(\text{A}\)にはたらく力：重力 \(mg\)，垂直抗力 \(N_\text{A}\)，張力 \(T\)（右向き）<br>\(\text{B}\)にはたらく力：重力 \(Mg\)，垂直抗力 \(N_\text{B}\)，張力 \(T\)（左向き），引く力 \(F\)（右向き）</p>
+        </div></details>
+      </div>
+      <div class="step"><span class="no">ニッ</span>物体ごとに運動方程式を立てる
+        <details class="sol step-sol"><summary><span class="show">ニッを表示</span><span class="hide">ニッを隠す</span></summary><div class="body">
+          <p>加速する向き（右向き）を正とする。上下の向きは，どちらの物体も垂直抗力と重力がつりあっていて動かないので，左右（運動の向き）の式だけ立てればよい。</p>
+          <div class="axis-eq">
+            <span class="ax obj">A</span><span class="eq">\(T = ma\)</span>
+            <span class="ax obj">B</span><span class="eq">\(F - T = Ma\)</span>
+          </div>
+        </div></details>
+      </div>
+      <div class="step"><span class="no">サン</span>\(\text{A}\)と\(\text{B}\)の式で連立方程式を解く
+        <details class="sol step-sol"><summary><span class="show">サンを表示</span><span class="hide">サンを隠す</span></summary><div class="body">
+          <p>\(\text{B}\)の式に\(\text{A}\)の式（\(T = ma\)）を代入して，\(a\) だけの式にする。</p>
+          <div class="eqwrap"><div class="eq-wide">\[ F - ma = Ma \qquad\Rightarrow\qquad (m + M)a = F \qquad\Rightarrow\qquad a = \ans{\frac{F}{m + M}} \]</div><div class="eq-narrow">\[ \begin{aligned} F - ma &= Ma \\ \Rightarrow\ (m + M)a &= F \\ \Rightarrow\ a &= \ans{\frac{F}{m + M}} \end{aligned} \]</div></div>
+          <p>求めた \(a\) を\(\text{A}\)の式に代入して，張力を求める。</p>
+          <div class="eqwrap"><div class="eq-wide">\[ T = m\times\frac{F}{m + M} = \ans{\frac{mF}{m + M}} \]</div><div class="eq-narrow">\[ \begin{aligned} T &= m\times\frac{F}{m + M} \\ &= \ans{\frac{mF}{m + M}} \end{aligned} \]</div></div>
+          <p class="note" data-pose="b"><b>ポイント</b>　\(\text{A}\)と\(\text{B}\)の式を足しても \(T\) が消えて \(F = (m + M)a\) になる。これは「\(\text{A}\)と\(\text{B}\)をまとめて質量 \(m + M\) の1つの物体を \(F\) で引く」のと同じ式。</p>
+        </div></details>
+      </div>
+    </div>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">加速度</span><span class="val">\(\dfrac{F}{m + M}\)</span></div>
+      <div><span class="label">張力</span><span class="val">\(\dfrac{mF}{m + M}\)</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <p class="statement">以下の (1)〜(4) の (ア)・(イ) について求めよ。ただし，重力加速度の大きさを \(g\) とし，物体\(\text{A}\)が移動する向きは <span class="acc-icon"><svg class="fig" viewBox="0 0 46 20" role="img" aria-label="白抜きの矢印"><g class="acc" transform="translate(2,10) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g></svg></span> で示した。</p>
+
+    <div class="sub-q">
+      <h3>(1) 質量 \(m\) の物体\(\text{A}\)を質量 \(M\) の物体\(\text{B}\)が押し，物体\(\text{B}\)を力 \(F\) で押す。</h3>
+      <ul class="fill-list" style="list-style:none;padding-left:1em">
+        <li>(ア) 物体\(\text{A}\)の加速度の大きさ</li>
+        <li>(イ) 物体\(\text{A}\)が物体\(\text{B}\)に押される力の大きさ</li>
+      </ul>
+      <div class="figure wide" style="max-width:500px"><svg class="fig" viewBox="0 0 400 165" role="img" aria-label="なめらかな面の上で，人が物体Bを力Fで押し，Bが物体Aを押す"><rect class="smooth" x="15" y="125" width="380" height="8"/><line class="ink" x1="15" y1="125" x2="395" y2="125"/><rect class="label-bg" x="320" y="134" width="72" height="15"/><text class="jp small" x="390" y="146" text-anchor="end">なめらかな面</text><rect class="ink body" x="95" y="69" width="180" height="56" transform="rotate(0 185 97)"/><text class="lbl" x="109.4" y="90.8" text-anchor="middle">B</text><rect class="ink body" x="275" y="69" width="70" height="56" transform="rotate(0 310 97)"/><text class="lbl" x="292.5" y="90.8" text-anchor="middle">A</text><g class="person"><path class="limb" d="M69.9,112.1 L79.1,119.2 L69.9,124.8 L79.1,125.1"/><path class="limb" d="M63.3,113.8 L52.4,123.7 L58,124.9"/><g transform="translate(69.7,97.6) rotate(15) scale(1,1)"><path class="skin" d="M-7.5,0 L-7.5,14.4 A7.5,3 0 0 0 7.5,14.4 L7.5,0 A7.5,3 0 0 0 -7.5,0 Z"/><ellipse class="skin" cx="0" cy="0" rx="7.5" ry="3"/></g><path class="limb" d="M75.8,101.7 L85,102.3 L94.7,98.1"/><path class="limb" d="M68,104.7 L85,106.8 L94.7,103.5"/><circle class="skin" cx="74.1" cy="88.8" r="10.7"/><path class="limb" d="M80.7,92.7 L87.1,95.2"/></g><line class="force" x1="95" y1="101" x2="150" y2="101" marker-end="url(#ah-force)"/><circle class="dot-force" cx="95" cy="101" r="3"/><text class="lbl m" x="158" y="107" text-anchor="start"><tspan>F</tspan></text><g class="acc" transform="translate(355,93) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="ans" x1="165" y1="125" x2="165" y2="45" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="153" y="49" text-anchor="end"><tspan>N</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">B</tspan></text><line class="ans" x1="185" y1="97" x2="185" y2="155" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="196" y="161" text-anchor="start"><tspan>Mg</tspan></text><circle class="dot-ans" cx="185" cy="97" r="2.2"/><line class="ans" x1="275" y1="111" x2="236" y2="111" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="238" y="104" text-anchor="end"><tspan>f</tspan></text><line class="ans" x1="325" y1="125" x2="325" y2="45" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="337" y="49" text-anchor="start"><tspan>N</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">A</tspan></text><line class="ans" x1="310" y1="97" x2="310" y2="155" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="321" y="161" text-anchor="start"><tspan>mg</tspan></text><circle class="dot-ans" cx="310" cy="97" r="2.2"/><line class="ans" x1="275" y1="111" x2="304" y2="111" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="302" y="104" text-anchor="start"><tspan>f</tspan></text><text class="lbl ans-t m" x="380" y="75" text-anchor="middle"><tspan>a</tspan></text></g></svg></div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>物体\(\text{A}\)の加速度の大きさを \(a\)，\(\text{A}\)と\(\text{B}\)が押し合う力の大きさを \(f\) とする。\(\text{B}\)は\(\text{A}\)を右向きに \(f\) で押し，\(\text{A}\)は\(\text{B}\)を左向きに同じ大きさ \(f\) で押し返す（作用・反作用）。\(\text{A}\)と\(\text{B}\)は一緒に動くので加速度は同じ \(a\)。右向きを正として，物体ごとに運動方程式を立てる。</p>
+        <div class="axis-eq">
+          <span class="ax obj">A</span><span class="eq">\(f = ma\)</span>
+          <span class="ax obj">B</span><span class="eq">\(F - f = Ma\)</span>
+        </div>
+        <p>\(\text{A}\)と\(\text{B}\)の式を足すと \(f\) が消える。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ F = (m + M)a \qquad\Rightarrow\qquad a = \ans{\frac{F}{m + M}} \]</div><div class="eq-narrow">\[ \begin{aligned} F &= (m + M)a \\ \Rightarrow\ a &= \ans{\frac{F}{m + M}} \end{aligned} \]</div></div>
+        <p>求めた \(a\) を\(\text{A}\)の式に代入して \(f\) を求める。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ f = m\times\frac{F}{m + M} = \ans{\frac{mF}{m + M}} \]</div><div class="eq-narrow">\[ \begin{aligned} f &= m\times\frac{F}{m + M} \\ &= \ans{\frac{mF}{m + M}} \end{aligned} \]</div></div>
+      </div></details>
+      <div class="answer-grid hide-ans">
+        <div><span class="label">(1)(ア)</span><span class="val">\(\dfrac{F}{m + M}\)</span></div>
+        <div><span class="label">(1)(イ)</span><span class="val">\(\dfrac{mF}{m + M}\)</span></div>
+      </div>
+    </div>
+
+    <div class="sub-q">
+      <h3>(2) 質量 \(m\) の物体\(\text{A}\)に質量 \(M\) の物体\(\text{B}\)を吊り下げると物体\(\text{B}\)が落下した。</h3>
+      <ul class="fill-list" style="list-style:none;padding-left:1em">
+        <li>(ア) 物体\(\text{A}\)の加速度の大きさ</li>
+        <li>(イ) 糸の張力の大きさ</li>
+      </ul>
+      <div class="figure" style="max-width:380px"><svg class="fig" viewBox="0 0 345 255" role="img" aria-label="なめらかな台の上の物体Aに糸をつなぎ，台の角の滑車を通して物体Bを吊り下げる"><rect class="smooth" x="20" y="100" width="230" height="8"/><rect class="smooth" x="242" y="100" width="8" height="150"/><path class="ink nofill" d="M20,100 H250 V250"/><rect class="label-bg" x="160" y="109" width="74" height="15"/><text class="jp small" x="232" y="121" text-anchor="end">なめらかな面</text><rect class="ink body" x="67" y="48" width="56" height="52" transform="rotate(0 95 74)"/><text class="lbl" x="111.8" y="67.6" text-anchor="middle">A</text><line class="ink" x1="123" y1="78" x2="276" y2="78"/><text class="jp tiny" x="215" y="72" text-anchor="middle">糸</text><line class="ink" x1="286" y1="88" x2="286" y2="157"/><rect class="ink body" x="262" y="157" width="48" height="56" transform="rotate(0 286 185)"/><text class="lbl" x="274" y="177.7" text-anchor="middle">B</text><line class="pulley-arm" x1="250.0" y1="100.0" x2="276.0" y2="88.0"/><circle class="pulley" cx="276.0" cy="88.0" r="10"/><circle class="pulley-axis" cx="276.0" cy="88.0" r="2.2"/><text class="jp tiny" x="290" y="76" text-anchor="start">滑車</text><g class="acc" transform="translate(99,26) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="ans" x1="81" y1="100" x2="81" y2="10" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="69" y="14" text-anchor="end"><tspan>N</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">A</tspan></text><line class="ans" x1="99" y1="74" x2="99" y2="140" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="110" y="146" text-anchor="start"><tspan>mg</tspan></text><circle class="dot-ans" cx="99" cy="74" r="2.2"/><line class="ans" x1="123" y1="78" x2="171" y2="78" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="177" y="71" text-anchor="start"><tspan>T</tspan></text><line class="ans" x1="286" y1="157" x2="286" y2="115" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="299" y="123" text-anchor="start"><tspan>T</tspan></text><line class="ans" x1="286" y1="185" x2="286" y2="243" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="298" y="247" text-anchor="start"><tspan>Mg</tspan></text><circle class="dot-ans" cx="286" cy="185" r="2.2"/><text class="lbl ans-t m" x="121" y="16" text-anchor="middle"><tspan>a</tspan></text></g></svg></div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>物体\(\text{A}\)の加速度の大きさを \(a\)，糸の張力の大きさを \(T\) とする。糸でつながっているので，\(\text{A}\)が右へ動く加速度と\(\text{B}\)が下へ落ちる加速度は同じ大きさ \(a\)。それぞれの<b>動く向き</b>（\(\text{A}\)は右向き，\(\text{B}\)は下向き）を正として運動方程式を立てる。\(\text{A}\)の上下の力（\(N_\text{A}\) と \(mg\)）はつりあっているので，\(\text{A}\)は左右の式だけでよい。</p>
+        <div class="axis-eq">
+          <span class="ax obj">A</span><span class="eq">\(T = ma\)</span>
+          <span class="ax obj">B</span><span class="eq">\(Mg - T = Ma\)</span>
+        </div>
+        <p>\(\text{A}\)と\(\text{B}\)の式を足すと \(T\) が消える。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ Mg = (m + M)a \qquad\Rightarrow\qquad a = \ans{\frac{Mg}{m + M}} \]</div><div class="eq-narrow">\[ \begin{aligned} Mg &= (m + M)a \\ \Rightarrow\ a &= \ans{\frac{Mg}{m + M}} \end{aligned} \]</div></div>
+        <p>求めた \(a\) を\(\text{A}\)の式に代入して \(T\) を求める。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ T = m\times\frac{Mg}{m + M} = \ans{\frac{mMg}{m + M}} \]</div><div class="eq-narrow">\[ \begin{aligned} T &= m\times\frac{Mg}{m + M} \\ &= \ans{\frac{mMg}{m + M}} \end{aligned} \]</div></div>
+      </div></details>
+      <div class="answer-grid hide-ans">
+        <div><span class="label">(2)(ア)</span><span class="val">\(\dfrac{Mg}{m + M}\)</span></div>
+        <div><span class="label">(2)(イ)</span><span class="val">\(\dfrac{mMg}{m + M}\)</span></div>
+      </div>
+    </div>
+
+    <div class="sub-q">
+      <h3>(3) 質量 \(m\) の物体\(\text{A}\)に質量 \(M\) の物体\(\text{B}\)を吊り下げると物体\(\text{B}\)が落下した。物体\(\text{A}\)とあらい面との動摩擦係数を \(\mu'\) とする。</h3>
+      <ul class="fill-list" style="list-style:none;padding-left:1em">
+        <li>(ア) 物体\(\text{A}\)の加速度の大きさ</li>
+        <li>(イ) 糸の張力の大きさ</li>
+      </ul>
+      <div class="figure" style="max-width:380px"><svg class="fig" viewBox="0 0 345 255" role="img" aria-label="あらい台の上の物体Aに糸をつなぎ，台の角の滑車を通して物体Bを吊り下げる"><rect class="hatch" fill="url(#hatch)" x="20" y="100" width="230" height="8"/><rect class="hatch" fill="url(#hatch)" x="242" y="100" width="8" height="150"/><path class="ink nofill" d="M20,100 H250 V250"/><rect class="label-bg" x="160" y="109" width="74" height="15"/><text class="jp small" x="232" y="121" text-anchor="end">あらい面</text><rect class="ink body" x="67" y="48" width="56" height="52" transform="rotate(0 95 74)"/><text class="lbl" x="111.8" y="67.6" text-anchor="middle">A</text><line class="ink" x1="123" y1="78" x2="276" y2="78"/><text class="jp tiny" x="215" y="72" text-anchor="middle">糸</text><line class="ink" x1="286" y1="88" x2="286" y2="157"/><rect class="ink body" x="262" y="157" width="48" height="56" transform="rotate(0 286 185)"/><text class="lbl" x="274" y="177.7" text-anchor="middle">B</text><line class="pulley-arm" x1="250.0" y1="100.0" x2="276.0" y2="88.0"/><circle class="pulley" cx="276.0" cy="88.0" r="10"/><circle class="pulley-axis" cx="276.0" cy="88.0" r="2.2"/><text class="jp tiny" x="290" y="76" text-anchor="start">滑車</text><g class="acc" transform="translate(99,26) rotate(0) scale(1.0)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="ans" x1="81" y1="100" x2="81" y2="10" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="69" y="14" text-anchor="end"><tspan>N</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">A</tspan></text><line class="ans" x1="99" y1="74" x2="99" y2="140" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="110" y="146" text-anchor="start"><tspan>mg</tspan></text><circle class="dot-ans" cx="99" cy="74" r="2.2"/><line class="ans" x1="123" y1="78" x2="171" y2="78" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="177" y="71" text-anchor="start"><tspan>T</tspan></text><line class="ans" x1="89" y1="99" x2="45" y2="99" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="49" y="89" text-anchor="middle"><tspan>μ</tspan><tspan font-style="normal">′</tspan><tspan>mg</tspan></text><line class="ans" x1="286" y1="157" x2="286" y2="115" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="299" y="123" text-anchor="start"><tspan>T</tspan></text><line class="ans" x1="286" y1="185" x2="286" y2="243" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="298" y="247" text-anchor="start"><tspan>Mg</tspan></text><circle class="dot-ans" cx="286" cy="185" r="2.2"/><text class="lbl ans-t m" x="121" y="16" text-anchor="middle"><tspan>a</tspan></text></g></svg></div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>物体\(\text{A}\)の加速度の大きさを \(a\)，糸の張力の大きさを \(T\) とする。(2) との違いは，\(\text{A}\)に<b>動摩擦力</b>がはたらくこと。\(\text{A}\)の上下の力はつりあっているので垂直抗力は \(N_\text{A} = mg\)，動摩擦力は \(\mu' N_\text{A} = \mu' mg\) で，\(\text{A}\)が動く向き（右）と逆向き（左）にはたらく。</p>
+        <div class="axis-eq">
+          <span class="ax obj">A</span><span class="eq">\(T - \mu' mg = ma\)</span>
+          <span class="ax obj">B</span><span class="eq">\(Mg - T = Ma\)</span>
+        </div>
+        <p>\(\text{A}\)と\(\text{B}\)の式を足すと \(T\) が消える。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ Mg - \mu' mg = (m + M)a \qquad\Rightarrow\qquad a = \ans{\frac{M - \mu' m}{m + M}g} \]</div><div class="eq-narrow">\[ \begin{aligned} Mg - \mu' mg &= (m + M)a \\ \Rightarrow\ a &= \ans{\frac{M - \mu' m}{m + M}g} \end{aligned} \]</div></div>
+        <p>求めた \(a\) を\(\text{A}\)の式（\(T = ma + \mu' mg\)）に代入して \(T\) を求める。通分してまとめる。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ T = m\times\frac{(M - \mu' m)g}{m + M} + \mu' mg = \frac{mg\{(M - \mu' m) + \mu'(m + M)\}}{m + M} \]</div><div class="eq-narrow">\[ \begin{aligned} T &= m\times\frac{(M - \mu' m)g}{m + M} + \mu' mg \\ &= \frac{mg\{(M - \mu' m) + \mu'(m + M)\}}{m + M} \end{aligned} \]</div></div>
+        <p>中かっこの中は \(M - \mu' m + \mu' m + \mu' M = (1 + \mu')M\) なので</p>
+        <div class="eqwrap">\[ T = \ans{\frac{(1 + \mu')mMg}{m + M}} \]</div>
+      </div></details>
+      <div class="answer-grid hide-ans">
+        <div><span class="label">(3)(ア)</span><span class="val">\(\dfrac{M - \mu' m}{m + M}g\)</span></div>
+        <div><span class="label">(3)(イ)</span><span class="val">\(\dfrac{(1 + \mu')mMg}{m + M}\)</span></div>
+      </div>
+    </div>
+
+    <div class="sub-q">
+      <h3>(4) 質量 \(m\) の物体\(\text{A}\)と質量 \(M\)（\(M &gt; m\)）の物体\(\text{B}\)を滑車に吊り下げると物体\(\text{B}\)が落下した。</h3>
+      <ul class="fill-list" style="list-style:none;padding-left:1em">
+        <li>(ア) 物体\(\text{A}\)の加速度の大きさ</li>
+        <li>(イ) 糸の張力の大きさ</li>
+      </ul>
+      <div class="figure small" style="max-width:220px"><svg class="fig" viewBox="0 0 220 285" role="img" aria-label="天井から吊るした滑車に糸をかけ，左に物体A，右に物体Bを吊り下げる。Aは上向きに動く"><line class="ink" x1="90" y1="4" x2="90" y2="60"/><line class="ink" x1="60" y1="60" x2="60" y2="220"/><line class="ink" x1="120" y1="60" x2="120" y2="130"/><circle class="pulley" cx="90.0" cy="60.0" r="30"/><circle class="pulley-axis" cx="90.0" cy="60.0" r="5.4"/><text class="jp tiny" x="114" y="34" text-anchor="start">滑車</text><text class="jp tiny" x="54" y="120" text-anchor="end">糸</text><rect class="ink body" x="39" y="220" width="42" height="44" transform="rotate(0 60 242)"/><text class="lbl" x="51.6" y="237.3" text-anchor="middle">A</text><rect class="ink body" x="99" y="130" width="42" height="54" transform="rotate(0 120 157)"/><text class="lbl" x="111.6" y="150.1" text-anchor="middle">B</text><g class="acc" transform="translate(24,262) rotate(-90) scale(0.9)"><rect x="0" y="-4" width="22" height="8" class="acc-body"/><line x1="5.5" y1="-4" x2="5.5" y2="4"/><line x1="11" y1="-4" x2="11" y2="4"/><line x1="16.5" y1="-4" x2="16.5" y2="4"/><path d="M22,-4 L30,-4 L30,-9 L42,0 L30,9 L30,4 L22,4" class="acc-body"/></g><g class="ans-layer"><line class="ans" x1="60" y1="220" x2="60" y2="178" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="47" y="182" text-anchor="end"><tspan>T</tspan></text><line class="ans" x1="60" y1="242" x2="60" y2="282" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="72" y="286" text-anchor="start"><tspan>mg</tspan></text><circle class="dot-ans" cx="60" cy="242" r="2.2"/><line class="ans" x1="120" y1="130" x2="120" y2="96" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="133" y="100" text-anchor="start"><tspan>T</tspan></text><line class="ans" x1="120" y1="157" x2="120" y2="205" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="132" y="209" text-anchor="start"><tspan>Mg</tspan></text><circle class="dot-ans" cx="120" cy="157" r="2.2"/><text class="lbl ans-t m" x="16" y="240" text-anchor="middle"><tspan>a</tspan></text></g></svg></div>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <p>物体\(\text{A}\)の加速度の大きさを \(a\)，糸の張力の大きさを \(T\) とする。重い\(\text{B}\)が落下するので，\(\text{A}\)は上向き，\(\text{B}\)は下向きに同じ大きさ \(a\) で加速する。それぞれの動く向きを正として運動方程式を立てる。</p>
+        <div class="axis-eq">
+          <span class="ax obj">A</span><span class="eq">\(T - mg = ma\)</span>
+          <span class="ax obj">B</span><span class="eq">\(Mg - T = Ma\)</span>
+        </div>
+        <p>\(\text{A}\)と\(\text{B}\)の式を足すと \(T\) が消える。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ Mg - mg = (m + M)a \qquad\Rightarrow\qquad a = \ans{\frac{M - m}{M + m}g} \]</div><div class="eq-narrow">\[ \begin{aligned} Mg - mg &= (m + M)a \\ \Rightarrow\ a &= \ans{\frac{M - m}{M + m}g} \end{aligned} \]</div></div>
+        <p>求めた \(a\) を\(\text{A}\)の式（\(T = ma + mg\)）に代入して \(T\) を求める。通分してまとめる。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ T = m\times\frac{M - m}{M + m}g + mg = \frac{mg\{(M - m) + (M + m)\}}{M + m} = \ans{\frac{2mMg}{M + m}} \]</div><div class="eq-narrow">\[ \begin{aligned} T &= m\times\frac{M - m}{M + m}g + mg \\ &= \frac{mg\{(M - m) + (M + m)\}}{M + m} \\ &= \ans{\frac{2mMg}{M + m}} \end{aligned} \]</div></div>
+      </div></details>
+      <div class="answer-grid hide-ans">
+        <div><span class="label">(4)(ア)</span><span class="val">\(\dfrac{M - m}{M + m}g\)</span></div>
+        <div><span class="label">(4)(イ)</span><span class="val">\(\dfrac{2mMg}{M + m}\)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <p class="statement">図のように，水平面から角度が 30° のなめらかな斜面上に置かれた質量 \(m\) の物体\(\text{A}\)と質量 \(3m\) の物体\(\text{B}\)を糸でつなぎ，滑車を通じて物体\(\text{B}\)をつるし，糸がたるまないように手で支えた。このとき，物体\(\text{B}\)の水平面からの高さは \(h\) であった。時刻 \(t = 0\) のとき，静かに手を離すと，物体\(\text{B}\)は落下した。重力加速度の大きさを \(g\) とし，以下の問いに答えよ。</p>
+    <div class="figure wide" style="max-width:460px"><svg class="fig" viewBox="0 0 360 235" role="img" aria-label="傾き30°のなめらかな斜面上の物体Aと，斜面の上の滑車を通して吊るした物体B（小球）を糸でつなぎ，Bを手で支える。Bの床からの高さはh"><rect class="smooth" x="5" y="205" width="35" height="8"/><line class="ink" x1="5" y1="205" x2="40" y2="205"/><polygon class="smooth" points="40,205 260.8,77.5 264.8,84.4 44,211.9"/><line class="ink" x1="40" y1="205" x2="260.8" y2="77.5"/><line class="aux-ink" x1="40" y1="205" x2="100" y2="205"/><path class="ink nofill" d="M66,205 A26,26 0 0 0 62.5,192"/><text class="lbl m" x="72.8" y="201.2" text-anchor="start"><tspan font-style="normal">30°</tspan></text><text class="jp tiny" x="224.5" y="114.6" text-anchor="middle">なめらかな面</text><path class="ink nofill" d="M260.8,77.5 V205"/><rect class="smooth" x="260.8" y="205" width="84.2" height="8"/><line class="ink" x1="260.8" y1="205" x2="345" y2="205"/><line class="pulley-arm" x1="260.8" y1="77.5" x2="279.4" y2="57.6"/><circle class="pulley" cx="279.4" cy="57.6" r="7"/><circle class="pulley-axis" cx="279.4" cy="57.6" r="2.2"/><text class="jp tiny" x="279.4" y="44.6" text-anchor="middle">滑車</text><rect class="ink body" x="133.7" y="107" width="40" height="30" transform="rotate(-30 153.7 122)"/><text class="lbl" x="160.1" y="115.7" text-anchor="middle">A</text><line class="ink" x1="171.1" y1="112" x2="275.9" y2="51.5"/><text class="jp tiny" x="226" y="71.1" text-anchor="middle">糸</text><line class="ink" x1="286.4" y1="57.6" x2="286.4" y2="83"/><circle class="ball white" cx="286.4" cy="92" r="9"/><text class="lbl small" x="298.4" y="93" text-anchor="start">B</text><path class="handfill" d="M274.3531384634273,101 C280.3531384634273,98 292.3531384634273,98 302.3531384634273,101 L316.3531384634273,110 L314.3531384634273,114 L300.3531384634273,109 C294.3531384634273,114 282.3531384634273,113 274.3531384634273,107 Z"/><line class="aux-ink" x1="298.4" y1="101" x2="330" y2="101"/><circle class="ghost" cx="286.3531384634273" cy="196" r="9"/><line class="aux-dot" x1="286.4" y1="132" x2="286.4" y2="187"/><line class="ink" x1="330" y1="103" x2="330" y2="203" marker-end="url(#ah-ink)" marker-start="url(#ah-ink)"/><text class="lbl m" x="338" y="153.5" text-anchor="start"><tspan>h</tspan></text><g class="ans-layer"><line class="ans" x1="154.3" y1="139" x2="119.3" y2="78.4" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="109.3" y="80.4" text-anchor="end"><tspan>N</tspan></text><line class="ans" x1="171.1" y1="112" x2="210.9" y2="89" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="202.9" y="79" text-anchor="end"><tspan>T</tspan></text><line class="aux" x1="126.9" y1="137.5" x2="153.7" y2="184"/><line class="aux" x1="180.6" y1="168.5" x2="153.7" y2="184"/><line class="ans" x1="153.7" y1="122" x2="153.7" y2="184" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="147.7" y="198" text-anchor="end"><tspan>mg</tspan></text><line class="aux" x1="153.7" y1="122" x2="126.9" y2="137.5" marker-end="url(#ah-ans)"/><text class="lbl ans-t small m" x="122.9" y="139.5" text-anchor="end"><tspan>mg</tspan><tspan font-style="normal"> sin 30°</tspan></text><line class="aux" x1="153.7" y1="122" x2="180.6" y2="168.5" marker-end="url(#ah-ans)"/><text class="lbl ans-t small m" x="184.6" y="180.5" text-anchor="start"><tspan>mg</tspan><tspan font-style="normal"> cos 30°</tspan></text><circle class="dot-ans" cx="153.7" cy="122" r="2.2"/><line class="ans" x1="285.4" y1="83" x2="285.4" y2="69.6" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="299.4" y="75.6" text-anchor="start"><tspan>T</tspan></text><line class="ans" x1="287.4" y1="92" x2="287.4" y2="147" marker-end="url(#ah-ans)"/><text class="lbl ans-t m" x="301.4" y="149" text-anchor="start"><tspan font-style="normal">3</tspan><tspan>mg</tspan></text><circle class="dot-ans" cx="286.4" cy="92" r="2.2"/></g></svg></div>
+    <ol class="qs">
+      <li>物体\(\text{B}\)が落下しているときの加速度の大きさはいくらか。</li>
+      <li>物体\(\text{B}\)が落下しているとき，時刻 \(t\) における物体\(\text{B}\)の速度を答えよ。ただし，鉛直下向きを物体\(\text{B}\)の速度の正の向きとする。</li>
+      <li>手を離してから，物体\(\text{B}\)が地面に達するまでの時間はいくらか。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>加速度</h4>
+      <p>物体\(\text{B}\)の加速度の大きさを \(a\)，糸の張力の大きさを \(T\) とする。\(\text{B}\)が落下すると，\(\text{A}\)は斜面に沿って上向きに同じ大きさ \(a\) で加速する。\(\text{A}\)にはたらく重力 \(mg\) は，斜面に平行な成分 \(mg\sin 30^\circ = \dfrac{1}{2}mg\)（斜面下向き）と，斜面に垂直な成分 \(mg\cos 30^\circ = \dfrac{\sqrt{3}}{2}mg\) に分ける。垂直な成分は垂直抗力 \(N\) とつりあうので，斜面に沿った向きの式だけ立てればよい。</p>
+      <div class="axis-eq">
+        <span class="ax obj">A</span><span class="eq">\(T - \dfrac{1}{2}mg = ma\)　（斜面に沿って上向きを正）</span>
+        <span class="ax obj">B</span><span class="eq">\(3mg - T = 3ma\)　（下向きを正）</span>
+      </div>
+      <p>\(\text{A}\)と\(\text{B}\)の式を足すと \(T\) が消える。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 3mg - \frac{1}{2}mg = 4ma \qquad\Rightarrow\qquad \frac{5}{2}mg = 4ma \qquad\Rightarrow\qquad a = \ans{\frac{5}{8}g} \]</div><div class="eq-narrow">\[ \begin{aligned} 3mg - \frac{1}{2}mg &= 4ma \\ \Rightarrow\ \frac{5}{2}mg &= 4ma \\ \Rightarrow\ a &= \ans{\frac{5}{8}g} \end{aligned} \]</div></div>
+      <h4><span class="n">(2)</span>速度</h4>
+      <p>速度は加速度を \(t\) で積分すると求まる。(1) より \(a = \dfrac{5}{8}g\)（一定）なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int \frac{5}{8}g\,dt = \frac{5}{8}gt + C \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int \frac{5}{8}g\,dt \\ &= \frac{5}{8}gt + C \end{aligned} \]</div></div>
+      <p>積分定数 \(C\) は \(t = 0\) のときの速度。「静かに手を離す」ので \(v(0) = 0\)，よって \(C = 0\)。</p>
+      <div class="eqwrap">\[ v = \ans{\frac{5}{8}gt} \]</div>
+      <h4><span class="n">(3)</span>地面に達するまでの時間</h4>
+      <p>\(\text{B}\)の最初の位置を原点として，鉛直下向きに \(y\) 軸をとる。</p>
+      <div class="figure small" style="max-width:200px"><svg class="fig" viewBox="0 0 200 200" role="img" aria-label="Bの最初の位置を原点Oとし，鉛直下向きにy軸をとる。地面はy = hの位置"><rect class="smooth" x="20" y="180" width="160" height="8"/><line class="ink" x1="20" y1="180" x2="180" y2="180"/><line class="ink" x1="70" y1="6" x2="70" y2="21"/><circle class="ball white" cx="70" cy="30" r="9"/><text class="lbl small g" x="57" y="34" text-anchor="end">B</text><circle class="ghost" cx="70" cy="171" r="9"/><line class="aux-dot" x1="70" y1="42" x2="70" y2="158" marker-end="url(#ah-ink)"/><line class="aux-ink" x1="80" y1="30" x2="125" y2="30"/><line class="axis" x1="125" y1="30" x2="125" y2="194" marker-end="url(#ah-axis)"/><text class="lbl axis-t m" x="133" y="194" text-anchor="start"><tspan>y</tspan></text><text class="lbl axis-t" x="133" y="35" text-anchor="start">O</text><text class="lbl small axis-t m" x="147" y="35" text-anchor="start"><tspan font-style="normal">（</tspan><tspan>y</tspan><tspan font-style="normal"> = 0）</tspan></text><line class="axis" x1="121" y1="180" x2="129" y2="180"/><text class="lbl small axis-t m" x="133" y="174" text-anchor="start"><tspan>y</tspan><tspan font-style="normal"> = </tspan><tspan>h</tspan></text><line class="ink" x1="103" y1="32" x2="103" y2="178" marker-end="url(#ah-ink)" marker-start="url(#ah-ink)"/><text class="lbl m" x="97" y="110" text-anchor="end"><tspan>h</tspan></text></svg></div>
+      <p>位置は (2) の速度を \(t\) で積分すると求まる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y = \int v\,dt = \int \frac{5}{8}gt\,dt = \frac{5}{16}gt^2 + C' \]</div><div class="eq-narrow">\[ \begin{aligned} y &= \int v\,dt \\ &= \int \frac{5}{8}gt\,dt \\ &= \frac{5}{16}gt^2 + C' \end{aligned} \]</div></div>
+      <p>\(t = 0\) で原点にいるので \(y(0) = 0\)，よって \(C' = 0\)。地面に達する時刻を \(t_1\) とすると，そのとき \(y = h\) なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ h = \frac{5}{16}gt_1^{\,2} \qquad\Rightarrow\qquad t_1^{\,2} = \frac{16h}{5g} \]</div><div class="eq-narrow">\[ \begin{aligned} h &= \frac{5}{16}gt_1^{\,2} \\ \Rightarrow\ t_1^{\,2} &= \frac{16h}{5g} \end{aligned} \]</div></div>
+      <p>\(t_1 &gt; 0\) より</p>
+      <div class="eqwrap"><div class="eq-wide">\[ t_1 = \sqrt{\frac{16h}{5g}} = \ans{4\sqrt{\frac{h}{5g}}} \]</div><div class="eq-narrow">\[ \begin{aligned} t_1 &= \sqrt{\frac{16h}{5g}} \\ &= \ans{4\sqrt{\frac{h}{5g}}} \end{aligned} \]</div></div>
+    </div></details>
+    <div class="answer-grid cols3 hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(\dfrac{5}{8}g\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(\dfrac{5}{8}gt\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(4\sqrt{\dfrac{h}{5g}}\)</span></div>
+    </div>
+  </section>
+</main>
+</div>
+
+<footer>イナプリ 応用物理 06 運動方程式（多物体） ― 解答解説</footer>
+</body>
+</html>

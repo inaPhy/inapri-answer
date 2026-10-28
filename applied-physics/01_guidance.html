@@ -6,12 +6,12 @@
 <title>01 ガイダンス 解答解説</title>
 <meta name="description" content="イナプリ 応用物理01「ガイダンス・数学の確認」の練習問題の解答解説">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<link rel="stylesheet" href="../assets/style.css?v=3ea01739">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<script defer src="../assets/main.js?v=71cb541e"></script>
+<script defer src="../assets/main.js?v=298e4938"></script>
 </head>
-<body style="--unit-dot:#f99">
+<body class="guide" style="--unit-dot:#f99">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
@@ -85,7 +85,7 @@
     <h2><span class="tag practice">練習問題①</span></h2>
     <p class="statement noindent">次の (1)〜(4) の問いに答えよ。</p>
 
-    <div class="note"><b>はじめに：三角比で成分に分ける</b>
+    <div class="note" data-pose="a"><b>はじめに：三角比で成分に分ける</b>
       <div class="fig-row" style="align-items:center">
         <div class="figure small" style="max-width:200px"><svg class="fig" viewBox="0 0 200 120" role="img" aria-label="直角三角形：斜辺a，θの向かいの辺b，θのとなりの辺c"><path class="ink nofill" d="M30,100 L150,100 L150,25 Z"/><path class="ink nofill" d="M140,100 L140,90 L150,90"/><path class="ink nofill" d="M52,100 A22,22 0 0 0 48.7,88.3"/><text class="lbl m" x="60" y="95" text-anchor="middle"><tspan>θ</tspan></text><text class="lbl ans-t m" x="84" y="52" text-anchor="middle"><tspan>a</tspan></text><text class="lbl ans-t m" x="160" y="66" text-anchor="start"><tspan>b</tspan></text><text class="lbl ans-t m" x="90" y="117" text-anchor="middle"><tspan>c</tspan></text></svg></div>
         <div style="flex:1 1 240px">
@@ -104,7 +104,7 @@
       </div>
       <details class="sol"><summary>解説</summary><div class="body">
         <p>\(v_0\) の矢印を斜辺とする直角三角形をつくる（図の破線）。\(x\) 軸の成分は 60° のとなりの辺なので \(\cos 60^\circ\)，\(y\) 軸の成分は向かいの辺なので \(\sin 60^\circ\) をかける。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = v_0\cos 60^\circ = \frac{1}{2}v_0, \qquad y\text{ 成分} = v_0\sin 60^\circ = \frac{\sqrt{3}}{2}v_0 \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= v_0\cos 60^\circ \\ &= \frac{1}{2}v_0 \\ y\text{ 成分} &= v_0\sin 60^\circ \\ &= \frac{\sqrt{3}}{2}v_0 \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = v_0\cos 60^\circ = \ans{\frac{1}{2}v_0}, \qquad y\text{ 成分} = v_0\sin 60^\circ = \ans{\frac{\sqrt{3}}{2}v_0} \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= v_0\cos 60^\circ \\ &= \ans{\frac{1}{2}v_0} \\ y\text{ 成分} &= v_0\sin 60^\circ \\ &= \ans{\frac{\sqrt{3}}{2}v_0} \end{aligned} \]</div></div>
       </div></details>
     </div>
 
@@ -116,7 +116,7 @@
       </div>
       <details class="sol"><summary>解説</summary><div class="body">
         <p>(1) の 60° が \(\theta\) になっただけ。\(x\) 軸は角 \(\theta\) のとなりの辺，\(y\) 軸は向かいの辺。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = v_0\cos\theta, \qquad y\text{ 成分} = v_0\sin\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= v_0\cos\theta \\ y\text{ 成分} &= v_0\sin\theta \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = \ans{v_0\cos\theta}, \qquad y\text{ 成分} = \ans{v_0\sin\theta} \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= \ans{v_0\cos\theta} \\ y\text{ 成分} &= \ans{v_0\sin\theta} \end{aligned} \]</div></div>
       </div></details>
     </div>
 
@@ -128,7 +128,7 @@
       </div>
       <details class="sol"><summary>解説</summary><div class="body">
         <p>天井と糸のなす角 \(\theta\) は，糸と \(x\) 軸（天井と平行）のなす角と等しい（平行線の錯角）。よって \(S\) と \(x\) 軸のなす角も \(\theta\) になり，(2) と同じ形で分けられる。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = S\cos\theta, \qquad y\text{ 成分} = S\sin\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= S\cos\theta \\ y\text{ 成分} &= S\sin\theta \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = \ans{S\cos\theta}, \qquad y\text{ 成分} = \ans{S\sin\theta} \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= \ans{S\cos\theta} \\ y\text{ 成分} &= \ans{S\sin\theta} \end{aligned} \]</div></div>
       </div></details>
     </div>
 
@@ -140,9 +140,9 @@
       </div>
       <details class="sol"><summary>解説</summary><div class="body">
         <p>斜面の傾き \(\theta\) は，重力 \(mg\)（鉛直下向き）と \(y\) 軸（斜面に垂直）のなす角に等しい。このため \(\theta\) のとなりの辺は \(y\) 軸の向き，向かいの辺は \(x\) 軸の向きになる。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = mg\sin\theta, \qquad y\text{ 成分} = -mg\cos\theta \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= mg\sin\theta \\ y\text{ 成分} &= -mg\cos\theta \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ x\text{ 成分} = \ans{mg\sin\theta}, \qquad y\text{ 成分} = \ans{-mg\cos\theta} \]</div><div class="eq-narrow">\[ \begin{aligned} x\text{ 成分} &= \ans{mg\sin\theta} \\ y\text{ 成分} &= \ans{-mg\cos\theta} \end{aligned} \]</div></div>
         <p>\(y\) 軸の正の向き（斜面から離れる向き）と逆向きなので，\(y\) 成分には − がつく。</p>
-        <p class="note"><b>注意</b>　斜面では，となりの辺が \(y\) 軸側にくるので，\(x\) 成分が \(\sin\)，\(y\) 成分が \(\cos\) になる。(1)〜(3) と入れかわるので，必ず図で角 \(\theta\) の位置を確かめる。</p>
+        <p class="note" data-pose="b"><b>注意</b>　斜面では，となりの辺が \(y\) 軸側にくるので，\(x\) 成分が \(\sin\)，\(y\) 成分が \(\cos\) になる。(1)〜(3) と入れかわるので，必ず図で角 \(\theta\) の位置を確かめる。</p>
       </div></details>
     </div>
   </section>
@@ -162,24 +162,24 @@
       <h4><span class="n">(1)</span></h4>
       <p>\(y\) の係数をそろえるために，1つ目の式を \(7x + 3y = -5\) と書きかえる（①）。2つ目を②とする。</p>
       <div class="eqwrap">\[ \begin{cases} 7x + 3y = -5 & \cdots ① \\ 5x + 3y = 1 & \cdots ② \end{cases} \]</div>
-      <p>①−② で \(y\) を消すと \(2x = -6\)，よって \(x = -3\)。これを②に代入すると \(-15 + 3y = 1\) より \(y = \dfrac{16}{3}\)。</p>
+      <p>①−② で \(y\) を消すと \(2x = -6\)，よって \(x = \ans{-3}\)。これを②に代入すると \(-15 + 3y = 1\) より \(y = \ans{\dfrac{16}{3}}\)。</p>
       <h4><span class="n">(2)</span></h4>
       <p>文字 \(a\) を含むが，\(a\) は定数として扱う。\(x\) の係数をそろえるため，1つ目の式を2倍する。</p>
       <div class="eqwrap">\[ \begin{cases} 2x + 2ay = 6 & \cdots ③ \\ 2x - 3y = 2 & \cdots ④ \end{cases} \]</div>
-      <p>③−④ で \(x\) を消すと \((2a + 3)y = 4\)。問題文の条件 \(a &gt; 0\) より \(2a + 3 &gt; 0\)（0 にならない）なので，両辺を \(2a + 3\) で割って \(y = \dfrac{4}{2a+3}\)。これを④に代入して \(x\) を求める。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ 2x = 2 + 3\cdot\frac{4}{2a+3} = \frac{2(2a+3) + 12}{2a+3} = \frac{4a+18}{2a+3} \qquad\Rightarrow\qquad x = \frac{2a+9}{2a+3} \]</div><div class="eq-narrow">\[ \begin{aligned} 2x &= 2 + 3\cdot\frac{4}{2a+3} \\ &= \frac{2(2a+3) + 12}{2a+3} \\ &= \frac{4a+18}{2a+3} \\ \Rightarrow\ x &= \frac{2a+9}{2a+3} \end{aligned} \]</div></div>
+      <p>③−④ で \(x\) を消すと \((2a + 3)y = 4\)。問題文の条件 \(a &gt; 0\) より \(2a + 3 &gt; 0\)（0 にならない）なので，両辺を \(2a + 3\) で割って \(y = \ans{\dfrac{4}{2a+3}}\)。これを④に代入して \(x\) を求める。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 2x = 2 + 3\cdot\frac{4}{2a+3} = \frac{2(2a+3) + 12}{2a+3} = \frac{4a+18}{2a+3} \qquad\Rightarrow\qquad x = \ans{\frac{2a+9}{2a+3}} \]</div><div class="eq-narrow">\[ \begin{aligned} 2x &= 2 + 3\cdot\frac{4}{2a+3} \\ &= \frac{2(2a+3) + 12}{2a+3} \\ &= \frac{4a+18}{2a+3} \\ \Rightarrow\ x &= \ans{\frac{2a+9}{2a+3}} \end{aligned} \]</div></div>
       <h4><span class="n">(3)</span></h4>
       <p>1つ目の式（⑤）がすでに「\(x = \)」の形なので，2つ目の式（⑥）に代入して \(x\) を消す。</p>
       <div class="eqwrap"><div class="eq-wide">\[ F - my = My \qquad\Rightarrow\qquad (M + m)y = F \]</div><div class="eq-narrow">\[ \begin{aligned} F - my &= My \\ \Rightarrow\ (M + m)y &= F \end{aligned} \]</div></div>
-      <p>\(m &gt; 0\)，\(M &gt; 0\) より \(M + m &gt; 0\) なので，両辺を \(M + m\) で割って \(y = \dfrac{F}{M+m}\)。</p>
-      <p>⑤に代入して　\(x = my = \dfrac{mF}{M+m}\)</p>
+      <p>\(m &gt; 0\)，\(M &gt; 0\) より \(M + m &gt; 0\) なので，両辺を \(M + m\) で割って \(y = \ans{\dfrac{F}{M+m}}\)。</p>
+      <p>⑤に代入して　\(x = my = \ans{\dfrac{mF}{M+m}}\)</p>
       <h4><span class="n">(4)</span></h4>
       <p>2つの式（⑦，⑧）をそのまま足すと，\(x\) が消える。</p>
       <div class="eqwrap"><div class="eq-wide">\[ (x - am) + (M - x) = my + My \qquad\Rightarrow\qquad M - am = (M + m)y \]</div><div class="eq-narrow">\[ \begin{aligned} (x - am) + (M - x) &= my + My \\ \Rightarrow\ M - am &= (M + m)y \end{aligned} \]</div></div>
-      <p>(3) と同じく \(M + m &gt; 0\) なので，両辺を \(M + m\) で割って \(y = \dfrac{M - am}{M + m}\)。</p>
+      <p>(3) と同じく \(M + m &gt; 0\) なので，両辺を \(M + m\) で割って \(y = \ans{\dfrac{M - am}{M + m}}\)。</p>
       <p>⑦より \(x = am + my\) なので，これに代入する。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ x = am + \frac{m(M - am)}{M+m} = \frac{am(M+m) + mM - am^2}{M+m} = \frac{(1+a)mM}{M+m} \]</div><div class="eq-narrow">\[ \begin{aligned} x &= am + \frac{m(M - am)}{M+m} \\ &= \frac{am(M+m) + mM - am^2}{M+m} \\ &= \frac{(1+a)mM}{M+m} \end{aligned} \]</div></div>
-      <p class="note"><b>ポイント</b>　(3)(4) のような文字だけの連立方程式は，運動方程式（2つの物体の問題など）でよく出てくる。「どの文字を消すか」を決めて，足す・引く・代入するの3つで解く。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ x = am + \frac{m(M - am)}{M+m} = \frac{am(M+m) + mM - am^2}{M+m} = \ans{\frac{(1+a)mM}{M+m}} \]</div><div class="eq-narrow">\[ \begin{aligned} x &= am + \frac{m(M - am)}{M+m} \\ &= \frac{am(M+m) + mM - am^2}{M+m} \\ &= \ans{\frac{(1+a)mM}{M+m}} \end{aligned} \]</div></div>
+      <p class="note" data-pose="b"><b>ポイント</b>　(3)(4) のような文字だけの連立方程式は，運動方程式（2つの物体の問題など）でよく出てくる。「どの文字を消すか」を決めて，足す・引く・代入するの3つで解く。</p>
     </div></details>
 
     <div class="answer-grid hide-ans">
@@ -210,35 +210,35 @@
     <details class="sol"><summary>解説</summary><div class="body">
       <h4><span class="n">(1)</span>\(x^n\) の微分</h4>
       <p>\((x^n)' = nx^{n-1}\) を各項に使う。定数 7 は微分すると 0。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ y' = 3\cdot 4x^3 - 4 = 12x^3 - 4 \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 3\cdot 4x^3 - 4 \\ &= 12x^3 - 4 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = 3\cdot 4x^3 - 4 = \ans{12x^3 - 4} \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 3\cdot 4x^3 - 4 \\ &= \ans{12x^3 - 4} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span>分数は指数の形に</h4>
       <p>\(\dfrac{5}{x} = 5x^{-1}\) と書きかえると，(1) と同じ公式が使える。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ y' = 5\cdot(-1)x^{-2} = -\frac{5}{x^2} \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 5\cdot(-1)x^{-2} \\ &= -\frac{5}{x^2} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = 5\cdot(-1)x^{-2} = \ans{-\frac{5}{x^2}} \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 5\cdot(-1)x^{-2} \\ &= \ans{-\frac{5}{x^2}} \end{aligned} \]</div></div>
       <h4><span class="n">(3)</span>積の微分</h4>
       <p>\(\{f(x)g(x)\}' = f'(x)g(x) + f(x)g'(x)\) を使う（展開してから微分してもよい）。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ y' = 1\cdot(x^2+3) + (x+1)\cdot 2x = 3x^2 + 2x + 3 \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 1\cdot(x^2+3) + (x+1)\cdot 2x \\ &= 3x^2 + 2x + 3 \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = 1\cdot(x^2+3) + (x+1)\cdot 2x = \ans{3x^2 + 2x + 3} \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= 1\cdot(x^2+3) + (x+1)\cdot 2x \\ &= \ans{3x^2 + 2x + 3} \end{aligned} \]</div></div>
       <h4><span class="n">(4)</span>商の微分</h4>
       <p>\(\left\{\dfrac{f(x)}{g(x)}\right\}' = \dfrac{f'(x)g(x) - f(x)g'(x)}{\{g(x)\}^2}\) を使う。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ y' = \frac{(4x-7)(2x-1) - (2x^2-7x+3)\cdot 2}{(2x-1)^2} = \frac{4x^2 - 4x + 1}{(2x-1)^2} = \frac{(2x-1)^2}{(2x-1)^2} = 1 \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= \frac{(4x-7)(2x-1) - (2x^2-7x+3)\cdot 2}{(2x-1)^2} \\ &= \frac{4x^2 - 4x + 1}{(2x-1)^2} \\ &= \frac{(2x-1)^2}{(2x-1)^2} \\ &= 1 \end{aligned} \]</div></div>
-      <p class="note"><b>別解</b>　分子は \(2x^2 - 7x + 3 = (2x-1)(x-3)\) と因数分解できるので，\(y = x - 3\)（\(x \neq \frac{1}{2}\)）。これを微分しても \(y' = 1\)。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ y' = \frac{(4x-7)(2x-1) - (2x^2-7x+3)\cdot 2}{(2x-1)^2} = \frac{4x^2 - 4x + 1}{(2x-1)^2} = \frac{(2x-1)^2}{(2x-1)^2} = \ans{1} \]</div><div class="eq-narrow">\[ \begin{aligned} y' &= \frac{(4x-7)(2x-1) - (2x^2-7x+3)\cdot 2}{(2x-1)^2} \\ &= \frac{4x^2 - 4x + 1}{(2x-1)^2} \\ &= \frac{(2x-1)^2}{(2x-1)^2} \\ &= \ans{1} \end{aligned} \]</div></div>
+      <p class="note" data-pose="b"><b>別解</b>　分子は \(2x^2 - 7x + 3 = (2x-1)(x-3)\) と因数分解できるので，\(y = x - 3\)（\(x \neq \frac{1}{2}\)）。これを微分しても \(y' = 1\)。</p>
       <h4><span class="n">(5)</span>指数関数</h4>
       <p>\((e^{kx})' = ke^{kx}\) より（\(k = -3\)）</p>
-      <div class="eqwrap">\[ y' = -3e^{-3x} \]</div>
+      <div class="eqwrap">\[ y' = \ans{-3e^{-3x}} \]</div>
       <h4><span class="n">(6)</span>\(x^n\) の積分</h4>
       <p>\(\displaystyle\int x^n\,dx = \frac{1}{n+1}x^{n+1} + C\) を各項に使う。</p>
-      <div class="eqwrap">\[ \int (3x^2 + 3x)\,dx = x^3 + \frac{3}{2}x^2 + C \]</div>
+      <div class="eqwrap">\[ \int (3x^2 + 3x)\,dx = \ans{x^3 + \frac{3}{2}x^2 + C} \]</div>
       <h4><span class="n">(7)</span>\(\dfrac{1}{x}\) の積分</h4>
       <p>\(n = -1\) のときだけは (6) の公式が使えない（分母が 0 になる）。\((\log|x|)' = \dfrac{1}{x}\) なので</p>
-      <div class="eqwrap">\[ \int \frac{1}{x}\,dx = \log|x| + C \]</div>
+      <div class="eqwrap">\[ \int \frac{1}{x}\,dx = \ans{\log|x| + C} \]</div>
       <h4><span class="n">(8)</span>三角関数</h4>
       <p>\((\cos 2x)' = -2\sin 2x\) なので，\(-\dfrac{1}{2}\cos 2x\) を微分すると \(\sin 2x\) になる。</p>
-      <div class="eqwrap">\[ \int \sin 2x\,dx = -\frac{1}{2}\cos 2x + C \]</div>
+      <div class="eqwrap">\[ \int \sin 2x\,dx = \ans{-\frac{1}{2}\cos 2x + C} \]</div>
       <h4><span class="n">(9)</span>置換積分</h4>
       <p>\(x - 1 = u\) とおくと \(\dfrac{du}{dx} = 1\)，つまり \(dx = du\)。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \int (x-1)^3\,dx = \int u^3\,du = \frac{1}{4}u^4 + C = \frac{1}{4}(x-1)^4 + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int (x-1)^3\,dx &= \int u^3\,du \\ &= \frac{1}{4}u^4 + C \\ &= \frac{1}{4}(x-1)^4 + C \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \int (x-1)^3\,dx = \int u^3\,du = \frac{1}{4}u^4 + C = \ans{\frac{1}{4}(x-1)^4 + C} \]</div><div class="eq-narrow">\[ \begin{aligned} \int (x-1)^3\,dx &= \int u^3\,du \\ &= \frac{1}{4}u^4 + C \\ &= \ans{\frac{1}{4}(x-1)^4 + C} \end{aligned} \]</div></div>
       <h4><span class="n">(10)</span>置換積分</h4>
       <p>\(\sqrt{2x-1} = (2x-1)^{\frac{1}{2}}\) と書きかえ，\(2x - 1 = u\) とおく。\(\dfrac{du}{dx} = 2\) より \(dx = \dfrac{1}{2}du\)。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \int (2x-1)^{\frac{1}{2}}\,dx = \int u^{\frac{1}{2}}\cdot\frac{1}{2}\,du = \frac{1}{2}\cdot\frac{2}{3}u^{\frac{3}{2}} + C = \frac{1}{3}(2x-1)^{\frac{3}{2}} + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int (2x-1)^{\frac{1}{2}}\,dx &= \int u^{\frac{1}{2}}\cdot\frac{1}{2}\,du \\ &= \frac{1}{2}\cdot\frac{2}{3}u^{\frac{3}{2}} + C \\ &= \frac{1}{3}(2x-1)^{\frac{3}{2}} + C \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \int (2x-1)^{\frac{1}{2}}\,dx = \int u^{\frac{1}{2}}\cdot\frac{1}{2}\,du = \frac{1}{2}\cdot\frac{2}{3}u^{\frac{3}{2}} + C = \ans{\frac{1}{3}(2x-1)^{\frac{3}{2}} + C} \]</div><div class="eq-narrow">\[ \begin{aligned} \int (2x-1)^{\frac{1}{2}}\,dx &= \int u^{\frac{1}{2}}\cdot\frac{1}{2}\,du \\ &= \frac{1}{2}\cdot\frac{2}{3}u^{\frac{3}{2}} + C \\ &= \ans{\frac{1}{3}(2x-1)^{\frac{3}{2}} + C} \end{aligned} \]</div></div>
     </div></details>
 
     <div class="answer-grid hide-ans">

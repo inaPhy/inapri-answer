@@ -6,12 +6,12 @@
 <title>03 加速度 解答解説</title>
 <meta name="description" content="イナプリ 応用物理03「加速度」の例題・練習問題の解答解説">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<link rel="stylesheet" href="../assets/style.css?v=3ea01739">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<script defer src="../assets/main.js?v=71cb541e"></script>
+<script defer src="../assets/main.js?v=298e4938"></script>
 </head>
-<body>
+<body class="guide">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
@@ -72,7 +72,7 @@
       <div class="yellow-box" style="flex:1 1 260px">（瞬間の）加速度　\(a = \dfrac{\textcolor{#d6362b}{dv}}{\textcolor{#d6362b}{dt}} = \dfrac{\textcolor{#d6362b}{d^2 r}}{\textcolor{#d6362b}{dt^2}}\)
         <div style="font-size:.85rem;color:var(--muted)">速度の微分 ＝ 位置の2回微分</div></div>
     </div>
-    <p class="note"><b>ポイント</b>　加速度は「速度が 1 秒あたりどれだけ変化するか」。速度と同じく向きをもつので，右向きを正とすると，左向きの速度や減速は − で表す。\(v\)-\(t\) グラフでは，加速度はグラフの傾き（接線の傾き）になる。</p>
+    <p class="note" data-pose="b"><b>ポイント</b>　加速度は「速度が 1 秒あたりどれだけ変化するか」。速度と同じく向きをもつので，右向きを正とすると，左向きの速度や減速は − で表す。\(v\)-\(t\) グラフでは，加速度はグラフの傾き（接線の傾き）になる。</p>
 
     <h2 class="bullet-h">位置・速度・加速度の関係</h2>
     <div class="yellow-box">
@@ -84,7 +84,7 @@
         <span class="term">加速度 \(a\)</span>
       </div>
     </div>
-    <p class="note"><b>ポイント</b>　右へは「\(t\) で微分」，左へは「\(t\) で積分」。積分したときに出てくる積分定数は，\(t = 0\) のときの値（初期条件）で決める。</p>
+    <p class="note" data-pose="b"><b>ポイント</b>　右へは「\(t\) で微分」，左へは「\(t\) で積分」。積分したときに出てくる積分定数は，\(t = 0\) のときの値（初期条件）で決める。</p>
   </section>
 
   <!-- ================= 例題① ================= -->
@@ -99,10 +99,10 @@
       <p>平均の加速度は「速度の変化 ÷ かかった時間」\(\overline{a} = \dfrac{\Delta v}{\Delta t}\)。速度の変化は「あとの速度 − まえの速度」で，右向きを正，左向きを負として計算する。</p>
       <h4><span class="n">(1)</span></h4>
       <p>まえは右向きに 3.0 m/s（\(+3.0\)），あとは右向きに 9.0 m/s（\(+9.0\)），時間は 2.0 s。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \overline{a} = \frac{9.0 - 3.0}{2.0} = 3.0 \,\unit{m/s²} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{a} &= \frac{9.0 - 3.0}{2.0} \\ &= 3.0 \,\unit{m/s²} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{a} = \frac{9.0 - 3.0}{2.0} = \ans{3.0 \,\unit{m/s²}} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{a} &= \frac{9.0 - 3.0}{2.0} \\ &= \ans{3.0 \,\unit{m/s²}} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span></h4>
       <p>まえは右向きに 24 m/s（\(+24\)），あとは<b>左向き</b>に 8.0 m/s なので \(-8.0\)。時間は 4.0 s。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \overline{a} = \frac{-8.0 - 24}{4.0} = -8.0 \,\unit{m/s²} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{a} &= \frac{-8.0 - 24}{4.0} \\ &= -8.0 \,\unit{m/s²} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \overline{a} = \frac{-8.0 - 24}{4.0} = \ans{-8.0 \,\unit{m/s²}} \]</div><div class="eq-narrow">\[ \begin{aligned} \overline{a} &= \frac{-8.0 - 24}{4.0} \\ &= \ans{-8.0 \,\unit{m/s²}} \end{aligned} \]</div></div>
       <p>負の符号は，加速度が左向きであることを表す（「左向きに 8.0 m/s²」）。</p>
     </div></details>
     <div class="answer-grid hide-ans">
@@ -123,11 +123,11 @@
       <h4><span class="n">(1)</span></h4>
       <p>加速度は速度を時間で微分したもの（\(a = \dfrac{dv}{dt}\)）。\(t^2\) は \(2t\)，定数 1 は 0 になる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ a = \frac{dv}{dt} = 2t \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{dv}{dt} \\ &= 2t \end{aligned} \]</div></div>
-      <p>\(t = 3.0\) を代入して　\(a(3.0) = 2\times 3.0 = 6.0\) m/s²</p>
+      <p>\(t = 3.0\) を代入して　\(a(3.0) = 2\times 3.0 = \ans{6.0\,\unit{m/s²}}\)</p>
       <h4><span class="n">(2)</span></h4>
       <p>位置の式が与えられているので，まず1回微分して速度を求め，もう1回微分して加速度を求める（\(a = \dfrac{d^2 r}{dt^2}\)）。</p>
       <div class="eqwrap"><div class="eq-wide">\[ v = \frac{dr}{dt} = 6t^2 - 2t, \qquad a = \frac{dv}{dt} = 12t - 2 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{dr}{dt} \\ &= 6t^2 - 2t \\ a &= \frac{dv}{dt} \\ &= 12t - 2 \end{aligned} \]</div></div>
-      <p>\(t = 3.0\) を代入して　\(a(3.0) = 12\times 3.0 - 2 = 34\) m/s²</p>
+      <p>\(t = 3.0\) を代入して　\(a(3.0) = 12\times 3.0 - 2 = \ans{34\,\unit{m/s²}}\)</p>
     </div></details>
     <div class="answer-grid hide-ans">
       <div><span class="label">(1)</span><span class="val">6.0〔m/s²〕</span></div>
@@ -155,15 +155,15 @@
     <details class="sol"><summary>解説</summary><div class="body">
       <h4><span class="n">(1)</span>速度の式</h4>
       <p>グラフは直線なので \(v = (\text{傾き})\,t + (\text{切片})\) の形。\(t = 0\) で \(v = 2.0\)（切片），1 s で 1.0 m/s ずつ増える（傾き 1）。</p>
-      <div class="eqwrap">\[ v = t + 2.0 \]</div>
+      <div class="eqwrap">\[ v = \ans{t + 2.0} \]</div>
       <h4><span class="n">(2)</span>加速度</h4>
       <p>加速度は速度の微分（\(v\)-\(t\) グラフの傾き）。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ a = \frac{dv}{dt} = 1.0 \,\unit{m/s²} \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{dv}{dt} \\ &= 1.0 \,\unit{m/s²} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ a = \frac{dv}{dt} = \ans{1.0 \,\unit{m/s²}} \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{dv}{dt} \\ &= \ans{1.0 \,\unit{m/s²}} \end{aligned} \]</div></div>
       <h4><span class="n">(3)</span>位置の式</h4>
       <p>位置は速度を \(t\) で積分すると求まる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ r = \int v\,dt = \int (t + 2)\,dt = \frac{1}{2}t^2 + 2t + C \]</div><div class="eq-narrow">\[ \begin{aligned} r &= \int v\,dt \\ &= \int (t + 2)\,dt \\ &= \frac{1}{2}t^2 + 2t + C \end{aligned} \]</div></div>
       <p>積分定数 \(C\) は \(t = 0\) のときの位置から決める。\(r(0) = -6.0\) なので \(\dfrac{1}{2}\cdot 0^2 + 2\cdot 0 + C = -6.0\)，よって \(C = -6.0\)。</p>
-      <div class="eqwrap">\[ r = \frac{1}{2}t^2 + 2.0t - 6.0 \]</div>
+      <div class="eqwrap">\[ r = \ans{\frac{1}{2}t^2 + 2.0t - 6.0} \]</div>
       <h4><span class="n">(4)</span>グラフ</h4>
       <p>\(r\)-\(t\) グラフをかくために平方完成して頂点を求める。</p>
       <div class="eqwrap"><div class="eq-wide">\[ r = \frac{1}{2}(t^2 + 4t) - 6 = \frac{1}{2}(t + 2)^2 - 8 \]</div><div class="eq-narrow">\[ \begin{aligned} r &= \frac{1}{2}(t^2 + 4t) - 6 \\ &= \frac{1}{2}(t + 2)^2 - 8 \end{aligned} \]</div></div>
@@ -175,8 +175,8 @@
       <h4><span class="n">(5)(6)</span>移動距離と変位</h4>
       <p>(3) の式に \(t = 1\)，\(t = 2\) を代入して，その間の位置を調べる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ r(1) = \frac{1}{2} + 2 - 6 = -3.5 \,\unit{m}, \qquad r(2) = 2 + 4 - 6 = 0 \,\unit{m} \]</div><div class="eq-narrow">\[ \begin{aligned} r(1) &= \frac{1}{2} + 2 - 6 \\ &= -3.5 \,\unit{m} \\ r(2) &= 2 + 4 - 6 \\ &= 0 \,\unit{m} \end{aligned} \]</div></div>
-      <p>変位は \(r(2) - r(1) = 0 - (-3.5) = 3.5\) m。この間 \(v &gt; 0\) で折り返さないので，移動距離も 3.5 m。</p>
-      <p class="note"><b>グラフで見ると</b>　\(v\)-\(t\) グラフで \(t = 1.0\)〜\(2.0\) の部分の面積（図の赤い台形）が変位になる：\(\dfrac{(3.0 + 4.0)\times 1.0}{2} = 3.5\) m。</p>
+      <p>変位は \(r(2) - r(1) = 0 - (-3.5) = \ans{3.5\,\unit{m}}\)。この間 \(v &gt; 0\) で折り返さないので，移動距離も <span class=\"ans-mark\">3.5 m</span>。</p>
+      <p class="note" data-pose="b"><b>グラフで見ると</b>　\(v\)-\(t\) グラフで \(t = 1.0\)〜\(2.0\) の部分の面積（図の赤い台形）が変位になる：\(\dfrac{(3.0 + 4.0)\times 1.0}{2} = 3.5\) m。</p>
     </div></details>
     <div class="answer-grid cols3 hide-ans">
       <div><span class="label">(1)</span><span class="val">\(v = t + 2.0\)〔m/s〕</span></div>
@@ -207,23 +207,23 @@
     <details class="sol"><summary>解説</summary><div class="body">
       <h4><span class="n">(1)</span>加速度</h4>
       <p>加速度は \(v\)-\(t\) グラフの傾き。\(t = 0\) で 6.0 m/s，\(t = 3.0\) で 0 なので</p>
-      <div class="eqwrap"><div class="eq-wide">\[ a = \frac{0 - 6.0}{3.0 - 0} = -2.0 \,\unit{m/s²} \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{0 - 6.0}{3.0 - 0} \\ &= -2.0 \,\unit{m/s²} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ a = \frac{0 - 6.0}{3.0 - 0} = \ans{-2.0 \,\unit{m/s²}} \]</div><div class="eq-narrow">\[ \begin{aligned} a &= \frac{0 - 6.0}{3.0 - 0} \\ &= \ans{-2.0 \,\unit{m/s²}} \end{aligned} \]</div></div>
       <p>速度の式は \(v = -2t + 6\)（傾き −2，切片 6）になる。</p>
       <h4><span class="n">(2)</span>位置の式</h4>
       <p>速度の式を \(t\) で積分すると位置になる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ r = \int v\,dt = \int (-2t + 6)\,dt = -t^2 + 6t + C \]</div><div class="eq-narrow">\[ \begin{aligned} r &= \int v\,dt \\ &= \int (-2t + 6)\,dt \\ &= -t^2 + 6t + C \end{aligned} \]</div></div>
-      <p>\(r(0) = 3.0\) なので \(C = 3.0\)。よって \(r = -t^2 + 6.0t + 3.0\)。</p>
+      <p>\(r(0) = 3.0\) なので \(C = 3.0\)。よって \(r = \ans{-t^2 + 6.0t + 3.0}\)。</p>
       <h4><span class="n">(3)</span>\(r\)-\(t\) グラフ</h4>
       <p>平方完成すると \(r = -(t - 3)^2 + 12\)。頂点 \((3,\ 12)\) の上に凸の放物線で，\(t = 0\) で \(r = 3\)（例題③ (4) と同じ手順）。</p>
       <div class="figure small" style="max-width:220px"><svg class="fig" viewBox="0 0 200 170" role="img" aria-label="r-tグラフ：r = −t² + 6t + 3。t=0でr=3，頂点(3, 12)"><line class="ink" x1="20" y1="140" x2="227.2" y2="140" marker-end="url(#ah-ink)"/><line class="ink" x1="50" y1="162" x2="50" y2="9" marker-end="url(#ah-ink)"/><text class="lbl m" x="231.2" y="145" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="50" y="5" text-anchor="middle"><tspan>r</tspan></text><text class="lbl small" x="44" y="155" text-anchor="end">O</text><polyline class="curve" fill="none" points="38.3,139.1 40.5,133.9 42.8,128.8 45,123.8 47.2,118.9 49.4,114.2 51.7,109.6 53.9,105.1 56.1,100.8 58.3,96.6 60.6,92.5 62.8,88.6 65,84.8 67.2,81.1 69.5,77.6 71.7,74.2 73.9,70.9 76.1,67.8 78.4,64.8 80.6,61.9 82.8,59.2 85.1,56.6 87.3,54.1 89.5,51.7 91.7,49.5 94,47.4 96.2,45.5 98.4,43.7 100.6,42 102.9,40.4 105.1,39 107.3,37.7 109.5,36.5 111.8,35.5 114,34.6 116.2,33.8 118.4,33.2 120.7,32.7 122.9,32.3 125.1,32.1 127.3,32 129.6,32 131.8,32.2 134,32.5 136.3,32.9 138.5,33.5 140.7,34.1 142.9,35 145.2,35.9 147.4,37 149.6,38.2 151.8,39.6 154.1,41 156.3,42.7 158.5,44.4 160.7,46.3 163,48.3 165.2,50.4 167.4,52.7 169.6,55.1 171.9,57.6 174.1,60.3 176.3,63.1 178.6,66 180.8,69.1 183,72.3 185.2,75.6 187.5,79.1 189.7,82.7 191.9,86.4 194.1,90.2 196.4,94.2 198.6,98.3 200.8,102.6 203,107 205.3,111.5 207.5,116.1 209.7,120.9 211.9,125.8 214.2,130.9 216.4,136"/><line class="aux-ink" x1="128" y1="32" x2="128" y2="140"/><line class="aux-ink" x1="128" y1="32" x2="50" y2="32"/><circle class="dot-ink" cx="128" cy="32" r="2.6"/><text class="lbl m" x="128" y="156" text-anchor="middle"><tspan font-style="normal">3</tspan></text><text class="lbl m" x="44" y="37" text-anchor="end"><tspan font-style="normal">12</tspan></text><circle class="dot-ink" cx="50" cy="113" r="2.4"/><text class="lbl small m" x="44" y="117" text-anchor="end"><tspan font-style="normal">3</tspan></text></svg></div>
       <h4><span class="n">(4)</span>移動距離</h4>
       <p>\(t = 3\,\unit{s}\) で速度が 0 になり，そこで<b>折り返す</b>（3 s 以降は \(v &lt; 0\) で逆向きに進む）。そこで行きと帰りに分けて考える。</p>
       <div class="eqwrap"><div class="eq-wide">\[ r(0) = 3, \qquad r(3) = -9 + 18 + 3 = 12, \qquad r(4) = -16 + 24 + 3 = 11 \]</div><div class="eq-narrow">\[ \begin{aligned} r(0) &= 3 \\ r(3) &= -9 + 18 + 3 \\ &= 12 \\ r(4) &= -16 + 24 + 3 \\ &= 11 \end{aligned} \]</div></div>
-      <p>0〜3 s で \(12 - 3 = 9\,\unit{m}\) 進み，3〜4 s で \(12 - 11 = 1\,\unit{m}\) もどる。移動距離は \(9 + 1 = 10\,\unit{m}\)。</p>
+      <p>0〜3 s で \(12 - 3 = 9\,\unit{m}\) 進み，3〜4 s で \(12 - 11 = 1\,\unit{m}\) もどる。移動距離は \(9 + 1 = \ans{10\,\unit{m}}\)。</p>
       <h4><span class="n">(5)</span>変位</h4>
       <p>変位は最初と最後の位置の差だけで決まる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ r(4) - r(0) = 11 - 3 = 8.0 \,\unit{m} \]</div><div class="eq-narrow">\[ \begin{aligned} r(4) - r(0) &= 11 - 3 \\ &= 8.0 \,\unit{m} \end{aligned} \]</div></div>
-      <p class="note"><b>グラフで見ると</b>　\(v\)-\(t\) グラフの面積で，\(t\) 軸より上（正）が 9 m，下（負）が 1 m。移動距離は面積をそのまま足して 10 m，変位は符号をつけて足して \(9 - 1 = 8\,\unit{m}\)。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ r(4) - r(0) = 11 - 3 = \ans{8.0 \,\unit{m}} \]</div><div class="eq-narrow">\[ \begin{aligned} r(4) - r(0) &= 11 - 3 \\ &= \ans{8.0 \,\unit{m}} \end{aligned} \]</div></div>
+      <p class="note" data-pose="b"><b>グラフで見ると</b>　\(v\)-\(t\) グラフの面積で，\(t\) 軸より上（正）が 9 m，下（負）が 1 m。移動距離は面積をそのまま足して 10 m，変位は符号をつけて足して \(9 - 1 = 8\,\unit{m}\)。</p>
     </div></details>
     <div class="answer-grid cols3 hide-ans">
       <div><span class="label">(1)</span><span class="val">\(a = -2.0\)〔m/s²〕</span></div>
@@ -248,14 +248,14 @@
       <h4><span class="n">(1)</span>速度</h4>
       <p>加速度 \(a = 2.0\)（一定）を \(t\) で積分すると速度になる。</p>
       <div class="eqwrap"><div class="eq-wide">\[ v = \int a\,dt = \int 2\,dt = 2t + C_1 \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \int a\,dt \\ &= \int 2\,dt \\ &= 2t + C_1 \end{aligned} \]</div></div>
-      <p>\(v(0) = -6.0\) より \(C_1 = -6.0\)。よって \(v = 2.0t - 6.0\)。</p>
+      <p>\(v(0) = -6.0\) より \(C_1 = -6.0\)。よって \(v = \ans{2.0t - 6.0}\)。</p>
       <h4><span class="n">(2)</span>位置</h4>
       <p>(1) の速度をさらに \(t\) で積分する。</p>
       <div class="eqwrap"><div class="eq-wide">\[ x = \int v\,dt = \int (2t - 6)\,dt = t^2 - 6t + C_2 \]</div><div class="eq-narrow">\[ \begin{aligned} x &= \int v\,dt \\ &= \int (2t - 6)\,dt \\ &= t^2 - 6t + C_2 \end{aligned} \]</div></div>
-      <p>\(x(0) = 5.0\) より \(C_2 = 5.0\)。よって \(x = t^2 - 6.0t + 5.0\)。</p>
+      <p>\(x(0) = 5.0\) より \(C_2 = 5.0\)。よって \(x = \ans{t^2 - 6.0t + 5.0}\)。</p>
       <h4><span class="n">(3)</span>\(x = 0\) となる時刻</h4>
       <p>(2) の式で \(x = 0\) とおいて因数分解する。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ t^2 - 6t + 5 = (t - 1)(t - 5) = 0 \qquad\Rightarrow\qquad t = 1.0,\ 5.0 \,\unit{s} \]</div><div class="eq-narrow">\[ \begin{aligned} t^2 - 6t + 5 &= (t - 1)(t - 5) \\ &= 0 \\ \Rightarrow\ t &= 1.0,\ 5.0 \,\unit{s} \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ t^2 - 6t + 5 = (t - 1)(t - 5) = 0 \qquad\Rightarrow\qquad t = \ans{1.0,\ 5.0 \,\unit{s}} \]</div><div class="eq-narrow">\[ \begin{aligned} t^2 - 6t + 5 &= (t - 1)(t - 5) \\ &= 0 \\ \Rightarrow\ t &= \ans{1.0,\ 5.0 \,\unit{s}} \end{aligned} \]</div></div>
       <p>はじめは負の向きに動いて 1.0 s で原点を通り，3.0 s で折り返して，5.0 s に再び原点を通る。</p>
     </div></details>
     <div class="answer-grid cols3 hide-ans">
@@ -285,17 +285,17 @@
       <h4><span class="n">(1)</span>速度</h4>
       <p>各区間は直線なので，傾きと切片を読む（③は \(t\) 軸との交点 (5, 0) を通る）。</p>
       <ul>
-        <li>① 傾き 1，切片 0　→　\(v = t\)</li>
-        <li>② 傾き 0（一定）　→　\(v = 1.0\)</li>
-        <li>③ 傾き \(-\dfrac{1}{2}\)，(5, 0) を通る　→　\(v = -\dfrac{1}{2}(t - 5) = -0.50t + 2.5\)</li>
+        <li>① 傾き 1，切片 0　→　\(v = \ans{t}\)</li>
+        <li>② 傾き 0（一定）　→　\(v = \ans{1.0}\)</li>
+        <li>③ 傾き \(-\dfrac{1}{2}\)，(5, 0) を通る　→　\(v = -\dfrac{1}{2}(t - 5) = \ans{-0.50t + 2.5}\)</li>
       </ul>
       <h4><span class="n">(2)</span>位置</h4>
       <p>各区間の速度を積分する。積分定数は<b>その区間のはじめの位置</b>（前の区間の終わりの位置）で決めるのがポイント。</p>
-      <p>① \(x = \displaystyle\int t\,dt = \frac{1}{2}t^2 + C_1\)。\(x(0) = 0\) より \(C_1 = 0\)。　\(x = \dfrac{1}{2}t^2\)</p>
-      <p>② \(x = \displaystyle\int 1\,dt = t + C_2\)。①の式から \(x(1) = \dfrac{1}{2}\) なので \(\dfrac{1}{2} = 1 + C_2\)，\(C_2 = -\dfrac{1}{2}\)。　\(x = t - 0.5\)</p>
+      <p>① \(x = \displaystyle\int t\,dt = \frac{1}{2}t^2 + C_1\)。\(x(0) = 0\) より \(C_1 = 0\)。　\(x = \ans{\dfrac{1}{2}t^2}\)</p>
+      <p>② \(x = \displaystyle\int 1\,dt = t + C_2\)。①の式から \(x(1) = \dfrac{1}{2}\) なので \(\dfrac{1}{2} = 1 + C_2\)，\(C_2 = -\dfrac{1}{2}\)。　\(x = \ans{t - 0.5}\)</p>
       <p>③ \(x = \displaystyle\int \left(-\frac{1}{2}t + \frac{5}{2}\right)dt = -\frac{1}{4}t^2 + \frac{5}{2}t + C_3\)。②の式から \(x(3) = \dfrac{5}{2}\) なので</p>
       <div class="eqwrap"><div class="eq-wide">\[ \frac{5}{2} = -\frac{9}{4} + \frac{15}{2} + C_3 \qquad\Rightarrow\qquad C_3 = -\frac{11}{4} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{5}{2} &= -\frac{9}{4} + \frac{15}{2} + C_3 \\ \Rightarrow\ C_3 &= -\frac{11}{4} \end{aligned} \]</div></div>
-      <p>よって　\(x = -0.25t^2 + 2.5t - 2.75\)</p>
+      <p>よって　\(x = \ans{-0.25t^2 + 2.5t - 2.75}\)</p>
       <h4><span class="n">(3)</span>\(x\)-\(t\) グラフ</h4>
       <p>(2) の式から \(x(1) = 0.5\)，\(x(3) = 2.5\)，\(x(5) = -\dfrac{25}{4} + \dfrac{25}{2} - \dfrac{11}{4} = 3.5\) m。①は下に凸の放物線，②は直線，③は上に凸の放物線で，\(t = 5\) で止まる（その後は 3.5 m のまま）。</p>
       <div class="figure" style="max-width:300px"><svg class="fig" viewBox="0 0 260 190" role="img" aria-label="x-tグラフ：0〜1 sは放物線，1〜3 sは直線，3〜5 sは上に凸の放物線で3.5 mで止まる"><line class="grid-dot" x1="74" y1="160" x2="74" y2="23.2"/><line class="grid-dot" x1="114" y1="160" x2="114" y2="23.2"/><line class="grid-dot" x1="154" y1="160" x2="154" y2="23.2"/><line class="grid-dot" x1="194" y1="160" x2="194" y2="23.2"/><line class="grid-dot" x1="234" y1="160" x2="234" y2="23.2"/><line class="grid-dot" x1="34" y1="141" x2="250" y2="141"/><line class="grid-dot" x1="34" y1="122" x2="250" y2="122"/><line class="grid-dot" x1="34" y1="103" x2="250" y2="103"/><line class="grid-dot" x1="34" y1="84" x2="250" y2="84"/><line class="grid-dot" x1="34" y1="65" x2="250" y2="65"/><line class="grid-dot" x1="34" y1="46" x2="250" y2="46"/><line class="grid-dot" x1="34" y1="27" x2="250" y2="27"/><line class="ink" x1="30" y1="160" x2="266" y2="160" marker-end="url(#ah-ink)"/><line class="ink" x1="34" y1="164" x2="34" y2="9.2" marker-end="url(#ah-ink)"/><text class="lbl m" x="270" y="165" text-anchor="start"><tspan>t</tspan><tspan font-style="normal">〔s〕</tspan></text><text class="lbl m" x="34" y="5.2" text-anchor="middle"><tspan>x</tspan><tspan font-style="normal">〔m〕</tspan></text><text class="lbl small m" x="74" y="175" text-anchor="middle"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="114" y="175" text-anchor="middle"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="154" y="175" text-anchor="middle"><tspan font-style="normal">3.0</tspan></text><text class="lbl small m" x="194" y="175" text-anchor="middle"><tspan font-style="normal">4.0</tspan></text><text class="lbl small m" x="234" y="175" text-anchor="middle"><tspan font-style="normal">5.0</tspan></text><text class="lbl small m" x="28" y="126" text-anchor="end"><tspan font-style="normal">1.0</tspan></text><text class="lbl small m" x="28" y="88" text-anchor="end"><tspan font-style="normal">2.0</tspan></text><text class="lbl small m" x="28" y="50" text-anchor="end"><tspan font-style="normal">3.0</tspan></text><text class="lbl small" x="28" y="175" text-anchor="end">O</text><polyline class="curve" fill="none" points="34,160 35.8,160 37.6,159.8 39.4,159.7 41.2,159.4 43,159 44.8,158.6 46.6,158.1 48.4,157.5 50.2,156.9 52,156.2 53.8,155.3 55.6,154.5 57.4,153.5 59.2,152.5 61,151.3 62.8,150.2 64.6,148.9 66.4,147.5 68.2,146.1 70,144.6 71.8,143 73.6,141.4 75.4,139.7 77.2,138 79,136.2 80.8,134.5 82.6,132.8 84.4,131.1 86.2,129.4 88,127.7 89.8,126 91.6,124.3 93.4,122.6 95.2,120.9 97,119.2 98.8,117.4 100.6,115.7 102.4,114 104.2,112.3 106,110.6 107.8,108.9 109.6,107.2 111.4,105.5 113.2,103.8 115,102 116.8,100.3 118.6,98.6 120.4,96.9 122.2,95.2 124,93.5 125.8,91.8 127.6,90.1 129.4,88.4 131.2,86.7 133,85 134.8,83.2 136.6,81.5 138.4,79.8 140.2,78.1 142,76.4 143.8,74.7 145.6,73 147.4,71.3 149.2,69.6 151,67.9 152.8,66.1 154.6,64.4 156.4,62.8 158.2,61.1 160,59.5 161.8,58 163.6,56.4 165.4,54.9 167.2,53.5 169,52.1 170.8,50.7 172.6,49.4 174.4,48.1 176.2,46.8 178,45.6 179.8,44.4 181.6,43.3 183.4,42.2 185.2,41.1 187,40.1 188.8,39.1 190.6,38.2 192.4,37.3 194.2,36.4 196,35.6 197.8,34.8 199.6,34 201.4,33.3 203.2,32.6 205,32 206.8,31.4 208.6,30.8 210.4,30.3 212.2,29.8 214,29.4 215.8,29 217.6,28.6 219.4,28.3 221.2,28 223,27.7 224.8,27.5 226.6,27.3 228.4,27.2 230.2,27.1 232,27 233.8,27 235.6,27 237.4,27 239.2,27 241,27 242.8,27 244.6,27 246.4,27 248.2,27 250,27"/><circle class="dot-ink" cx="74" cy="141" r="2.4"/><line class="aux-ink" x1="34" y1="141" x2="74" y2="141"/><text class="lbl small ans-t m" x="28" y="145" text-anchor="end"><tspan font-style="normal">0.5</tspan></text><circle class="dot-ink" cx="154" cy="65" r="2.4"/><line class="aux-ink" x1="34" y1="65" x2="154" y2="65"/><text class="lbl small ans-t m" x="28" y="69" text-anchor="end"><tspan font-style="normal">2.5</tspan></text><circle class="dot-ink" cx="234" cy="27" r="2.4"/><line class="aux-ink" x1="34" y1="27" x2="234" y2="27"/><text class="lbl small ans-t m" x="28" y="31" text-anchor="end"><tspan font-style="normal">3.5</tspan></text></svg></div>

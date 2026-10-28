@@ -9,7 +9,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ],
       throwOnError: false,
       // 式の中の単位は \unit{C} → 〔C〕（ブロック体）。例：Q_1 = 6.0\,\unit{C}，\unit{m/s²}，\unit{μF}
-      macros: { "\\unit": "\\text{〔}\\textsf{#1}\\text{〕}" },
+      // \ans{…}：解説の中で導いた答え（太字＋黄色のマーカー）。例：a = \ans{\dfrac{F}{m + M}}
+      macros: { "\\unit": "\\text{〔}\\textsf{#1}\\text{〕}", "\\ans": "\\htmlClass{ans-mark}{\\boldsymbol{#1}}" },
+      trust: ctx => ctx.command === "\\htmlClass",
     });
   }
 
@@ -67,12 +69,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ---- 解説を開いたら同じ小問（.sub-q か .card）の図に描き込みを表示，閉じたら消す ----
+  // 同じ範囲に解説が複数ある（例題のイチ・ニッ・サン）ときは，どれか1つでも開いていれば表示する
   document.querySelectorAll("details.sol").forEach(d => {
     d.addEventListener("toggle", () => {
       const scope = d.closest(".sub-q") || d.closest(".card");
-      scope.querySelectorAll(".figure").forEach(f => { if (f.querySelector(".ans-layer")) setFig(f, d.open); });
+      const on = [...scope.querySelectorAll("details.sol")].some(x => x.open);
+      scope.querySelectorAll(".figure").forEach(f => { if (f.querySelector(".ans-layer")) setFig(f, on); });
     });
   });
+
+  // ---- 解説者のキャラクター（<body class="guide"> のページだけ）----
+  // ポーズは assets/chara/<記号>.png：a＝下を指す，b＝上を指す，c＝同じ高さ（腰に手），d＝考える（腕組み）
+  // 解説の見出しの右端に立って左（解説のほう）を向く（閉じているときは d，開くと c）。
+  // 補足（.note）は指さしの吹き出しにする。指す向きは data-pose で，その補足が説明しているものの位置に合わせる（省略時は b）
+  if (document.body.classList.contains("guide")) {
+    const js = document.querySelector('script[src*="main.js"]');
+    const dir = new URL("chara/", js ? js.src : location.href).href;
+    const img = (pose, cls) => `<img class="${cls}" src="${dir}${pose}.png" alt="" aria-hidden="true">`;
+    document.querySelectorAll("details.sol:not(.step-sol) > summary").forEach(s => {
+      s.insertAdjacentHTML("beforeend", `<span class="guide-sum"><span class="g-say g-closed">まず自分で解いてみよう</span><span class="g-say g-open">解説するよ！</span>${img("d", "g-closed")}${img("c", "g-open")}</span>`);
+    });
+    document.querySelectorAll(".note").forEach(n => {
+      const pose = n.dataset.pose || "b";
+      const row = document.createElement("div");
+      row.className = "guide-row pose-" + pose;
+      row.innerHTML = img(pose, "g-chara");
+      n.replaceWith(row);
+      row.append(n);
+    });
+  }
 
   // ---- 答えを隠す／クリックで表示 ----
   document.querySelectorAll(".hide-ans .val").forEach(v => {

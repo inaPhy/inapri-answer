@@ -6,12 +6,12 @@
 <title>04 物体にはたらく力 解答解説</title>
 <meta name="description" content="イナプリ 応用物理04「物体にはたらく力」の例題・練習問題の解答解説">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=d7b62f03">
+<link rel="stylesheet" href="../assets/style.css?v=3ea01739">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<script defer src="../assets/main.js?v=71cb541e"></script>
+<script defer src="../assets/main.js?v=298e4938"></script>
 </head>
-<body>
+<body class="guide">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
@@ -83,7 +83,7 @@
       </ol>
       <p style="margin:6px 0 0;text-align:right;font-size:.85rem">以上の2つを見つけるだけです（他にもあるけど，とりあえずは…）</p>
     </div>
-    <p class="note"><b>力の見つけ方の手順</b>　① まず重力 \(mg\) を物体の中心から真下に描く。② 次に，物体が<b>触れているもの</b>（床・壁・糸・ばね・ほかの物体・手）を1つずつ探し，触れているところから力を描く。触れていないものからは力を受けない（重力を除く）。</p>
+    <p class="note" data-pose="b"><b>力の見つけ方の手順</b>　① まず重力 \(mg\) を物体の中心から真下に描く。② 次に，物体が<b>触れているもの</b>（床・壁・糸・ばね・ほかの物体・手）を1つずつ探し，触れているところから力を描く。触れていないものからは力を受けない（重力を除く）。</p>
   </section>
 
   <!-- ================= 例題① ================= -->
@@ -144,7 +144,7 @@
       <p style="margin:0;font-size:1.1rem"><b>物体が <span style="border:1px solid var(--ink);padding:0 .2em">静止</span></b>（もしくは <span style="border:1px solid var(--ink);padding:0 .2em;font-size:.85rem">等速</span>）⇔ 物体にはたらく力が <span class="fill">つりあっている</span></p>
       <p style="margin:6px 0 0 2em">↳ <span class="fill">ベクトルの和</span> が 0（＝ 矢印が <span class="fill">一周</span> する）</p>
     </div>
-    <p class="note"><b>ポイント</b>　つり合いの式は「上向きの力の合計 ＝ 下向きの力の合計」「右向きの合計 ＝ 左向きの合計」のように，向きごとに分けて立てる。斜めの力は分解してから使う。</p>
+    <p class="note" data-pose="b"><b>ポイント</b>　つり合いの式は「上向きの力の合計 ＝ 下向きの力の合計」「右向きの合計 ＝ 左向きの合計」のように，向きごとに分けて立てる。斜めの力は分解してから使う。</p>
   </section>
 
   <!-- ================= 例題③ ================= -->
@@ -190,9 +190,9 @@
       </div>
       <details class="sol"><summary>解説</summary><div class="body">
         <p>Aにはたらく力は，重力 40 N（下），Bから押される力（下），床からの垂直抗力（上）の3つ。</p>
-        <p>Bが静止しているので，Bにはたらく重力 10 N と，AがBを押し上げる力がつり合っている。AがBを押す力とBがAを押す力は<b>作用・反作用</b>で同じ大きさなので，BがAを押す力は 10 N。</p>
+        <p>Bが静止しているので，Bにはたらく重力 10 N と，AがBを押し上げる力がつり合っている。AがBを押す力とBがAを押す力は<b>作用・反作用</b>で同じ大きさなので，BがAを押す力は <span class="ans-mark">10 N</span>。</p>
         <p>Aは静止しているので，上向きの力と下向きの力がつり合う。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ N = 40 + 10 = 50 \,\unit{N} \]</div><div class="eq-narrow">\[ \begin{aligned} N &= 40 + 10 \\ &= 50 \,\unit{N} \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ N = 40 + 10 = \ans{50 \,\unit{N}} \]</div><div class="eq-narrow">\[ \begin{aligned} N &= 40 + 10 \\ &= \ans{50 \,\unit{N}} \end{aligned} \]</div></div>
       </div></details>
     </div>
 
@@ -205,9 +205,9 @@
       <details class="sol"><summary>解説</summary><div class="body">
         <p>重力 120 N を，斜面に平行な成分 \(120\sin 30^\circ\) と垂直な成分 \(120\cos 30^\circ\) に分解する（斜面の角 30° は，重力と斜面に垂直な向きのなす角と等しい）。</p>
         <p>斜面方向：静止摩擦力 \(f\)（斜面上向き）が重力の斜面方向の成分とつり合う。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ f = 120\sin 30^\circ = 120\times\frac{1}{2} = 60 \,\unit{N} \]</div><div class="eq-narrow">\[ \begin{aligned} f &= 120\sin 30^\circ \\ &= 120\times\frac{1}{2} \\ &= 60 \,\unit{N} \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ f = 120\sin 30^\circ = 120\times\frac{1}{2} = \ans{60 \,\unit{N}} \]</div><div class="eq-narrow">\[ \begin{aligned} f &= 120\sin 30^\circ \\ &= 120\times\frac{1}{2} \\ &= \ans{60 \,\unit{N}} \end{aligned} \]</div></div>
         <p>斜面に垂直な方向：垂直抗力 \(N\) が重力の垂直な成分とつり合う。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ N = 120\cos 30^\circ = 120\times\frac{\sqrt{3}}{2} = 60\times 1.73 = 103.8 \fallingdotseq 1.0\times 10^2 \,\unit{N} \]</div><div class="eq-narrow">\[ \begin{aligned} N &= 120\cos 30^\circ \\ &= 120\times\frac{\sqrt{3}}{2} \\ &= 60\times 1.73 \\ &= 103.8 \\ &\fallingdotseq 1.0\times 10^2 \,\unit{N} \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ N = 120\cos 30^\circ = 120\times\frac{\sqrt{3}}{2} = 60\times 1.73 = 103.8 \fallingdotseq \ans{1.0\times 10^2 \,\unit{N}} \]</div><div class="eq-narrow">\[ \begin{aligned} N &= 120\cos 30^\circ \\ &= 120\times\frac{\sqrt{3}}{2} \\ &= 60\times 1.73 \\ &= 103.8 \\ &\fallingdotseq \ans{1.0\times 10^2 \,\unit{N}} \end{aligned} \]</div></div>
         <p>有効数字2桁なので，103.8 は \(1.0\times 10^2\) と表す（「100」と書くと何桁か分からないため）。</p>
       </div></details>
     </div>
@@ -221,10 +221,10 @@
       <details class="sol"><summary>解説</summary><div class="body">
         <p>引く力 100 N を，水平成分 \(100\cos 30^\circ\) と鉛直成分 \(100\sin 30^\circ\) に分解する。</p>
         <p>水平方向：静止摩擦力 \(f\)（左向き）が引く力の水平成分とつり合う。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ f = 100\cos 30^\circ = 100\times\frac{\sqrt{3}}{2} = 50\times 1.73 = 86.5 \fallingdotseq 87 \,\unit{N} \]</div><div class="eq-narrow">\[ \begin{aligned} f &= 100\cos 30^\circ \\ &= 100\times\frac{\sqrt{3}}{2} \\ &= 50\times 1.73 \\ &= 86.5 \\ &\fallingdotseq 87 \,\unit{N} \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ f = 100\cos 30^\circ = 100\times\frac{\sqrt{3}}{2} = 50\times 1.73 = 86.5 \fallingdotseq \ans{87 \,\unit{N}} \]</div><div class="eq-narrow">\[ \begin{aligned} f &= 100\cos 30^\circ \\ &= 100\times\frac{\sqrt{3}}{2} \\ &= 50\times 1.73 \\ &= 86.5 \\ &\fallingdotseq \ans{87 \,\unit{N}} \end{aligned} \]</div></div>
         <p>鉛直方向：上向きの力（垂直抗力 \(N\) と引く力の鉛直成分）の合計が，下向きの重力 120 N とつり合う。</p>
-        <div class="eqwrap"><div class="eq-wide">\[ N + 100\sin 30^\circ = 120 \qquad\Rightarrow\qquad N = 120 - 50 = 70 \,\unit{N} \]</div><div class="eq-narrow">\[ \begin{aligned} N + 100\sin 30^\circ &= 120 \\ \Rightarrow\ N &= 120 - 50 \\ &= 70 \,\unit{N} \end{aligned} \]</div></div>
-        <p class="note"><b>注意</b>　斜め上に引くと物体が少し持ち上げられるので，垂直抗力は重さ 120 N より小さくなる。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ N + 100\sin 30^\circ = 120 \qquad\Rightarrow\qquad N = 120 - 50 = \ans{70 \,\unit{N}} \]</div><div class="eq-narrow">\[ \begin{aligned} N + 100\sin 30^\circ &= 120 \\ \Rightarrow\ N &= 120 - 50 \\ &= \ans{70 \,\unit{N}} \end{aligned} \]</div></div>
+        <p class="note" data-pose="b"><b>注意</b>　斜め上に引くと物体が少し持ち上げられるので，垂直抗力は重さ 120 N より小さくなる。</p>
       </div></details>
     </div>
   </section>
@@ -292,8 +292,8 @@
         <span class="ax">左右</span><span class="eq">\(T_1\sin 60^\circ = T_2 \quad\cdots ①\)</span>
         <span class="ax">上下</span><span class="eq">\(T_1\cos 60^\circ = mg \quad\cdots ②\)</span>
       </div>
-      <p>②より \(\dfrac{1}{2}T_1 = mg\)，よって \(T_1 = 2mg\)。これを①に代入すると</p>
-      <div class="eqwrap"><div class="eq-wide">\[ T_2 = 2mg\times\frac{\sqrt{3}}{2} = \sqrt{3}\,mg \]</div><div class="eq-narrow">\[ \begin{aligned} T_2 &= 2mg\times\frac{\sqrt{3}}{2} \\ &= \sqrt{3}\,mg \end{aligned} \]</div></div>
+      <p>②より \(\dfrac{1}{2}T_1 = mg\)，よって \(T_1 = \ans{2mg}\)。これを①に代入すると</p>
+      <div class="eqwrap"><div class="eq-wide">\[ T_2 = 2mg\times\frac{\sqrt{3}}{2} = \ans{\sqrt{3}\,mg} \]</div><div class="eq-narrow">\[ \begin{aligned} T_2 &= 2mg\times\frac{\sqrt{3}}{2} \\ &= \ans{\sqrt{3}\,mg} \end{aligned} \]</div></div>
       <h4><span class="n">(2)</span></h4>
       <p>糸1は鉛直から 45°，糸2は天井（水平）から 30° 傾いている。糸2の水平成分は \(T_2\cos 30^\circ\)，鉛直成分は \(T_2\sin 30^\circ\)。</p>
       <div class="axis-eq">
@@ -301,9 +301,9 @@
         <span class="ax">上下</span><span class="eq">\(T_1\cos 45^\circ + T_2\sin 30^\circ = mg \quad\cdots ②\)</span>
       </div>
       <p>①より \(\dfrac{\sqrt{2}}{2}T_1 = \dfrac{\sqrt{3}}{2}T_2\)（③）。\(\sin 45^\circ = \cos 45^\circ\) なので，②の \(\dfrac{\sqrt{2}}{2}T_1\) を③で置きかえられる。</p>
-      <div class="eqwrap"><div class="eq-wide">\[ \frac{\sqrt{3}}{2}T_2 + \frac{1}{2}T_2 = mg \qquad\Rightarrow\qquad T_2 = \frac{2}{\sqrt{3}+1}mg = (\sqrt{3}-1)mg \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{\sqrt{3}}{2}T_2 + \frac{1}{2}T_2 &= mg \\ \Rightarrow\ T_2 &= \frac{2}{\sqrt{3}+1}mg \\ &= (\sqrt{3}-1)mg \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{\sqrt{3}}{2}T_2 + \frac{1}{2}T_2 = mg \qquad\Rightarrow\qquad T_2 = \frac{2}{\sqrt{3}+1}mg = \ans{(\sqrt{3}-1)mg} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{\sqrt{3}}{2}T_2 + \frac{1}{2}T_2 &= mg \\ \Rightarrow\ T_2 &= \frac{2}{\sqrt{3}+1}mg \\ &= \ans{(\sqrt{3}-1)mg} \end{aligned} \]</div></div>
       <p>（分母の有理化：\(\dfrac{2}{\sqrt{3}+1}\times\dfrac{\sqrt{3}-1}{\sqrt{3}-1} = \dfrac{2(\sqrt{3}-1)}{2}\)）。③に代入して</p>
-      <div class="eqwrap"><div class="eq-wide">\[ T_1 = \frac{\sqrt{3}}{\sqrt{2}}T_2 = \frac{\sqrt{6}}{2}(\sqrt{3}-1)mg \]</div><div class="eq-narrow">\[ \begin{aligned} T_1 &= \frac{\sqrt{3}}{\sqrt{2}}T_2 \\ &= \frac{\sqrt{6}}{2}(\sqrt{3}-1)mg \end{aligned} \]</div></div>
+      <div class="eqwrap"><div class="eq-wide">\[ T_1 = \frac{\sqrt{3}}{\sqrt{2}}T_2 = \ans{\frac{\sqrt{6}}{2}(\sqrt{3}-1)mg} \]</div><div class="eq-narrow">\[ \begin{aligned} T_1 &= \frac{\sqrt{3}}{\sqrt{2}}T_2 \\ &= \ans{\frac{\sqrt{6}}{2}(\sqrt{3}-1)mg} \end{aligned} \]</div></div>
     </div></details>
     <div class="answer-grid cols4 hide-ans">
       <div><span class="label">(1) 糸1</span><span class="val">\(2mg\)</span></div>
@@ -330,8 +330,8 @@
         </div>
       </div>
       <p>\(\sin\{180^\circ - (\theta+\alpha)\} = \sin(\theta+\alpha)\) なので</p>
-      <div class="eqwrap"><div class="eq-wide">\[ T = \frac{mg\sin\theta}{\sin(\theta+\alpha)}, \qquad N = \frac{mg\sin\alpha}{\sin(\theta+\alpha)} \]</div><div class="eq-narrow">\[ \begin{aligned} T &= \frac{mg\sin\theta}{\sin(\theta+\alpha)} \\ N &= \frac{mg\sin\alpha}{\sin(\theta+\alpha)} \end{aligned} \]</div></div>
-      <p class="note"><b>別解（成分で解く）</b>　水平方向：\(T\sin\alpha = N\sin\theta\)，鉛直方向：\(T\cos\alpha + N\cos\theta = mg\)。1つ目から \(N = \dfrac{T\sin\alpha}{\sin\theta}\) を2つ目に代入すると \(T\cdot\dfrac{\sin\theta\cos\alpha + \cos\theta\sin\alpha}{\sin\theta} = mg\)。加法定理 \(\sin(\theta+\alpha) = \sin\theta\cos\alpha + \cos\theta\sin\alpha\) を使えば同じ答えになる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ T = \ans{\frac{mg\sin\theta}{\sin(\theta+\alpha)}}, \qquad N = \ans{\frac{mg\sin\alpha}{\sin(\theta+\alpha)}} \]</div><div class="eq-narrow">\[ \begin{aligned} T &= \ans{\frac{mg\sin\theta}{\sin(\theta+\alpha)}} \\ N &= \ans{\frac{mg\sin\alpha}{\sin(\theta+\alpha)}} \end{aligned} \]</div></div>
+      <p class="note" data-pose="b"><b>別解（成分で解く）</b>　水平方向：\(T\sin\alpha = N\sin\theta\)，鉛直方向：\(T\cos\alpha + N\cos\theta = mg\)。1つ目から \(N = \dfrac{T\sin\alpha}{\sin\theta}\) を2つ目に代入すると \(T\cdot\dfrac{\sin\theta\cos\alpha + \cos\theta\sin\alpha}{\sin\theta} = mg\)。加法定理 \(\sin(\theta+\alpha) = \sin\theta\cos\alpha + \cos\theta\sin\alpha\) を使えば同じ答えになる。</p>
     </div></details>
     <div class="answer-grid hide-ans">
       <div><span class="label">糸の張力</span><span class="val">\(\dfrac{mg\sin\theta}{\sin(\theta+\alpha)}\)</span></div>
