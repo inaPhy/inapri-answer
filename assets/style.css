@@ -125,6 +125,7 @@ main { min-width: 0; }
 ol.qs { margin: 6px 0 12px; padding-left: 0; list-style: none; counter-reset: q; }
 ol.qs > li { counter-increment: q; padding-left: 2.2em; position: relative; margin: 2px 0; }
 ol.qs > li::before { content: "(" counter(q) ")"; position: absolute; left: 0; }
+ol.qs.kana > li::before { content: "(" counter(q, katakana) ")"; }
 
 /* 小問ブロック（例題①など） */
 .sub-q { border-top: 1px dashed var(--line); padding-top: 16px; margin-top: 16px; }
@@ -400,9 +401,14 @@ svg.fig .label-bg { fill: #fff; }
 /* 回路図・コンデンサ（circuit.py と対応。電気電子工学） */
 svg.fig .cut { stroke: var(--paper); stroke-width: 5; }
 svg.fig .plate { stroke: var(--ink); stroke-width: 3.2; }
-svg.fig .bat-p { stroke: var(--ink); stroke-width: 1.4; }
-svg.fig .bat-n { stroke: var(--ink); stroke-width: 3.2; }
+/* 電池：＋（長い線）も－（短い線）も同じ太さ。導線（1.4）より少し太く，コンデンサの極板（3.2）より細く */
+svg.fig .bat-p, svg.fig .bat-n { stroke: var(--ink); stroke-width: 2.1; }
 svg.fig .node { fill: var(--ink); }
+svg.fig .res { fill: #fff; stroke: var(--ink); stroke-width: 1.4; }
+svg.fig .res.gray-c { stroke: #9a9a9a; }
+svg.fig .ans-w { stroke: var(--ans); stroke-width: 3; }
+svg.fig text.max-t { font-size: 15px; font-weight: 900; }
+svg.fig text.halo { paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; }
 svg.fig .term { fill: #fff; stroke: var(--ink); stroke-width: 1.2; }
 svg.fig .gray-c { stroke: #9a9a9a; }
 svg.fig .node.gray-c { fill: #9a9a9a; stroke: none; }
@@ -622,3 +628,14 @@ details.sol:not([open]) > summary .g-open, details.sol[open] > summary .g-closed
 }
 @media (max-width: 360px) { .guide-row > .note { padding: 8px 8px; } }
 @media (max-width: 300px) { .guide-row > .note { padding: 8px 4px; } }
+
+/* 15 RC直流回路：ポイントの枠（電荷が 0 のとき／Max のとき） */
+.rc-lead { background: #ffffc0; font-size: 1.05rem; padding: 0 .3em; }
+.point-box .rc-cols { border: 0; margin: 10px 0 0; }
+.point-box .rc-cols > div + div { border-left: 1.5px dashed #999; }
+.point-box .rc-cols h3 { margin: 0 auto 8px; border: 0; padding: 2px 10px; width: fit-content; }
+.rc-see { text-align: center; font-size: .85rem; margin: 6px 0; }
+.rc-big { display: inline-block; font-size: 1.25rem; font-weight: 800; border: 1.5px solid var(--ink); padding: 0 .3em; margin: 0 .2em; }
+@media (max-width: 560px) {
+  .point-box .rc-cols > div + div { border-left: 0; border-top: 1.5px dashed #999; padding-top: 10px; }
+}
