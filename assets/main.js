@@ -74,7 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     d.addEventListener("toggle", () => {
       const scope = d.closest(".sub-q") || d.closest(".card");
       const on = [...scope.querySelectorAll("details.sol")].some(x => x.open);
-      scope.querySelectorAll(".figure").forEach(f => { if (f.querySelector(".ans-layer")) setFig(f, on); });
+      // data-manual の図（比較のグラフなど）は，ボタンを押したときだけ描き込む
+      scope.querySelectorAll(".figure:not([data-manual])").forEach(f => { if (f.querySelector(".ans-layer")) setFig(f, on); });
     });
   });
 
@@ -89,13 +90,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("details.sol:not(.step-sol) > summary").forEach(s => {
       s.insertAdjacentHTML("beforeend", `<span class="guide-sum"><span class="g-say g-closed">まず自分で解いてみよう</span><span class="g-say g-open">解説するよ！</span>${img("d", "g-closed")}${img("c", "g-open")}</span>`);
     });
-    document.querySelectorAll(".note").forEach(n => {
+    // data-guide を付けた要素（開閉式の証明など）にも，同じようにキャラクターを左に立たせる
+    document.querySelectorAll(".note, [data-guide]").forEach(n => {
       const pose = n.dataset.pose || "b";
       const row = document.createElement("div");
       row.className = "guide-row pose-" + pose;
       row.innerHTML = img(pose, "g-chara");
       n.replaceWith(row);
       row.append(n);
+      // data-pose-open：開閉式（details）を開いたときのポーズ（例：閉じているときは b，開くと a）
+      const open = n.dataset.poseOpen;
+      if (open && n.tagName === "DETAILS") {
+        const ch = row.querySelector(".g-chara");
+        n.addEventListener("toggle", () => { ch.src = dir + (n.open ? open : pose) + ".png"; });
+      }
     });
   }
 
@@ -112,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
     allBtn.addEventListener("click", () => {
       open = !open;
       document.querySelectorAll("details.sol").forEach(d => (d.open = open));
-      figs.forEach(f => setFig(f, open));
+      figs.filter(f => !f.hasAttribute("data-manual")).forEach(f => setFig(f, open));
       allBtn.textContent = open ? "解説をすべて閉じる" : "解説をすべて開く";
     });
   }

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>07 空気抵抗のある運動 解答解説</title>
+<meta name="description" content="イナプリ 応用物理07「空気抵抗のある運動」の例題・練習問題の解答解説">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css?v=d35636bc">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/main.js?v=1ba105e6"></script>
+</head>
+<body class="guide">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-volt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-volt" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-red" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse"><rect class="dots-bg" width="4" height="4"/><circle class="dots-st" cx="1" cy="1" r=".5"/><circle class="dots-st" cx="3" cy="3" r=".5"/></pattern>
+<pattern id="dots-g" width="3" height="3" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="3" height="3"/><circle class="dotsg-st" cx="1" cy="1" r=".45"/></pattern>
+<pattern id="dots-d" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="2" height="2"/><circle class="dotsd-st" cx="1" cy="1" r=".6"/></pattern>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-sub">応用物理 </span>解答解説 <small>イナプリ 07</small></a>
+    <div class="tools">
+      <button class="btn" id="show-answers" type="button" aria-pressed="false">答えをすべて表示</button>
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="../index.html">← 一覧に戻る</a>
+    <div class="toc-title">07 空気抵抗のある運動</div>
+    <ol>
+      <li><a href="#point">微分方程式（変数分離型）</a></li>
+      <li><a href="#ex">例題</a></li>
+      <li><a href="#air">空気抵抗のある運動</a></li>
+      <li><a href="#pr1">練習問題①</a></li>
+      <li><a href="#pr2">練習問題②</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 応用物理 07</div>
+    <h1>空気抵抗のある運動</h1>
+  </section>
+
+  <!-- ================= 微分方程式（変数分離型） ================= -->
+  <section class="card" id="point">
+    <h2 class="bullet-h" style="margin-top:0">微分方程式（変数分離型）</h2>
+    <p>運動方程式は \(F = ma\) であり，加速度は \(a = \dfrac{dv}{dt}\) なので，\(F = m\dfrac{dv}{dt}\) と書ける。このように，方程式の中に微分が含まれるものを <b>微分方程式</b> という。物理では，このような微分方程式というものがたくさん出てくるが，まずは，よく出てくる <b>変数分離型</b> の微分方程式を解いてみよう。式①のように，左辺は \(y\) を \(x\) で微分した形，右辺には，\(x\) の関数と \(y\) の関数が分離してあるとする。このような形は式②に変形することができる。ほんで，式②の両辺を積分して，最終的に <span style="background:#ffff99;color:#111;padding:0 4px">\(y = (x\text{ の関数})\)</span> という解の形にもっていきたい。</p>
+    <div class="eqwrap"><div class="eq-wide">\[ \frac{dy}{dx} = f(x)\cdot g(y) \quad\cdots ① \qquad\Rightarrow\qquad \int \frac{1}{g(y)}\,dy = \int f(x)\,dx \quad\cdots ② \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{dy}{dx} &= f(x)\cdot g(y) \quad\cdots ① \\ \Rightarrow\ \int \frac{1}{g(y)}\,dy &= \int f(x)\,dx \quad\cdots ② \end{aligned} \]</div></div>
+    <details class="proof" data-guide data-pose="b" data-pose-open="a">
+      <summary><b>証明：式①から式②になる理由</b><span class="proof-hint">見たい人は開いてね</span></summary>
+      <div class="proof-body">
+      <p>式① \(\dfrac{dy}{dx} = f(x)\cdot g(y)\) の両辺を \(g(y)\) で割る（\(g(y) \neq 0\) とする）。</p>
+      <div class="eqwrap">\[ \frac{1}{g(y)}\,\frac{dy}{dx} = f(x) \]</div>
+      <p>両辺は \(x\) の関数として等しいので，両辺を \(x\) で積分しても等しい。</p>
+      <div class="eqwrap">\[ \int \frac{1}{g(y)}\,\frac{dy}{dx}\,dx = \int f(x)\,dx \quad\cdots ③ \]</div>
+      <p>左辺を計算するため，\(\dfrac{1}{g(y)}\) の原始関数の1つを \(G(y)\) とする（\(G'(y) = \dfrac{1}{g(y)}\)）。\(y\) は \(x\) の関数なので，\(G(y)\) を \(x\) で微分するときは<b>合成関数の微分</b>を使う。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{d}{dx}G(y) = G'(y)\,\frac{dy}{dx} = \frac{1}{g(y)}\,\frac{dy}{dx} \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{d}{dx}G(y) &= G'(y)\,\frac{dy}{dx} \\ &= \frac{1}{g(y)}\,\frac{dy}{dx} \end{aligned} \]</div></div>
+      <p>つまり，③の左辺の中身は \(G(y)\) を \(x\) で微分したものなので，それを \(x\) で積分するともとの \(G(y)\) に戻る。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \int \frac{1}{g(y)}\,\frac{dy}{dx}\,dx = G(y) + C = \int \frac{1}{g(y)}\,dy \]</div><div class="eq-narrow">\[ \begin{aligned} \int \frac{1}{g(y)}\,\frac{dy}{dx}\,dx &= G(y) + C \\ &= \int \frac{1}{g(y)}\,dy \end{aligned} \]</div></div>
+      <p>これを③に入れると，式②が得られる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \int \frac{1}{g(y)}\,dy = \int f(x)\,dx \quad\cdots ② \qquad\blacksquare \]</div><div class="eq-narrow">\[ \begin{aligned} \int \frac{1}{g(y)}\,dy &= \int f(x)\,dx \quad\cdots ② \\ &\blacksquare \end{aligned} \]</div></div>
+      <p class="proof-tip">よく「\(\dfrac{dy}{dx}\) を分数のように見て，両辺に \(dx\) をかける」と説明されるが，正しくは上のように<b>合成関数の微分（置換積分）</b>が成り立つから，そう計算してよい。</p>
+    </div>
+    </details>
+    <div class="note" data-pose="a"><b>手順</b>
+      <ol class="steps-list">
+        <li>\(y\) の入った部分 \(g(y)\) で両辺を割って，左辺を \(y\) だけ，右辺を \(x\) だけにする（変数を分離する）。</li>
+        <li>両辺を積分する（積分定数 \(C\) を忘れない）。</li>
+        <li>\(y = \)（\(x\) の関数）の形に直す。これが<b>一般解</b>。</li>
+        <li>問題で与えられた条件（\(x = 0\) のときの \(y\) など）を入れて定数を決めると<b>特殊解</b>になる。</li>
+      </ol>
+    </div>
+
+  </section>
+
+  <!-- ================= 例題 ================= -->
+  <section class="card" id="ex">
+    <h2><span class="tag">例題</span></h2>
+
+    <div class="sub-q">
+      <p class="statement">(1) \(\dfrac{dy}{dx} = -3y\) の一般解を求め，\(x = 0\) のとき \(y = 5\) とした特殊解を求めよ。</p>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <h4><span class="n">①</span>変数を分離する</h4>
+        <p>右辺は \(f(x) = -3\)，\(g(y) = y\) の形。両辺を \(y\) で割って，左辺を \(y\) だけ，右辺を \(x\) だけにする。</p>
+        <div class="eqwrap">\[ \frac{1}{y}\,\frac{dy}{dx} = -3 \]</div>
+        <h4><span class="n">②</span>両辺を積分する</h4>
+        <p>式②の形にして，両辺を積分する。\(\dfrac{1}{y}\) を積分すると \(\log|y|\) になる。積分定数を \(C\) とする。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ \int \frac{1}{y}\,dy = \int (-3)\,dx \qquad\Rightarrow\qquad \log|y| = -3x + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int \frac{1}{y}\,dy &= \int (-3)\,dx \\ \Rightarrow\ \log|y| &= -3x + C \end{aligned} \]</div></div>
+        <h4><span class="n">③</span>\(y = \)（\(x\) の関数）の形に直す</h4>
+        <p>\(\log\) を外すため，\(e\) の肩に乗せる（\(\log|y| = A\) なら \(|y| = e^{A}\)）。指数法則 \(e^{a + b} = e^{a}e^{b}\) で定数の部分を分ける。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ |y| = e^{-3x + C} = e^{C}\,e^{-3x} \qquad\Rightarrow\qquad y = \pm e^{C}\,e^{-3x} \]</div><div class="eq-narrow">\[ \begin{aligned} |y| &= e^{-3x + C} \\ &= e^{C}\,e^{-3x} \\ \Rightarrow\ y &= \pm e^{C}\,e^{-3x} \end{aligned} \]</div></div>
+        <p>\(\pm e^{C}\) はひとまとめにして1つの定数 \(C_0\) とおく。これが<b>一般解</b>。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ y = \ans{C_0\,e^{-3x}} \qquad (C_0 = \pm e^{C}) \]</div><div class="eq-narrow">\[ \begin{aligned} y &= \ans{C_0\,e^{-3x}} \\ &(C_0 = \pm e^{C}) \end{aligned} \]</div></div>
+        <h4><span class="n">④</span>条件を入れて特殊解を求める</h4>
+        <p>\(x = 0\) のとき \(y = 5\) なので，一般解に代入して \(C_0\) を決める（\(e^{0} = 1\)）。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ 5 = C_0\,e^{0} = C_0 \qquad\Rightarrow\qquad C_0 = 5 \]</div><div class="eq-narrow">\[ \begin{aligned} 5 &= C_0\,e^{0} \\ &= C_0 \\ \Rightarrow\ C_0 &= 5 \end{aligned} \]</div></div>
+        <p>よって，<b>特殊解</b>は</p>
+        <div class="eqwrap">\[ y = \ans{5\,e^{-3x}} \]</div>
+        <p class="note" data-pose="b"><b>確かめ</b>　\(y = 5e^{-3x}\) を微分すると \(\dfrac{dy}{dx} = 5\times(-3)e^{-3x} = -3\times 5e^{-3x} = -3y\) となり，もとの式を満たす。\(x = 0\) を代入すると \(y = 5\) になることも確かめておこう。</p>
+      </div></details>
+      <div class="answer-grid hide-ans">
+        <div><span class="label">(1) 一般解</span><span class="val">\(y = C_0\,e^{-3x}\)</span></div>
+        <div><span class="label">(1) 特殊解</span><span class="val">\(y = 5\,e^{-3x}\)</span></div>
+      </div>
+    </div>
+
+    <div class="sub-q">
+      <p class="statement">(2) \(\dfrac{dy}{dx} = -3y + 6\) の一般解を求め，\(x = 0\) のとき \(y = 0\) とした特殊解を求めよ。</p>
+      <details class="sol"><summary>解説</summary><div class="body">
+        <h4><span class="n">①</span>変数を分離する</h4>
+        <p>このままでは \(y\) で割れないので，右辺を \(-3\) でくくって，\(y\) の入った部分を1つのかたまりにする。</p>
+        <div class="eqwrap">\[ \frac{dy}{dx} = -3(y - 2) \]</div>
+        <p>これで \(f(x) = -3\)，\(g(y) = y - 2\) の形になった。両辺を \(y - 2\) で割る。</p>
+        <div class="eqwrap">\[ \frac{1}{y - 2}\,\frac{dy}{dx} = -3 \]</div>
+        <h4><span class="n">②</span>両辺を積分する</h4>
+        <p>\(\dfrac{1}{y - 2}\) を積分すると \(\log|y - 2|\) になる（(1) の \(y\) が \(y - 2\) に変わっただけ）。積分定数を \(C\) とする。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ \int \frac{1}{y - 2}\,dy = \int (-3)\,dx \qquad\Rightarrow\qquad \log|y - 2| = -3x + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int \frac{1}{y - 2}\,dy &= \int (-3)\,dx \\ \Rightarrow\ \log|y - 2| &= -3x + C \end{aligned} \]</div></div>
+        <h4><span class="n">③</span>\(y = \)（\(x\) の関数）の形に直す</h4>
+        <p>(1) と同じように \(e\) の肩に乗せ，\(\pm e^{C} = C_0\) とおく。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ |y - 2| = e^{C}\,e^{-3x} \qquad\Rightarrow\qquad y - 2 = C_0\,e^{-3x} \]</div><div class="eq-narrow">\[ \begin{aligned} |y - 2| &= e^{C}\,e^{-3x} \\ \Rightarrow\ y - 2 &= C_0\,e^{-3x} \end{aligned} \]</div></div>
+        <p>2 を右辺に移項して，<b>一般解</b>は</p>
+        <div class="eqwrap">\[ y = \ans{2 + C_0\,e^{-3x}} \]</div>
+        <h4><span class="n">④</span>条件を入れて特殊解を求める</h4>
+        <p>\(x = 0\) のとき \(y = 0\) なので，一般解に代入して \(C_0\) を決める。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ 0 = 2 + C_0\,e^{0} = 2 + C_0 \qquad\Rightarrow\qquad C_0 = -2 \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= 2 + C_0\,e^{0} \\ &= 2 + C_0 \\ \Rightarrow\ C_0 &= -2 \end{aligned} \]</div></div>
+        <p>よって，<b>特殊解</b>は</p>
+        <div class="eqwrap">\[ y = \ans{2 - 2\,e^{-3x}} \]</div>
+        <p class="note" data-pose="b"><b>確かめ</b>　\(y = 2 - 2e^{-3x}\) を微分すると \(\dfrac{dy}{dx} = 6e^{-3x}\)。一方，\(-3y + 6 = -6 + 6e^{-3x} + 6 = 6e^{-3x}\) で一致する。\(x\) が大きくなると \(e^{-3x} \to 0\) なので，\(y\) は 2 に近づいていく。この形は，あとの練習問題②の答えと同じ形になる。</p>
+      </div></details>
+      <div class="answer-grid hide-ans">
+        <div><span class="label">(2) 一般解</span><span class="val">\(y = 2 + C_0\,e^{-3x}\)</span></div>
+        <div><span class="label">(2) 特殊解</span><span class="val">\(y = 2 - 2\,e^{-3x}\)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 空気抵抗のある運動 ================= -->
+  <section class="card" id="air">
+    <h2 class="bullet-h" style="margin-top:0">空気抵抗のある運動</h2>
+    <p class="statement">時刻 \(t = 0\) のとき，質量 \(m\) の物体を初速度 \(v_0\) で打ち出した。物体はなめらかな水平面を空気抵抗力を受けながら運動した。ただし，空気抵抗力は物体の速度 \(v\) に比例し，\(-kv\) と表されるものとする（\(k\) は比例定数）。</p>
+    <div class="figure" style="max-width:420px"><svg class="fig" viewBox="0 0 330 92" role="img" aria-label="なめらかな水平面の上の物体が初速度v0で右向きに打ち出される。描き込み：物体の前の面（右の面）から左向きの空気抵抗力kv"><rect class="smooth" x="20" y="70" width="290" height="6"/><line class="ink" x1="20" y1="70" x2="310" y2="70"/><rect class="ink body" x="78" y="38" width="34" height="32" transform="rotate(0 95 54)"/><line class="ink" x1="80" y1="24" x2="128" y2="24" marker-end="url(#ah-ink)"/><text class="lbl small m" x="104" y="16" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><g class="ans-layer"><line class="ans" x1="112" y1="54" x2="52" y2="54" marker-end="url(#ah-ans)"/><circle class="dot-ans" cx="112" cy="54" r="2.2"/><text class="lbl ans-t m" x="44" y="51" text-anchor="end"><tspan>kv</tspan></text></g></svg></div>
+    <ol class="qs">
+      <li>物体の加速度を \(\dfrac{dv}{dt}\) として，物体の運動方程式を立てよ。</li>
+      <li>(1) を解き，\(v\) の一般解を求めよ。</li>
+      <li>初期条件を用いて，\(v\) を \(t\) の関数で表せ。</li>
+      <li>十分に時間が経過したとき，物体の運動の状態はどうなっているか。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>運動方程式</h4>
+      <p>運動の向き（右向き）を正とする。水平方向にはたらく力は，空気抵抗力 \(-kv\) だけ（運動と逆向きなので負）。重力と垂直抗力は上下でつりあっている。運動方程式 \(m\dfrac{dv}{dt} = F\) に \(F = -kv\) を入れて</p>
+      <div class="eqwrap">\[ \ans{m\frac{dv}{dt} = -kv} \]</div>
+      <h4><span class="n">(2)</span>一般解</h4>
+      <p>両辺を \(m\) で割ると \(\dfrac{dv}{dt} = -\dfrac{k}{m}v\)。例題(1) の \(y\) が \(v\)，\(x\) が \(t\)，\(-3\) が \(-\dfrac{k}{m}\) に変わっただけ。両辺を \(v\) で割って変数を分離する。</p>
+      <div class="eqwrap">\[ \frac{1}{v}\,\frac{dv}{dt} = -\frac{k}{m} \]</div>
+      <p>両辺を \(t\) で積分する（\(\dfrac{k}{m}\) は定数なので積分の外に出せる）。積分定数を \(C\) とする。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \int \frac{1}{v}\,dv = -\frac{k}{m}\int dt \qquad\Rightarrow\qquad \log|v| = -\frac{k}{m}t + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int \frac{1}{v}\,dv &= -\frac{k}{m}\int dt \\ \Rightarrow\ \log|v| &= -\frac{k}{m}t + C \end{aligned} \]</div></div>
+      <p>\(e\) の肩に乗せて，\(\pm e^{C} = C_0\) とおく。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ |v| = e^{C}\,e^{-\frac{k}{m}t} \qquad\Rightarrow\qquad v = \ans{C_0\,e^{-\frac{k}{m}t}} \]</div><div class="eq-narrow">\[ \begin{aligned} |v| &= e^{C}\,e^{-\frac{k}{m}t} \\ \Rightarrow\ v &= \ans{C_0\,e^{-\frac{k}{m}t}} \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span>初期条件</h4>
+      <p>\(t = 0\) のとき \(v = v_0\)（打ち出したときの速度）なので，(2) に代入して \(C_0\) を決める。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v_0 = C_0\,e^{0} = C_0 \qquad\Rightarrow\qquad v = \ans{v_0\,e^{-\frac{k}{m}t}} \]</div><div class="eq-narrow">\[ \begin{aligned} v_0 &= C_0\,e^{0} \\ &= C_0 \\ \Rightarrow\ v &= \ans{v_0\,e^{-\frac{k}{m}t}} \end{aligned} \]</div></div>
+      <h4><span class="n">(4)</span>十分に時間が経過したとき</h4>
+      <p>\(t \to \infty\) とすると，\(e^{-\frac{k}{m}t} \to 0\) なので</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \lim_{t\to\infty} v = \lim_{t\to\infty} v_0\,e^{-\frac{k}{m}t} = 0 \]</div><div class="eq-narrow">\[ \begin{aligned} \lim_{t\to\infty} v &= \lim_{t\to\infty} v_0\,e^{-\frac{k}{m}t} \\ &= 0 \end{aligned} \]</div></div>
+      <p>速度が 0 に近づくので，物体は<span class="ans-mark">静止する（止まる）</span>。</p>
+      <div class="note" data-pose="b"><p><b>ポイント</b>　(3) の \(v = v_0e^{-\frac{k}{m}t}\) を \(v\)-\(t\) グラフにすると下のようになる。はじめは速度が大きいので空気抵抗力 \(kv\) も大きく，急に減速する。速度が小さくなると空気抵抗力も小さくなり，減速がゆるやかになる。そのため，\(v\) は 0 に近づくが，ちょうど 0 になることはない。やがてほとんど止まった状態になる。</p>
+        <div class="figure small" style="max-width:300px" data-draw="比較のグラフ" data-manual><svg class="fig" viewBox="0 0 296 170" role="img" aria-label="v-tグラフ：速度はv0からだんだん減り，0に近づくが0にはならない。描き込み：m/kが2倍のとき（オレンジ）はゆっくり，1/2のとき（青）は速く0に近づく"><line class="ink" x1="56" y1="140" x2="282.8" y2="140" marker-end="url(#ah-ink)"/><line class="ink" x1="56" y1="140" x2="56" y2="25" marker-end="url(#ah-ink)"/><text class="lbl m" x="286.8" y="145" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="56" y="17" text-anchor="middle"><tspan>v</tspan></text><text class="lbl" x="51" y="155" text-anchor="end">O</text><polyline class="curve" fill="none" points="56,40 58.7,46.3 61.5,52.2 64.2,57.7 66.9,62.9 69.7,67.7 72.4,72.3 75.1,76.6 77.8,80.5 80.6,84.3 83.3,87.8 86,91.1 88.8,94.2 91.5,97 94.2,99.7 96.9,102.3 99.7,104.7 102.4,106.9 105.1,109 107.9,110.9 110.6,112.7 113.3,114.5 116.1,116.1 118.8,117.6 121.5,119 124.2,120.3 127,121.5 129.7,122.7 132.4,123.8 135.2,124.8 137.9,125.8 140.6,126.7 143.4,127.5 146.1,128.3 148.8,129 151.6,129.7 154.3,130.4 157,131 159.7,131.5 162.5,132.1 165.2,132.6 167.9,133 170.7,133.5 173.4,133.9 176.1,134.3 178.8,134.6 181.6,135 184.3,135.3 187,135.6 189.8,135.9 192.5,136.1 195.2,136.4 198,136.6 200.7,136.8 203.4,137 206.2,137.2 208.9,137.4 211.6,137.5 214.3,137.7 217.1,137.8 219.8,138 222.5,138.1 225.3,138.2 228,138.3 230.7,138.4 233.4,138.5 236.2,138.6 238.9,138.7 241.6,138.8 244.4,138.9 247.1,138.9 249.8,139 252.6,139.1 255.3,139.1 258,139.2 260.8,139.2 263.5,139.3 266.2,139.3 268.9,139.4 271.7,139.4 274.4,139.4"/><text class="lbl m" x="50" y="45" text-anchor="end"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><g class="ans-layer"><polyline class="curve-ans" fill="none" points="56,40 58.7,43.2 61.5,46.3 64.2,49.3 66.9,52.2 69.7,55 72.4,57.7 75.1,60.3 77.8,62.9 80.6,65.4 83.3,67.7 86,70.1 88.8,72.3 91.5,74.5 94.2,76.6 96.9,78.6 99.7,80.5 102.4,82.4 105.1,84.3 107.9,86.1 110.6,87.8 113.3,89.5 116.1,91.1 118.8,92.6 121.5,94.2 124.2,95.6 127,97 129.7,98.4 132.4,99.7 135.2,101 137.9,102.3 140.6,103.5 143.4,104.7 146.1,105.8 148.8,106.9 151.6,107.9 154.3,109 157,110 159.7,110.9 162.5,111.8 165.2,112.7 167.9,113.6 170.7,114.5 173.4,115.3 176.1,116.1 178.8,116.8 181.6,117.6 184.3,118.3 187,119 189.8,119.7 192.5,120.3 195.2,120.9 198,121.5 200.7,122.1 203.4,122.7 206.2,123.3 208.9,123.8 211.6,124.3 214.3,124.8 217.1,125.3 219.8,125.8 222.5,126.2 225.3,126.7 228,127.1 230.7,127.5 233.4,127.9 236.2,128.3 238.9,128.7 241.6,129 244.4,129.4 247.1,129.7 249.8,130 252.6,130.4 255.3,130.7 258,131 260.8,131.3 263.5,131.5 266.2,131.8 268.9,132.1 271.7,132.3 274.4,132.6"/><polyline class="curve-axis" fill="none" points="56,40 58.7,52.2 61.5,62.9 64.2,72.3 66.9,80.5 69.7,87.8 72.4,94.2 75.1,99.7 77.8,104.7 80.6,109 83.3,112.7 86,116.1 88.8,119 91.5,121.5 94.2,123.8 96.9,125.8 99.7,127.5 102.4,129 105.1,130.4 107.9,131.5 110.6,132.6 113.3,133.5 116.1,134.3 118.8,135 121.5,135.6 124.2,136.1 127,136.6 129.7,137 132.4,137.4 135.2,137.7 137.9,138 140.6,138.2 143.4,138.4 146.1,138.6 148.8,138.8 151.6,138.9 154.3,139.1 157,139.2 159.7,139.3 162.5,139.4 165.2,139.4 167.9,139.5 170.7,139.6 173.4,139.6 176.1,139.7 178.8,139.7 181.6,139.7 184.3,139.8 187,139.8 189.8,139.8 192.5,139.8 195.2,139.9 198,139.9 200.7,139.9 203.4,139.9 206.2,139.9 208.9,139.9 211.6,139.9 214.3,139.9 217.1,140 219.8,140 222.5,140 225.3,140 228,140 230.7,140 233.4,140 236.2,140 238.9,140 241.6,140 244.4,140 247.1,140 249.8,140 252.6,140 255.3,140 258,140 260.8,140 263.5,140 266.2,140 268.9,140 271.7,140 274.4,140"/><line class="curve-ans" x1="150" y1="54" x2="172" y2="54"/><text class="lbl small m" x="178" y="58" text-anchor="start"><tspan>m</tspan><tspan font-style="normal">/</tspan><tspan>k</tspan><tspan font-style="normal"> がもとの2倍</tspan></text><line class="curve" x1="150" y1="72" x2="172" y2="72"/><text class="lbl small m" x="178" y="76" text-anchor="start"><tspan font-style="normal">もとの </tspan><tspan>m</tspan><tspan font-style="normal">/</tspan><tspan>k</tspan></text><line class="curve-axis" x1="150" y1="90" x2="172" y2="90"/><text class="lbl small m" x="178" y="94" text-anchor="start"><tspan>m</tspan><tspan font-style="normal">/</tspan><tspan>k</tspan><tspan font-style="normal"> がもとの1/2</tspan></text></g></svg></div>
+        <p>グラフの下がり方は \(\dfrac{m}{k}\) で決まる。「比較のグラフを描き込む」を押すと，\(\dfrac{m}{k}\) をもとの2倍（オレンジ）と \(\dfrac{1}{2}\)（青）にしたグラフが描き加えられる。</p>
+        <ul class="steps-list">
+          <li>\(\dfrac{m}{k}\) が大きい（重い・空気抵抗が小さい）ほど，グラフはゆっくり下がる（ゆっくり減速する）。</li>
+          <li>\(\dfrac{m}{k}\) が小さい（軽い・空気抵抗が大きい）ほど，グラフは速く下がる（すぐに止まる）。</li>
+        </ul></div>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(m\dfrac{dv}{dt} = -kv\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v = C_0\,e^{-\frac{k}{m}t}\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(v = v_0\,e^{-\frac{k}{m}t}\)</span></div>
+      <div><span class="label">(4)</span><span class="val">静止する</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題① ================= -->
+  <section class="card" id="pr1">
+    <h2><span class="tag practice">練習問題①</span></h2>
+    <p class="statement">時刻 \(t = 0\) のとき，質量 \(m\) の物体を初速度 \(v_0\) で打ち出した。物体はなめらかな水平面を空気抵抗力を受けながら運動した。ただし，空気抵抗力は物体の速度の2乗 \(v^2\) に比例し，\(-kv^2\) と表されるものとする（\(k\) は比例定数）。</p>
+    <div class="figure" style="max-width:420px"><svg class="fig" viewBox="0 0 330 92" role="img" aria-label="なめらかな水平面の上の物体が初速度v0で右向きに打ち出される。描き込み：物体の前の面（右の面）から左向きの空気抵抗力kv²"><rect class="smooth" x="20" y="70" width="290" height="6"/><line class="ink" x1="20" y1="70" x2="310" y2="70"/><rect class="ink body" x="78" y="38" width="34" height="32" transform="rotate(0 95 54)"/><line class="ink" x1="80" y1="24" x2="128" y2="24" marker-end="url(#ah-ink)"/><text class="lbl small m" x="104" y="16" text-anchor="middle"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><g class="ans-layer"><line class="ans" x1="112" y1="54" x2="52" y2="54" marker-end="url(#ah-ans)"/><circle class="dot-ans" cx="112" cy="54" r="2.2"/><text class="lbl ans-t m" x="44" y="51" text-anchor="end"><tspan>kv</tspan><tspan dy="-6" font-size="70%" font-style="normal">2</tspan></text></g></svg></div>
+    <ol class="qs">
+      <li>物体の加速度を \(\dfrac{dv}{dt}\) として，物体の運動方程式を立てよ。</li>
+      <li>(1) を解き，\(v\) の一般解を求めよ。</li>
+      <li>初期条件を用いて，\(v\) を \(t\) の関数で表せ。</li>
+      <li>十分に時間が経過したとき，物体の運動の状態はどうなっているか。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>運動方程式</h4>
+      <p>運動の向き（右向き）を正とする。水平方向にはたらく力は，空気抵抗力 \(-kv^2\) だけなので</p>
+      <div class="eqwrap">\[ \ans{m\frac{dv}{dt} = -kv^2} \]</div>
+      <h4><span class="n">(2)</span>一般解</h4>
+      <p>両辺を \(m\) で割り，\(v^2\) で割って変数を分離する。</p>
+      <div class="eqwrap">\[ \frac{1}{v^2}\,\frac{dv}{dt} = -\frac{k}{m} \]</div>
+      <p>両辺を \(t\) で積分する。\(\dfrac{1}{v^2} = v^{-2}\) を積分すると \(\dfrac{v^{-1}}{-1} = -\dfrac{1}{v}\) になる。積分定数は，あとで式が見やすくなるように \(-C\) とおく。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \int \frac{1}{v^2}\,dv = -\frac{k}{m}\int dt \qquad\Rightarrow\qquad -\frac{1}{v} = -\frac{k}{m}t - C \]</div><div class="eq-narrow">\[ \begin{aligned} \int \frac{1}{v^2}\,dv &= -\frac{k}{m}\int dt \\ \Rightarrow\ -\frac{1}{v} &= -\frac{k}{m}t - C \end{aligned} \]</div></div>
+      <p>両辺に \(-1\) をかけて \(\dfrac{1}{v} = \dfrac{k}{m}t + C\)。逆数をとって，<b>一般解</b>は</p>
+      <div class="eqwrap">\[ v = \ans{\frac{1}{\frac{k}{m}t + C}} \]</div>
+      <h4><span class="n">(3)</span>初期条件</h4>
+      <p>\(t = 0\) のとき \(v = v_0\) なので，(2) に代入して \(C\) を決める。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v_0 = \frac{1}{C} \qquad\Rightarrow\qquad C = \frac{1}{v_0} \]</div><div class="eq-narrow">\[ \begin{aligned} v_0 &= \frac{1}{C} \\ \Rightarrow\ C &= \frac{1}{v_0} \end{aligned} \]</div></div>
+      <p>(2) に代入し，分母・分子に \(mv_0\) をかけて分数をなくす。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \frac{1}{\frac{k}{m}t + \frac{1}{v_0}} = \ans{\frac{mv_0}{kv_0t + m}} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{1}{\frac{k}{m}t + \frac{1}{v_0}} \\ &= \ans{\frac{mv_0}{kv_0t + m}} \end{aligned} \]</div></div>
+      <h4><span class="n">(4)</span>十分に時間が経過したとき</h4>
+      <p>\(t \to \infty\) とすると，分母 \(kv_0t + m\) がいくらでも大きくなるので</p>
+      <div class="eqwrap">\[ \lim_{t\to\infty} \frac{mv_0}{kv_0t + m} = 0 \]</div>
+      <p>速度が 0 に近づくので，物体は<span class="ans-mark">静止する（止まる）</span>。</p>
+      <div class="note" data-pose="b"><p><b>ポイント</b>　上の「空気抵抗のある運動」（空気抵抗力 \(kv\)）と \(v\)-\(t\) グラフで比べてみる。下のグラフは，どちらもはじめの速度 \(v_0\) と，はじめの減速のしかた（グラフの傾き）をそろえて描いたもの。</p>
+        <div class="figure small" style="max-width:300px"><svg class="fig" viewBox="0 0 296 170" role="img" aria-label="v-tグラフの比較：空気抵抗力がkvのとき（破線）は速く0に近づき，kv²のとき（実線）は後半ゆっくり0に近づく"><line class="ink" x1="56" y1="140" x2="282.8" y2="140" marker-end="url(#ah-ink)"/><line class="ink" x1="56" y1="140" x2="56" y2="25" marker-end="url(#ah-ink)"/><text class="lbl m" x="286.8" y="145" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="56" y="17" text-anchor="middle"><tspan>v</tspan></text><text class="lbl" x="51" y="155" text-anchor="end">O</text><polyline class="curve-dash" fill="none" points="56,40 58.7,46.3 61.5,52.2 64.2,57.7 66.9,62.9 69.7,67.7 72.4,72.3 75.1,76.6 77.8,80.5 80.6,84.3 83.3,87.8 86,91.1 88.8,94.2 91.5,97 94.2,99.7 96.9,102.3 99.7,104.7 102.4,106.9 105.1,109 107.9,110.9 110.6,112.7 113.3,114.5 116.1,116.1 118.8,117.6 121.5,119 124.2,120.3 127,121.5 129.7,122.7 132.4,123.8 135.2,124.8 137.9,125.8 140.6,126.7 143.4,127.5 146.1,128.3 148.8,129 151.6,129.7 154.3,130.4 157,131 159.7,131.5 162.5,132.1 165.2,132.6 167.9,133 170.7,133.5 173.4,133.9 176.1,134.3 178.8,134.6 181.6,135 184.3,135.3 187,135.6 189.8,135.9 192.5,136.1 195.2,136.4 198,136.6 200.7,136.8 203.4,137 206.2,137.2 208.9,137.4 211.6,137.5 214.3,137.7 217.1,137.8 219.8,138 222.5,138.1 225.3,138.2 228,138.3 230.7,138.4 233.4,138.5 236.2,138.6 238.9,138.7 241.6,138.8 244.4,138.9 247.1,138.9 249.8,139 252.6,139.1 255.3,139.1 258,139.2 260.8,139.2 263.5,139.3 266.2,139.3 268.9,139.4 271.7,139.4 274.4,139.4"/><polyline class="curve" fill="none" points="56,40 58.7,46.1 61.5,51.5 64.2,56.3 66.9,60.6 69.7,64.5 72.4,68.1 75.1,71.3 77.8,74.2 80.6,76.9 83.3,79.4 86,81.7 88.8,83.8 91.5,85.8 94.2,87.6 96.9,89.4 99.7,91 102.4,92.5 105.1,93.9 107.9,95.3 110.6,96.5 113.3,97.7 116.1,98.8 118.8,99.9 121.5,100.9 124.2,101.9 127,102.8 129.7,103.7 132.4,104.5 135.2,105.3 137.9,106.1 140.6,106.8 143.4,107.5 146.1,108.2 148.8,108.8 151.6,109.5 154.3,110.1 157,110.6 159.7,111.2 162.5,111.7 165.2,112.2 167.9,112.7 170.7,113.2 173.4,113.6 176.1,114.1 178.8,114.5 181.6,114.9 184.3,115.3 187,115.7 189.8,116.1 192.5,116.5 195.2,116.8 198,117.2 200.7,117.5 203.4,117.8 206.2,118.1 208.9,118.4 211.6,118.7 214.3,119 217.1,119.3 219.8,119.6 222.5,119.9 225.3,120.1 228,120.4 230.7,120.6 233.4,120.9 236.2,121.1 238.9,121.3 241.6,121.5 244.4,121.8 247.1,122 249.8,122.2 252.6,122.4 255.3,122.6 258,122.8 260.8,123 263.5,123.2 266.2,123.3 268.9,123.5 271.7,123.7 274.4,123.9"/><text class="lbl m" x="50" y="45" text-anchor="end"><tspan>v</tspan><tspan dy="4" font-size="70%" font-style="normal">0</tspan></text><line class="curve" x1="156" y1="48" x2="178" y2="48"/><text class="lbl small m" x="184" y="52" text-anchor="start"><tspan>kv</tspan><tspan dy="-6" font-size="70%" font-style="normal">2</tspan><tspan dy="6" font-style="normal">（練習問題①）</tspan></text><line class="curve-dash" x1="156" y1="68" x2="178" y2="68"/><text class="lbl small m" x="184" y="72" text-anchor="start"><tspan>kv</tspan><tspan font-style="normal">（上の問題）</tspan></text></svg></div>
+        <ul class="steps-list">
+          <li>\(kv\) のとき（破線）：\(v = v_0e^{-\frac{k}{m}t}\)。指数関数なので，速く 0 に近づく。</li>
+          <li>\(kv^2\) のとき（実線）：\(v = \dfrac{mv_0}{kv_0t + m}\)。\(\dfrac{1}{t}\) の形なので，後半は 0 にゆっくり近づく。</li>
+        </ul>
+        <p>速さが小さくなると \(v^2\) は \(v\) よりもずっと小さくなる（例：\(v = 0.1\) なら \(v^2 = 0.01\)）。そのため \(kv^2\) の空気抵抗力はほとんどはたらかなくなり，なかなか止まらない。</p></div>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(m\dfrac{dv}{dt} = -kv^2\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v = \dfrac{1}{\frac{k}{m}t + C}\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(v = \dfrac{mv_0}{kv_0t + m}\)</span></div>
+      <div><span class="label">(4)</span><span class="val">静止する</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 練習問題② ================= -->
+  <section class="card" id="pr2">
+    <h2><span class="tag practice">練習問題②</span></h2>
+    <p class="statement">時刻 \(t = 0\) のとき，質量 \(m\) の物体を初速度 0 で落下させた。物体は鉛直下向きに空気抵抗力を受けながら運動した。ただし，重力加速度の大きさを \(g\) とする。また，空気抵抗力は物体の速度 \(v\) に比例し，\(-kv\) と表されるものとする（\(k\) は比例定数）。</p>
+    <ol class="qs">
+      <li>物体の加速度を \(\dfrac{dv}{dt}\) として，物体の運動方程式を立てよ。</li>
+      <li>(1) を解き，\(v\) の一般解を求めよ。</li>
+      <li>初期条件を用いて，\(v\) を \(t\) の関数で表せ。</li>
+      <li>十分に時間が経過したとき，物体の運動の状態はどうなっているか。</li>
+    </ol>
+    <details class="sol"><summary>解説</summary><div class="body">
+      <h4><span class="n">(1)</span>運動方程式</h4>
+      <div class="figure small" style="max-width:170px"><svg class="fig" viewBox="0 0 180 170" role="img" aria-label="落下する小球にはたらく力：中心から下向きの重力mg，球の下側の表面から上向きの空気抵抗力kv。鉛直下向きを正とする"><circle class="ball" cx="70" cy="82" r="17"/><line class="ans" x1="65" y1="82" x2="65" y2="150" marker-end="url(#ah-ans)"/><circle class="dot-ans" cx="65" cy="82" r="2.2"/><text class="lbl ans-t m" x="51" y="158" text-anchor="middle"><tspan>mg</tspan></text><line class="ans" x1="75" y1="98.2" x2="75" y2="24" marker-end="url(#ah-ans)"/><circle class="dot-ans" cx="75" cy="98.2" r="2.2"/><text class="lbl ans-t m" x="89" y="30" text-anchor="middle"><tspan>kv</tspan></text><line class="axis" x1="142" y1="34" x2="142" y2="124" marker-end="url(#ah-axis)"/><text class="jp tiny axis-t" x="142" y="140" text-anchor="middle">正の向き</text></svg></div>
+      <p>落下する向き（鉛直下向き）を正とする。物体にはたらく力は，下向きの重力 \(mg\) と，運動と逆向き（上向き）の空気抵抗力 \(kv\)。合力は \(mg - kv\) なので</p>
+      <div class="eqwrap">\[ \ans{m\frac{dv}{dt} = mg - kv} \]</div>
+      <h4><span class="n">(2)</span>一般解</h4>
+      <p>両辺を \(m\) で割る。右辺は \(v\) で割れる形ではないので，例題(2) と同じように \(-\dfrac{k}{m}\) でくくって，\(v\) の入った部分を1つのかたまりにする。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \frac{dv}{dt} = g - \frac{k}{m}v = -\frac{k}{m}\left(v - \frac{mg}{k}\right) \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{dv}{dt} &= g - \frac{k}{m}v \\ &= -\frac{k}{m}\left(v - \frac{mg}{k}\right) \end{aligned} \]</div></div>
+      <p>両辺を \(v - \dfrac{mg}{k}\) で割って変数を分離し，\(t\) で積分する。積分定数を \(C\) とする。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ \int \frac{1}{v - \frac{mg}{k}}\,dv = -\frac{k}{m}\int dt \qquad\Rightarrow\qquad \log\left|v - \frac{mg}{k}\right| = -\frac{k}{m}t + C \]</div><div class="eq-narrow">\[ \begin{aligned} \int \frac{1}{v - \frac{mg}{k}}\,dv &= -\frac{k}{m}\int dt \\ \Rightarrow\ \log\left|v - \frac{mg}{k}\right| &= -\frac{k}{m}t + C \end{aligned} \]</div></div>
+      <p>\(e\) の肩に乗せて，\(\pm e^{C} = C_0\) とおく。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v - \frac{mg}{k} = C_0\,e^{-\frac{k}{m}t} \qquad\Rightarrow\qquad v = \ans{\frac{mg}{k} + C_0\,e^{-\frac{k}{m}t}} \]</div><div class="eq-narrow">\[ \begin{aligned} v - \frac{mg}{k} &= C_0\,e^{-\frac{k}{m}t} \\ \Rightarrow\ v &= \ans{\frac{mg}{k} + C_0\,e^{-\frac{k}{m}t}} \end{aligned} \]</div></div>
+      <h4><span class="n">(3)</span>初期条件</h4>
+      <p>\(t = 0\) のとき \(v = 0\)（初速度 0 で落下させた）なので，(2) に代入して \(C_0\) を決める。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ 0 = \frac{mg}{k} + C_0 \qquad\Rightarrow\qquad C_0 = -\frac{mg}{k} \]</div><div class="eq-narrow">\[ \begin{aligned} 0 &= \frac{mg}{k} + C_0 \\ \Rightarrow\ C_0 &= -\frac{mg}{k} \end{aligned} \]</div></div>
+      <p>(2) に代入し，\(\dfrac{mg}{k}\) でくくる。</p>
+      <div class="eqwrap"><div class="eq-wide">\[ v = \frac{mg}{k} - \frac{mg}{k}\,e^{-\frac{k}{m}t} = \ans{\frac{mg}{k}\left(1 - e^{-\frac{k}{m}t}\right)} \]</div><div class="eq-narrow">\[ \begin{aligned} v &= \frac{mg}{k} - \frac{mg}{k}\,e^{-\frac{k}{m}t} \\ &= \ans{\frac{mg}{k}\left(1 - e^{-\frac{k}{m}t}\right)} \end{aligned} \]</div></div>
+      <h4><span class="n">(4)</span>十分に時間が経過したとき</h4>
+      <p>\(t \to \infty\) とすると，\(e^{-\frac{k}{m}t} \to 0\) なので</p>
+      <div class="eqwrap">\[ \lim_{t\to\infty} v = \frac{mg}{k} \]</div>
+      <p>速度が一定の値 \(\dfrac{mg}{k}\) に近づくので，物体は<span class="ans-mark">一定の速さ \(\dfrac{mg}{k}\) で落下する（等速直線運動）</span>。</p>
+      <div class="note" data-pose="b"><p><b>ポイント</b>　このときの速さ \(\dfrac{mg}{k}\) を<b>終端速度</b>という。(3) の \(v = \dfrac{mg}{k}\left(1 - e^{-\frac{k}{m}t}\right)\) を \(v\)-\(t\) グラフにすると下のようになる。</p>
+        <div class="figure small" style="max-width:300px"><svg class="fig" viewBox="0 0 296 170" role="img" aria-label="v-tグラフ：速度は0からだんだん増え，終端速度mg/kに近づく"><line class="ink" x1="56" y1="140" x2="282.8" y2="140" marker-end="url(#ah-ink)"/><line class="ink" x1="56" y1="140" x2="56" y2="25" marker-end="url(#ah-ink)"/><text class="lbl m" x="286.8" y="145" text-anchor="start"><tspan>t</tspan></text><text class="lbl m" x="56" y="17" text-anchor="middle"><tspan>v</tspan></text><text class="lbl" x="51" y="155" text-anchor="end">O</text><polyline class="curve" fill="none" points="56,140 58.7,133.7 61.5,127.8 64.2,122.3 66.9,117.1 69.7,112.3 72.4,107.7 75.1,103.4 77.8,99.5 80.6,95.7 83.3,92.2 86,88.9 88.8,85.8 91.5,83 94.2,80.3 96.9,77.7 99.7,75.3 102.4,73.1 105.1,71 107.9,69.1 110.6,67.3 113.3,65.5 116.1,63.9 118.8,62.4 121.5,61 124.2,59.7 127,58.5 129.7,57.3 132.4,56.2 135.2,55.2 137.9,54.2 140.6,53.3 143.4,52.5 146.1,51.7 148.8,51 151.6,50.3 154.3,49.6 157,49 159.7,48.5 162.5,47.9 165.2,47.4 167.9,47 170.7,46.5 173.4,46.1 176.1,45.7 178.8,45.4 181.6,45 184.3,44.7 187,44.4 189.8,44.1 192.5,43.9 195.2,43.6 198,43.4 200.7,43.2 203.4,43 206.2,42.8 208.9,42.6 211.6,42.5 214.3,42.3 217.1,42.2 219.8,42 222.5,41.9 225.3,41.8 228,41.7 230.7,41.6 233.4,41.5 236.2,41.4 238.9,41.3 241.6,41.2 244.4,41.1 247.1,41.1 249.8,41 252.6,40.9 255.3,40.9 258,40.8 260.8,40.8 263.5,40.7 266.2,40.7 268.9,40.6 271.7,40.6 274.4,40.6"/><text class="lbl m" x="50" y="45" text-anchor="end"><tspan>mg</tspan><tspan font-style="normal">/</tspan><tspan>k</tspan></text><line class="aux-ink" x1="56" y1="40" x2="274.4" y2="40"/><text class="lbl small m" x="232" y="34" text-anchor="start"><tspan font-style="normal">終端速度</tspan></text></svg></div>
+        <p>はじめは速度が 0 で空気抵抗力もないので，重力だけで加速する（傾き \(g\)）。速くなるほど空気抵抗力 \(kv\) が大きくなって加速がゆるやかになり，速度は終端速度 \(\dfrac{mg}{k}\)（破線）に近づく。(1) の運動方程式で \(\dfrac{dv}{dt} = 0\)（加速度 0）とおくと \(mg = kv\) となり，重力と空気抵抗力がつりあう速さとしても求められる。雨粒が地面に落ちても危なくないのは，終端速度があるため。</p></div>
+    </div></details>
+    <div class="answer-grid hide-ans">
+      <div><span class="label">(1)</span><span class="val">\(m\dfrac{dv}{dt} = mg - kv\)</span></div>
+      <div><span class="label">(2)</span><span class="val">\(v = \dfrac{mg}{k} + C_0\,e^{-\frac{k}{m}t}\)</span></div>
+      <div><span class="label">(3)</span><span class="val">\(v = \dfrac{mg}{k}\left(1 - e^{-\frac{k}{m}t}\right)\)</span></div>
+      <div><span class="label">(4)</span><span class="val">速さ \(\dfrac{mg}{k}\) で等速で落下する</span></div>
+    </div>
+  </section>
+</main>
+</div>
+</body>
+</html>
