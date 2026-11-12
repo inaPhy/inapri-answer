@@ -536,6 +536,7 @@ svg.fig .ans-layer { opacity: 0; transition: opacity .35s; }
 .chip.dark { background: #1f3864; color: #fff; }
 /* 写真 */
 .photo { margin: 0; }
+.photo.center { margin-left: auto; margin-right: auto; }   /* 中央寄せの画像（16 のスクリーンショット） */
 .photo img { width: 100%; height: auto; display: block; border-radius: 4px; }
 /* 「電池をつないだまま」「はずしてから」の2段組 */
 .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1.5px solid var(--ink); margin: 10px 0; }
@@ -628,6 +629,7 @@ details.sol:not([open]) > summary .g-open, details.sol[open] > summary .g-closed
 @media (max-width: 360px) {  /* とても狭い画面では吹き出しの幅を確保するため，キャラクターを吹き出しの上に置く */
   .guide-row { flex-direction: column; }
   .guide-row > .g-chara { height: 50px; margin: 0 0 6px 8px; }
+  .guide-row > .proof { align-self: stretch; }   /* 縦並びでは横幅いっぱいに（中身の幅に広がらないように） */
   .guide-row > .note::before { left: 22px; top: -11px; border: 7px solid transparent; border-top: 0; border-bottom: 11px solid var(--accent-soft); }
 }
 @media (max-width: 360px) { .guide-row > .note { padding: 8px 8px; } }
@@ -663,3 +665,26 @@ details.sol:not([open]) > summary .g-open, details.sol[open] > summary .g-closed
 .proof .proof-body { padding: 0 14px 10px; }
 .proof .proof-tip { font-size: .9rem; color: var(--muted); margin-bottom: 0; }
 @media (max-width: 560px) { .proof > summary { padding: 8px 10px; } .proof .proof-body { padding: 0 10px 8px; } }
+
+/* 実習の手順と課題（16 コンデンサの過渡現象）
+   <ol class="proc"> の項目は「手順1.」から数える。途中から続けるときは style="counter-reset:p 3"（次は手順4） */
+ol.proc { list-style: none; padding-left: 0; margin: 6px 0; counter-reset: p; }
+ol.proc > li { counter-increment: p; position: relative; padding-left: 4.2em; margin: 3px 0; }
+ol.proc > li::before { content: "手順" counter(p) "."; position: absolute; left: 0; font-weight: 700; }
+.task { margin: 10px 0 14px 1em; }
+.task-q { margin: 0 0 4px; padding-left: 2.2em; text-indent: -2.2em; }
+.task-q .n { display: inline-block; width: 2.2em; text-indent: 0; font-weight: 700; }
+.task-list { margin: 2px 0 4px 2.2em; padding-left: 1.2em; }
+.answer-text { border: 1.5px solid var(--line); border-radius: 6px; padding: 8px 12px; background: var(--paper); }
+.sol .body > .answer-text:only-child { border: none; padding: 0; background: none; }   /* ポイントなどの解説がない答えは囲まない */
+.data-table.answer-table { width: 100%; }
+.data-table.answer-table td { white-space: normal; text-align: left; font-size: .95rem; }   /* 文章の答えは折り返す */
+.answer-table th { width: 4em; white-space: nowrap; }
+.src-list { padding-left: 1.2em; }
+.src-list li { margin: 4px 0; overflow-wrap: anywhere; }
+.ic svg.fig.inline-icon { display: inline-block; width: 1.5em; height: auto; vertical-align: -0.3em; background: transparent; }
+@media (max-width: 560px) { .task { margin-left: 0; } ol.proc > li { padding-left: 4em; } }
+/* シミュレーター（3DCircuit）の回路を開くリンク（16 コンデンサの過渡現象） */
+.sim-link { margin: 6px 0 10px; }
+.sim-link .btn { display: inline-block; text-decoration: none; }
+.sim-link .btn:hover { color: #fff; opacity: .9; }
