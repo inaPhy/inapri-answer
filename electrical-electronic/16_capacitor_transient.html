@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>16 コンデンサの過渡現象 解答解説</title>
+<meta name="description" content="イナプリ 電気電子工学16「コンデンサの過渡現象」のシミュレーション課題の解答例">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="../assets/style.css?v=e1af4a49">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<script defer src="../assets/main.js?v=1ba105e6"></script>
+</head>
+<body class="guide" style="--unit-dot:#ffc000">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<marker id="ah-ink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ink" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="13" markerHeight="13" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-gray" d="M0,0.5 L10,5 L0,9.5 z"/></marker>
+<marker id="ah-ans" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="12" markerHeight="12" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-ans" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-axis" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-axis" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-force" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="11" markerHeight="11" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-force" d="M1.5,1.2 L8.6,5 L1.5,8.8"/></marker>
+<marker id="ah-vel" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-vel" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-volt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-volt" d="M0,1 L10,5 L0,9 z"/></marker>
+<marker id="ah-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse" markerUnits="userSpaceOnUse"><path class="mk-red" d="M0,1 L10,5 L0,9 z"/></marker>
+<pattern id="dots" width="4" height="4" patternUnits="userSpaceOnUse"><rect class="dots-bg" width="4" height="4"/><circle class="dots-st" cx="1" cy="1" r=".5"/><circle class="dots-st" cx="3" cy="3" r=".5"/></pattern>
+<pattern id="dots-g" width="3" height="3" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="3" height="3"/><circle class="dotsg-st" cx="1" cy="1" r=".45"/></pattern>
+<pattern id="dots-d" width="2" height="2" patternUnits="userSpaceOnUse"><rect class="dotsg-bg" width="2" height="2"/><circle class="dotsd-st" cx="1" cy="1" r=".6"/></pattern>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)"><rect class="hatch-bg" width="7" height="7"/><rect class="hatch-st" width="3" height="7"/></pattern>
+</defs>
+</svg>
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="../index.html"><span class="dot"></span><span class="brand-sub">電気電子工学 </span>解答解説 <small>イナプリ 16</small></a>
+    <div class="tools">
+      <button class="btn primary" id="toggle-all" type="button">解説をすべて開く</button>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc" aria-label="目次">
+    <a class="toc-back" href="../index.html">← 一覧に戻る</a>
+    <div class="toc-title">16 コンデンサの過渡現象</div>
+    <ol>
+      <li><a href="#k1">課題①</a></li>
+      <li><a href="#k2">課題②</a></li>
+      <li><a href="#k3">課題③</a></li>
+      <li><a href="#k4">課題④</a></li>
+      <li><a href="#k5">課題⑤</a></li>
+    </ol>
+  </nav>
+
+<main>
+  <section class="hero">
+    <div class="kicker">イナプリ 電気電子工学 16</div>
+    <h1>コンデンサの過渡現象</h1>
+  </section>
+
+  <!-- ================= 課題① ================= -->
+  <section class="card" id="k1">
+    <h2><span class="tag">課題①</span></h2>
+    <div class="fig-row" style="align-items:center">
+      <div style="flex:1 1 300px">
+      <p class="statement">Moodle から「第 21 回課題　課題①②の回路」のリンクをクリックすると，図１のような回路ができている。手順1～4を行い，(a)～(b)の問いに答えよ。</p>
+        <p class="sim-link"><a class="btn primary" href="https://inaphy.github.io/3DCircuit-www/#c=zrZRRb9owEID_yz1byI6Thvh9k3ioVHUSL9OEHHMFayZO7QsMIf77RAgklJZptG8--3Kfv-h8O1hjiNZXoECMJDDQdT09b8kRF8DA-FXtK6wogvq5Azs_ZOdFyoVIU54lHBjQtkZQUGoiDFtg8AeUYLAFlTAInjS1JQWDtXYNgsoYhElFoPiIc8HgJeBre14vdURQBd-zt6yHfCx6VtxYMsshSgxR8ozi_4_KeD4eaG1swJkbovj7VvegUs5ljwoYbSQfjjB57dXDxD20cZql74vJa7HkM2IPUhRFjzK61sa-MfugOQT_N49BU1kCBavvcM3OZZpfah6xybUk_5TkuEjkrUaRX4bKeTK-4fSFIJEX2a0ekXe_s18MIhLZahFB7WCuw-9HP0dQL9pFZKDLeIwpNMggLv1Gzs-nh_BJB7LGYRzmPGNs3GE8dYk2fnNoKPjqojrZFf4w2h3uOsqOn06cayKFVqYvYJY6LPAJwwnXSiUMFkHXy2ddLXDazrA-nnRFyXtX6jC10ZbWWdoeRE9zsbuzNrPom2D6q52ffZdRNq48rfuX023Yat6YQbz2jlZIeN7Qq4uwbZXBeuYuIrqITPCx_xHdkG0T9vv9Xw" target="_blank" rel="noopener">課題①②の回路を開く ↗</a></p>
+      </div>
+      <div class="figure small" style="max-width:210px"><svg class="fig" viewBox="0 0 214 150" role="img" aria-label="図１：5.0Vの電池，スイッチ，10Ωの抵抗，100mFのコンデンサを直列につないだ回路"><path class="ink nofill" d="M50,136 L50,16 L150,16 L150,136 L50,136" stroke-linejoin="miter"/><line class="cut" x1="50" y1="31" x2="50" y2="59"/><line class="ink" x1="50" y1="60" x2="35" y2="28"/><line class="cut" x1="50" y1="95.5" x2="50" y2="100.5"/><line class="bat-p " x1="38" y1="94.5" x2="62" y2="94.5"/><line class="bat-n " x1="44" y1="101.5" x2="56" y2="101.5"/><text class="lbl small m" x="40" y="90" text-anchor="end"><tspan font-style="normal">5.0 V</tspan></text><rect class="res " x="144" y="35" width="12" height="34"/><text class="lbl small m" x="160" y="56" text-anchor="start"><tspan font-style="normal">10 Ω</tspan></text><line class="cut" x1="150" y1="103.5" x2="150" y2="108.5"/><line class="plate " x1="137" y1="102" x2="163" y2="102"/><line class="plate " x1="137" y1="110" x2="163" y2="110"/><text class="lbl small m" x="168" y="110" text-anchor="start"><tspan font-style="normal">100 mF</tspan></text></svg><figcaption>図１</figcaption></div>
+    </div>
+    <ol class="proc">
+      <li>左下の（OK）ボタンを押す。</li>
+      <li>スイッチを ON にする。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(a)</span>電荷（赤い粒）が移動し，電流が流れるが次第にどうなるか。下の空欄に答えよ。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <p class="answer-text">電荷の移動は次第にゆっくりになり，電流は，十分に時間が経過すると流れなくなる。</p>
+        <p class="note" data-pose="b"><b>ポイント</b>　はじめはコンデンサに電荷がないので，電荷がどんどん移動する（15 で学んだ「導線」と見なせる状態）。電荷がたまるにつれて移動しにくくなり，満タン（Max）になると電流が流れなくなる（「無限 Ω の抵抗」と見なせる状態）。</p>
+      </div></details>
+    </div>
+    <div class="task">
+      <p class="task-q"><span class="n">(b)</span>十分に時間が経過したとき，コンデンサにたまった電荷はどうなっているか。そのとき回路の様子をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，（停止）ボタンを押す→スイッチ OFF→手順1に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q1b.jpg" width="1600" height="900" alt="スイッチをONにして十分に時間が経過したときの回路。コンデンサの上の極板に赤い電荷（＋），下の極板に青い電荷（−）がたまり，導線の電荷は止まっている" loading="lazy"></figure>
+        <p>コンデンサの上の極板に＋の電荷（赤），下の極板に－の電荷（青）がたまっている。電荷が満タンになったので，導線の電荷はもう移動していない。</p>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 2">
+      <li>スイッチを OFF にする。</li>
+      <li>（停止）ボタンを押す。</li>
+    </ol>
+  </section>
+
+  <!-- ================= 課題② ================= -->
+  <section class="card" id="k2">
+    <h2><span class="tag">課題②</span></h2>
+    <p class="statement">課題①の手順3，4が済んでいるか確認し，同じ回路でシミュレーションを行う。手順1～10を行い，(a)～(e)の問いに答えよ。</p>
+    <p class="sim-link"><a class="btn primary" href="https://inaphy.github.io/3DCircuit-www/#c=zrZRRb9owEID_yz1byI6Thvh9k3ioVHUSL9OEHHMFayZO7QsMIf77RAgklJZptG8--3Kfv-h8O1hjiNZXoECMJDDQdT09b8kRF8DA-FXtK6wogvq5Azs_ZOdFyoVIU54lHBjQtkZQUGoiDFtg8AeUYLAFlTAInjS1JQWDtXYNgsoYhElFoPiIc8HgJeBre14vdURQBd-zt6yHfCx6VtxYMsshSgxR8ozi_4_KeD4eaG1swJkbovj7VvegUs5ljwoYbSQfjjB57dXDxD20cZql74vJa7HkM2IPUhRFjzK61sa-MfugOQT_N49BU1kCBavvcM3OZZpfah6xybUk_5TkuEjkrUaRX4bKeTK-4fSFIJEX2a0ekXe_s18MIhLZahFB7WCuw-9HP0dQL9pFZKDLeIwpNMggLv1Gzs-nh_BJB7LGYRzmPGNs3GE8dYk2fnNoKPjqojrZFf4w2h3uOsqOn06cayKFVqYvYJY6LPAJwwnXSiUMFkHXy2ddLXDazrA-nnRFyXtX6jC10ZbWWdoeRE9zsbuzNrPom2D6q52ffZdRNq48rfuX023Yat6YQbz2jlZIeN7Qq4uwbZXBeuYuIrqITPCx_xHdkG0T9vv9Xw" target="_blank" rel="noopener">課題①②の回路を開く ↗</a></p>
+    <ol class="proc">
+      <li>（OK）ボタンを押す。</li>
+      <li>右下の白いボタン <span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示していないときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,6 H8 V13 H14 V6 H18"/></svg></span> をクリックし，<span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示しているときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,13 H8 V6 H14 V13 H18"/></svg></span> にすると，解析結果が表示される。</li>
+      <li>解析結果の「コンデンサー」をクリックすると，電圧と電流のグラフが図２のように表示される。</li>
+    </ol>
+    <figure class="photo center" style="max-width:520px"><img src="img/16_fig2.jpg" width="1600" height="1008" alt="図２：シミュレーションの画面。回路の下に，解析結果の表と，コンデンサの電圧波形・電流波形のグラフが表示されている" loading="lazy"><figcaption>図２</figcaption></figure>
+    <ol class="proc" style="counter-reset:p 3">
+      <li>スイッチを ON にし，グラフを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(a)</span>このとき，コンデンサの電圧と電流の変化の様子がわかるように，画面をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，（停止）ボタンを押す→スイッチ OFF→手順1に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q2a.jpg" width="1600" height="900" alt="静電容量100mFのときの電圧波形と電流波形。電圧は0Vから次第に増えて約5Vに近づき，電流は約0.5Aから次第に減って0Aに近づく" loading="lazy"></figure>
+      </div></details>
+    </div>
+    <div class="task">
+      <p class="task-q"><span class="n">(b)</span>コンデンサの電圧の変化と電流の変化は，それぞれどのような特徴があるかグラフから言えることを下の空欄に答えよ。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <table class="data-table answer-table">
+          <tr><th>電圧</th><td>スイッチを入れた瞬間は，0 V であるが，次第に増加していき，十分に時間が経過すると，5 V となる。</td></tr>
+          <tr><th>電流</th><td>スイッチを入れた瞬間は，0.50 A であるが，次第に減少していき，十分に時間が経過すると，0 A となる。</td></tr>
+        </table>
+        <p class="note" data-pose="b"><b>ポイント</b>　スイッチを入れた瞬間の電流は，コンデンサを導線と見なして \(5.0 \div 10 = 0.50\,\unit{A}\)。十分に時間が経過すると電流は 0 で抵抗の電圧も 0 になるので，コンデンサの電圧は電池と同じ 5 V になる（15 RC直流回路と同じ考え方）。その間の変化は，どちらも初めは急で，だんだんゆるやかになる。</p>
+        <details class="proof" data-guide data-pose="b" data-pose-open="a">
+          <summary><b>もっと詳しく：グラフの式を回路方程式から導く</b><span class="proof-hint">見たい人は開いてね</span></summary>
+          <div class="proof-body">
+          <p><b>1．回路方程式を立てる</b>　電池の電圧を \(V\)，抵抗を \(R\)，静電容量を \(C\)，時刻 \(t\) でのコンデンサの電荷を \(q\)，電流を \(i\) とする。コンデンサの電圧は \(\dfrac{q}{C}\)。回路を1周すると，電池で上がった電圧 \(V\) は，抵抗で \(Ri\)，コンデンサで \(\dfrac{q}{C}\) だけ下がって元に戻る（キルヒホッフの第2法則）。</p>
+          <div class="eqwrap">\[ V - Ri - \frac{q}{C} = 0 \quad\cdots ① \]</div>
+          <p>電流は，コンデンサにたまる電荷が増える速さなので，</p>
+          <div class="eqwrap">\[ i = \frac{dq}{dt} \quad\cdots ② \]</div>
+          <p>②を①に入れると，\(q\) だけの式（回路方程式）になる。</p>
+          <div class="eqwrap">\[ V - R\,\frac{dq}{dt} - \frac{q}{C} = 0 \]</div>
+          <p><b>2．「まだたまっていない電荷」で書き直す</b>　十分に時間が経過すると電流は 0 になるので，①より最後にたまる電荷は \(CV\)（満タン）。そこで，満タンまでの残り \(u = CV - q\) とおく。\(CV\) は一定なので \(\dfrac{du}{dt} = -\dfrac{dq}{dt}\)。回路方程式を \(R\,\dfrac{dq}{dt} = V - \dfrac{q}{C} = \dfrac{CV - q}{C}\) と変形して \(u\) で書くと，</p>
+          <div class="eqwrap">\[ \frac{du}{dt} = -\frac{1}{RC}\,u \quad\cdots ③ \]</div>
+          <p>つまり，<b>微分すると自分自身の \(-\dfrac{1}{RC}\) 倍になる関数</b> \(u\) を探せばよい。</p>
+          <p><b>3．合成関数の微分で見つける</b>　\(\left(e^x\right)' = e^x\)（微分しても変わらない）と，合成関数の微分法を使う。\(s = -\dfrac{t}{RC}\) とおくと，\(e^{-\textstyle\frac{t}{RC}} = e^{s}\) は \(s\) を通して \(t\) の関数になっているので，</p>
+          <div class="eqwrap">\[ \frac{d}{dt}\,e^{s} = \frac{d\,e^{s}}{ds}\cdot\frac{ds}{dt} \]</div>
+          <p>ここで \(\dfrac{d\,e^{s}}{ds} = e^{s}\)，\(\dfrac{ds}{dt} = -\dfrac{1}{RC}\) なので，</p>
+          <div class="eqwrap"><div class="eq-wide">\[ \frac{d}{dt}\,e^{-\textstyle\frac{t}{RC}} = e^{s} \times \left(-\frac{1}{RC}\right) = e^{-\textstyle\frac{t}{RC}} \times \left(-\frac{1}{RC}\right) \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{d}{dt}\,e^{-\textstyle\frac{t}{RC}} &= e^{s} \times \left(-\frac{1}{RC}\right) \\ &= e^{-\textstyle\frac{t}{RC}} \times \left(-\frac{1}{RC}\right) \end{aligned} \]</div></div>
+          <p>微分すると自分自身の \(-\dfrac{1}{RC}\) 倍になった。定数 \(A\) をかけても同じなので，\(u = A\,e^{-\textstyle\frac{t}{RC}}\) は③を満たす。</p>
+          <p><b>4．ほかに答えがないことを確かめる</b>　③を満たす \(u\) に対して \(w = u\,e^{\textstyle\frac{t}{RC}}\) とおき，積の微分と合成関数の微分で \(t\) で微分する。③の \(\dfrac{du}{dt}\) を入れると，</p>
+          <div class="eqwrap"><div class="eq-wide">\[ \frac{dw}{dt} = \frac{du}{dt}\,e^{\textstyle\frac{t}{RC}} + u \times \frac{1}{RC}\,e^{\textstyle\frac{t}{RC}} = \left(-\frac{u}{RC} + \frac{u}{RC}\right)e^{\textstyle\frac{t}{RC}} = 0 \]</div><div class="eq-narrow">\[ \begin{aligned} \frac{dw}{dt} &= \frac{du}{dt}\,e^{\textstyle\frac{t}{RC}} + u \times \frac{1}{RC}\,e^{\textstyle\frac{t}{RC}} \\ &= \left(-\frac{u}{RC} + \frac{u}{RC}\right)e^{\textstyle\frac{t}{RC}} \\ &= 0 \end{aligned} \]</div></div>
+          <p>微分が常に 0 なので \(w\) は一定の値 \(A\)。よって \(u = A\,e^{-\textstyle\frac{t}{RC}}\) の形しかない。</p>
+          <p><b>5．はじめの条件で \(A\) を決める</b>　スイッチを入れた瞬間（\(t = 0\)）はコンデンサに電荷がないので \(q = 0\)，つまり \(u = CV\)。\(e^0 = 1\) より \(A = CV\)。したがって，コンデンサの電荷は</p>
+          <div class="eqwrap"><div class="eq-wide">\[ q = CV - u = CV\left(1 - e^{-\textstyle\frac{t}{RC}}\right) \]</div><div class="eq-narrow">\[ \begin{aligned} q &= CV - u \\ &= CV\left(1 - e^{-\textstyle\frac{t}{RC}}\right) \end{aligned} \]</div></div>
+          <p>コンデンサの電圧は，これを \(C\) で割って</p>
+          <div class="eqwrap">\[ \frac{q}{C} = V\left(1 - e^{-\textstyle\frac{t}{RC}}\right) \]</div>
+          <p>電流は②より \(q\) を \(t\) で微分する。\(CV\) は定数なので，3. の合成関数の微分を使うと，</p>
+          <div class="eqwrap"><div class="eq-wide">\[ i = \frac{dq}{dt} = -CV \times e^{-\textstyle\frac{t}{RC}} \times \left(-\frac{1}{RC}\right) = \frac{V}{R}\,e^{-\textstyle\frac{t}{RC}} \]</div><div class="eq-narrow">\[ \begin{aligned} i &= \frac{dq}{dt} \\ &= -CV \times e^{-\textstyle\frac{t}{RC}} \times \left(-\frac{1}{RC}\right) \\ &= \frac{V}{R}\,e^{-\textstyle\frac{t}{RC}} \end{aligned} \]</div></div>
+          <p><b>6．この回路の値を入れる</b>　\(V = 5.0\,\unit{V}\)，\(R = 10\,\unit{Ω}\)，\(C = 100\,\unit{mF} = 0.1\,\unit{F}\) より \(RC = 1.0\,\unit{s}\)，\(CV = 0.50\,\unit{C}\)。</p>
+          <div class="eqwrap"><div class="eq-wide">\[ q = 0.50\left(1 - e^{-t}\right)\,\unit{C}, \qquad \frac{q}{C} = 5.0\left(1 - e^{-t}\right)\,\unit{V}, \qquad i = 0.50\,e^{-t}\,\unit{A} \]</div><div class="eq-narrow">\[ \begin{aligned} q &= 0.50\left(1 - e^{-t}\right)\,\unit{C} \\ \frac{q}{C} &= 5.0\left(1 - e^{-t}\right)\,\unit{V} \\ i &= 0.50\,e^{-t}\,\unit{A} \end{aligned} \]</div></div>
+          <p>\(t = 0\) では電圧 0 V，電流 0.50 A。\(t\) が大きくなると \(e^{-t}\) は 0 に近づくので，電圧は 5.0 V，電流は 0 A に近づき，上の解答例のグラフの特徴と一致する。\(\qquad\blacksquare\)</p>
+          <p class="proof-tip">\(RC\) が (e) で調べる<b>時定数</b> \(\tau\)。\(t = \tau\) のとき \(e^{-1} \fallingdotseq 0.37\) なので，電圧は最終値の約 63%（この回路では \(t = 1.0\) s で約 3.2 V），電流は最初の約 37%（約 0.18 A）になる。</p>
+          </div>
+        </details>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 4">
+      <li>（停止）ボタンを押す。</li>
+      <li>スイッチを OFF にする。</li>
+      <li>コンデンサのパネルをダブルクリックし，静電容量を 100 mF から 200 mF に変更する。</li>
+      <li>（OK）ボタンを押す。</li>
+      <li>解析結果の「コンデンサー」をクリックし，電圧と電流のグラフが表示する。</li>
+      <li>スイッチを ON にし，グラフを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(c)</span>このとき，コンデンサの電圧と電流の変化の様子がわかるように，画面をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，手順5に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q2c.jpg" width="1600" height="900" alt="静電容量200mFのときの電圧波形と電流波形。(a)と同じ形だが，電圧が5Vに近づくまで，電流が0Aに近づくまでの時間が長い" loading="lazy"></figure>
+      </div></details>
+    </div>
+    <div class="task">
+      <p class="task-q"><span class="n">(d)</span>コンデンサの電圧や電流の変化は，(a) のときに比べ，(c) はどうなったか下の空欄に答えよ。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <p class="answer-text">(a) のときに比べ，(c) ではコンデンサの充電が完了するまでの時間（電流が流れなくなるまでの時間）が長くなった。</p>
+      </div></details>
+    </div>
+    <div class="task">
+      <p class="task-q"><span class="n">(e)</span>コンデンサの過渡現象における「時定数」についてインターネット等で調べ，下の空欄に示せ。ただし，次の４点については必ず示すこと。</p>
+      <ul class="task-list">
+        <li>概要</li>
+        <li>定常状態と時定数の関係</li>
+        <li>(d) の解答となった理由を時定数の式との関係</li>
+        <li>上記について調べた情報源の URL と Web ページのタイトル</li>
+      </ul>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <h4><span class="n">概要</span></h4>
+        <p>RC 直列回路の時定数 \(\tau\)〔s〕は，抵抗 \(R\)〔Ω〕と静電容量 \(C\)〔F〕の積で表される。</p>
+        <div class="eqwrap">\[ \tau = RC \]</div>
+        <p>時定数は過渡現象の変化の速さの目安である。充電のときは，スイッチを入れてから \(\tau\) だけ時間が経過すると，コンデンサの電圧は最終値（電源電圧）の約 63.2% に達し，電流は最初の値の約 36.8% まで減少する。\(\tau\) が大きいほど，変化はゆっくりになる。</p>
+        <h4><span class="n">定常状態と時定数の関係</span></h4>
+        <p>コンデンサの電圧は，\(2\tau\) で約 86.5%，\(3\tau\) で約 95.0%，\(5\tau\) で約 99.3% となり，実際には 100% にはならない。そのため，実用上は，時定数の 5 倍（\(5\tau\)）以上の時間が経過すると，電圧と電流が最終値に達した定常状態とみなす。</p>
+        <p>課題②の回路では，次のようになるので，約 5 s で定常状態になる。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ \tau = 10\times 0.1 = 1.0 \,\unit{s} \]</div><div class="eq-narrow">\[ \begin{aligned} \tau &= 10\times 0.1 \\ &= 1.0 \,\unit{s} \end{aligned} \]</div></div>
+        <h4><span class="n">(d) の理由</span></h4>
+        <p>静電容量を 100 mF から 200 mF にすると，時定数が 2 倍になる。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ \tau = RC = 10\times 0.2 = 2.0 \,\unit{s} \]</div><div class="eq-narrow">\[ \begin{aligned} \tau &= RC \\ &= 10\times 0.2 \\ &= 2.0 \,\unit{s} \end{aligned} \]</div></div>
+        <p>定常状態になるまでの時間（約 \(5\tau\)）も約 5 s から約 10 s へと 2 倍になるため，充電が完了するまでの時間（電流が流れなくなるまでの時間）が長くなった。</p>
+        <h4><span class="n">情報源</span></h4>
+        <ul class="src-list">
+          <li>Web ページのタイトル：時定数 - Wikipedia<br>URL：<a href="https://ja.wikipedia.org/wiki/%E6%99%82%E5%AE%9A%E6%95%B0" target="_blank" rel="noopener">https://ja.wikipedia.org/wiki/時定数</a></li>
+          <li>Web ページのタイトル：「ADALM1000」で、SMU の基本を学ぶトピック 4: RC 回路の過渡応答<br>URL：<a href="https://ez.analog.com/jp/a/studentzone/ST3707/adalm1000-smu-4-rc" target="_blank" rel="noopener">https://ez.analog.com/jp/a/studentzone/ST3707/adalm1000-smu-4-rc</a></li>
+        </ul>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- ================= 課題③ ================= -->
+  <section class="card" id="k3">
+    <h2><span class="tag">課題③</span></h2>
+    <div class="fig-row" style="align-items:center">
+      <div style="flex:1 1 300px">
+      <p class="statement">Moodle から「第 21 回課題　課題③の回路」のリンクをクリックすると，図３のような回路ができている。手順1～6を行い，(a)～(d)の問いに答えよ。</p>
+        <p class="sim-link"><a class="btn primary" href="https://inaphy.github.io/3DCircuit-www/#c=zrZXLrtsgEIbfZdYowoDxZd9KWVQ6OpWyqaoIE06CSowLOGkU5d2rOI4vJ5eqSXbMeMw3_wwwe9go57UtIYdoQgGBqKpZ56ITHAECadeVLVUZPOQ_9qAXx-gkoxkjGeYkzQBB2FUKcihECMrtAMEfyCMEO8gJAmeDCM2WEYKNMLWCnCJw0zJAjicYRwg-nPrdfK9WwivIM3xAQ1ZMGWE0iXqWU177YN0JRhoYHsJIB4vw_9NoHCesp0lRCak7HL2nLcL_5iGoSx0gh_VXuGAzHJO4Z_utDnI1LGo0BNMO_IBMRhI-KOpWOzU3QxS-rvERFEt59gkVTih2qYo8g4p5QvB1VfQS9ZQqzjBht05lfP-YPEDjESfXhcUvriFPY3bjZLB7l-0BVBplnI9Rw2aNQPgpEKPZDU2n8tGXXayUZ4zfu1j0darS5EJVGBaQvqxTGWGYXesUe7GmjOHPj8XwoX8c9BOBVyHocukh38NCuF_f7EJB_iGMVwhE4Ue2X9ktXYzMN-GClkZ5yIOrW-e78rU5jsg2UPsvRsngbDnaLui1-i6FOSY7iU-_To2pfXCNmn4DuRJuqd6UO-MaVQTB0olq9S7KpZo15ejt6TGEIQjWmkK4mfa60EaH3VHpeTa3OQs597Z2sk-te7raiKI2xXndj7_WoctFLQf2xpqwVkF1DrEemU0DB-u5GVlhZElnfV-Idvw1AYfD4S8" target="_blank" rel="noopener">課題③の回路を開く ↗</a></p>
+      </div>
+      <div class="figure small" style="max-width:250px"><svg class="fig" viewBox="0 0 240 160" role="img" aria-label="図３：3.0Vの電池，スイッチ，10Ωの抵抗に，100mFのコンデンサと10Ωの抵抗を並列につないだ部分を直列につないだ回路"><path class="ink nofill" d="M150,52 L150,20 L44,20 L44,144 L190,144 L190,52 L110,52 L110,144" stroke-linejoin="miter"/><line class="cut" x1="44" y1="35" x2="44" y2="61"/><line class="ink" x1="44" y1="62" x2="30" y2="32"/><rect class="res " x="81" y="14" width="34" height="12"/><text class="lbl small m" x="98" y="40" text-anchor="middle"><tspan font-style="normal">10 Ω</tspan></text><line class="cut" x1="44" y1="101.5" x2="44" y2="106.5"/><line class="bat-p " x1="32" y1="100.5" x2="56" y2="100.5"/><line class="bat-n " x1="38" y1="107.5" x2="50" y2="107.5"/><text class="lbl small m" x="34" y="96" text-anchor="end"><tspan font-style="normal">3.0 V</tspan></text><line class="cut" x1="110" y1="95.5" x2="110" y2="100.5"/><line class="plate " x1="97" y1="94" x2="123" y2="94"/><line class="plate " x1="97" y1="102" x2="123" y2="102"/><text class="lbl small m" x="128" y="102" text-anchor="start"><tspan font-style="normal">100 mF</tspan></text><rect class="res " x="184" y="81" width="12" height="34"/><text class="lbl small m" x="200" y="102" text-anchor="start"><tspan font-style="normal">10 Ω</tspan></text><circle class="node " cx="150" cy="52" r="2.4"/><circle class="node " cx="110" cy="144" r="2.4"/></svg><figcaption>図３</figcaption></div>
+    </div>
+    <ol class="proc">
+      <li>左下の（OK）ボタンを押す。</li>
+      <li>スイッチを ON にし，電荷の動きを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(a)</span>このとき，電流の流れはどのように変化するか下の空欄に答えよ。もし，やり直したいときは，（停止）ボタンを押す→スイッチ OFF→手順1に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <p class="answer-text">スイッチを入れてから，時間が経過するに連れて，コンデンサに流れる電流が減少していった。十分に時間が経過し，コンデンサに電流が流れなくなると，２つの抵抗を直列接続した状態での回路のようになった。</p>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 2">
+      <li>スイッチを OFF にし，電荷の動きを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(b)</span>このとき，電流はどのように流れるか下の空欄に答えよ。もし，やり直したいときは，（停止）ボタンを押す→手順1に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <p class="answer-text">電池と上の抵抗には電流が流れなくなったが，コンデンサと右側の抵抗からなる回路には，コンデンサにたまった電荷が右側の抵抗に流れた。十分に時間が経過すると，電流が流れなくなった。</p>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 3">
+      <li>右下の白いボタン <span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示していないときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,6 H8 V13 H14 V6 H18"/></svg></span> をクリックし，<span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示しているときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,13 H8 V6 H14 V13 H18"/></svg></span> にすると，解析結果が表示される。</li>
+      <li>解析結果の「コンデンサー」をクリックすると，電圧と電流のグラフが課題②の図２のように表示される。</li>
+      <li>スイッチを ON にし，定常状態になったら，OFF にし，グラフを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(c)</span>このとき，コンデンサの電圧と電流の変化の様子がわかるように，画面をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，（停止）ボタンを押して，手順5に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q3c.jpg" width="1600" height="900" alt="課題③の電圧波形と電流波形。ONで電圧は約1.5Vまで増え，電流は約0.3Aから0へ減る。OFFで電圧は0へ減り，電流は負の向きに約0.15A流れてから0へ戻る" loading="lazy"></figure>
+      </div></details>
+    </div>
+    <div class="task">
+      <p class="task-q"><span class="n">(d)</span>(c) について，コンデンサに流れる電流の向きおよび，その大きさについて考察し，下の空欄に答えよ。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <h4><span class="n">ON（充電）</span></h4>
+        <p>コンデンサに電荷がたまる向き（グラフの正の向き）に流れる。直後はコンデンサを導線と見なせるので，右の 10 Ω には流れず，コンデンサに次の電流が流れる。</p>
+        <div class="eqwrap">\[ 3.0 \div 10 = 0.30 \,\unit{A} \]</div>
+        <p>その後，次第に減少して 0 A になる（このときコンデンサの電圧は 1.5 V）。</p>
+        <h4><span class="n">OFF（放電）</span></h4>
+        <p>ON のときと逆向き（グラフの負の向き）に流れる。コンデンサにたまった電荷が右の 10 Ω を通って放電するためで，直後の大きさは次のようになる。その後，次第に減少して 0 A になる。</p>
+        <div class="eqwrap">\[ 1.5 \div 10 = 0.15 \,\unit{A} \]</div>
+        <h4><span class="n">変化の速さ</span></h4>
+        <p>放電のほうがゆっくり減少する。時定数が，充電では 10 Ω と 10 Ω の並列（5 Ω），放電では右の 10 Ω だけになり，放電のほうが大きいためである。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ \text{充電}：\tau = 5\times 0.1 = 0.5 \,\unit{s}, \qquad \text{放電}：\tau = 10\times 0.1 = 1.0 \,\unit{s} \]</div><div class="eq-narrow">\[ \begin{aligned} \text{充電}：\tau &= 5\times 0.1 \\ &= 0.5 \,\unit{s} \\ \text{放電}：\tau &= 10\times 0.1 \\ &= 1.0 \,\unit{s} \end{aligned} \]</div></div>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- ================= 課題④ ================= -->
+  <section class="card" id="k4">
+    <h2><span class="tag">課題④</span></h2>
+    <div class="fig-row" style="align-items:center">
+      <div style="flex:1 1 300px">
+      <p class="statement">Moodle から「第 21 回課題　課題④の回路」のリンクをクリックすると，図４のような回路ができている。手順1～15を行い，(a)～(c)の問いに答えよ。</p>
+        <p class="sim-link"><a class="btn primary" href="https://inaphy.github.io/3DCircuit-www/#c=zrZVNj9owEIb_y5wtZMcJSXxvpT1UWm0lLlWFHOMFqyZO7QkUIf57RQgkYYEVLDfPZDKP3_lItrDSPhhXggA24kBAVtXk5OIjyoCAcsvKlbrEAOLXFsxsH53mMWUsjmkSUSCAm0qDgEIiar8BAv9AMAIbEBEB71Bik5IRWElbaxBjAv6lRBB0RCkj8O713-Z5tZBBg8jpjpyzxmnGOlZYG1SLAypqUKyPoicUvR-V0DTryVobr6e2r4pdVvUIKqaUdyivgwno_AEWNzDeh0UnGHuElsVJfFlY8lFY9BVhY87yvEMpWUllTsr4reFg9HMegbo0CAKW3-EjO8sjfqt__GmjkrI0T25VdIDiX0ClEY_puSrsl_NpC5DyNM_OVQ1QV2byAVQSJeP08lrHz1WVJyzl7NquRbd08TthecbSOM_p1flPbs1_dO_8_yYQNKIp5wHEFmbS__nhZhrEu7RBE5BFGNhh4dZ8NjBfpUejrA4g0Net802H2u6_-22gCd-sVuhdOUiHZql_Kmn3XRklh1dfrK0D-kZbl0AtpJ_rV-2PuEZhRGDuZbV4k-VcT5ridPZLUyZ0zhbST0wwhbEGN3udx99Ne2OppsHVXnUXO3W4jShqWxzPXUNahylnterZK2dxqVGfHHI5MPdL0T9P7cDCgaW8C10Z2iFvAna73X8" target="_blank" rel="noopener">課題④の回路を開く ↗</a></p>
+      </div>
+      <div class="figure small" style="max-width:270px"><svg class="fig" viewBox="0 0 260 160" role="img" aria-label="図４：6Vの電池とスイッチS1，100mFのコンデンサC1，スイッチS2，200mFのコンデンサC2の回路。下側の導線に3ΩのR1と10ΩのR2"><path class="ink nofill" d="M140,30 L34,30 L34,132 L140,132 L140,30 L236,30 L236,132 L140,132" stroke-linejoin="miter"/><line class="cut" x1="65" y1="30" x2="95" y2="30"/><line class="ink " x1="64" y1="30" x2="98" y2="15.6"/><line class="cut" x1="167" y1="30" x2="197" y2="30"/><line class="ink " x1="166" y1="30" x2="200" y2="15.6"/><text class="lbl small m" x="80" y="12" text-anchor="middle"><tspan font-style="normal" class="g">S</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">1</tspan></text><text class="lbl small m" x="182" y="12" text-anchor="middle"><tspan font-style="normal" class="g">S</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">2</tspan></text><line class="cut" x1="34" y1="73.5" x2="34" y2="78.5"/><line class="bat-p " x1="22" y1="72.5" x2="46" y2="72.5"/><line class="bat-n " x1="28" y1="79.5" x2="40" y2="79.5"/><text class="lbl m" x="26" y="70" text-anchor="end"><tspan font-style="normal">6 V</tspan></text><rect class="res " x="71" y="127.5" width="30" height="9"/><rect class="res " x="173" y="127.5" width="30" height="9"/><text class="lbl small m" x="86" y="122" text-anchor="middle"><tspan font-style="normal">3 Ω</tspan></text><text class="lbl tiny m" x="86" y="152" text-anchor="middle"><tspan font-style="normal" class="g">R</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">1</tspan></text><text class="lbl tiny m" x="188" y="152" text-anchor="middle"><tspan font-style="normal" class="g">R</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">2</tspan></text><line class="cut" x1="140" y1="81.5" x2="140" y2="86.5"/><line class="plate " x1="127" y1="80" x2="153" y2="80"/><line class="plate " x1="127" y1="88" x2="153" y2="88"/><circle class="node " cx="140" cy="30" r="2.4"/><circle class="node " cx="140" cy="132" r="2.4"/><text class="lbl small m" x="188" y="122" text-anchor="middle"><tspan font-style="normal">10 Ω</tspan></text><text class="lbl tiny m" x="122" y="68" text-anchor="end"><tspan font-style="normal" class="g">C</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">1</tspan></text><text class="lbl small m" x="122" y="88" text-anchor="end"><tspan font-style="normal">100 mF</tspan></text><line class="cut" x1="236" y1="81.5" x2="236" y2="86.5"/><line class="plate " x1="223" y1="80" x2="249" y2="80"/><line class="plate " x1="223" y1="88" x2="249" y2="88"/><text class="lbl tiny m" x="218" y="68" text-anchor="end"><tspan font-style="normal" class="g">C</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">2</tspan></text><text class="lbl small m" x="218" y="88" text-anchor="end"><tspan font-style="normal">200 mF</tspan></text></svg><figcaption>図４</figcaption></div>
+    </div>
+    <ol class="proc">
+      <li>左下の（OK）ボタンを押す。</li>
+      <li>\(\text{S}_1\) を ON にし，コンデンサ \(\text{C}_1\) を充電する。</li>
+      <li>\(\text{S}_1\) を OFF にし，\(\text{S}_2\) を ON にし，電荷の動きを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(a)</span>コンデンサにたまった電荷はどうなっているか。そのとき回路の様子をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，（停止）ボタンを押して，\(\text{S}_1\) と \(\text{S}_2\) を OFF にして，手順1に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q4a.jpg" width="1600" height="900" alt="S1をOFF，S2をONにしたときの回路。C1にたまっていた電荷の一部がC2に移り，C1とC2の両方の極板に電荷がたまっている" loading="lazy"></figure>
+        <p>\(\text{C}_1\) にたまっていた電荷の一部が \(\text{C}_2\) に移り，2つのコンデンサで電荷を分け合っている。</p>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 3">
+      <li>（停止）ボタンを押す。</li>
+      <li>\(\text{S}_1\) と \(\text{S}_2\) を OFF にする。</li>
+      <li>（OK）ボタンを押す。</li>
+      <li>右下の白いボタン <span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示していないときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,6 H8 V13 H14 V6 H18"/></svg></span> をクリックし，<span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示しているときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,13 H8 V6 H14 V13 H18"/></svg></span> にすると，解析結果が表示される。</li>
+      <li>解析結果の「コンデンサー」を<b>２つとも</b>クリックすると，電圧と電流のグラフが表示される。</li>
+      <li>グラフが，実線と破線の２本があることを確認する。</li>
+      <li>\(\text{S}_1\) を ON にし，コンデンサ \(\text{C}_1\) を充電する。</li>
+      <li>\(\text{S}_1\) を OFF にし，\(\text{S}_2\) を ON にし，グラフを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(b)</span>このとき，２つのコンデンサの電圧と電流の変化の様子がわかるように，画面をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，手順4に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q4b.jpg" width="1600" height="900" alt="C1（実線）とC2（破線）の電圧波形と電流波形。C1は6Vまで充電されたあと下がり，C2は0Vから上がって，どちらも2Vで等しくなる" loading="lazy"></figure>
+        <p>\(\text{C}_1\)（実線）は 6 V まで充電されたあと，\(\text{S}_2\) を ON にすると電圧が下がる。\(\text{C}_2\)（破線）は 0 V から上がり，どちらも 2.0 V で等しくなる。</p>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 11">
+      <li>これから，\(\text{S}_1\) と \(\text{S}_2\) の ON・OFF を繰り返す。\(\text{S}_2\) を OFF にする。</li>
+      <li>\(\text{S}_1\) を ON にし，コンデンサ \(\text{C}_1\) を充電する。</li>
+      <li>\(\text{S}_1\) を OFF にし，\(\text{S}_2\) を ON にし，グラフを観察する。</li>
+      <li>手順12～14を複数回繰り返す。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(c)</span>複数回繰り返すうちに，２つのコンデンサの電圧はどのように変化していくか下の空欄に答えよ。\(\text{C}_1\)，\(\text{C}_2\) それぞれについて答えること。もし，やり直したいときは，手順4に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <h4><span class="n">\(\text{C}_1\)</span></h4>
+        <p>\(\text{S}_1\) を ON にするたびに 6 V まで充電され，\(\text{S}_2\) を ON にすると \(\text{C}_2\) に電荷を分けて電圧が下がる。</p>
+        <h4><span class="n">\(\text{C}_2\)</span></h4>
+        <p>\(\text{S}_2\) を ON にするたびに \(\text{C}_1\) から電荷を受け取り，電圧が段階的に上がる。</p>
+        <h4><span class="n">電圧の変化</span></h4>
+        <p>\(\text{S}_2\) を ON にした後は \(\text{C}_1\) と \(\text{C}_2\) の電圧が等しくなる。電荷の合計は保存されるので，その電圧は次のように上がる（\(\text{C}_1\) の電荷は \(0.1\times 6 = 0.6\,\unit{C}\)，2つの静電容量の合計は \(0.1 + 0.2 = 0.3\,\unit{F}\)）。</p>
+        <div class="eqwrap"><div class="eq-wide">\[ \text{1回目}：\frac{0.6}{0.3} = 2.0 \,\unit{V}, \qquad \text{2回目}：\frac{0.6 + 0.2\times 2.0}{0.3} \fallingdotseq 3.3 \,\unit{V} \]</div><div class="eq-narrow">\[ \begin{aligned} \text{1回目}：\frac{0.6}{0.3} &= 2.0 \,\unit{V} \\ \text{2回目}：\frac{0.6 + 0.2\times 2.0}{0.3} &\fallingdotseq 3.3 \,\unit{V} \end{aligned} \]</div></div>
+        <div class="eqwrap"><div class="eq-wide">\[ \text{3回目} \fallingdotseq 4.2 \,\unit{V}, \qquad \text{4回目} \fallingdotseq 4.8 \,\unit{V}, \qquad \cdots \]</div><div class="eq-narrow">\[ \begin{aligned} \text{3回目} &\fallingdotseq 4.2 \,\unit{V} \\ \text{4回目} &\fallingdotseq 4.8 \,\unit{V} \\ &\cdots \end{aligned} \]</div></div>
+        <p>上がる幅は次第に小さくなる（6 V との差が毎回 \(\dfrac{2}{3}\) になる）。最終的に \(\text{C}_1\)，\(\text{C}_2\) ともに電源電圧の 6 V に近づき，\(\text{S}_2\) を ON にしても電荷が移動しなくなる。</p>
+      </div></details>
+    </div>
+  </section>
+
+  <!-- ================= 課題⑤ ================= -->
+  <section class="card" id="k5">
+    <h2><span class="tag">課題⑤</span></h2>
+    <div class="fig-row" style="align-items:center">
+      <div style="flex:1 1 300px">
+      <p class="statement">Moodle から「第 21 回課題　課題⑤の回路」のリンクをクリックすると，図５のような回路ができている。手順1～13を行い，(a)～(e)の問いに答えよ。</p>
+        <p class="sim-link"><a class="btn primary" href="https://inaphy.github.io/3DCircuit-www/#c=zrZVNj9owEIb_y5wtZMcJSXzvqhwqrbYSl6pCxnjBqolTewJFiP9eEUI-gGW1u9wyk4kfv_OVPWy0D8YVIICNOBCQZTltXXxEGRBQbl26QhcYQPzag1kco9M8pozFMU0iCgRwV2oQMJeI2u-AwD8QjMAORETAO5RYH8kIbKStNIgxAT8pEAQdUcoIvHr9t35frmTQIHJ6IJescZqxjhW2BtXqhIpqFOujaIuiH0clNM16srbG65ntq2K3VX0GFVPKO5TXwQR0_gSLaxjvw6IONmKfwGVxEt9Wllwri76ibMxZnncoJUupTCuN3-uOhL7PI1AVBkHA-gmu2Vke8XsF5A_rlZSleXIvowMU_wIqjXhML1VhP50Pm4A0yiLWmwBTLCrV1i55XO2-X9Uu5WmeXSZ0oPKtefi4yiRKxuntlRI_NqF5wlLO3prz6J4u_j7sN4GgEU2xDCD2sJD-zw-30CBepQ2agJyHgR1WbssXA_NZejTK6gACfdU4X3So7HHvN4EmfLNaoXfF4Dg0a_1TSVsvpeT06cTaKqCv1XQHqJX0S_2s_RnXrLGll-XqRRZLPa3bq7MntY3O2bn0UxPM3FiDu6PM89-mubBUs-Aqr7p7tUluIuaVnZ-fu3XUONoWb-yNs7jWqFuHXA_MY1_2n2d2YOHAUt6FLgtNn9UBh8PhPw" target="_blank" rel="noopener">課題⑤の回路を開く ↗</a></p>
+      </div>
+      <div class="figure small" style="max-width:270px"><svg class="fig" viewBox="0 0 260 160" role="img" aria-label="図５：6Vの電池とスイッチS1，500mFのコンデンサ，スイッチS2，500mHのコイルの回路。下側の導線に3ΩのR1と0.1ΩのR2"><path class="ink nofill" d="M140,30 L34,30 L34,132 L140,132 L140,30 L236,30 L236,132 L140,132" stroke-linejoin="miter"/><line class="cut" x1="65" y1="30" x2="95" y2="30"/><line class="ink " x1="64" y1="30" x2="98" y2="15.6"/><line class="cut" x1="167" y1="30" x2="197" y2="30"/><line class="ink " x1="166" y1="30" x2="200" y2="15.6"/><text class="lbl small m" x="80" y="12" text-anchor="middle"><tspan font-style="normal" class="g">S</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">1</tspan></text><text class="lbl small m" x="182" y="12" text-anchor="middle"><tspan font-style="normal" class="g">S</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">2</tspan></text><line class="cut" x1="34" y1="73.5" x2="34" y2="78.5"/><line class="bat-p " x1="22" y1="72.5" x2="46" y2="72.5"/><line class="bat-n " x1="28" y1="79.5" x2="40" y2="79.5"/><text class="lbl m" x="26" y="70" text-anchor="end"><tspan font-style="normal">6 V</tspan></text><rect class="res " x="71" y="127.5" width="30" height="9"/><rect class="res " x="173" y="127.5" width="30" height="9"/><text class="lbl small m" x="86" y="122" text-anchor="middle"><tspan font-style="normal">3 Ω</tspan></text><text class="lbl tiny m" x="86" y="152" text-anchor="middle"><tspan font-style="normal" class="g">R</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">1</tspan></text><text class="lbl tiny m" x="188" y="152" text-anchor="middle"><tspan font-style="normal" class="g">R</tspan><tspan dy="4" font-size="70%" font-style="normal" class="g">2</tspan></text><line class="cut" x1="140" y1="81.5" x2="140" y2="86.5"/><line class="plate " x1="127" y1="80" x2="153" y2="80"/><line class="plate " x1="127" y1="88" x2="153" y2="88"/><circle class="node " cx="140" cy="30" r="2.4"/><circle class="node " cx="140" cy="132" r="2.4"/><text class="lbl small m" x="188" y="122" text-anchor="middle"><tspan font-style="normal">0.1 Ω</tspan></text><text class="lbl small m" x="122" y="88" text-anchor="end"><tspan font-style="normal">500 mF</tspan></text><line class="cut" x1="236" y1="65" x2="236" y2="103"/><path class="ink nofill " d="M236,64 A5,5 0 0 1 236,74 A5,5 0 0 1 236,84 A5,5 0 0 1 236,94 A5,5 0 0 1 236,104"/><text class="lbl small m" x="228" y="88" text-anchor="end"><tspan font-style="normal">500 mH</tspan></text></svg><figcaption>図５</figcaption></div>
+    </div>
+    <ol class="proc">
+      <li>左下の（OK）ボタンを押す。</li>
+      <li>\(\text{S}_1\) を ON にし，コンデンサを充電する。</li>
+      <li>\(\text{S}_1\) を OFF にし，\(\text{S}_2\) を ON にし，電荷の動きを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(a)</span>このとき，電流の流れはどのように変化するか下の空欄に答えよ。もし，やり直したいときは，（停止）ボタンを押して，\(\text{S}_1\) と \(\text{S}_2\) を OFF にして，手順1に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <p class="answer-text">コンデンサとコイル，0.1 Ω の抵抗からなる回路において，電流が行ったり来たりする（振動する）。</p>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 3">
+      <li>右下の白いボタン <span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示していないときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,6 H8 V13 H14 V6 H18"/></svg></span> をクリックし，<span class="ic"><svg class="fig inline-icon" viewBox="0 0 22 18" role="img" aria-label="解析結果を表示しているときのボタン"><rect class="ink" x="1" y="1" width="20" height="16" rx="3" fill="#fff"/><path class="ink nofill" d="M4,13 H8 V6 H14 V13 H18"/></svg></span> にすると，解析結果が表示される。</li>
+      <li>解析結果の「コンデンサー」をクリックすると，電圧と電流のグラフが課題②の図２のように表示される。</li>
+      <li>\(\text{S}_1\) を ON にし，コンデンサを充電する。</li>
+      <li>\(\text{S}_1\) を OFF にし，\(\text{S}_2\) を ON にし，グラフを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(b)</span>このとき，コンデンサの電圧と電流の変化の様子がわかるように，画面をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，（停止）ボタンを押して，\(\text{S}_1\) と \(\text{S}_2\) を OFF にして，手順5に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q5b.jpg" width="1600" height="900" alt="500mFと500mHのときの電圧波形と電流波形。電圧も電流も正と負の間を行ったり来たりしながら，ゆっくり小さくなっていく" loading="lazy"></figure>
+      </div></details>
+    </div>
+    <div class="task">
+      <p class="task-q"><span class="n">(c)</span>電圧や電流が (b) のような波形となる回路を何というか調べ，下の空欄に答えよ。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <p class="answer-text">振動回路（減衰振動回路）</p>
+      </div></details>
+    </div>
+    <ol class="proc" style="counter-reset:p 7">
+      <li>（停止）ボタンを押して，\(\text{S}_1\) と \(\text{S}_2\) を OFF にする。</li>
+      <li>素子をダブルクリックして，コンデンサの静電容量を 500 mF から 100 mF へ，コイルの自己インダクタンス 500 mH から 100 mH に変更する。</li>
+      <li>左下の（OK）ボタンを押す。</li>
+      <li>解析結果の「コンデンサー」をクリックしてグラフを表示する。</li>
+      <li>\(\text{S}_1\) を ON にし，コンデンサを充電する。</li>
+      <li>\(\text{S}_1\) を OFF にし，\(\text{S}_2\) を ON にし，グラフを観察する。</li>
+    </ol>
+    <div class="task">
+      <p class="task-q"><span class="n">(d)</span>このとき，コンデンサの電圧と電流の変化の様子がわかるように，画面をスクリーンショットし，下の空欄に貼り付けよ。もし，やり直したいときは，手順8に戻る。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <figure class="photo center" style="max-width:640px"><img src="img/16_q5d.jpg" width="1600" height="900" alt="100mFと100mHのときの電圧波形と電流波形。(b)よりも速く振動し，早く小さくなって0に近づく" loading="lazy"></figure>
+      </div></details>
+    </div>
+    <div class="task">
+      <p class="task-q"><span class="n">(e)</span>(b) のときと (d) のときの波形の違いについて「周期」という観点をふまえ考察し，下の空欄に答えよ。</p>
+      <details class="sol"><summary>解答例</summary><div class="body">
+        <p>周期は，(b)（500 mF，500 mH）では約 3.1 s，(d)（100 mF，100 mH）では約 0.63 s で，(d) のほうが周期が短く，速く振動した。振動回路の周期 \(T\) は次の式で表される。</p>
+        <div class="eqwrap">\[ T = 2\pi\sqrt{LC} \]</div>
+        <div class="eqwrap"><div class="eq-wide">\[ \text{(b)}：T = 2\pi\sqrt{0.5\times 0.5} \fallingdotseq 3.1 \,\unit{s}, \qquad \text{(d)}：T = 2\pi\sqrt{0.1\times 0.1} \fallingdotseq 0.63 \,\unit{s} \]</div><div class="eq-narrow">\[ \begin{aligned} \text{(b)}：T &= 2\pi\sqrt{0.5\times 0.5} \\ &\fallingdotseq 3.1 \,\unit{s} \\ \text{(d)}：T &= 2\pi\sqrt{0.1\times 0.1} \\ &\fallingdotseq 0.63 \,\unit{s} \end{aligned} \]</div></div>
+        <p>\(L\) と \(C\) をそれぞれ \(\dfrac{1}{5}\) にしたので \(\sqrt{LC}\) が \(\dfrac{1}{5}\) になり，周期も \(\dfrac{1}{5}\) になった。また，(d) のほうが早く減衰している。</p>
+      </div></details>
+    </div>
+  </section>
+</main>
+</div>
+</body>
+</html>
