@@ -1,0 +1,43 @@
+# 予約公開：決めた時刻に scheduled-NN ブランチ（予約したページを含むサイト）を main に取り込んで公開する。
+# ブランチが無ければ何もしない。手動実行（workflow_dispatch）は既定で試し（dry_run）なので push しない。
+name: 予約公開
+on:
+  schedule:
+    - cron: "0 22 16 11 *"   # UTC 11/16 22:00 ＝ 日本時間 2026-11-17（火）7:00（GitHub の都合で数分〜30分遅れることがある）
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "試しに取り込むだけ（push しない）"
+        type: boolean
+        default: true
+permissions:
+  contents: write
+  pages: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: scheduled-16
+      MSG: 電気電子工学 16 コンデンサの過渡現象 を予約公開
+      DRY: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: 取り込んで公開
+        run: |
+          set -e
+          if ! git ls-remote --exit-code --heads origin "$BRANCH" >/dev/null; then
+            echo "ブランチ $BRANCH がないので何もしません"; exit 0
+          fi
+          git fetch origin "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git merge -X theirs --no-edit -m "$MSG" "origin/$BRANCH"
+          git log --oneline -3
+          git diff --stat HEAD~1 | tail -5
+          if [ "$DRY" = "true" ]; then echo "試しなので push しません"; exit 0; fi
+          git push origin HEAD:main
+          git push origin --delete "$BRANCH"
+          gh api -X POST "repos/$GITHUB_REPOSITORY/pages/builds" || true
