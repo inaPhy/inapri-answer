@@ -6,7 +6,7 @@
 <title>16 コンデンサの過渡現象 解答解説</title>
 <meta name="description" content="イナプリ 電気電子工学16「コンデンサの過渡現象」のシミュレーション課題の解答例">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<link rel="stylesheet" href="../assets/style.css?v=e1af4a49">
+<link rel="stylesheet" href="../assets/style.css?v=f7488ff4">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
 <script defer src="../assets/main.js?v=1ba105e6"></script>
@@ -380,6 +380,28 @@
         <div class="eqwrap">\[ T = 2\pi\sqrt{LC} \]</div>
         <div class="eqwrap"><div class="eq-wide">\[ \text{(b)}：T = 2\pi\sqrt{0.5\times 0.5} \fallingdotseq 3.1 \,\unit{s}, \qquad \text{(d)}：T = 2\pi\sqrt{0.1\times 0.1} \fallingdotseq 0.63 \,\unit{s} \]</div><div class="eq-narrow">\[ \begin{aligned} \text{(b)}：T &= 2\pi\sqrt{0.5\times 0.5} \\ &\fallingdotseq 3.1 \,\unit{s} \\ \text{(d)}：T &= 2\pi\sqrt{0.1\times 0.1} \\ &\fallingdotseq 0.63 \,\unit{s} \end{aligned} \]</div></div>
         <p>\(L\) と \(C\) をそれぞれ \(\dfrac{1}{5}\) にしたので \(\sqrt{LC}\) が \(\dfrac{1}{5}\) になり，周期も \(\dfrac{1}{5}\) になった。また，(d) のほうが早く減衰している。</p>
+        <details class="proof" data-guide data-pose="b" data-pose-open="a">
+          <summary><b>もっと詳しく：抵抗があると，振幅は減衰し，周期も少し変わる</b><span class="proof-hint">見たい人は開いてね</span></summary>
+          <div class="proof-body">
+          <p>上の \(T = 2\pi\sqrt{LC}\) は，回路に抵抗がない（\(R = 0\)）ときの式である。この回路には \(0.1\,\unit{Ω}\) の抵抗 \(R_2\) があるので，正しくは<b>振幅がだんだん小さくなり（減衰），周期もこの式から少しずれる</b>。</p>
+          <p><b>1．振幅が減衰する</b>　抵抗には電流が流れるたびにジュール熱が出るので，コンデンサとコイルの間を行き来するエネルギーが少しずつ失われる。そのため，振動の振幅がだんだん小さくなる。抵抗 \(R\) を含む場合，電荷 \(q\) はおよそ次のように変化する（\(Q_0\) は初めの電荷）。</p>
+          <div class="eqwrap">\[ q \fallingdotseq Q_0\,e^{-\textstyle\frac{R}{2L}t}\cos\omega t \]</div>
+          <p>\(e^{-\textstyle\frac{R}{2L}t}\) が振幅を小さくする部分で，\(\dfrac{R}{2L}\) が大きいほど速く減衰する。</p>
+          <p><b>2．周期も少し長くなる</b>　このときの振動の周期 \(T\) は，次のようになる。</p>
+          <div class="eqwrap"><div class="eq-wide">\[ T = \frac{2\pi}{\omega}, \qquad \omega = \sqrt{\frac{1}{LC} - \left(\frac{R}{2L}\right)^2} \]</div><div class="eq-narrow">\[ \begin{aligned} T &= \frac{2\pi}{\omega} \\ \omega &= \sqrt{\frac{1}{LC} - \left(\frac{R}{2L}\right)^2} \end{aligned} \]</div></div>
+          <p>\(R = 0\) なら \(\omega = \dfrac{1}{\sqrt{LC}}\) で，\(T = 2\pi\sqrt{LC}\) に戻る。抵抗があると根号の中から \(\left(\dfrac{R}{2L}\right)^2\) を引く分だけ \(\omega\) が小さくなるので，周期は \(2\pi\sqrt{LC}\) より少し長くなる。</p>
+          <p><b>3．この回路の値を入れる</b>　\(R = 0.1\,\unit{Ω}\) として計算すると，次のようになる。</p>
+          <table class="data-table wrap-table">
+            <tr><th></th><th>(b) 500 mF，500 mH</th><th>(d) 100 mF，100 mH</th></tr>
+            <tr><th>\(2\pi\sqrt{LC}\)</th><td>3.1416 s</td><td>0.6283 s</td></tr>
+            <tr><th>抵抗を考えた周期 \(T\)</th><td>3.1455 s</td><td>0.6291 s</td></tr>
+            <tr><th>\(\dfrac{R}{2L}\)</th><td>0.1 /s</td><td>0.5 /s</td></tr>
+            <tr><th>1 s 後の振幅</th><td>初めの約 0.90 倍</td><td>初めの約 0.61 倍</td></tr>
+          </table>
+          <p>周期のずれはどちらも約 0.1% とわずかなので，解答例の \(T = 2\pi\sqrt{LC}\) で考えてよい。一方，減衰の速さ \(\dfrac{R}{2L}\) は \(L\) が小さい (d) のほうが 5 倍大きいので，(d) のほうが時間的に速く振幅が小さくなる（解答例の「(d) のほうが早く減衰している」の理由）。</p>
+          <p class="proof-tip">1 周期あたりでみると，振幅はどちらも約 0.73 倍ずつ小さくなる。(d) は周期が \(\dfrac{1}{5}\) なので，同じ時間に 5 倍の回数振動し，そのぶん速く減衰して見える。</p>
+          </div>
+        </details>
       </div></details>
     </div>
   </section>

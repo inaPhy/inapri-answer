@@ -156,7 +156,7 @@ figcaption { font-size: .8rem; color: var(--muted); text-align: center; }
 .answer-grid > div:nth-last-child(-n+2) { border-bottom: 0; }
 .answer-grid > div.full { grid-column: 1 / -1; border-right: 0; }
 .answer-grid .label { font-size: .8rem; display: block; }
-.answer-grid .val { display: block; text-align: center; font-size: 1.1rem; overflow-x: auto; overflow-y: hidden; }
+.answer-grid .val { display: block; text-align: center; font-size: 1.1rem; overflow-x: auto; overflow-y: hidden; padding: .5em 0 .5em; line-height: 1.6; }   /* 分数の上下が切れないように */
 .answer-grid.cols3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .answer-grid.cols3 > div { border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
 .answer-grid.cols3 > div:nth-child(3n) { border-right: 0; }
@@ -629,7 +629,7 @@ details.sol:not([open]) > summary .g-open, details.sol[open] > summary .g-closed
 @media (max-width: 360px) {  /* とても狭い画面では吹き出しの幅を確保するため，キャラクターを吹き出しの上に置く */
   .guide-row { flex-direction: column; }
   .guide-row > .g-chara { height: 50px; margin: 0 0 6px 8px; }
-  .guide-row > .proof { align-self: stretch; }   /* 縦並びでは横幅いっぱいに（中身の幅に広がらないように） */
+  .guide-row > .proof, .guide-row > .note { align-self: stretch; }   /* 縦並びでは横幅いっぱいに（中身の幅に広がらないように） */
   .guide-row > .note::before { left: 22px; top: -11px; border: 7px solid transparent; border-top: 0; border-bottom: 11px solid var(--accent-soft); }
 }
 @media (max-width: 360px) { .guide-row > .note { padding: 8px 8px; } }
@@ -688,3 +688,40 @@ ol.proc > li::before { content: "手順" counter(p) "."; position: absolute; lef
 .sim-link { margin: 6px 0 10px; }
 .sim-link .btn { display: inline-block; text-decoration: none; }
 .sim-link .btn:hover { color: #fff; opacity: .9; }
+/* 狭い画面で文字を折り返す表（16 減衰振動の比較） */
+.data-table.wrap-table { width: 100%; }
+.data-table.wrap-table th, .data-table.wrap-table td { white-space: normal; font-size: .9rem; padding: 4px 6px; }
+/* 08 重心 */
+svg.fig .support { fill: #cfc; stroke: var(--ink); stroke-width: 1; }
+svg.fig .tri-play { fill: #66e0ff; }
+svg.fig .evenodd { fill-rule: evenodd; }
+svg.fig .wire { stroke: #92d050; stroke-width: 6; fill: none; stroke-linejoin: miter; }
+svg.fig .block { fill: #ffffcc; stroke: var(--ink); stroke-width: 1; }
+svg.fig .block-ans { fill: #333; stroke: #333; stroke-width: .6; }
+.fig-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px 18px; margin: 6px 0 10px; }
+.fig-grid3 > .figure.small { max-width: none; }
+@media (max-width: 760px) { .fig-grid3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 400px) { .fig-grid3 { grid-template-columns: minmax(0, 1fr); } }
+.bullet-h .sub { font-size: .85rem; color: var(--muted); font-weight: 400; }
+p.small { font-size: .88rem; color: var(--muted); }
+svg.fig .shape-fill { fill: #ff9; stroke: none; }
+svg.fig .shape-fill.faint { fill: #ffffd9; }
+svg.fig .faint-ink { stroke: #bbb; }
+svg.fig .wire.faint { stroke: #d6ecbf; }
+svg.fig .mpt { fill: #ef7d00; stroke: #fff; stroke-width: 1.2; }
+.step-figs { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px 14px; margin: 6px 0 12px; }
+.step-figs > .figure { max-width: 240px; }
+.step-figs > .figure > b:first-child { font-weight: 600; }
+.figure.step-fig { max-width: 240px; margin: 6px auto 12px; }
+svg.fig .mpt.faint { opacity: .35; }
+svg.fig text.ratio-t { fill: var(--ans); font-size: 15px; font-weight: 700; }
+svg.fig .shape-fill.alt { fill: #ffd8a8; }
+svg.fig .grp { fill: #fff; stroke: #ef7d00; stroke-width: 2; }
+svg.fig .block.blk0 { fill: #ffffcc; }
+svg.fig .block.blk1 { fill: #cfe6ff; }
+svg.fig .block.blk2 { fill: #d4f0c8; }
+svg.fig .block.blk3 { fill: #ffd6e0; }
+/* 色つきの矢印・点（08 くりぬきパターン：緑＝残りの部分，赤＝くりぬいた部分，青＝もとの円盤・支える力） */
+svg.fig .c-g-l { stroke: #2e9e5b; fill: none; } svg.fig .c-g-f { fill: #2e9e5b; } svg.fig text.g-t { fill: #2e9e5b; }
+svg.fig .c-r-l { stroke: #e03a2f; fill: none; } svg.fig .c-r-f { fill: #e03a2f; } svg.fig text.r-t { fill: #e03a2f; }
+svg.fig .c-b-l { stroke: #1f6fd1; fill: none; } svg.fig .c-b-f { fill: #1f6fd1; } svg.fig text.b-t { fill: #1f6fd1; }
