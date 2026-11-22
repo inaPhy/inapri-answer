@@ -725,3 +725,6 @@ svg.fig .block.blk3 { fill: #ffd6e0; }
 svg.fig .c-g-l { stroke: #2e9e5b; fill: none; } svg.fig .c-g-f { fill: #2e9e5b; } svg.fig text.g-t { fill: #2e9e5b; }
 svg.fig .c-r-l { stroke: #e03a2f; fill: none; } svg.fig .c-r-f { fill: #e03a2f; } svg.fig text.r-t { fill: #e03a2f; }
 svg.fig .c-b-l { stroke: #1f6fd1; fill: none; } svg.fig .c-b-f { fill: #1f6fd1; } svg.fig text.b-t { fill: #1f6fd1; }
+svg.fig .strip0 { fill: #ffe9a8; stroke: #c9a227; stroke-width: .6; }
+svg.fig .strip1 { fill: #fff6d0; stroke: #c9a227; stroke-width: .6; }
+svg.fig .strip-on { fill: #ffc078; stroke: #ef7d00; stroke-width: 1; }
